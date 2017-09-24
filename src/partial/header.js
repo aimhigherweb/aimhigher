@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactSVG from 'react-svg';
 
 //Resources
+import {Menu} from 'react-feather';
 import '../resources/header.css';
-import logo from '../resources/logo.svg';
 
 //Variables
 const menuItems = [
@@ -52,7 +51,6 @@ class SiteTitle extends React.Component {
     render() {
         return(
             <a href="/" target="_blank" >
-                {<ReactSVG path="/resources/logo.svg" />}
             </a>
         );
     };
@@ -70,11 +68,10 @@ class MainMenu extends React.Component {
 
     render() {
         let navItems = menuItems.map(navItem => {
-            let navSrc = "https://thewest.com.au/" + navItem;
             return(
                 <li>
-                    <a href={navSrc} target="_blank" >
-                        {navItem}
+                    <a href={navItem.slug} target="_blank" >
+                        {navItem.title}
                     </a>
                 </li>
             );
@@ -83,7 +80,7 @@ class MainMenu extends React.Component {
         return (
             <nav id="nav-main" className="menu main">
                 <a href="#" className="hamburger" onClick={this.mobileMenu}>
-                {<ReactSVG path="img/menu.svg" />}
+                    <Menu />
                 </a>
                 <ul>
                     {navItems}

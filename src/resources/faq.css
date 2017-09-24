@@ -1,0 +1,45 @@
+.accordion {
+  position: relative; }
+  .accordion .target-fix {
+    display: block;
+    top: 0;
+    left: 0;
+    position: fixed; }
+    .accordion .target-fix:target ~ .accordion-content {
+      display: block;
+      height: auto;
+      padding: 0 20px; }
+    .accordion .target-fix:target ~ [id*="close-accordion"] {
+      display: block; }
+    .accordion .target-fix:target ~ [id*="open-accordion"] {
+      display: none; }
+  .accordion .accordion-title {
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 10px 30px 10px 10px;
+    position: relative; }
+    .accordion .accordion-title[id*="open-accordion"], .accordion .accordion-title [id*="close-accordion"] {
+      display: block;
+      position: relative; }
+    .accordion .accordion-title[id*="close-accordion"] {
+      display: none; }
+    .accordion .accordion-title i {
+      color: #1C75BC;
+      position: absolute;
+      right: 0;
+      top: 0; }
+      .accordion .accordion-title i:hover {
+        color: #16A6B1; }
+  .accordion .accordion-content {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.1s ease;
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease; }
+    .accordion .accordion-content p {
+      margin-top: 0; }
+
+@media screen and (min-width: 768px) {
+  .accordion .accordion-title {
+    font-size: 1.4em; } }

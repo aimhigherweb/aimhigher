@@ -1,0 +1,35 @@
+header {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
+  height: 12vh;
+  position: absolute;
+  top: 0;
+  z-index: 5; }
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  nav ul {
+    list-style-type: none;
+    -webkit-padding-start: 0; }
+
+ul.menu {
+  list-style-type: none;
+  -webkit-padding-start: 0; }
+
+.site-logo {
+  display: flex;
+  justify-content: center;
+  height: 12vh;
+  padding: 15px; }
+  .site-logo a {
+    height: 100%; }
+    .site-logo a svg {
+      height: auto;
+      max-height: 100%;
+      width: 95vw; }
+      .site-logo a svg .cls-1 {
+        fill: #1C75BC; }
+      .site-logo a svg .cls-2 {
+        fill: #16A6B1; }

@@ -1,0 +1,27 @@
+footer {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 15px;
+  height: auto;
+  min-height: 15vh;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  text-align: right;
+  z-index: 5; }
+  footer nav.social {
+    margin-top: 20px; }
+    footer nav.social i {
+      font-size: 2em; }
+
+@media screen and (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    font-size: 1em;
+    padding: 0; }
+    footer nav.social {
+      margin: 0; } }

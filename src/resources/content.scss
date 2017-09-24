@@ -1,0 +1,71 @@
+$font_regular: 400 1em 'brandon-grotesque', Arial, sans-serif;
+$font_bold: 700 1em 'brandon-grotesque', Arial, sans-serif;
+$font_headings: $font_bold;
+$grey: #D1D1D1;
+$grey_dark: #5B5B5B;
+$blue: #1C75BC;
+$aqua: #16A6B1;
+
+body {
+    color: $grey_dark;
+    font: $font_regular;
+      font-size: 1.2em;
+      line-height: 1.4;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+      max-width: 100vw;
+}
+
+h1, h2, h3 {
+    color: $blue;
+    font: $font_headings;
+}
+  
+h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.6em;
+}
+  
+h3 {
+    font-size: 1.4em;
+}
+  
+a {
+    color: $blue;
+    font: $font_regular;
+    text-decoration: none;
+
+    &:active, &:hover, &:focus {
+        color: $aqua;
+    }
+}
+  
+ul {
+    li {
+        text-align: left;
+    }
+}
+  
+i {
+    color: $grey;
+
+    &:hover, &:focus, &:active {
+        color: $blue;
+    }
+}
+
+.container {
+    .content {
+      margin: 0 auto;
+      padding: 20px 10px;
+      width: 100%;
+        max-width: 1200px;
+    }
+}

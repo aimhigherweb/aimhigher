@@ -1,0 +1,38 @@
+$height: 15vh;
+
+footer {
+    background: #fff;
+    background: rgba(#fff, 0.5);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+    font-size: 15px;
+    height: auto;
+        min-height: $height;
+    padding: 10px;
+    position: absolute;
+        bottom: 0;
+    text-align: right;
+    z-index: 5;
+
+    nav.social {
+        margin-top: 20px;
+
+        i {
+        font-size: 2em;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+            flex-direction: row;
+            font-size: 1em;
+            padding: 0;
+        
+        nav.social {
+              margin: 0;
+        }
+    }
+}
