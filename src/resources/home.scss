@@ -11,7 +11,6 @@ section.parallax {
             align-items: center;
             justify-content: center;
         height: 100vh;
-        // opacity: 0.65;
         position: relative;
         z-index: -1;
   
@@ -41,29 +40,85 @@ section.parallax {
   
         .bcg {
             &.slide-1 {
-            background-image: url($folders + 'home-slider/unsplash.jpg');
+            background-image: url('/img/parallax/unsplash.jpg');
             }
     
             &.slide-2 {
-            background-image: url($folders + 'home-slider/home-nadinesmith-400.png');
+            background-image: url('/img/parallax/home-nadinesmith-400.png');
             }
     
             &.slide-3 {
-            background-image: url($folders + 'home-slider/home-treasurepics-400.png');
+            background-image: url('/img/parallax/home-treasurepics-400.png');
             }
     
             &.slide-4 {
-            background-image: url($folders + 'home-slider/home-ecospray-320.png');
+            background-image: url('/img/parallax/home-ecospray-320.png');
             }
     
             &.slide-5 {
-            background-image: url($folders + 'home-slider/unsplash.jpg');
+            background-image: url('/img/parallax/unsplash.jpg');
             }
         }
   
         .container {
             &.faq {
             text-align: left;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 640px) {
+    section.parallax {
+        &.home {
+            .bcg {
+                &.slide-1 {
+                    background-image: url('/img/parallax/unsplash.jpg');
+                }
+    
+                &.slide-2 {
+                    background-image: url('/img/parallax/home-nadinesmith-600.png');
+                }
+    
+                &.slide-4 {
+                    background-image: url('/img/parallax/home-ecospray-640.png');
+                }
+    
+                &.slide-5 {
+                    background-image: url('/img/parallax/unsplash.jpg');
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    section.parallax {  
+        &.home {
+            .bcg {      
+                &.slide-2 {
+                    background-image: url('/img/parallax/home-nadinesmith.png');
+                }
+      
+                &.slide-3 {
+                    background-image: url('/img/parallax/home-treasurepics.png');
+                }
+      
+                &.slide-4 {
+                    background-image: url('/img/parallax/home-ecospray-800.png');
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    section.parallax {
+        &.home {
+            .bcg {
+                &.slide-4 {
+                    background-image: url('/img/parallax/home-ecospray.png');
+                }
             }
         }
     }

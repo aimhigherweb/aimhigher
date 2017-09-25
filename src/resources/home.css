@@ -1,0 +1,63 @@
+section.parallax {
+  position: relative;
+  width: 100vw; }
+  section.parallax .bcg {
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    z-index: -1; }
+    section.parallax .bcg:after {
+      background: rgba(255, 255, 255, 0.8);
+      content: "";
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; }
+    section.parallax .bcg h2 {
+      font-size: 3em;
+      padding: 20px;
+      z-index: 5; }
+  section.parallax .container {
+    background: #fff;
+    text-align: center; }
+  section.parallax.home .bcg.slide-1 {
+    background-image: url("/img/parallax/unsplash.jpg"); }
+  section.parallax.home .bcg.slide-2 {
+    background-image: url("/img/parallax/home-nadinesmith-400.png"); }
+  section.parallax.home .bcg.slide-3 {
+    background-image: url("/img/parallax/home-treasurepics-400.png"); }
+  section.parallax.home .bcg.slide-4 {
+    background-image: url("/img/parallax/home-ecospray-320.png"); }
+  section.parallax.home .bcg.slide-5 {
+    background-image: url("/img/parallax/unsplash.jpg"); }
+  section.parallax.home .container.faq {
+    text-align: left; }
+
+@media screen and (min-width: 640px) {
+  section.parallax.home .bcg.slide-1 {
+    background-image: url("/img/parallax/unsplash.jpg"); }
+  section.parallax.home .bcg.slide-2 {
+    background-image: url("/img/parallax/home-nadinesmith-600.png"); }
+  section.parallax.home .bcg.slide-4 {
+    background-image: url("/img/parallax/home-ecospray-640.png"); }
+  section.parallax.home .bcg.slide-5 {
+    background-image: url("/img/parallax/unsplash.jpg"); } }
+
+@media screen and (min-width: 768px) {
+  section.parallax.home .bcg.slide-2 {
+    background-image: url("/img/parallax/home-nadinesmith.png"); }
+  section.parallax.home .bcg.slide-3 {
+    background-image: url("/img/parallax/home-treasurepics.png"); }
+  section.parallax.home .bcg.slide-4 {
+    background-image: url("/img/parallax/home-ecospray-800.png"); } }
+
+@media screen and (min-width: 768px) {
+  section.parallax.home .bcg.slide-4 {
+    background-image: url("/img/parallax/home-ecospray.png"); } }

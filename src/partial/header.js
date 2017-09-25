@@ -1,38 +1,46 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
 
 //Resources
 import {Menu} from 'react-feather';
 import '../resources/header.css';
 
 //Variables
-const menuItems = [
+export const menuItems = [
     {
-        slug: '',
-        title: 'Home'
+        slug: '/',
+        title: 'Home',
+        component: '{Home}'
     },
     {
         slug: 'about-us',
-        title: 'About Us'
+        title: 'About Us',
+        component: 'About'
     },
     {
         slug: 'products-services',
-        title: 'Products and Services'
+        title: 'Products and Services',
+        component: 'ProductsServices'
     },
     {
         slug: 'portfolio',
-        title: 'Portfolio'
+        title: 'Portfolio',
+        component: 'Portfolio'
     },
     {
         slug: 'faq',
-        title: 'FAQ'
+        title: 'FAQ',
+        component: 'FAQ'
     },
     {
         slug: 'code-of-ethics',
-        title: 'Code of Ethics'
+        title: 'Code of Ethics',
+        component: 'CodeEthics'
     },
     {
         slug: 'contact',
-        title: 'Contact'
+        title: 'Contact',
+        component: 'Contact'
     },
 ];
 
@@ -70,9 +78,9 @@ class MainMenu extends React.Component {
         let navItems = menuItems.map(navItem => {
             return(
                 <li>
-                    <a href={navItem.slug} target="_blank" >
+                    <NavLink to={navItem.slug} activeClassName="current">
                         {navItem.title}
-                    </a>
+                    </NavLink>
                 </li>
             );
         });
@@ -82,9 +90,11 @@ class MainMenu extends React.Component {
                 <a href="#" className="hamburger" onClick={this.mobileMenu}>
                     <Menu />
                 </a>
-                <ul>
-                    {navItems}
-                </ul>
+                <Router forceRefresh={true}>
+                    <ul>
+                        {navItems}
+                    </ul>
+                </Router>
             </nav>
         );
     };
