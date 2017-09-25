@@ -1,5 +1,9 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+import ReactSVG from 'react-svg';
+
+//Components
+import {App} from '../App.js';
 
 //Resources
 import {Menu} from 'react-feather';
@@ -10,7 +14,7 @@ export const menuItems = [
     {
         slug: '/',
         title: 'Home',
-        component: '{Home}'
+        component: 'Home'
     },
     {
         slug: 'about-us',
@@ -58,8 +62,11 @@ export class Header extends React.Component {
 class SiteTitle extends React.Component {
     render() {
         return(
-            <a href="/" target="_blank" >
-            </a>
+            <div className="site-logo">
+                <a href="/">
+                    <ReactSVG path="/img/logo.svg" />
+                </a>
+            </div>
         );
     };
 };
@@ -78,7 +85,7 @@ class MainMenu extends React.Component {
         let navItems = menuItems.map(navItem => {
             return(
                 <li>
-                    <NavLink to={navItem.slug} activeClassName="current">
+                    <NavLink to={navItem.slug} onClick={<App />} activeClassName="current">
                         {navItem.title}
                     </NavLink>
                 </li>
@@ -90,7 +97,7 @@ class MainMenu extends React.Component {
                 <a href="#" className="hamburger" onClick={this.mobileMenu}>
                     <Menu />
                 </a>
-                <Router forceRefresh={true}>
+                <Router>
                     <ul>
                         {navItems}
                     </ul>

@@ -7,17 +7,17 @@ header {
     background: #fff;
     background: rgba(#fff, 0.5);
     height: $height;
-    position: absolute;
+    position: fixed;
       top: 0;
+    width: 100%;
     z-index: 5;
 }
 
 nav {
-    display: flex;
-        flex-direction: column;
-        justify-content: center;
-
     ul {
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
         list-style-type: none;
         -webkit-padding-start: 0;
     }
@@ -33,6 +33,10 @@ ul.menu {
       justify-content: center;
     height: $height;
     padding: 15px;
+
+    div {
+        height: 100%;
+    }
   
     a {
         height: 100%;
@@ -57,7 +61,19 @@ ul.menu {
         height: $height_640;
     }
 
+    nav {
+        .hamburger {
+            display: none;
+        }
+
+        ul {
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: 0;
+        }
+    }
+
     .site-logo {
-        height: $height_640;
+        height: calc(#{$height_640} - 2em);
     }
 }

@@ -25,9 +25,8 @@ export class App extends Component {
     // console.log({pages});
 
     return (
-      <div className="container">
           <Router>
-            <div className="content">
+            <div className="container">
               <Route exact path='/' component={Home} />
               <Route path='/about-us' component={About} />
               <Route path='/products-services' component={ProductServices} />
@@ -37,7 +36,6 @@ export class App extends Component {
               <Route path='/contact' component={Contact} />
             </div>
           </Router>
-      </div>
     );
   }
 }
