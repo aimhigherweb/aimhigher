@@ -3,50 +3,11 @@ import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
 import ReactSVG from 'react-svg';
 
 //Components
-import {App} from '../App.js';
+import {App, menuItems} from '../App.js';
 
 //Resources
 import {Menu} from 'react-feather';
 import '../resources/header.css';
-
-//Variables
-export const menuItems = [
-    {
-        slug: '/',
-        title: 'Home',
-        component: 'Home'
-    },
-    {
-        slug: 'about-us',
-        title: 'About Us',
-        component: 'About'
-    },
-    {
-        slug: 'products-services',
-        title: 'Products and Services',
-        component: 'ProductsServices'
-    },
-    {
-        slug: 'portfolio',
-        title: 'Portfolio',
-        component: 'Portfolio'
-    },
-    {
-        slug: 'faq',
-        title: 'FAQ',
-        component: 'FAQ'
-    },
-    {
-        slug: 'code-of-ethics',
-        title: 'Code of Ethics',
-        component: 'CodeEthics'
-    },
-    {
-        slug: 'contact',
-        title: 'Contact',
-        component: 'Contact'
-    },
-];
 
 export class Header extends React.Component {
     render() {

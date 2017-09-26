@@ -6,19 +6,19 @@ import {Codepen, Github, Facebook, Twitter} from 'react-feather';
 
 const menuItems = [
     {
-        'icon': 'Codepen',
+        'icon': <Codepen />,
         'url': 'https://codepen.io/aimhigherwebdesign-amy/',
     },
     {
-        'icon': 'GitHub',
+        'icon': <Github />,
         'url': 'https://github.com/amykapernick/aimhigher-react',
     },
     {
-        'icon': 'Facebook',
+        'icon': <Facebook />,
         'url': 'https://www.facebook.com/aimhigherwebdesign',
     },
     {
-        'icon': 'Twitter',
+        'icon': <Twitter />,
         'url': 'https://twitter.com/amykate_94',
     },
 ];
@@ -36,7 +36,7 @@ class FooterMenu extends React.Component {
         let navItems = menuItems.map((navItem) => {
             return(
                 <a href={navItem.url} target="_blank" >
-                    <navItem.icon />
+                    {navItem.icon}
                 </a>
             );
         });

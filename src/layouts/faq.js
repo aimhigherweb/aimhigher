@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 //Resources
-import './resources/faq.css';
+// import './resources/faq.css';
 
-export class FAQ extends Component {
+export class Faq extends Component {
     render() {
         return (
             <div>
