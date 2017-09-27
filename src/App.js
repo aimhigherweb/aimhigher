@@ -8,7 +8,7 @@ import './resources/content.css';
 // import {menuItems} from './partial/header.js';
 import {Home} from './layouts/home.js';
 import {About} from './layouts/about.js';
-import {ProductServices} from './layouts/products.js';
+import {ProductsServices} from './layouts/products.js';
 import {Portfolio} from './layouts/portfolio.js';
 import {Faq} from './layouts/faq.js';
 import {CodeEthics} from './layouts/ethics.js';
@@ -22,32 +22,32 @@ export const menuItems = [
       component: () => <Home />,
   },
   {
-      slug: 'about-us',
+      slug: '/about-us',
       title: 'About Us',
       component: () => <About />,
   },
   {
-      slug: 'products-services',
+      slug: '/products-services',
       title: 'Products and Services',
-      component: () => <ProductServices />,
+      component: () => <ProductsServices />,
   },
   {
-      slug: 'portfolio',
+      slug: '/portfolio',
       title: 'Portfolio',
       component: () => <Portfolio />,
   },
   {
-      slug: 'faq',
+      slug: '/faq',
       title: 'FAQ',
       component: () => <Faq />,
   },
   {
-      slug: 'code-of-ethics',
+      slug: '/code-of-ethics',
       title: 'Code of Ethics',
       component: () => <CodeEthics />,
   },
   {
-      slug: 'contact',
+      slug: '/contact',
       title: 'Contact',
       component: () => <Contact />,
   },
@@ -57,7 +57,7 @@ export class App extends Component {
   render() {
     let pages = menuItems.map(page => {
       return(
-        <Route path={page.slug} component={page.component} />
+        <Route exact path={page.slug} component={page.component} />
       );
     });
 
