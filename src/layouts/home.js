@@ -12,6 +12,7 @@ export class Home extends Component {
                 <div className="bcg slide-1 intro">
                 </div>
                 <div className="container slide-1 intro">
+                    {/* TODO: Change this to hide when scrolled certain distance */}
                     <div className="scroll">
                         <a href="#slide-1-content">
                             <ChevronsDown />
