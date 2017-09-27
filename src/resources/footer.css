@@ -1,10 +1,6 @@
 footer {
   background: #fff;
   background: rgba(255, 255, 255, 0.5);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
   font-size: 15px;
   height: auto;
   min-height: 15vh;
@@ -12,16 +8,30 @@ footer {
   position: absolute;
   bottom: 0;
   text-align: right;
+  width: 100vw;
   z-index: 5; }
   footer nav.social {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
     margin-top: 20px; }
     footer nav.social i {
       font-size: 2em; }
 
 @media screen and (min-width: 768px) {
   footer {
-    flex-direction: row;
     font-size: 1em;
-    padding: 0; }
+    padding: 5vh 0; }
     footer nav.social {
-      margin: 0; } }
+      flex-direction: row;
+      margin: 0 0 0 auto;
+      width: 50%; }
+      footer nav.social .social-link {
+        color: rgba(28, 117, 188, 0.5); }
+        footer nav.social .social-link svg {
+          height: 5vh;
+          max-height: 40px;
+          width: auto; }
+        footer nav.social .social-link:active, footer nav.social .social-link:hover, footer nav.social .social-link:focus {
+          color: #1C75BC; } }

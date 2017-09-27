@@ -1,3 +1,13 @@
+//Variables
+$blue: #1C75BC;
+
+//Mixins
+@keyframes pulse {
+	0% { transform: scale(0.75); }
+	50% { transform: scale(1); }
+	100% { transform: scale(0.75); }
+}
+
 section.parallax {
     position: relative;
     width: 100vw;
@@ -34,10 +44,49 @@ section.parallax {
     }
   
     .container {
-        background: #fff;
-        margin-top: 100vh;
+        margin: 90vh 0 15vh;
         position: relative;
         text-align: center;
+
+        .scroll {
+            height: 10vh;
+
+            a {
+                color: rgba($blue, 0.4);
+                transition: color 1s ease;
+            }
+
+            svg {
+                height: 100%;
+                transform: scale(0.75);
+                width: auto;
+            }
+
+            &:hover, &:focus {
+                a {
+                    color: $blue;
+                }
+            }
+        }
+
+        .content {
+            background: #fff;            
+        }
+    }
+}
+
+body {
+    &:hover, &:focus {
+        section.parallax {
+            .container {
+                .scroll {
+                    svg {
+                        -webkit-animation: pulse 3s infinite;
+                        animation: pulse 3s infinite;
+                    }
+                }
+            }
+        }
     }
 }
 

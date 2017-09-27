@@ -1,12 +1,10 @@
 $height: 15vh;
+$blue: #1C75BC;
+
 
 footer {
     background: #fff;
     background: rgba(#fff, 0.5);
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: space-around;
     font-size: 15px;
     height: auto;
         min-height: $height;
@@ -14,9 +12,14 @@ footer {
     position: absolute;
         bottom: 0;
     text-align: right;
+    width: 100vw;
     z-index: 5;
 
     nav.social {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
         margin-top: 20px;
 
         i {
@@ -27,12 +30,29 @@ footer {
 
 @media screen and (min-width: 768px) {
     footer {
-            flex-direction: row;
             font-size: 1em;
-            padding: 0;
+            padding: 5vh 0;
         
         nav.social {
-              margin: 0;
+            flex-direction: row;
+              margin: 0 0 0 auto;
+              width: 50%;
+
+              .social-link {
+                  color: rgba($blue, 0.5);
+
+                svg {
+                    height: 5vh;
+                    max-height: 40px;
+                    width: auto;
+                }
+
+                &:active, &:hover, &:focus {
+                    color: $blue;
+                }
+              }
         }
+
+
     }
 }
