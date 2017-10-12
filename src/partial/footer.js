@@ -44,7 +44,7 @@ class FooterMenu extends React.Component {
     render() {
         let navItems = menuItems.map((navItem) => {
             return(
-                <a href={navItem.url} target="_blank" className={'social-link ' + navItem.name}>
+                <a href={navItem.url} key={navItem.name} target="_blank" className={'social-link ' + navItem.name}>
                     {navItem.icon}
                 </a>
             );

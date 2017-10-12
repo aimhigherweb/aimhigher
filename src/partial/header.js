@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+import {BrowserRouter as Router, NavLink} from 'react-router-dom';
 import ReactSVG from 'react-svg';
 
 //Components
@@ -46,7 +46,7 @@ class MainMenu extends React.Component {
         let navItems = menuItems.map(navItem => {
             return(
                 <li>
-                    <NavLink to={navItem.slug} onClick={<App />} activeClassName="current">
+                    <NavLink to={navItem.slug} onClick={<App />} activeClassName="current" key={navItem.title}>
                         {navItem.title}
                     </NavLink>
                 </li>

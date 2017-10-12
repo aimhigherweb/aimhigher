@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import DocumentMeta from 'react-document-meta';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 
 //Resources
@@ -115,10 +114,7 @@ export class App extends Component {
   render() {
     let pages = menuItems.map(page => {
       return(
-        <div>
-          <DocumentMeta {...page.meta} extend />
-          <Route exact path={page.slug} component={page.component} />
-        </div>
+          <Route exact path={page.slug} component={page.component} key={page.slug} />
       );
     });
 
