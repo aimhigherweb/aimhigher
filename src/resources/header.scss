@@ -14,8 +14,19 @@ header {
 }
 
 nav {
+    float: right;
+    position: relative;
+    right: 20px;    
+    top: 4.5vh;
+
+    &.active {
+        ul {
+            display: flex;
+        }
+    }
+
     ul {
-        display: flex;
+        display: none;
             flex-direction: column;
             justify-content: center;
         list-style-type: none;
@@ -31,20 +42,25 @@ ul.menu {
 .site-logo {
     display: flex;
       justify-content: center;
+    float: left;
     height: $height;
     padding: 15px;
+    width: 80%;
 
     div {
         height: 100%;
+        max-width: 100%;
     }
   
     a {
         height: 100%;
+        max-width: 100%;
   
         svg {
             height: auto;
-            max-height: 100%;
+                max-height: 100%;
             width: 95vw;
+                max-width: 100%;
   
             .cls-1 {
                 fill: $blue;

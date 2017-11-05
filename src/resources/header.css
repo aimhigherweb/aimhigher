@@ -7,12 +7,19 @@ header {
   width: 100%;
   z-index: 5; }
 
-nav ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  list-style-type: none;
-  -webkit-padding-start: 0; }
+nav {
+  float: right;
+  position: relative;
+  right: 20px;
+  top: 4.5vh; }
+  nav.active ul {
+    display: flex; }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    list-style-type: none;
+    -webkit-padding-start: 0; }
 
 ul.menu {
   list-style-type: none;
@@ -21,16 +28,21 @@ ul.menu {
 .site-logo {
   display: flex;
   justify-content: center;
+  float: left;
   height: 12vh;
-  padding: 15px; }
+  padding: 15px;
+  width: 80%; }
   .site-logo div {
-    height: 100%; }
+    height: 100%;
+    max-width: 100%; }
   .site-logo a {
-    height: 100%; }
+    height: 100%;
+    max-width: 100%; }
     .site-logo a svg {
       height: auto;
       max-height: 100%;
-      width: 95vw; }
+      width: 95vw;
+      max-width: 100%; }
       .site-logo a svg .cls-1 {
         fill: #1C75BC; }
       .site-logo a svg .cls-2 {

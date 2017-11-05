@@ -112,6 +112,16 @@ export const menuItems = [
 
 export class App extends Component {
   render() {
+    window.onscroll = function() {
+      const perHeight = window.innerHeight * 0.3;
+      if(document.documentElement.scrollTop > perHeight) {
+          document.getElementById('root').className = 'scrolled';
+      }
+      else {
+          document.getElementById('root').classList.remove('scrolled');
+      };
+    };
+
     let pages = menuItems.map(page => {
       return(
           <Route exact path={page.slug} component={page.component} key={page.slug} />

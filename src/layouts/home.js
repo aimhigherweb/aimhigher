@@ -7,16 +7,6 @@ import {ChevronsDown} from 'react-feather';
 
 export class Home extends Component {
     render() {
-        window.onscroll = function() {
-            const perHeight = window.innerHeight * 0.3;
-            if(document.documentElement.scrollTop > perHeight) {
-                document.getElementById('main').className = 'scrolled';
-            }
-            else {
-                document.getElementById('main').classList.remove('scrolled');
-            };
-        };
-
         return (
             <section className="parallax home">
                 <div className="bcg slide-1 intro">
