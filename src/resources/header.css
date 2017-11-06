@@ -7,6 +7,9 @@ header {
   width: 100%;
   z-index: 5; }
 
+body.scrolled header {
+  background: rgba(255, 255, 255, 0.9); }
+
 nav {
   float: right;
   position: relative;
@@ -48,7 +51,7 @@ ul.menu {
       .site-logo a svg .cls-2 {
         fill: #16A6B1; }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 745px) {
   header {
     height: 20vh; }
   nav {
@@ -63,4 +66,5 @@ ul.menu {
       margin: 0;
       width: 100vw; }
   .site-logo {
+    float: unset;
     height: calc(20vh - 2em); } }

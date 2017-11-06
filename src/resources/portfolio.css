@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around; }
+  justify-content: space-around;
+  max-width: 1500px; }
 
 .site {
-  background: #D1D1D1;
-  background: rgba(209, 209, 209, 0.5);
   border-radius: 20px;
   margin-bottom: 40px;
-  padding: 20px;
-  width: 340px; }
+  padding: 10px;
+  position: relative;
+  width: 320px; }
   .site .mockups {
     position: relative; }
     .site .mockups .image-container {
@@ -36,10 +36,29 @@
           width: 67.70833px; }
   .site .name {
     font-size: 1.3em; }
-  .site .url, .site .date {
+  .site .url, .site .date, .site .repo {
     font-size: 1rem;
     font-weight: normal; }
   .site .url:active, .site .url:hover, .site .url:focus {
     color: #16A6B1; }
+  .site .url svg {
+    height: 20px;
+    margin-bottom: -3px;
+    width: 20px; }
   .site .date {
     float: right; }
+  .site .repo {
+    position: absolute;
+    bottom: 20px; }
+
+@media screen and (min-width: 500px) {
+  .site {
+    background: #D1D1D1;
+    background: rgba(209, 209, 209, 0.5);
+    margin: 0 20px 40px; } }
+
+@media screen and (min-width: 745px) {
+  .site {
+    margin: 0 0 40px;
+    padding: 20px;
+    width: 340px; } }

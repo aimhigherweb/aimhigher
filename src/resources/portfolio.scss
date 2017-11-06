@@ -75,15 +75,15 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+    max-width: 1500px;
 }
 
 .site {
-    background: $grey;
-    background: rgba($grey, 0.5);
     border-radius: 20px;
     margin-bottom: 40px;
-    padding: 20px;
-    width: $width_desk + 40px;
+    padding: 10px;
+    position: relative;
+    width: $width_desk + 20px;
 
     .mockups {
         position: relative;
@@ -124,7 +124,7 @@
         font-size: 1.3em;
     }
 
-    .url, .date {
+    .url, .date, .repo {
         font-size: 1rem;
         font-weight: normal;
     }
@@ -133,9 +133,40 @@
         &:active, &:hover, &:focus {
             color: $aqua;
         }
+
+        svg {
+            height: 20px;
+            margin-bottom: -3px;
+            width: 20px;
+        }
     }
 
     .date {
         float: right;
     }
+
+    .repo {
+        position: absolute;
+        bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .site {    
+        background: $grey;
+        background: rgba($grey, 0.5);
+        margin: 0 20px 40px;
+    }
+}
+
+@media screen and (min-width: 745px) {
+    .site {    
+        margin: 0 0 40px;
+        padding: 20px;
+        width: $width_desk + 40px;
+    }
+}
+
+@media screen and (min-width: 640px) {
+
 }

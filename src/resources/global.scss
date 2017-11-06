@@ -32,3 +32,16 @@ $fa-li-width: 1.5em;
 * {
     box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba($blue_light, 0.2);
+
+  &:hover {
+    background-color: $blue_light;
+  }
+}
+

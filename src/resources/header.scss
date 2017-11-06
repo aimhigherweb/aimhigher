@@ -13,6 +13,12 @@ header {
     z-index: 5;
 }
 
+body.scrolled {
+    header {
+        background: rgba(#fff, 0.9);
+    }
+}
+
 nav {
     float: right;
     position: relative;
@@ -72,7 +78,7 @@ ul.menu {
     }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 745px) {
     header {
         height: $height_640;
     }
@@ -95,6 +101,7 @@ ul.menu {
     }
 
     .site-logo {
+        float: unset;
         height: calc(#{$height_640} - 2em);
     }
 }
