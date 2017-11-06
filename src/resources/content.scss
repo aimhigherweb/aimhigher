@@ -7,6 +7,7 @@ $blue: #1C75BC;
 $aqua: #16A6B1;
 $height: 12vh;
 $height_640: 20vh;
+$height_footer: 15vh;
 
 body {
     color: $grey_dark;
@@ -63,9 +64,15 @@ i {
     }
 }
 
-.container {
-    padding-top: $height;
+#main {
+    > .container {
+        padding-top: $height;
+    }
+}
 
+.container {
+    max-width: 100vw;
+    
     .content {
       margin: 0 auto;
       padding: 20px 10px;
@@ -75,7 +82,10 @@ i {
 }
 
 @media screen and (min-width: 640px) {
-    .container {
-        padding-top: $height_640;
+    #main {
+        > .container {
+            padding-top: $height_640;
+            padding-bottom: $height_footer;
+        }
     }
 }

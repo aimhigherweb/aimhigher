@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Helmet} from 'react-helmet';
 
 
 //Resources
@@ -21,14 +22,6 @@ export const menuItems = [
       slug: '/',
       title: 'Home',
       component: () => <Home />,
-      meta: {
-        title: 'AimHigher Web Design',
-        description: 'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
-        canonical: 'https://aimhigherwebdesign.com.au',
-        meta: {
-          charset: 'utf-8',
-        }
-      }
   },
   {
       slug: '/about-us',
@@ -103,9 +96,6 @@ export const menuItems = [
         title: 'Contact | AimHigher Web Design',
         description: '',
         canonical: 'https://aimhigherwebdesign.com.au/contact',
-        meta: {
-          charset: 'utf-8',
-        }
       }
   },
 ];
@@ -123,8 +113,12 @@ export class App extends Component {
     };
 
     let pages = menuItems.map(page => {
+      let pageURL = 'https://aimhigherwebdesign.com.au' + page.slug;
+      let pageImage = 'https://aimhigherwebdesign.com.au/img/logo.svg';
       return(
+        <div key={page.title}>
           <Route exact path={page.slug} component={page.component} key={page.slug} />
+        </div>
       );
     });
 

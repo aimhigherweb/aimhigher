@@ -1,0 +1,45 @@
+.portfolio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+.site {
+  background: #D1D1D1;
+  background: rgba(209, 209, 209, 0.5);
+  border-radius: 20px;
+  margin-bottom: 40px;
+  padding: 20px;
+  width: 340px; }
+  .site .mockups {
+    position: relative; }
+    .site .mockups .image-container {
+      border-style: solid; }
+      .site .mockups .image-container.desktop {
+        border-width: 22.89348px 20.0318px 70.11129px 16.21622px;
+        border-image: url(/img/portfolio/desktop.png) 8.98876% 6.67727% 27.52809% 5.40541% stretch;
+        height: 254.68998px;
+        width: 300px; }
+        .site .mockups .image-container.desktop img {
+          height: 162.16216px;
+          width: 264.22893px; }
+      .site .mockups .image-container.mobile {
+        border-width: 21.42857px 4.01786px 25.89286px 3.86905px;
+        border-image: url(/img/portfolio/mobile.png) 13.7799% 5.35714% 16.65072% 5.15873% stretch;
+        height: 155.50595px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 75px; }
+        .site .mockups .image-container.mobile img {
+          height: 108.63095px;
+          width: 67.70833px; }
+  .site .name {
+    font-size: 1.3em; }
+  .site .url, .site .date {
+    font-size: 1rem;
+    font-weight: normal; }
+  .site .url:active, .site .url:hover, .site .url:focus {
+    color: #16A6B1; }
+  .site .date {
+    float: right; }

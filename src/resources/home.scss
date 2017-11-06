@@ -1,5 +1,7 @@
 //Variables
 $blue: #1C75BC;
+$height: 12vh;
+$height_640: 20vh;
 
 //Mixins
 @keyframes pulse {
@@ -8,12 +10,9 @@ $blue: #1C75BC;
 	100% { transform: scale(0.75); }
 }
 
-.container {
-    padding-top: 0;
-}
-
 section.parallax {
     position: relative;
+        top: -$height;
     width: 100vw;
   
     .bcg {
@@ -101,11 +100,9 @@ body {
 }
 
 @media screen and (min-width: 640px) {
-    .container {
-        padding-top: 0;
-    }
-
     section.parallax {
+        top: -$height_640;
+
         .bcg {
             &.slide-1 {
                 background-image: url('/img/parallax/unsplash.jpg');

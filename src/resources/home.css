@@ -6,11 +6,9 @@
   100% {
     transform: scale(0.75); } }
 
-.container {
-  padding-top: 0; }
-
 section.parallax {
   position: relative;
+  top: -12vh;
   width: 100vw; }
   section.parallax .bcg {
     background-attachment: fixed;
@@ -62,7 +60,7 @@ body:hover section.parallax .container .scroll svg, body:focus section.parallax 
   visibility: hidden; }
 
 @media screen and (min-width: 640px) {
-  .container {
-    padding-top: 0; }
-  section.parallax .bcg.slide-1 {
-    background-image: url("/img/parallax/unsplash.jpg"); } }
+  section.parallax {
+    top: -20vh; }
+    section.parallax .bcg.slide-1 {
+      background-image: url("/img/parallax/unsplash.jpg"); } }

@@ -78,14 +78,19 @@ ul.menu {
     }
 
     nav {
+        top: auto;
+        right: auto;
+        
         .hamburger {
             display: none;
         }
 
         ul {
+            display: flex;
             flex-direction: row;
             justify-content: space-evenly;
             margin: 0;
+            width: 100vw;
         }
     }
 

@@ -39,8 +39,11 @@ i {
   i:hover, i:focus, i:active {
     color: #1C75BC; }
 
-.container {
+#main > .container {
   padding-top: 12vh; }
+
+.container {
+  max-width: 100vw; }
   .container .content {
     margin: 0 auto;
     padding: 20px 10px;
@@ -48,5 +51,6 @@ i {
     max-width: 1200px; }
 
 @media screen and (min-width: 640px) {
-  .container {
-    padding-top: 20vh; } }
+  #main > .container {
+    padding-top: 20vh;
+    padding-bottom: 15vh; } }

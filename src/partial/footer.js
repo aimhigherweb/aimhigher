@@ -35,7 +35,9 @@ const menuItems = [
 export class Footer extends React.Component {
     render() {
         return (
-            <FooterMenu />
+            <div>
+                <FooterMenu />
+            </div>
         );
     };
 };

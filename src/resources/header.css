@@ -51,11 +51,16 @@ ul.menu {
 @media screen and (min-width: 640px) {
   header {
     height: 20vh; }
-  nav .hamburger {
-    display: none; }
-  nav ul {
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 0; }
+  nav {
+    top: auto;
+    right: auto; }
+    nav .hamburger {
+      display: none; }
+    nav ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin: 0;
+      width: 100vw; }
   .site-logo {
     height: calc(20vh - 2em); } }
