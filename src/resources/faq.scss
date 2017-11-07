@@ -12,14 +12,6 @@
         margin-top: 0;
         margin-bottom: 0;
     }
-
-    @if $area == title {
-        cursor: pointer;
-    }
-
-    @if $area == content {
-
-    }
 }
 
 @mixin active-styles($top, $area, $state) {
@@ -57,15 +49,39 @@
 .section {
 
     .title {
-        @include default-styles(false, title)
+        @include default-styles(false, title);
+        cursor: pointer;
+
+        .closed {
+            display: inline;
+        }
+
+        .open {
+            display: none;
+        }
 
         &:active, &:hover, &:focus {
-            @include active-styles(false, title, hover)
+            @include active-styles(false, title, hover);
+
+            .closed {
+                display: none;
+            }
+    
+            .open {
+                display: inline;
+            }
+        }
+
+        svg {
+            height: 30px;
+            margin-right: 20px;
+            margin-bottom: -5px;
+            width: 30px;
         }
     }
 
     .content {
-        @include default-styles(false, content)
+        @include default-styles(false, content);
         display: none;
     }
 
@@ -92,8 +108,24 @@
         .title {
             @include active-styles(false, title, open);
 
+            .closed {
+                display: none;
+            }
+    
+            .open {
+                display: inline;
+            }
+
             &:active, &:hover, &:focus {
-                @include active-styles(false, title, hover)
+                @include active-styles(false, title, hover);
+
+                .closed {
+                    display: inline;
+                }
+        
+                .open {
+                    display: none;
+                }
             }
         }
 
