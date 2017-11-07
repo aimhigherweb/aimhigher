@@ -5,29 +5,41 @@ import {Helmet} from 'react-helmet'
 import '../resources/home.css';
 import {ChevronsDown} from 'react-feather';
 
+class Meta extends Component {
+    render() {
+        let name = 'AimHigher Web Design';
+        let description ="AimHigher Web Design bridges the gap between technology and business throughout Australia.";
+        let slug = '';
+        let image = 'https://aimhigherwebdesign.com.au/img/logo.png';
+        return (
+            <Helmet>
+                <title>{name}</title>
+                <meta name="description" content={description} />
+                <link rel="canonical" href={'https://aimhigherwebdesign.com.au/' + slug} />
+
+                {/* Facebook */}
+                <meta property="og:url" content={'https://aimhigherwebdesign.com.au/' + slug} />
+                
+                <meta property="og:title" content={name} />
+                <meta property="og:image" content={image} />
+                <meta property="og:description" content={description} />
+
+                {/* Twitter */}
+                <meta name="twitter:url" content={'https://aimhigherwebdesign.com.au/' + slug} />
+                <meta name="twitter:title" content={name} />
+                <meta name="twitter:description" content={description} />
+                <meta name="twitter:image" content={image} />
+            </Helmet>
+        );
+    }
+};
+
 
 export class Home extends Component {
     render() {
         return (
             <section className="parallax home">
-                <Helmet>
-                    <title>AimHigher Web Design</title>
-                    <meta name="description" content="AimHigher Web Design bridges the gap between technology and business throughout Australia." />
-                    <link rel="canonical" href="https://aimhigherwebdesign.com.au" />
-
-                    {/* Facebook */}
-                    <meta property="og:url" content="https://aimhigherwebdesign.com.au" />
-                    
-                    <meta property="og:title" content="AimHigher Web Design" />
-                    <meta property="og:image" content="https://aimhigherwebdesign.com.au/img/logo.png" />
-                    <meta property="og:description" content="AimHigher Web Design bridges the gap between technology and business throughout Australia." />
-
-                    {/* Twitter */}
-                    <meta name="twitter:url" content='https://aimhigherwebdesign.com.au' />
-                    <meta name="twitter:title" content="AimHigher Web Design" />
-                    <meta name="twitter:description" content="AimHigher Web Design bridges the gap between technology and business throughout Australia." />
-                    <meta name="twitter:image" content="https://aimhigherwebdesign.com.au/img/logo.png" />
-                </Helmet>
+                <Meta />
                 <div className="bcg slide-1 intro">
                 </div>
                 <div className="container slide-1 intro">
