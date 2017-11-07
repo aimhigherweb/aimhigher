@@ -24,11 +24,11 @@ h2 {
 h3 {
   font-size: 1.4em; }
 
-a {
+a, span.link {
   color: #1C75BC;
   font: 400 1em "brandon-grotesque", Arial, sans-serif;
   text-decoration: none; }
-  a:active, a:hover, a:focus {
+  a:active, a:hover, a:focus, span.link:active, span.link:hover, span.link:focus {
     color: #16A6B1; }
 
 ul li {

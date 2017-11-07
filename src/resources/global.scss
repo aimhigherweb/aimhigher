@@ -1,33 +1,4 @@
-//Fonts
-$font_light: 300 1em 'brandon-grotesque', Arial, sans-serif;
-$font_regular: 400 1em 'brandon-grotesque', Arial, sans-serif;
-$font_bold: 700 1em 'brandon-grotesque', Arial, sans-serif;
-$font_headings: $font_bold;
-
-//Colours
-$grey: #D1D1D1;
-$grey_dark: #5B5B5B;
-$white: #EDF3F7;
-$blue: #1C75BC;
-$blue_light: #6CA7D8;
-$aqua: #16A6B1;
-$aqua_light: #7CCED5;
-
-// Mixins
-@mixin rotate-images($deg) {
-transform: rotate($deg);
-  -webkit-transform: rotate($deg);
-  -moz-transform: rotate($deg);
-  -ms-transform: rotate($deg);
-  -o-transform: rotate($deg);
-}
-
-// Variables
-$folders: '/img/';
-$inner: 100%;
-$header: 12vh;
-$footer: 15vh;
-$fa-li-width: 1.5em;
+@import 'variables.scss';
 
 * {
     box-sizing: border-box;

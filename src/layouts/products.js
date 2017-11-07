@@ -112,7 +112,7 @@ class Products extends Component {
     render() {
         let products = services.map(product => {
             return(
-                <div className="product">
+                <div key={product.slug} className="product">
                     <div className="image-container">
                         <img alt={'Product image for ' + product.name}  src={'/img/products/' + product.slug + '.jpg'} />
                     </div>

@@ -1,5 +1,4 @@
-$height: 15vh;
-$blue: #1C75BC;
+@import 'variables.scss';
 
 
 footer {
@@ -7,7 +6,7 @@ footer {
     background: rgba(#fff, 0.5);
     font-size: 15px;
     height: auto;
-        min-height: $height;
+        min-height: $height_footer;
     padding: 10px;
     position: absolute;
         bottom: 0;

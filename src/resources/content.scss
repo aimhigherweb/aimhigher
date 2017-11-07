@@ -1,13 +1,4 @@
-$font_regular: 400 1em 'brandon-grotesque', Arial, sans-serif;
-$font_bold: 700 1em 'brandon-grotesque', Arial, sans-serif;
-$font_headings: $font_bold;
-$grey: #D1D1D1;
-$grey_dark: #5B5B5B;
-$blue: #1C75BC;
-$aqua: #16A6B1;
-$height: 12vh;
-$height_640: 20vh;
-$height_footer: 15vh;
+@import 'variables.scss';
 
 body {
     color: $grey_dark;
@@ -40,7 +31,7 @@ h3 {
     font-size: 1.4em;
 }
   
-a {
+a, span.link {
     color: $blue;
     font: $font_regular;
     text-decoration: none;
@@ -66,7 +57,7 @@ i {
 
 #main {
     > .container {
-        padding-top: $height;
+        padding-top: $height_header;
     }
 }
 
@@ -84,7 +75,7 @@ i {
 @media screen and (min-width: 640px) {
     #main {
         > .container {
-            padding-top: $height_640;
+            padding-top: $height_header_640;
             padding-bottom: $height_footer;
         }
     }

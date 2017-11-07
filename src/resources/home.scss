@@ -1,7 +1,4 @@
-//Variables
-$blue: #1C75BC;
-$height: 12vh;
-$height_640: 20vh;
+@import 'variables.scss';
 
 //Mixins
 @keyframes pulse {
@@ -12,7 +9,7 @@ $height_640: 20vh;
 
 section.parallax {
     position: relative;
-        top: -$height;
+        top: -$height_header;
     width: 100vw;
   
     .bcg {
@@ -101,7 +98,7 @@ body {
 
 @media screen and (min-width: 640px) {
     section.parallax {
-        top: -$height_640;
+        top: -$height_header_640;
 
         .bcg {
             &.slide-1 {

@@ -41,6 +41,7 @@ class MainMenu extends React.Component {
             document.getElementById('nav-main').classList.remove('active');
         };
     };
+    
 
     render() {
         let navItems = menuItems.map(navItem => {
