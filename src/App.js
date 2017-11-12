@@ -15,90 +15,62 @@ import {Portfolio} from './layouts/portfolio.js';
 import {Faq} from './layouts/faq.js';
 import {CodeEthics} from './layouts/ethics.js';
 import {Contact} from './layouts/contact.js';
+import {Terms} from './layouts/terms.js';
+import {Privacy} from './layouts/privacy.js';
 
 //Variables
 export const menuItems = [
   {
-      slug: '/',
-      title: 'Home',
-      component: () => <Home />,
+    slug: '/',
+    title: 'Home',
+    component: () => <Home />,
   },
   {
-      slug: '/about-us',
-      title: 'About Us',
-      component: () => <About />,
-      meta: {
-        title: 'About Us | AimHigher Web Design',
-        description: '',
-        canonical: 'https://aimhigherwebdesign.com.au/about-us',
-        meta: {
-          charset: 'utf-8',
-        }
-      }
+    slug: '/about-us',
+    title: 'About Us',
+    component: () => <About />,
   },
   {
-      slug: '/products-services',
-      title: 'Products and Services',
-      component: () => <ProductsServices />,
-      meta: {
-        title: 'Products & Services | AimHigher Web Design',
-        description: '',
-        canonical: 'https://aimhigherwebdesign.com.au/product-services',
-        meta: {
-          charset: 'utf-8',
-        }
-      }
+    slug: '/products-services',
+    title: 'Products and Services',
+    component: () => <ProductsServices />,
   },
   {
-      slug: '/portfolio',
-      title: 'Portfolio',
-      component: () => <Portfolio />,
-      meta: {
-        title: 'Portfolio | AimHigher Web Design',
-        description: '',
-        canonical: 'https://aimhigherwebdesign.com.au/portfolio',
-        meta: {
-          charset: 'utf-8',
-        }
-      }
+    slug: '/portfolio',
+    title: 'Portfolio',
+    component: () => <Portfolio />,
   },
   {
-      slug: '/faq',
-      title: 'FAQ',
-      component: () => <Faq />,
-      meta: {
-        title: 'FAQ | AimHigher Web Design',
-        description: '',
-        canonical: 'https://aimhigherwebdesign.com.au/faq',
-        meta: {
-          charset: 'utf-8',
-        }
-      }
+    slug: '/faq',
+    title: 'FAQ',
+    component: () => <Faq />,
   },
   {
-      slug: '/code-of-ethics',
-      title: 'Code of Ethics',
-      component: () => <CodeEthics />,
-      meta: {
-        title: 'Code of Ethics | AimHigher Web Design',
-        description: '',
-        canonical: 'https://aimhigherwebdesign.com.au/code-of-ethics',
-        meta: {
-          charset: 'utf-8',
-        }
-      }
+    slug: '/code-of-ethics',
+    title: 'Code of Ethics',
+    component: () => <CodeEthics />,
   },
   {
-      slug: '/contact',
-      title: 'Contact',
-      component: () => <Contact />,
-      meta: {
-        title: 'Contact | AimHigher Web Design',
-        description: '',
-        canonical: 'https://aimhigherwebdesign.com.au/contact',
-      }
+    slug: '/contact',
+    title: 'Contact',
+    component: () => <Contact />,
   },
 ];
+
+export const legalItems = [
+  {
+    slug: '/privacy',
+    title: 'Privacy Policy',
+    component: () => <Privacy />,
+  },
+  {
+    slug: '/terms',
+    title: 'Terms of Use',
+    component: () => <Terms />,
+  },
+]
+
+const routeItems = menuItems.concat(legalItems);
 
 export class App extends Component {
   render() {
@@ -112,7 +84,7 @@ export class App extends Component {
       };
     };
 
-    let pages = menuItems.map(page => {
+    let pages = routeItems.map(page => {
       let pageURL = 'https://aimhigherwebdesign.com.au' + page.slug;
       let pageImage = 'https://aimhigherwebdesign.com.au/img/logo.svg';
       return(

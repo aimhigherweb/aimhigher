@@ -30,8 +30,7 @@ const accordion = [
         slug: 'management',
         content: 
             <div>
-                The platform we host our sites on is simple and easy to use. It's designed so that anyone can edit or change the content on their site themselves.
-
+                <p>The platform we host our sites on is simple and easy to use. It's designed so that anyone can edit or change the content on their site themselves.</p>
                 <p>If you get stuck or need help (or don't want to manage the site yourself), we also offer differing levels of website management from support only to full website management.</p>
             </div>,
     },

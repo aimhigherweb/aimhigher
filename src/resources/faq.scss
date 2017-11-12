@@ -46,8 +46,11 @@
     }
 }
 
-.section {
+p {
+    font-size: 15px;
+}
 
+.section {
     .title {
         @include default-styles(false, title);
         cursor: pointer;
@@ -73,10 +76,10 @@
         }
 
         svg {
-            height: 30px;
-            margin-right: 20px;
-            margin-bottom: -5px;
-            width: 30px;
+            height: 20px;
+            margin-right: 10px;
+            margin-bottom: -2px;
+            width: 20px;
         }
     }
 
@@ -131,6 +134,45 @@
 
         .content {
             @include active-styles(false, content, open);
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    p {
+        font-size: 1em;
+    }
+
+    .section, .section:first-child {    
+        .title, .content {        
+            padding: 10px 10px 10px 13px;
+
+            &:active, &:hover, &:focus {
+                padding: 7px 10px 7px 10px;
+            }
+        }
+
+        &.active {
+            .title, .content {        
+                padding: 7px 10px 7px 10px;
+    
+                &:active, &:hover, &:focus {
+                    padding: 7px 10px 7px 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .section {    
+        .title {        
+            svg {
+                height: 30px;
+                margin-right: 20px;
+                margin-bottom: -5px;
+                width: 30px;
+            }
         }
     }
 }

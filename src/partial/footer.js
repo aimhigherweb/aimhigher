@@ -1,7 +1,11 @@
 import React from 'react';
-import '../resources/footer.css';
+import {BrowserRouter as Router, NavLink} from 'react-router-dom';
+
+// Components
+import {App, legalItems} from '../App.js';
 
 //Resources
+import '../resources/footer.css';
 import {Codepen, Github, Facebook, Twitter, Mail} from 'react-feather';
 
 const menuItems = [
@@ -37,12 +41,37 @@ export class Footer extends React.Component {
         return (
             <div>
                 <FooterMenu />
+                <FooterSocial />
             </div>
         );
     };
 };
 
 class FooterMenu extends React.Component {
+    render() {
+        let navItems = legalItems.map(navItem => {
+            return(
+                <li key={navItem.title}>
+                    <NavLink to={navItem.slug} onClick={<App />} activeClassName="current">
+                        {navItem.title}
+                    </NavLink>
+                </li>
+            );
+        });
+
+        return (
+            <nav id="nav-footer" className="menu footer">
+                <Router>
+                    <ul>
+                        {navItems}
+                    </ul>
+                </Router>
+            </nav>
+        );
+    };
+};
+
+class FooterSocial extends React.Component {
     render() {
         let navItems = menuItems.map((navItem) => {
             return(

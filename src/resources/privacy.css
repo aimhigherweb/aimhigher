@@ -1,0 +1,15 @@
+h3 {
+  font-size: 20px; }
+
+ol {
+  padding: 0; }
+  ol li {
+    color: #1C75BC;
+    font: 700 1em "brandon-grotesque", Arial, sans-serif;
+    list-style-position: inside; }
+    ol li h3 {
+      display: inline; }
+    ol li p {
+      color: #5B5B5B;
+      font: 400 1em "brandon-grotesque", Arial, sans-serif;
+      font-size: 15px; }
