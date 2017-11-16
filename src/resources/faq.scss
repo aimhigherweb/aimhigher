@@ -1,0 +1,178 @@
+@import 'variables.scss';
+
+@mixin default-styles($top, $area) {
+    $colour_main: $blue;
+    $colour_second: $blue_50;
+
+    color: $grey;
+    margin: 0;
+    padding: 13px 13px 13px 33px;
+    
+    @if $top == true {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@mixin active-styles($top, $area, $state) {
+    $colour: $blue;
+
+    @if $state == hover {
+        $colour: $aqua;
+    }
+
+    @if $area == title {
+        background: $colour;
+        background: rgba($colour, 0.3);
+        border: 3px solid $colour;
+        color: $grey;
+        padding: 10px 10px 10px 30px;
+    }
+
+    @if $area == content {
+        border: 3px solid $colour;
+        border-top: none;
+        display: block;
+    }
+    
+    @if $state == hover {
+        border-bottom: 3px solid $colour;
+        color: $grey; 
+    }
+    
+    @if $top == true {
+        border-top: 3px solid $colour;
+        margin-top: 0;
+    }
+}
+
+p {
+    font-size: 15px;
+}
+
+.section {
+    .title {
+        @include default-styles(false, title);
+        cursor: pointer;
+
+        .closed {
+            display: inline;
+        }
+
+        .open {
+            display: none;
+        }
+
+        &:active, &:hover, &:focus {
+            @include active-styles(false, title, hover);
+
+            .closed {
+                display: none;
+            }
+    
+            .open {
+                display: inline;
+            }
+        }
+
+        svg {
+            height: 20px;
+            margin-right: 10px;
+            margin-bottom: -2px;
+            width: 20px;
+        }
+    }
+
+    .content {
+        @include default-styles(false, content);
+        display: none;
+    }
+
+    &:first-child {
+        .title {
+            @include default-styles(true, title)
+
+            &:active, &:hover, &:focus {
+                @include active-styles(true, title, hover)
+            }
+        }
+
+        &.active {
+            .title {
+                @include active-styles(true, title, open);
+
+                &:active, &:hover, &:focus {
+                    @include active-styles(true, title, hover)
+                }
+            }
+        }
+    }
+    &.active {
+        .title {
+            @include active-styles(false, title, open);
+
+            .closed {
+                display: none;
+            }
+    
+            .open {
+                display: inline;
+            }
+
+            &:active, &:hover, &:focus {
+                @include active-styles(false, title, hover);
+
+                .closed {
+                    display: inline;
+                }
+        
+                .open {
+                    display: none;
+                }
+            }
+        }
+
+        .content {
+            @include active-styles(false, content, open);
+        }
+    }
+}
+
+@media screen and (max-width: 40rem) {
+    p {
+        font-size: 1em;
+    }
+
+    .section, .section:first-child {    
+        .title, .content {        
+            padding: 10px 10px 10px 13px;
+
+            &:active, &:hover, &:focus {
+                padding: 7px 10px 7px 10px;
+            }
+        }
+
+        &.active {
+            .title, .content {        
+                padding: 7px 10px 7px 10px;
+    
+                &:active, &:hover, &:focus {
+                    padding: 7px 10px 7px 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 40rem) {
+    .section {    
+        .title {        
+            svg {
+                height: 30px;
+                margin-right: 20px;
+                margin-bottom: -5px;
+                width: 30px;
+            }
+        }
+    }
+}

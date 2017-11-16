@@ -2,30 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
-      Notice the use of %PUBLIC_URL% in the tag above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <base href="%PUBLIC_URL%">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Verify ownership -->
+    <meta name="google-site-verification" content="9K8eFRiRh2BAb142w4cDUvPFg7IE3CPVyWFMa2tCcJM" /><!-- Google Search Console -->
+
+    <!-- SEO -->
+    <meta name="robots" content="index,follow"><!-- All Search Engines -->
+    <meta name="googlebot" content="index,follow"><!-- Google Specific -->
+
+    <!-- Site Details -->
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/img/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/img/favicon-96.png">
+    <!-- In most cases, one 180×180px touch icon in the head is enough -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/img/favicon-180.png">
+    <meta name="theme-color" content="#1C75BC">
+    <link rel="icon" sizes="192x192" href="%PUBLIC_URL%/img/favicon-192.png">
+
+    <!-- Social -->
+    <meta property="og:site_name" content="AimHigher Web Design">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    <meta property="article:author" content="AimHigher Web Design">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@aimhigherweb">
+    <meta name="twitter:creator" content="@amykate_94">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WW45VBB');</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
   </head>
-  <body>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start`.
-      To create a production bundle, use `npm run build`.
-    -->
+  <body id="root">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW45VBB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header id="header"></header>
+    <div id="main"></div>
+    <footer id="footer"></footer>
   </body>
 </html>
