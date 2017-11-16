@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Media from 'react-media';
 
 //Resources
 import '../resources/about.css';
@@ -25,7 +26,12 @@ export class About extends Component {
                     </div>
                     <div className="image-container">
                         <figure>
-                            <img alt="Amy Kapernick - Founder of AimHigher Web Design" src="/img/profile.jpg" />
+                            <Media query="(max-width: 735px)" render={() => (
+                                <img alt="Amy Kapernick - Founder of AimHigher Web Design" src="/img/profile_320.jpg" />
+                            )}/>
+                              <Media query="(min-width: 736px)" render={() => (
+                                <img alt="Amy Kapernick - Founder of AimHigher Web Design" src="/img/profile_180.jpg" />
+                            )}/>
                             <figcaption>Amy Kapernick - Founder of AimHigher Web Design</figcaption>
                         </figure>
                     </div>
