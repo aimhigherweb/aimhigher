@@ -1,11 +1,15 @@
 @import 'variables.scss';
 
-.full {
-    #fixed-footer {
-        background: none;
-    }
+.contact-form {
+    overflow: hidden;
 }
 
-@media screen and (min-width: 46rem) {
+iframe {
+    border: none;
+    height: 100vh - $height_header - $height_footer - 10vh;
+    width: calc(100% + 20px);
 
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
