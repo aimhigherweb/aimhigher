@@ -15,6 +15,7 @@
 .image-container {
     flex-grow: 1;
     max-width: 400px;
+    min-width: 250px;
 
     img {
         max-width: 100%;
