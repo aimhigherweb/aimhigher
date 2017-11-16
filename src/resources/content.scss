@@ -56,6 +56,17 @@ i {
     }
 }
 
+button, .btn {
+    border: 1.5px solid $blue;
+    display: inline-block;
+    padding: 10px 20px;
+
+    &:active, &:hover, &:focus {
+        background: $blue;
+        color: #fff;
+    }
+}
+
 #main {
     > .container {
         padding-top: $height_header;

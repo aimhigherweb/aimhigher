@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import {Helmet} from 'react-helmet';
-import {ReactTypeformEmbed} from 'react-typeform-embed';
 
 //Resources
-// import './resources/home.css';
+import '../resources/contact.css';
 
 class Meta extends Component {
     render() {
@@ -35,11 +34,14 @@ class Meta extends Component {
 };
 
 export class Contact extends Component {
-    render() {
+    render() {        
         return (
             <div className="content">
                 <Meta />
-                <ReactTypeformEmbed url={'https://aimhigherwebdesign.typeform.com/to/LeTkEc'} />
+                <blockquote>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</blockquote>
+                <div className="full">
+                    <div className="typeform-widget" data-url="https://aimhigherwebdesign.typeform.com/to/LeTkEc" data-transparency="100" data-hide-headers={true} style={{width: '100%', height: '500px'}} > </div> <script> {(function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() }</script>
+                </div>
             </div>
         );
     }
