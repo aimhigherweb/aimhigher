@@ -7,7 +7,7 @@ footer {
     font-size: 15px;
     height: auto;
         min-height: $height_footer;
-    padding: 10px;
+    padding: 20px 10px 10px;
     position: absolute;
         bottom: 0;
     text-align: right;
@@ -38,7 +38,6 @@ footer {
             align-items: center;
             flex-direction: row;
             justify-content: space-around;
-            margin-top: 20px;
             min-width: 200px;
     
             i {
@@ -53,13 +52,13 @@ footer {
         > div {
             flex-direction: row;
             justify-content: space-around;
-            margin-top: 1.5em;
+            margin-top: 0.5em;
         }
 
         nav {
             &.footer {
                 ul {
-                    margin-top: 1.5em;
+                    margin-top: 0;
                 }
             }
         }
@@ -85,7 +84,7 @@ footer {
                 ul {
                     flex-wrap: nowrap;
                     justify-content: space-around;
-                    margin-top: 2em;
+                    margin-top: 0.5em;
                 }
             }
 

@@ -157,7 +157,7 @@ class Sites extends Component {
                             <h3 className="url">{item.url} {<ExternalLink />}</h3>
                         </a>
                     }
-                    {item.github != false &&
+                    {item.github !== false &&
                         <a href={item.github} className="repo" target="_blank">
                             {<Github />}
                         </a>
