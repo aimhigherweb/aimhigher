@@ -38,7 +38,7 @@ section.parallax {
         }
 
         &.slide-1 {
-            background-image: url('/img/parallax/unsplash.jpg');
+            background-image: url('/img/parallax/unsplash_400_266.jpg');
         }
 
     }
@@ -100,10 +100,65 @@ body {
 @media screen and (min-width: 40rem) {
     section.parallax {
         top: -$height_header_640;
+    }
+}
 
+// Background Images
+@media (min-width: 600px), (min-height: 399px) {
+    section.parallax {
         .bcg {
             &.slide-1 {
-                background-image: url('/img/parallax/unsplash.jpg');
+                background-image: url('/img/parallax/unsplash_400_266.jpg');
+            }
+        }
+    }
+}
+
+@media (min-width: 800px), (min-height: 532px) {
+    section.parallax {
+        .bcg {
+            &.slide-1 {
+                background-image: url('/img/parallax/unsplash_600_399.jpg');
+            }
+        }
+    }
+}
+
+@media (min-width: 1000px), (min-height: 665px) {
+    section.parallax {
+        .bcg {
+            &.slide-1 {
+                background-image: url('/img/parallax/unsplash_800_532.jpg');
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px), (min-height: 798px) {
+    section.parallax {
+        .bcg {
+            &.slide-1 {
+                background-image: url('/img/parallax/unsplash_1000_665.jpg');
+            }
+        }
+    }
+}
+
+@media (min-width: 1500px), (min-height: 998px) {
+    section.parallax {
+        .bcg {
+            &.slide-1 {
+                background-image: url('/img/parallax/unsplash_1200_798.jpg');
+            }
+        }
+    }
+}
+
+@media (min-width: 2000px), (min-height: 1330px) {
+    section.parallax {
+        .bcg {
+            &.slide-1 {
+                background-image: url('/img/parallax/unsplash_2600_1729.jpg');
             }
         }
     }
