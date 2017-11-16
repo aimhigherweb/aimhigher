@@ -1,0 +1,88 @@
+@import 'variables.scss';
+
+body {
+    color: $grey_75_dark;
+    font: $font_regular;
+      font-size: 1.2em;
+      line-height: 1.4;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    position: absolute;
+    width: 100%;
+      max-width: 100vw;
+}
+
+h1, h2, h3 {
+    color: $blue;
+    font: $font_headings;
+}
+  
+h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.6em;
+}
+  
+h3 {
+    color: $blue_50_dark;
+    font-size: 20px;
+}
+  
+a, span.link {
+    color: $blue;
+    font: $font_regular;
+    text-decoration: none;
+
+    &:active, &:hover, &:focus {
+        color: $aqua;
+    }
+}
+  
+ul {
+    li {
+        text-align: left;
+    }
+}
+  
+i {
+    color: $grey;
+
+    &:hover, &:focus, &:active {
+        color: $blue;
+    }
+}
+
+#main {
+    > .container {
+        padding-top: $height_header;
+        padding-bottom: $height_footer;
+    }
+}
+
+.container {
+    max-width: 100vw;
+    
+    .content {
+      margin: 0 auto;
+      padding: 20px 10px;
+      width: 100%;
+        max-width: 1400px;
+    }
+}
+
+@media screen and (min-width: 40rem) {
+    h3 {
+        font-size: 1.4em;
+    }
+    
+    #main {
+        > .container {
+            padding-top: $height_header_640;
+            padding-bottom: $height_footer;
+        }
+    }
+}
