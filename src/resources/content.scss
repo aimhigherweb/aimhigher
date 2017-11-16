@@ -56,6 +56,12 @@ i {
     }
 }
 
+blockquote {
+    border-left: 4px solid $blue;
+    margin: 20px;
+    padding-left: 20px;
+}
+
 button, .btn {
     border: 1.5px solid $blue;
     display: inline-block;
