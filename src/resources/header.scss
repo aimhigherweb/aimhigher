@@ -40,12 +40,17 @@ header {
         }
 
         li {
-            background: #fff;
-            border-bottom: 2px solid $aqua;
-            padding: 10px;
+            a {
+                background: #fff;
+                border-bottom: 2px solid $aqua;
+                display: block;
+                padding: 15px;
+            }
 
             &:first-child {
-                border-top: 2px solid $aqua;
+                a {
+                    border-top: 2px solid $aqua; 
+                }
             }
         }
     }
@@ -121,12 +126,16 @@ body.scrolled {
             }
 
             li {
-                background: none;
-                border: none;
-                padding: 0;
+                a {
+                    background: none;
+                    border: none;
+                    padding: 0;
+                }
 
                 &:first-child {
-                    border-top: none;
+                    a {
+                        border-top: none;
+                    }
                 }
             }
         }
