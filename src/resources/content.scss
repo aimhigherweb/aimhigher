@@ -62,6 +62,14 @@ blockquote {
     padding-left: 20px;
 }
 
+figcaption {
+    border-right: 2px solid $blue;
+    color: $blue_75_dark;
+    font-size: 12px;
+    padding-right: 10px;
+    text-align: right;
+}
+
 button, .btn {
     border: 1.5px solid $blue;
     display: inline-block;

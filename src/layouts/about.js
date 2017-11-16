@@ -24,7 +24,10 @@ export class About extends Component {
                         </p>
                     </div>
                     <div className="image-container">
-                        <img alt="Profile Image of Amy" src="/img/profile.jpg" />
+                        <figure>
+                            <img alt="Amy Kapernick - Founder of AimHigher Web Design" src="/img/profile.jpg" />
+                            <figcaption>Amy Kapernick - Founder of AimHigher Web Design</figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
