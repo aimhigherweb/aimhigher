@@ -71,7 +71,8 @@ section.parallax {
         }
 
         .content {
-            background: #fff;            
+            background: #fff;     
+            max-width: 1000px;       
         }
     }
 }
@@ -109,6 +110,12 @@ body {
         .bcg {
             &.slide-1 {
                 background-image: url('/img/parallax/unsplash_400_266.jpg');
+            }
+        }
+
+        .content {
+            p {
+                font-size: 20px;
             }
         }
     }
