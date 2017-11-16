@@ -100,7 +100,7 @@ export class ProductsServices extends Component {
                     AimHigher Web Design also offers courteous and efficient after-sales service on all websites to help you manage your content management system (or CMS) as well as any technical issues.
                 </p>
                 <p>
-                    Check out some of the websites we have built, and contact us if we can help you enhance your businesses.
+                    Check out some of the <a href="/portfolio">websites we've built</a>, and <a href="contact">contact us</a> if we can help you enhance your businesses.
                 </p>
                 <Products />
             </div>

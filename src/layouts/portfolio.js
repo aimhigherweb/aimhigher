@@ -148,9 +148,9 @@ class Sites extends Component {
                         }
                     </div>
                     <h2 className="name">
-                        <Link to={'/' + item.slug}>
+                        {/* <Link to={'/' + item.slug}> */}
                             {item.name}
-                        </Link>
+                        {/* </Link> */}
                     </h2>
                     {item.current === true &&
                         <a href={'http://' + item.url} target="_blank">

@@ -59,6 +59,7 @@ i {
 #main {
     > .container {
         padding-top: $height_header;
+        padding-bottom: $height_footer;
     }
 }
 
