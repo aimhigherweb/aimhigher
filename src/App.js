@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import {Helmet} from 'react-helmet';
 
 
 //Resources
 import './resources/content.css';
 
 //Components
-// import {menuItems} from './partial/header.js';
 import {Home} from './layouts/home.js';
 import {About} from './layouts/about.js';
 import {ProductsServices} from './layouts/products.js';
@@ -85,8 +83,6 @@ export class App extends Component {
     };
 
     let pages = routeItems.map(page => {
-      let pageURL = 'https://aimhigherwebdesign.com.au' + page.slug;
-      let pageImage = 'https://aimhigherwebdesign.com.au/img/logo.svg';
       return(
         <div key={page.title}>
           <Route exact path={page.slug} component={page.component} key={page.slug} />

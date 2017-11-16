@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 
 import {ExternalLink, Github} from 'react-feather';

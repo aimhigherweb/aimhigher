@@ -117,7 +117,7 @@ class Products extends Component {
                         <img alt={'Product image for ' + product.name}  src={'/img/products/' + product.slug + '.jpg'} />
                     </div>
                     <h3 className="name">{product.name}</h3>
-                    {product.price != '' &&
+                    {product.price !== '' &&
                         <h4 className="price">Starting at {product.price}</h4>
                     }
                     <p className="description">{product.description}</p>
