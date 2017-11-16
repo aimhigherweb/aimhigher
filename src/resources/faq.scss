@@ -2,9 +2,9 @@
 
 @mixin default-styles($top, $area) {
     $colour_main: $blue;
-    $colour_second: $blue_light;
+    $colour_second: $blue_50;
 
-    color: $grey_dark;
+    color: $grey;
     margin: 0;
     padding: 13px 13px 13px 33px;
     
@@ -25,7 +25,7 @@
         background: $colour;
         background: rgba($colour, 0.3);
         border: 3px solid $colour;
-        color: $grey_dark;
+        color: $grey;
         padding: 10px 10px 10px 30px;
     }
 
@@ -37,7 +37,7 @@
     
     @if $state == hover {
         border-bottom: 3px solid $colour;
-        color: $grey_dark; 
+        color: $grey; 
     }
     
     @if $top == true {
@@ -138,7 +138,7 @@ p {
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 40rem) {
     p {
         font-size: 1em;
     }
@@ -164,7 +164,7 @@ p {
     }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 40rem) {
     .section {    
         .title {        
             svg {

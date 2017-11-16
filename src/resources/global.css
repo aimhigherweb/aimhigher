@@ -5,6 +5,6 @@
   width: 5px; }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(108, 167, 216, 0.2); }
+  background-color: rgba(50, 131, 195, 0.2); }
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #6CA7D8; }
+    background-color: #3283c3; }

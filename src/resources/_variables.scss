@@ -5,13 +5,43 @@ $font_bold: 700 1em 'brandon-grotesque', Arial, sans-serif;
 $font_headings: $font_bold;
 
 //Colours
-$grey: #D1D1D1;
-$grey_dark: #5B5B5B;
-$white: #EDF3F7;
-$blue: #1C75BC;
-$blue_light: #6CA7D8;
-$aqua: #16A6B1;
-$aqua_light: #7CCED5;
+$blue: #1c75bc;
+$aqua: #16a6b1;
+$grey: #5b5b5b;
+
+// Light
+  $blue_90: #3283c3;
+  $blue_75: #5598cd;
+  $blue_50: #8dbadd;
+  $blue_25: #c6dcee;
+  $blue_10: #e8f1f8;
+  $aqua_90: #2dafb9;
+  $aqua_75: #50bcc5;
+  $aqua_50: #8ad2d8;
+  $aqua_25: #c5e9eb;
+  $aqua_10: #e7f6f7;
+  $grey_90: #6b6b6b;
+  $grey_75: #848484;
+  $grey_50: #adadad;
+  $grey_25: #d6d6d6;
+  $grey_10: #eeeeee;
+
+// Dark
+  $blue_90_dark: #196aaa;
+  $blue_75_dark: #15588d;
+  $blue_50_dark: #0e3b5e;
+  $blue_25_dark: #071d2f;
+  $blue_10_dark: #030c13;
+  $aqua_90_dark: #1496a0;
+  $aqua_75_dark: #107c85;
+  $aqua_50_dark: #0b5359;
+  $aqua_25_dark: #062a2c;
+  $aqua_10_dark: #021112;
+  $grey_90_dark: #525252;
+  $grey_75_dark: #444444;
+  $grey_50_dark: #2e2e2e;
+  $grey_25_dark: #171717;
+  $grey_10_dark: #090909;
 
 // Mixins
 @mixin rotate-images($deg) {

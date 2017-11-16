@@ -5,9 +5,9 @@
   justify-content: space-evenly;
   margin-top: 50px; }
   .products .product {
-    background: #6CA7D8;
-    background: rgba(108, 167, 216, 0.3);
-    border: 1px solid #1C75BC;
+    background: #e8f1f8;
+    background: rgba(198, 220, 238, 0.5);
+    border: 1px solid #1c75bc;
     border-radius: 20px;
     margin: 0 10px 30px;
     padding: 15px;

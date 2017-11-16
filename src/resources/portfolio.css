@@ -40,7 +40,7 @@
     font-size: 1rem;
     font-weight: normal; }
   .site .url:active, .site .url:hover, .site .url:focus {
-    color: #16A6B1; }
+    color: #16a6b1; }
   .site .url svg {
     height: 20px;
     margin-bottom: -3px;
@@ -51,13 +51,13 @@
     position: absolute;
     bottom: 20px; }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 31rem) {
   .site {
-    background: #D1D1D1;
-    background: rgba(209, 209, 209, 0.5);
+    background: #d6d6d6;
+    background: rgba(173, 173, 173, 0.5);
     margin: 0 20px 40px; } }
 
-@media screen and (min-width: 745px) {
+@media screen and (min-width: 46rem) {
   .site {
     margin: 0 0 40px;
     padding: 20px;

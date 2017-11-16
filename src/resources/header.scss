@@ -8,6 +8,32 @@ header {
       top: 0;
     width: 100%;
     z-index: 5;
+
+    nav {
+        float: right;
+        position: relative;
+        right: 20px;    
+        top: 4.5vh;
+    
+        &.active {
+            ul {
+                display: flex;
+            }
+        }
+    
+        ul {
+            display: none;
+                flex-direction: column;
+                justify-content: center;
+            list-style-type: none;
+            -webkit-padding-start: 0;
+        }
+    }
+      
+    ul.menu {
+        list-style-type: none;
+        -webkit-padding-start: 0;
+    }
 }
 
 body.scrolled {
@@ -16,31 +42,7 @@ body.scrolled {
     }
 }
 
-nav {
-    float: right;
-    position: relative;
-    right: 20px;    
-    top: 4.5vh;
 
-    &.active {
-        ul {
-            display: flex;
-        }
-    }
-
-    ul {
-        display: none;
-            flex-direction: column;
-            justify-content: center;
-        list-style-type: none;
-        -webkit-padding-start: 0;
-    }
-}
-  
-ul.menu {
-    list-style-type: none;
-    -webkit-padding-start: 0;
-}
 
 .site-logo {
     display: flex;
@@ -75,30 +77,33 @@ ul.menu {
     }
 }
 
-@media screen and (min-width: 745px) {
+@media screen and (min-width: 46rem) {
     header {
         height: $height_header_640;
+
+        nav {
+            top: auto;
+            right: auto;
+            
+            .hamburger {
+                display: none;
+            }
+    
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                margin: 0;
+                width: 100vw;
+            }
+        }
     }
 
-    nav {
-        top: auto;
-        right: auto;
-        
-        .hamburger {
-            display: none;
-        }
-
-        ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            margin: 0;
-            width: 100vw;
-        }
-    }
+    
 
     .site-logo {
         float: unset;
         height: calc(#{$height_header_640} - 2em);
+        width: 100%;
     }
 }

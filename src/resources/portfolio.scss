@@ -150,22 +150,18 @@
     }
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 31rem) {
     .site {    
-        background: $grey;
-        background: rgba($grey, 0.5);
+        background: $grey_25;
+        background: rgba($grey_50, 0.5);
         margin: 0 20px 40px;
     }
 }
 
-@media screen and (min-width: 745px) {
+@media screen and (min-width: 46rem) {
     .site {    
         margin: 0 0 40px;
         padding: 20px;
         width: $width_desk + 40px;
     }
-}
-
-@media screen and (min-width: 640px) {
-
 }
