@@ -59,7 +59,7 @@ class Meta extends Component {
     render() {
         let name = 'Products | AimHigher Web Design';
         let description ="See our service offerings";
-        let slug = 'products-services';
+        let slug = 'services';
         let image = 'https://aimhigherwebdesign.com.au/img/logo.png';
         return (
             <Helmet>

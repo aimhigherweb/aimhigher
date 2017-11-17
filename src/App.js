@@ -29,8 +29,8 @@ export const menuItems = [
     component: () => <About />,
   },
   {
-    slug: '/products-services',
-    title: 'Products and Services',
+    slug: '/services',
+    title: 'Services',
     component: () => <ProductsServices />,
   },
   {
