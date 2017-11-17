@@ -5,10 +5,10 @@
         $width_mob: 75px; //Change this to change the size of the image
 
         // Desktop
-            $width_desk_full: 1258;
-            $height_desk_full: 1068;
-            $width_desk_img_full: 1108;
-            $height_desk_img_full: 680;
+            $width_desk_full: 1279;
+            $height_desk_full: 1128;
+            $width_desk_img_full: 1191;
+            $height_desk_img_full: 712;
             $ratio_desk: $height_desk_full / $width_desk_full;
             $ratio_desk_img: $height_desk_img_full / $width_desk_img_full;
             $ratio_desk_diff: $width_desk_img_full / $width_desk_full;
@@ -20,10 +20,10 @@
 
             // Border Details
                 // Border thickness (full size)
-                    $desk_top: 96;
-                    $desk_right: 84;
-                    $desk_bottom: 294;
-                    $desk_left: 68;
+                    $desk_top: 118;
+                    $desk_right: 46;
+                    $desk_bottom: 299.5;
+                    $desk_left: 42;
 
                 // Splice Details
                     $desk_splice_top: $desk_top / $height_desk_full * 100%;
@@ -38,10 +38,10 @@
                     $desk_width_left: $desk_left / $width_desk_full * $width_desk;
 
         // Mobile
-            $width_mob_full: 504;
-            $height_mob_full: 1045;
-            $width_mob_img_full: 455;
-            $height_mob_img_full: 730;
+            $width_mob_full: 1280;
+            $height_mob_full: 2600;
+            $width_mob_img_full: 1081;
+            $height_mob_img_full: 1925;
             $ratio_mob: $height_mob_full / $width_mob_full;
             $ratio_mob_img: $height_mob_img_full / $width_mob_img_full;
             $ratio_mob_diff: $width_mob_img_full / $width_mob_full;
@@ -52,10 +52,10 @@
 
             // Border Details
                 // Border thickness (full size)
-                    $mob_top: 144;
-                    $mob_right: 27;
-                    $mob_bottom: 174;
-                    $mob_left: 26;
+                    $mob_top: 333.6;
+                    $mob_right: 99;
+                    $mob_bottom: 350;
+                    $mob_left: 95;
 
                 // Splice Details
                     $mob_splice_top: $mob_top / $height_mob_full * 100%;
