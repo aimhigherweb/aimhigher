@@ -10,17 +10,19 @@
     div {
         flex-grow: 2;
     }
-}
 
-.image-container {
-    flex-grow: 1;
-    max-width: 400px;
-    min-width: 250px;
-
-    img {
-        max-width: 100%;
+    .image-container {
+        flex-grow: 1;
+        max-width: 400px;
+        min-width: 250px;
+    
+        img {
+            max-width: 100%;
+        }
     }
 }
+
+
 
 @media screen and (min-width: 46rem) {
     .wrap {
@@ -30,9 +32,9 @@
         p {
             font-size: 18px;
         }
-    }
 
-    .image-container {
-        margin-left: 20px;
-    }
+        .image-container {
+            margin-left: 20px;
+        }
+    }   
 }
