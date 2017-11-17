@@ -118,6 +118,7 @@ body.scrolled {
             ul {
                 display: flex;
                 flex-direction: row;
+                -webkit-box-pack: center;
                 justify-content: space-evenly;
                 margin: 0;
                 top: auto;
@@ -126,6 +127,8 @@ body.scrolled {
             }
 
             li {
+                margin-left: 5px;
+
                 a {
                     background: none;
                     border: none;
@@ -133,6 +136,8 @@ body.scrolled {
                 }
 
                 &:first-child {
+                    margin-left: 0;
+
                     a {
                         border-top: none;
                     }
