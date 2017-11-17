@@ -56,8 +56,7 @@ const accordion = [
         slug: 'design',
         content: 
             <div>
-                <p>Unfortunately this is not a service we currently offer. We are currently looking to expand our service offerings to include this in the near future.</p>
-                <p>We can however recommend several excellent freelance designers who can help you out instead.</p>
+                <p>While we don't design logos, we work with several freelance designers who do! <a href="/contact">Get in touch</a> with us to find out more and to meet one of our lovely freelancers.</p>
             </div>,
     },
     {
