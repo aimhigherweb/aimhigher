@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import {render} from 'react-snapshot';
 
 //Import components
 import {Header} from './partial/header.js';
@@ -10,9 +9,9 @@ import {Footer} from './partial/footer.js';
 //Resources
 import './resources/global.css';
 
-ReactDOM.render(<Header />, document.getElementById('header'));
+render(<Header />, document.getElementById('header'));
 
-ReactDOM.render(<App />, document.getElementById('main'));
+render(<App />, document.getElementById('main'));
 
-ReactDOM.render(<Footer />, document.getElementById('footer'));
+render(<Footer />, document.getElementById('footer'));
 
