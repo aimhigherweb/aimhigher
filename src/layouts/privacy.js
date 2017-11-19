@@ -44,7 +44,7 @@ export class Privacy extends Component {
                 <p>Please read this Privacy Policy carefully.  Please contact us if you have any questions.</p>
                 <p>You providing us with personal information indicates that you have had sufficient opportunity to access this Privacy Policy and that you have read and accepted it.</p>
                 <p>If you do not wish to provide personal information to us, then you do not have to do so, however it may affect your use of this Site or any products and services offered on it.</p>
-                <ol>
+                <ol className="privacy">
                     <li>
                         <h3>Type of personal information collected</h3>
                         <p><strong>Personal Information:</strong> The type of personal information we collect may include is set out on our website.</p>
