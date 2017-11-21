@@ -8,15 +8,6 @@ import '../resources/portfolio.css';
 
 const siteList = [
     {
-        name: 'Nadine Smith Studio',
-        slug: 'nadine-smith',
-        url: 'nadinesmithstudio.com.au',
-        date: 'June 2017',
-        mobile: true,
-        current: true,
-        github: 'https://github.com/amykapernick/nadinesmithstudio',
-    },
-    {
         name: 'AimHigher Web Design',
         slug: 'aimhigher',
         url: 'aimhigherwebdesign.com.au',
@@ -42,6 +33,15 @@ const siteList = [
         mobile: true,
         current: true,
         github: 'https://github.com/amykapernick/amygoestoperth',
+    },
+    {
+        name: 'Nadine Smith Studio',
+        slug: 'nadine-smith',
+        url: 'nadinesmithstudio.com.au',
+        date: 'June 2017',
+        mobile: true,
+        current: false,
+        github: 'https://github.com/amykapernick/nadinesmithstudio',
     },
     {
         name: 'Eco Spray Tans Perth',
