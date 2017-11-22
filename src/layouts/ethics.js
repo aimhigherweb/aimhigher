@@ -49,7 +49,7 @@ export class CodeEthics extends Component {
                         <li><CheckCircle />No question is too simple or too complicated. And there's no such thing as a stupid question.</li>
                         <li><CheckCircle />We will always be honest with you.</li>
                         <li><CheckCircle />Our services are always good value for money.</li>
-                        <li><CheckCircle />A full quote will be givin upfront with no hidden costs.</li>
+                        <li><CheckCircle />A full quote will be given upfront with no hidden costs.</li>
                         <li><CheckCircle />If you are ever unsatisfied with us in any way, we will endeavour to work towards a positive outcome.</li>
                     </ul>
                 </p>
