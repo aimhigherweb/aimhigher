@@ -27,7 +27,7 @@ const menuItems = [
     {
         'name': 'twitter',
         'icon': <Twitter />,
-        'url': 'https://twitter.com/amykate_94',
+        'url': 'https://twitter.com/aimhigherweb',
     },
     {
         'name': 'instagram',
