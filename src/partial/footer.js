@@ -6,7 +6,7 @@ import {App, legalItems} from '../App.js';
 
 //Resources
 import '../resources/footer.css';
-import {Codepen, Github, Facebook, Twitter, Mail} from 'react-feather';
+import {Codepen, Github, Facebook, Twitter, Mail, Instagram} from 'react-feather';
 
 const menuItems = [
     {
@@ -27,7 +27,12 @@ const menuItems = [
     {
         'name': 'twitter',
         'icon': <Twitter />,
-        'url': 'https://twitter.com/amykate_94',
+        'url': 'https://twitter.com/aimhigherweb',
+    },
+    {
+        'name': 'instagram',
+        'icon': <Instagram />,
+        'url': 'https://www.instagram.com/aimhigherweb/',
     },
     {
         'name': 'email',
