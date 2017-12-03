@@ -47,17 +47,68 @@ export class StyleGuide extends Component {
 };
 
 class ColourSwatches extends Component {
-    render() {
-        let primary = this.props.primary;
+    constructor() {
+        super();
+        this.state = {
+            colours: {},
+        };
+    };
+
+    componentWillMount() {
         let colours = {
             primary: this.props.primary, 
-            secondary: this.props.secondary, 
+            supporting: this.props.supporting, 
             neutral: this.props.neutral,
         };
 
+        for (var key in colours) {
+            const hexToRgb = hex =>
+            hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i
+                       ,(m, r, g, b) => '#' + r + r + g + g + b + b)
+              .substring(1).match(/.{2}/g)
+              .map(x => parseInt(x, 16))
+          
+            let colourMain = hexToRgb(colours[key]);
+
+            let convert = function(rgb, opacity, variant) {
+                let r = [];
+                let colour;
+
+                if(variant == 'light') {
+                    colour = 255;
+                }
+                else if(variant == 'dark') {
+                    colour = 0;
+                }
+                else {
+                    console.log('Error, please specify a valid colour variant; light or dark');
+                };
+
+                for(let i = 0; i < 3; i++) {
+                    r[i] = Math.round(colour + ((1 - opacity) * rgb[i]));
+                };
+
+                return r;
+            };
+
+            // let light_90 = convert(colourMain, 0.9, 'light');
+
+            colours[key] = {
+                main: colourMain,
+                light_90: convert(colourMain, 0.9, 'light'),
+            };
+
+        };
+
+        this.setState({colours: colours});
+    };
+
+    render() {
+        console.log(this.state.colours);
+
         return (
             <div className="colour set">
-                <div className="colour swatch main" style={{background: primary}} ></div>
+                <div className="colour swatch main" style={{background: this.state.colours.primary.main}} >{this.state.colours.primary.main}</div>
                 <div className="colour group light">
                     <div className="colour swatch 90"></div>
                     <div className="colour swatch 75"></div>
