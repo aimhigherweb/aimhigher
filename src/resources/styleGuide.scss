@@ -1,19 +1,42 @@
 @import 'variables.scss';
 
 .colour {
+    &.set {
+        padding: 20px 0;
+    }
+
     &.swatch {
         border: 1px solid black;
         border-radius: 10px;
+        display: flex;
+            align-items: center;
+            justify-content: center;
         height: 8vw;
         width: 8vw;
         margin-right: 4vw;
         position: relative;
+
+        &.light {
+            color: #000;
+        }
+
+        &.dark {
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.8vw;
+        }
     }
     
     &.main {
         float: left;
         height: 25vw;
         width: 25vw;
+
+        p {
+            font-size: 3.5vw;
+        }
     }
 
     &.group {
@@ -21,33 +44,5 @@
         flex-direction: row;
         flex-wrap: wrap;
         padding: 2vw 0;
-
-        .swatch {
-            &:before {
-                border-radius: 10px;
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-            }
-        }
-
-        &.light {
-            .swatch {
-                &:before {
-                    background: #fff;
-                }
-            }
-        }
-
-        &.dark {
-            .swatch {
-                &:before {
-                    background: #000;
-                }
-            }
-        }
     }
 }
