@@ -2,6 +2,8 @@
 
 .colour {
     &.set {
+        display: flex;
+            flex-wrap: wrap;
         padding: 20px 0;
     }
 
@@ -12,7 +14,9 @@
             align-items: center;
             justify-content: center;
         height: 8vw;
+            max-height: $inner_max * (8 / 100);
         width: 8vw;
+            max-width: $inner_max * (8 / 100);
         margin-right: 4vw;
         position: relative;
 
@@ -32,7 +36,9 @@
     &.main {
         float: left;
         height: 25vw;
+            max-height: $inner_max * (25 / 100);
         width: 25vw;
+            max-width: $inner_max * (25 / 100);
 
         p {
             font-size: 3.5vw;
@@ -41,8 +47,9 @@
 
     &.group {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
         padding: 2vw 0;
     }
 }

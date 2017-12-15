@@ -256,8 +256,10 @@ class ColourSet extends Component {
         return (
             <div className="colour set">
                 <ColourSwatch cols={colMain} />
-                <ColourGroup colgroup={colGroupLight} vars='light' />
-                <ColourGroup colgroup={colGroupDark} vars='dark' />
+                <div className="colour group-container">
+                    <ColourGroup colgroup={colGroupLight} vars='light' />
+                    <ColourGroup colgroup={colGroupDark} vars='dark' />
+                </div>
             </div>
         );
     };
