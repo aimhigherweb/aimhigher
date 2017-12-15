@@ -17,6 +17,9 @@ import {Terms} from './layouts/terms.js';
 import {Privacy} from './layouts/privacy.js';
 import {StyleGuide} from './layouts/styleGuide.js';
 
+//Client Pages
+import {WondaiCountry} from './clientPortal/wondaiCountryFestival/main.js';
+
 //Variables
 export const menuItems = [
   {
@@ -77,7 +80,15 @@ const hiddenPages = [
   },
 ]
 
-const routeItems = menuItems.concat(legalItems).concat(hiddenPages);
+const clientPages = [
+  {
+    slug: '/wondai-country-festival',
+    title: 'Wondai Country Running Festival',
+    component: () => <WondaiCountry />,
+  },
+]
+
+const routeItems = menuItems.concat(legalItems).concat(hiddenPages).concat(clientPages);
 
 export class App extends Component {
   render() {
