@@ -15,6 +15,7 @@ import {CodeEthics} from './layouts/ethics.js';
 import {Contact} from './layouts/contact.js';
 import {Terms} from './layouts/terms.js';
 import {Privacy} from './layouts/privacy.js';
+import {StyleGuide} from './layouts/styleGuide.js';
 
 //Variables
 export const menuItems = [
@@ -68,7 +69,15 @@ export const legalItems = [
   },
 ]
 
-const routeItems = menuItems.concat(legalItems);
+const hiddenPages = [
+  {
+    slug: '/style-guide',
+    title: 'Style Guide',
+    component: () => <StyleGuide />,
+  },
+]
+
+const routeItems = menuItems.concat(legalItems).concat(hiddenPages);
 
 export class App extends Component {
   render() {
