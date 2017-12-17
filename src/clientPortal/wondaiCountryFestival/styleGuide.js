@@ -47,7 +47,7 @@ export class StyleGuide extends Component {
         return (
             <div className="content">
                 <Meta />
-                <Typography />
+                <Typography clientName="wondaiCountryFestival" ori="portrait" />
                 <ColourSwatches primary="#c1272d" supporting="#f79321" neutral="#000000" names={names} />
             </div>
         );

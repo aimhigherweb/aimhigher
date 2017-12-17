@@ -95,12 +95,14 @@ export class App extends Component {
     window.onscroll = function() {
       const perHeight = window.innerHeight * 0.3;
       if(document.documentElement.scrollTop > perHeight) {
-          document.getElementById('root').className = 'scrolled';
+          document.getElementById('root').classList.add('scrolled');
       }
       else {
           document.getElementById('root').classList.remove('scrolled');
       };
     };
+
+    document.getElementById('root').classList.remove('style-guide');
 
     let pages = routeItems.map(page => {
       return(

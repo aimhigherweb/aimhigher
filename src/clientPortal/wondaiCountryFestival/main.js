@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { StyleGuide } from './styleGuide';
 
 //Resources
-// import '../resources/about.css';
+import './styles.css';
 
 class Meta extends Component {
     render() {
@@ -38,11 +38,13 @@ class Meta extends Component {
 
 export class WondaiCountry extends Component {
     render() {
+        document.getElementById('root').classList.add('style-guide');
+
         return (
-            <div className="content">
+            <div className="content typography">
                 <Meta />
                 <h1>Wondai Country Running Festival</h1>
-                <div className="wrap">
+                <div>
                     <StyleGuide />
                 </div>
             </div>
