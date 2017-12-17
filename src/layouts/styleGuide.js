@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import {Helmet} from 'react-helmet';
+import ReactSVG from 'react-svg';
+
+// Components
+import {FaFacebookSquare, FaTwitterSquare, FaInstagram} from 'react-icons/lib/fa';
 
 //Resources
 import '../resources/styleGuide.css';
+
 
 class Meta extends Component {
     render() {
@@ -35,22 +40,30 @@ class Meta extends Component {
 
 export class StyleGuide extends Component {
     render() {
+        let names=[
+            'blue',
+            'aqua',
+            'grey'
+        ];
+
         return (
             <div className="content">
                 <Meta />
                 <h1>Style Guides</h1>
                 <h2>AimHigher Web Design</h2>
-                <ColourSwatches primary="#1c75bc" supporting="#16a6b1" neutral="#5b5b5b" />
+                <Typography />
+                <ColourSwatches primary='#1c75bc' supporting='#16a6b1' neutral='#5b5b5b' names={names} />
             </div>
         );
     }
 };
 
-class ColourSwatches extends Component {
+export class ColourSwatches extends Component {
     constructor() {
         super();
         this.state = {
             colours: {},
+            names: [],
         };
     };
 
@@ -180,11 +193,17 @@ class ColourSwatches extends Component {
                 };
             };
         };
-        this.setState({colours: colours});
+        this.setState({
+            colours: colours,
+            names: [this.props.names],
+        });
     };
 
     render() {
         let colours = this.state.colours;
+        let colNames = this.state.names[0];
+
+        // console.log(colNames);
 
         let colArray = [colours.primary, colours.supporting, colours.neutral];
 
@@ -194,8 +213,37 @@ class ColourSwatches extends Component {
             );
         });
 
+        // console.log(colours);
+
+        let colVars = '';
+
+        for(var i = 0; i < 3; i++) { //Primary, supporting and neutral
+            for (var colSet in colArray[i]) { //Light, dark and main
+
+                if (colArray[i][colSet].name) { //If it's main
+
+                    let thisCols = '$' + colArray[i][colSet].name + ':' + colArray[i][colSet].hex;
+                    
+                    colVars += thisCols;
+                }
+                else { //Loops through light and dark groups
+                    for (var colGroup in colArray[i][colSet]) {
+
+
+                        let thisCols = '$' + colNames[i] + '_' + colArray[i][colSet][colGroup].name + ':' + colArray[i][colSet][colGroup].hex;
+                        
+                        colVars += thisCols;
+    
+                    };
+                };
+            };
+
+            // console.log(colVars);
+        };
+
         return (
             <div>
+                <h3>Colours</h3>
                 {colSets}
             </div>
         );
@@ -247,7 +295,7 @@ class ColourGroup extends Component {
     };
 };
 
-class ColourSet extends Component {
+export class ColourSet extends Component {
     render() {
         let colGroupLight = this.props.set.light;
         let colGroupDark = this.props.set.dark;
@@ -264,3 +312,85 @@ class ColourSet extends Component {
         );
     };
 };
+
+export class Typography extends Component {
+    render() {
+        let clientName, logoOri;
+
+        if (this.props.clientName) {
+            clientName = '/clientPortal/' + this.props.clientName;
+            logoOri = this.props.ori;
+        }
+        else {
+            clientName = '';
+            logoOri = 'landscape';
+        };
+
+
+        return (
+            <div>
+                <h3 className="style-guide-heading">Typography</h3>
+                <div className="typography">
+                    <div className={"logo-headings " + logoOri}>
+                        <div className={'logo ' + logoOri}>
+                            <figure>
+                                <ReactSVG path={'/img' + clientName + '/logo.svg'} />
+                                <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
+                            </figure>
+                        </div>
+                        <div className="headings">
+                            <h1>Heading 1</h1>
+                                <p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
+                                <p>Every page should have a H1 as they're used for SEO and screen readers</p>
+                            <h2>Heading 2</h2>
+                                <p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
+                            <h3>Heading 3</h3>
+                                <p>This is a third level heading, H3. This is the last level heading that you use on a regular basis (otherwise things can look a little cluttered).</p>
+                            <h4>Heading 4</h4>
+                            <h5>Heading 5</h5>
+                        </div>
+                    </div>
+                    <hr />
+                    <div className="content-types">
+                        <h4 className="section-titles">Content Sections</h4>
+                        <p>This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
+                        <blockquote>
+                            This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
+                        </blockquote>
+                        <div className="section-container">
+                            <div className="lists">
+                                <h4 className="section-title">Lists</h4>
+                                <ul>
+                                    <li>This</li>
+                                    <li>is a</li>
+                                    <li>bulleted</li>
+                                    <li>list</li>
+                                </ul>
+                                <ol>
+                                    <li>This</li>
+                                    <li>is a</li>
+                                    <li>numbered</li>
+                                    <li>list</li>
+                                </ol>
+                            </div>
+                            <div className="icons">
+                                <h4 className="section-title">Icons</h4>
+                                <FaFacebookSquare />
+                                <FaTwitterSquare />
+                                <FaInstagram />
+                            </div>
+                        </div>
+                        <div className="form">
+                            <h4 className="section-title">Other Elements</h4>
+                            <form>
+                                <h5>Form</h5>
+                                <input type="text" placeholder="Input Field" />
+                                <button>Button</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+}

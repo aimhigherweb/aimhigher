@@ -17,6 +17,9 @@ import {Terms} from './layouts/terms.js';
 import {Privacy} from './layouts/privacy.js';
 import {StyleGuide} from './layouts/styleGuide.js';
 
+//Client Pages
+import {WondaiCountry} from './clientPortal/wondaiCountryFestival/main.js';
+
 //Variables
 export const menuItems = [
   {
@@ -77,19 +80,29 @@ const hiddenPages = [
   },
 ]
 
-const routeItems = menuItems.concat(legalItems).concat(hiddenPages);
+const clientPages = [
+  {
+    slug: '/wondai-country-festival',
+    title: 'Wondai Country Running Festival',
+    component: () => <WondaiCountry />,
+  },
+]
+
+const routeItems = menuItems.concat(legalItems).concat(hiddenPages).concat(clientPages);
 
 export class App extends Component {
   render() {
     window.onscroll = function() {
       const perHeight = window.innerHeight * 0.3;
       if(document.documentElement.scrollTop > perHeight) {
-          document.getElementById('root').className = 'scrolled';
+          document.getElementById('root').classList.add('scrolled');
       }
       else {
           document.getElementById('root').classList.remove('scrolled');
       };
     };
+
+    document.getElementById('root').classList.remove('style-guide');
 
     let pages = routeItems.map(page => {
       return(

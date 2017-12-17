@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya:500,700,800,900");
+body.style-guide header {
+  display: none; }
+
+#main > .container {
+  padding-top: 0; }
+
+.style-guide-heading {
+  margin-top: 0; }
+
+.typography h1 {
+  color: #611417;
+  font-family: 'Alegreya', serif;
+  font-size: 2.5em;
+  text-align: left;
+  text-transform: uppercase; }
+
+.typography h2 {
+  color: #611417;
+  font-family: 'Alegreya', serif;
+  font-size: 2em; }
+
+.typography h3 {
+  color: #911d22;
+  font-family: 'Alegreya', serif;
+  font-size: 1.8em; }
+
+.typography h4 {
+  color: #300a0b;
+  font-family: 'Alegreya', serif;
+  font-size: 1.3em;
+  margin-bottom: 0.5em; }
+
+.typography h5 {
+  color: #300a0b;
+  font-family: 'Alegreya', serif;
+  font-size: 1.2em;
+  margin-bottom: 0.5em; }
+
+.typography blockquote {
+  border: none;
+  border-right: 4px solid #f79321;
+  color: #911d22;
+  padding: 10px 10px 10px 5px;
+  text-align: right; }
+
+.typography ul {
+  margin: 0.3em 0;
+  padding-left: 40px; }
+  .typography ul li {
+    list-style-type: disc; }
+
+.typography ol {
+  margin: 0.3em 0; }
+  .typography ol li {
+    line-height: 2em; }
+
+.typography hr {
+  border-color: #e09396; }
+
+.typography figcaption {
+  border: none;
+  border-left: 3px solid #f79321;
+  color: #ae2329;
+  padding: 5px 5px 5px 10px;
+  text-align: left; }
+
+.typography .section-title {
+  width: 100%; }
+
+.typography .logo-headings {
+  display: flex; }
+  .typography .logo-headings.portrait {
+    flex-direction: row; }
+
+.typography .section-container {
+  display: flex; }
+  .typography .section-container > * {
+    flex: 1 1 200px; }
+
+.typography .lists {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .typography .lists ul {
+    margin-right: 10vw; }
+
+.typography .icons {
+  display: flex;
+  flex-wrap: wrap; }
+  .typography .icons svg {
+    cursor: pointer;
+    fill: #d15d62;
+    height: 40px;
+    margin: 20px;
+    stroke: #d15d62;
+    width: 40px; }
+    .typography .icons svg:hover {
+      fill: #c1272d;
+      stroke: #c1272d; }
+
+.typography .form form {
+  border: 1px solid #e09396;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px; }
+  .typography .form form h5 {
+    margin: 0; }
+  .typography .form form input {
+    background: #f9e9ea;
+    border: 1px solid #d15d62;
+    color: #300a0b;
+    display: block;
+    margin: 10px 0;
+    padding: 5px 10px;
+    width: 100%; }
+    .typography .form form input::placeholder {
+      color: #300a0b; }
+
+.typography .form button {
+  background: none;
+  border: 2px solid #611417;
+  color: #611417;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  margin: 10px 0;
+  text-transform: uppercase; }
+  .typography .form button:active, .typography .form button:hover, .typography .form button:focus {
+    background: #611417;
+    color: #fff; }
