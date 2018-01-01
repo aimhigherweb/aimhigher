@@ -203,8 +203,6 @@ export class ColourSwatches extends Component {
         let colours = this.state.colours;
         let colNames = this.state.names[0];
 
-        // console.log(colNames);
-
         let colArray = [colours.primary, colours.supporting, colours.neutral];
 
         let colSets = colArray.map(set => {
@@ -238,7 +236,7 @@ export class ColourSwatches extends Component {
                 };
             };
 
-            // console.log(colVars);
+            console.log(colVars);
         };
 
         return (
