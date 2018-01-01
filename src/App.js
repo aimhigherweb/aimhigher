@@ -15,6 +15,12 @@ import {CodeEthics} from './layouts/ethics.js';
 import {Contact} from './layouts/contact.js';
 import {Terms} from './layouts/terms.js';
 import {Privacy} from './layouts/privacy.js';
+import {StyleGuide} from './layouts/styleGuide.js';
+
+//Client Pages
+import {WondaiCountry} from './clientPortal/wondaiCountryFestival/main.js';
+import {SocialPilot} from './clientPortal/wondaiCountryFestival/socialpilot.js';
+import {GlenrockHay} from './clientPortal/glenrockHay/main.js';
 
 //Variables
 export const menuItems = [
@@ -68,19 +74,47 @@ export const legalItems = [
   },
 ]
 
-const routeItems = menuItems.concat(legalItems);
+const hiddenPages = [
+  {
+    slug: '/style-guide',
+    title: 'Style Guide',
+    component: () => <StyleGuide />,
+  },
+]
+
+const clientPages = [
+  {
+    slug: '/wondai-country-festival',
+    title: 'Wondai Country Running Festival',
+    component: () => <WondaiCountry />,
+  },
+  {
+    slug: '/wondai-country-festival/socialpilot',
+    title: 'SocialPilot Instructions - Wondai Country Running Festival',
+    component: () => <SocialPilot />,
+  },
+  {
+    slug: '/glenrock-hay',
+    title: 'Glenrock Hay',
+    component: () => <GlenrockHay />,
+  },
+]
+
+const routeItems = menuItems.concat(legalItems).concat(hiddenPages).concat(clientPages);
 
 export class App extends Component {
   render() {
     window.onscroll = function() {
       const perHeight = window.innerHeight * 0.3;
       if(document.documentElement.scrollTop > perHeight) {
-          document.getElementById('root').className = 'scrolled';
+          document.getElementById('root').classList.add('scrolled');
       }
       else {
           document.getElementById('root').classList.remove('scrolled');
       };
     };
+
+    document.getElementById('root').classList.remove('style-guide');
 
     let pages = routeItems.map(page => {
       return(
