@@ -22,7 +22,6 @@ import {WondaiCountry} from './clientPortal/wondaiCountryFestival/main.js';
 import {SocialPilot} from './clientPortal/wondaiCountryFestival/socialpilot.js';
 import {GlenrockHay} from './clientPortal/glenrockHay/main.js';
 
-
 //Variables
 export const menuItems = [
   {
