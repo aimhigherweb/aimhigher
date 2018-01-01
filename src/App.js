@@ -19,6 +19,8 @@ import {StyleGuide} from './layouts/styleGuide.js';
 
 //Client Pages
 import {WondaiCountry} from './clientPortal/wondaiCountryFestival/main.js';
+import {SocialPilot} from './clientPortal/wondaiCountryFestival/socialpilot.js';
+
 
 //Variables
 export const menuItems = [
@@ -85,6 +87,11 @@ const clientPages = [
     slug: '/wondai-country-festival',
     title: 'Wondai Country Running Festival',
     component: () => <WondaiCountry />,
+  },
+  {
+    slug: '/wondai-country-festival/socialpilot',
+    title: 'SocialPilot Instructions - Wondai Country Running Festival',
+    component: () => <SocialPilot />,
   },
 ]
 

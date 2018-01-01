@@ -4,13 +4,15 @@ body.style-guide {
     header {
         display: none;
     }
-}
 
-#main {
-    > .container {
-        padding-top: 0;
+    #main {
+        > .container {
+            padding-top: 0;
+        }
     }
 }
+
+
 
 .style-guide-heading {
     margin-top: 0;
