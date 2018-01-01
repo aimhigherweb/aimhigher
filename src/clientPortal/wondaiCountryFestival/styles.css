@@ -2,7 +2,7 @@
 body.style-guide header {
   display: none; }
 
-#main > .container {
+body.style-guide #main > .container {
   padding-top: 0; }
 
 .style-guide-heading {
