@@ -1,0 +1,40 @@
+@import '../variables.scss';
+
+.wrap {
+    display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    margin: 0 auto;
+
+    > div {
+        flex-grow: 2;
+    }
+
+    .image-container {
+        flex-grow: 1;
+        max-width: 400px;
+        min-width: 250px;
+    
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: 46rem) {
+    .wrap {
+        align-items: center;
+        flex-wrap: nowrap;
+
+        p {
+            font-size: 18px;
+        }
+
+        .image-container {
+            margin-left: 20px;
+        }
+    }   
+}
