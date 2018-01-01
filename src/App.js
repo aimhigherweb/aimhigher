@@ -20,6 +20,7 @@ import {StyleGuide} from './layouts/styleGuide.js';
 //Client Pages
 import {WondaiCountry} from './clientPortal/wondaiCountryFestival/main.js';
 import {SocialPilot} from './clientPortal/wondaiCountryFestival/socialpilot.js';
+import {GlenrockHay} from './clientPortal/glenrockHay/main.js';
 
 //Variables
 export const menuItems = [
@@ -91,6 +92,11 @@ const clientPages = [
     slug: '/wondai-country-festival/socialpilot',
     title: 'SocialPilot Instructions - Wondai Country Running Festival',
     component: () => <SocialPilot />,
+  },
+  {
+    slug: '/glenrock-hay',
+    title: 'Glenrock Hay',
+    component: () => <GlenrockHay />,
   },
 ]
 

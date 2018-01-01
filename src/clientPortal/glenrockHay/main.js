@@ -9,9 +9,9 @@ import './styles.css';
 
 class Meta extends Component {
     render() {
-        let name = 'Wondai Country Running Festival - Client Information';
+        let name = 'Glenrock Hay - Client Information';
         let description ="Don't look through emails, it's all here";
-        let slug = 'wondai-country-festival';
+        let slug = 'glenrock-hay';
         let image = 'https://aimhigherwebdesign.com.au/img/logo.png';
         return (
             <Helmet>
@@ -36,14 +36,14 @@ class Meta extends Component {
     }
 };
 
-export class WondaiCountry extends Component {
+export class GlenrockHay extends Component {
     render() {
         document.getElementById('root').classList.add('style-guide');
 
         return (
             <div className="content typography">
                 <Meta />
-                <h1>Wondai Country Running Festival</h1>
+                <h1>Glenrock Hay</h1>
                 <div>
                     <StyleGuide />
                 </div>

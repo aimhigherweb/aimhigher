@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
+import {Helmet} from 'react-helmet';
 
-// Components
-import { StyleGuide } from './styleGuide';
+//Components
+import {ColourSwatches, Typography} from '../../layouts/styleGuide.js';
 
 //Resources
-import './styles.css';
+import '../../resources/styleGuide.css';
 
 class Meta extends Component {
     render() {
-        let name = 'Wondai Country Running Festival - Client Information';
-        let description ="Don't look through emails, it's all here";
-        let slug = 'wondai-country-festival';
+        let name = 'Style Guide - Glenrock Hay';
+        let description ="Want to know more about the style guides we make?";
+        let slug = 'style-guide';
         let image = 'https://aimhigherwebdesign.com.au/img/logo.png';
         return (
             <Helmet>
@@ -36,17 +36,19 @@ class Meta extends Component {
     }
 };
 
-export class WondaiCountry extends Component {
+export class StyleGuide extends Component {
     render() {
-        document.getElementById('root').classList.add('style-guide');
+        let names= [
+            'green',
+            'lime',
+            'black'
+        ];
 
         return (
-            <div className="content typography">
+            <div className="content">
                 <Meta />
-                <h1>Wondai Country Running Festival</h1>
-                <div>
-                    <StyleGuide />
-                </div>
+                <Typography clientName="glenrockHay" />
+                <ColourSwatches primary="#005b52" supporting="#00ff00" neutral="#000000" names={names} />
             </div>
         );
     }
