@@ -81,6 +81,10 @@ button, .btn {
     }
 }
 
+img {
+    max-width: 100%;
+}
+
 #main {
     > .container {
         padding-top: $height_header;
@@ -95,11 +99,36 @@ button, .btn {
       margin: 0 auto;
       padding: 20px 10px;
       width: 100%;
-        max-width: 1400px;
+        max-width: $inner_max;
     }
 }
 
-@media screen and (min-width: 40rem) {
+article {
+    text-align: center;
+
+    p {
+        font-size: 1em;
+        line-height: 2em;
+        text-align: left;
+    }
+
+    ul {
+        font-size: 1em;
+        list-style-type: disc;
+        padding-left: 40px;
+        
+        li {
+            font-size: 1em;
+            list-style-type: disc;
+        }
+    }
+
+    img {
+        max-height: 500px;
+    }
+}
+
+@media (min-width: 40rem) {
     h3 {
         font-size: 1.4em;
     }
