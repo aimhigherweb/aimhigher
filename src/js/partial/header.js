@@ -3,7 +3,8 @@ import {BrowserRouter as Router, NavLink} from 'react-router-dom';
 import ReactSVG from 'react-svg';
 
 //Components
-import {App, menuItems} from './app.js';
+import {App} from './app.js';
+import {menuItems} from '../data/navItems.js';
 
 //Resources
 import Logo from '../../img/logo.svg';
@@ -21,17 +22,13 @@ export class Header extends React.Component {
     };
 };
 
-class SiteTitle extends React.Component {
-    render() {
-        return(
-            <div className="site-logo">
-                <a href="/">
-                    <ReactSVG path={Logo} />
-                </a>
-            </div>
-        );
-    };
-};
+const SiteTitle = (
+    <div className="site-logo">
+        <a href="/">
+            <ReactSVG path={Logo} />
+        </a>
+    </div>
+);
 
 class MainMenu extends React.Component {
     mobileMenu() {
