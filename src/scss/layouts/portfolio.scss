@@ -92,7 +92,7 @@
 
             &.desktop {
                 border-width: $desk_width_top $desk_width_right $desk_width_bottom $desk_width_left;
-                border-image: url(/img/portfolio/desktop.png) $desk_splice_top $desk_splice_right $desk_splice_bottom $desk_splice_left stretch;
+                border-image: url(../../img/portfolio/desktop.png) $desk_splice_top $desk_splice_right $desk_splice_bottom $desk_splice_left stretch;
                 height: $height_desk;
                 width: $width_desk;
 
@@ -104,7 +104,7 @@
 
             &.mobile {
                 border-width: $mob_width_top $mob_width_right $mob_width_bottom $mob_width_left;
-                border-image: url(/img/portfolio/mobile.png) $mob_splice_top $mob_splice_right $mob_splice_bottom $mob_splice_left stretch;
+                border-image: url(../../img/portfolio/mobile.png) $mob_splice_top $mob_splice_right $mob_splice_bottom $mob_splice_left stretch;
                 height: $height_mob;
                 position: absolute;
                     bottom: 0;

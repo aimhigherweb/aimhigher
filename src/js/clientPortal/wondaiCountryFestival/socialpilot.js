@@ -4,6 +4,10 @@ import Helmet from 'react-helmet';
 // Components
 
 //Resources
+import CreatePost from '../../../img/clientPortal/wondaiCountryFestival/documentation/socialpilot-create_post.png';
+import PostMedia from '../../../img/clientPortal/wondaiCountryFestival/documentation/socialpilot-post_media.png';
+import PostMenu from '../../../img/clientPortal/wondaiCountryFestival/documentation/socialpilot-post_menu.png';
+import PostOptions from '../../../img/clientPortal/wondaiCountryFestival/documentation/socialpilot-post_options.png';
 
 class Meta extends Component {
     render() {
@@ -43,13 +47,13 @@ export class SocialPilot extends Component {
                 <section>
                     <p>URL: <a href="https://panel.socialpilot.co/posts" target="_blank">https://panel.socialpilot.co/posts</a></p>
                     <p>Navigate to <strong>Posts</strong> -> <strong>Create Post</strong></p>
-                    <img src="/img/clientPortal/wondaiCountryFestival/documentation/socialpilot-post_menu.png" />
+                    <img src={PostMenu} />
                     <p>If the post is text only (no image/video), click <strong>Share As Text</strong> at the bottom. Otherwise, select <strong>Share as Media</strong> to upload a image/video.</p>
-                    <img src="/img/clientPortal/wondaiCountryFestival/documentation/socialpilot-create_post.png" />
+                    <img src={CreatePost} />
                     <p>Enter the content and upload an image/video (if applicable) and select the accounts to share with on the right hand side (if there’s no image, don’t share on Instagram).</p>
-                    <img src="/img/clientPortal/wondaiCountryFestival/documentation/socialpilot-post_media.png" />
+                    <img src={PostMedia} />
                     <p>From the drop down, choose one of the following:</p>
-                    <img src="/img/clientPortal/wondaiCountryFestival/documentation/socialpilot-post_options.png" />
+                    <img src={PostOptions} />
                     <ul>
                         <li><strong>Add to Queue</strong> – this will add the post to the sharing queue (check where it’s at if you do this)</li>
                         <li><strong>Share Now</strong> – this will share the post straight away (give or take a minute or so). Recommended for something you just want to share at a particular time</li>
