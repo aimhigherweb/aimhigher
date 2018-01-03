@@ -51,7 +51,7 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          'file-loader'
+          'file-loader?name=[name].[ext]' //Keep original file name
         ]
       }
     ]
@@ -61,6 +61,6 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html",
       inject: 'body'
-    })
+    }),
   ]
 };
