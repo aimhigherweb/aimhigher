@@ -1,5 +1,14 @@
 const siteList = [
     {
+        name: 'Wondai Country Running Festival',
+        slug: 'wondai-country-festival',
+        url: 'wondaicountryfestival.com.au',
+        date: 'January 2018',
+        mobile: true,
+        current: true,
+        github: 'https://github.com/AimHigher-Web-Design/wondairunningfestival',
+    },
+    {
         name: 'AimHigher Web Design',
         slug: 'aimhigher',
         url: 'aimhigherwebdesign.com.au',
