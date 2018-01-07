@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Helmet from 'react-helmet';
 
 
 //Resources
@@ -21,6 +22,15 @@ import {StyleGuide} from '../layouts/styleGuide.js';
 import {WondaiCountry} from '../clientPortal/wondaiCountryFestival/main.js';
 import {SocialPilot} from '../clientPortal/wondaiCountryFestival/socialpilot.js';
 import {GlenrockHay} from '../clientPortal/glenrockHay/main.js';
+
+//Importing Images
+var images = {};
+
+function importAll (r) {
+    r.keys().forEach(key => images[key] = r(key));
+}
+
+importAll(require.context('../../img/favicons/', true, /\.png$/));
 
 // Variables
 export const menuItems = [
@@ -102,6 +112,23 @@ const clientPages = [
 
 const routeItems = menuItems.concat(legalItems).concat(hiddenPages).concat(clientPages);
 
+class Meta extends Component {
+  render() {
+      return (
+          <Helmet>
+              <link rel="shortcut icon" href="/src/img/favicons/favicon.png" />
+              <link rel="icon" type="image/png" sizes="16x16" href="/src/img/favicons/favicon-16.png" />
+              <link rel="icon" type="image/png" sizes="32x32" href="/src/img/favicons/favicon-32.png" />
+              <link rel="icon" type="image/png" sizes="96x96" href="/src/img/favicons/favicon-96.png" />
+
+              <link rel="apple-touch-icon" href="/src/img/favicons/favicon-180.png" />
+              <meta name="theme-color" content="#1C75BC" />
+              <link rel="icon" sizes="192x192" href="/src/img/favicons/favicon-192.png" />
+          </Helmet>
+      );
+  }
+};
+
 
 export class App extends Component {
   render() {
@@ -126,11 +153,14 @@ export class App extends Component {
     });
 
     return (
-      <Router>
-        <div className="container">
-          {pages}
-        </div>
-      </Router>
+        <Fragment>
+          <Meta />
+          <Router>
+            <div className="container">
+              {pages}
+            </div>
+          </Router>
+        </Fragment>
     );
   }
 }
