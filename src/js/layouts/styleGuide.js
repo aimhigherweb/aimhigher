@@ -300,12 +300,17 @@ export class ColourSet extends Component {
         let colGroupDark = this.props.set.dark;
         let colMain = this.props.set.main;
 
+
         return (
             <div className="colour set">
                 <ColourSwatch cols={colMain} />
                 <div className="colour group-container">
-                    <ColourGroup colgroup={colGroupLight} vars='light' />
-                    <ColourGroup colgroup={colGroupDark} vars='dark' />
+                    {colMain.hex != "#FFFFFF" &&
+                        <ColourGroup colgroup={colGroupLight} vars='light' />
+                    }
+                    {colMain.hex != "#000000" &&
+                        <ColourGroup colgroup={colGroupDark} vars='dark' />
+                    }
                 </div>
             </div>
         );
