@@ -6,7 +6,7 @@ import ReactSVG from 'react-svg';
 import {App, menuItems} from './app.js';
 
 //Resources
-import AimHigherLogo from '../../img/logo.svg';
+import Logo from '../../img/logo.svg';
 import {Menu} from 'react-feather';
 import '../../scss/partials/header.scss';
 
@@ -24,8 +24,7 @@ export class Header extends React.Component {
 const SiteTitle = (logo => (
     <div className="site-logo">
         <a href="/">
-            <ReactSVG path={AimHigherLogo} />
-            <img src={AimHigherLogo} />
+            <ReactSVG path={Logo} />
         </a>
     </div>
 ));
