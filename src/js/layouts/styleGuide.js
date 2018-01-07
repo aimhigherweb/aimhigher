@@ -6,7 +6,7 @@ import ReactSVG from 'react-svg';
 import {FaFacebookSquare, FaTwitterSquare, FaInstagram} from 'react-icons/lib/fa';
 
 //Resources
-import AimHigherLogo from '../../img/logo.svg';
+import Logo from '../../img/logo.svg';
 import '../../scss/partials/styleGuide.scss';
 
 
@@ -317,12 +317,11 @@ export class Typography extends Component {
         let clientLogo, logoOri;
 
         if (this.props.clientName) {
-            console.log("yes");
             clientLogo = this.props.logo;
             logoOri = this.props.ori;
         }
         else {
-            clientLogo = AimHigherLogo;
+            clientLogo = Logo;
             logoOri = 'landscape';
         };
 
