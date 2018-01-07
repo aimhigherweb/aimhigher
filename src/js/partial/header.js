@@ -3,11 +3,10 @@ import {BrowserRouter as Router, NavLink} from 'react-router-dom';
 import ReactSVG from 'react-svg';
 
 //Components
-import {App} from './app.js';
-import {menuItems} from '../data/navItems.js';
+import {App, menuItems} from './app.js';
 
 //Resources
-import Logo from '../../img/logo.svg';
+import AimHigherLogo from '../../img/logo.svg';
 import {Menu} from 'react-feather';
 import '../../scss/partials/header.scss';
 
@@ -22,13 +21,14 @@ export class Header extends React.Component {
     };
 };
 
-const SiteTitle = (
+const SiteTitle = (logo => (
     <div className="site-logo">
         <a href="/">
-            <ReactSVG path={Logo} />
+            <ReactSVG path={AimHigherLogo} />
+            <img src={AimHigherLogo} />
         </a>
     </div>
-);
+));
 
 class MainMenu extends React.Component {
     mobileMenu() {

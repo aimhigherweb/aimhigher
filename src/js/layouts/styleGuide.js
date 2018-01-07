@@ -6,6 +6,7 @@ import ReactSVG from 'react-svg';
 import {FaFacebookSquare, FaTwitterSquare, FaInstagram} from 'react-icons/lib/fa';
 
 //Resources
+import AimHigherLogo from '../../img/logo.svg';
 import '../../scss/partials/styleGuide.scss';
 
 
@@ -313,17 +314,17 @@ export class ColourSet extends Component {
 
 export class Typography extends Component {
     render() {
-        let clientName, logoOri;
+        let clientLogo, logoOri;
 
         if (this.props.clientName) {
-            clientName = '/clientPortal/' + this.props.clientName;
+            console.log("yes");
+            clientLogo = this.props.logo;
             logoOri = this.props.ori;
         }
         else {
-            clientName = '';
+            clientLogo = AimHigherLogo;
             logoOri = 'landscape';
         };
-
 
         return (
             <div>
@@ -332,7 +333,7 @@ export class Typography extends Component {
                     <div className={"logo-headings " + logoOri}>
                         <div className={'logo ' + logoOri}>
                             <figure>
-                                <ReactSVG path={'/img' + clientName + '/logo.svg'} />
+                                <ReactSVG path={clientLogo} />
                                 <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
                             </figure>
                         </div>
