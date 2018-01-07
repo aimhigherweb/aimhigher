@@ -1,12 +1,12 @@
 {
-  "name": "starter-kit-react",
+  "name": "aimhigher-web-design",
   "version": "1.0.0",
-  "description": "Starter kit for React sites by AimHigher Web Design",
+  "description": "Main website for AimHigher using the React Starter Kit",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --history-api-fallback --hot",
-    "build": "webpack && cp dist/index.html dist/404.html"
+    "start": "webpack-dev-server --open --config webpack.dev.js --history-api-fallback --hot",
+    "build": "webpack --config webpack.prod.js && cp build/index.html build/404.html"
   },
   "repository": {
     "type": "git",
@@ -31,11 +31,12 @@
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-snapshot": "^1.3.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.10.0"
+    "webpack-dev-server": "^2.10.0",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "react-feather": "^1.0.8",
