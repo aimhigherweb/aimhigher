@@ -51,7 +51,7 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          'file-loader'
+          'file-loader?name=[path][name].[ext]' //Keep original file name
         ]
       }
     ]
