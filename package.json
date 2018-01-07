@@ -6,18 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --history-api-fallback --hot",
-    "build": "webpack && cp dist/index.html dist/404.html && react-snapshot"
+    "build": "webpack && cp dist/index.html dist/404.html && react-snapshot --build-dir dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AimHigher-Web-Design/starter-kit-react.git"
+    "url": "git+https://github.com/AimHigher-Web-Design/aimhigher.git"
   },
   "author": "AimHigher Web Design",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AimHigher-Web-Design/starter-kit-react/issues"
+    "url": "https://github.com/AimHigher-Web-Design/aimhigher/issues"
   },
-  "homepage": "https://github.com/AimHigher-Web-Design/starter-kit-react#readme",
+  "homepage": "https://github.com/AimHigher-Web-Design/aimhigher#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
