@@ -7,6 +7,15 @@ import {ExternalLink, Github} from 'react-feather';
 import '../../scss/layouts/portfolio.scss';
 import siteList from '../data/siteList.js';
 
+//Importing Images
+var images = {};
+
+function importAll (r) {
+    r.keys().forEach(key => images[key] = r(key));
+}
+
+importAll(require.context('../../img/portfolio/', true, /\.jpg$/));
+
 class Meta extends Component {
     render() {
         let name = 'Portfolio | AimHigher Web Design';
@@ -55,11 +64,11 @@ class Sites extends Component {
                 <div key={item.slug} className={'site ' + item.slug}>
                     <div className="mockups">
                         <div className="image-container desktop">
-                            <img alt={'Desktop screenshot of ' + item.name} src={'/img/portfolio/' + item.slug + '/desktop.jpg'} />
+                            <img alt={'Desktop screenshot of ' + item.name} src={'/src/img/portfolio/' + item.slug + '/desktop.jpg'} />
                         </div>
                         {item.mobile === true &&
                             <div className="image-container mobile">
-                                <img alt={'Mobile screenshot of ' + item.name}  src={'/img/portfolio/' + item.slug + '/mobile.jpg'} />
+                                <img alt={'Mobile screenshot of ' + item.name}  src={'/src/img/portfolio/' + item.slug + '/mobile.jpg'} />
                             </div>
                         }
                     </div>
