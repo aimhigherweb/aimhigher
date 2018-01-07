@@ -10,9 +10,9 @@ import {Footer} from './partial/footer.js';
 //Resources
 import './../scss/global.scss';
 
-render(<Header />, document.getElementById('header'));
+ReactDOM.render(<Header />, document.getElementById('header'));
 
-render(<App />, document.getElementById('main'));
+ReactDOM.render(<App />, document.getElementById('main'));
 
-render(<Footer />, document.getElementById('footer'));
+ReactDOM.render(<Footer />, document.getElementById('footer'));
 
