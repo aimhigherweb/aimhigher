@@ -41,7 +41,7 @@ export class GlenrockHay extends Component {
         document.getElementById('root').classList.add('style-guide');
 
         return (
-            <div className="content typography">
+            <div className="content typography glenrockHay">
                 <Meta />
                 <h1>Glenrock Hay</h1>
                 <div>

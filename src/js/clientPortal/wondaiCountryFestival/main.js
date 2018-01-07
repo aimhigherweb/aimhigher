@@ -41,7 +41,7 @@ export class WondaiCountry extends Component {
         document.getElementById('root').classList.add('style-guide');
 
         return (
-            <div className="content typography">
+            <div className="content typography wondaiCountryFestival">
                 <Meta />
                 <h1>Wondai Country Running Festival</h1>
                 <div>

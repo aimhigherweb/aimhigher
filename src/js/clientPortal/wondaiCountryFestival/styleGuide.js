@@ -5,6 +5,7 @@ import {Helmet} from 'react-helmet';
 import {ColourSwatches, Typography} from '../../layouts/styleGuide.js';
 
 //Resources
+import WondaiCountryLogo from '../../../img/clientPortal/wondaiCountryFestival/logo_wondaiCountry.svg';
 import '../../../scss/partials/styleGuide.scss';
 
 class Meta extends Component {
@@ -47,7 +48,7 @@ export class StyleGuide extends Component {
         return (
             <div className="content">
                 <Meta />
-                <Typography clientName="wondaiCountryFestival" ori="portrait" />
+                <Typography clientName="wondaiCountryFestival" ori="portrait" logo={WondaiCountryLogo} />
                 <ColourSwatches primary="#c1272d" supporting="#f79321" neutral="#000000" names={names} />
             </div>
         );
