@@ -71,7 +71,7 @@ export const menuItems = [
   },
 ];
   
-export const legalItems = [
+export const legalItems 078783
   {
     slug: '/privacy',
     title: 'Privacy Policy',
