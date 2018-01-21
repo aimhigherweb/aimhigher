@@ -7,6 +7,10 @@
     "type": "git",
     "url": "git+https://github.com/AimHigher-Web-Design/aimhigher.git"
   },
+  "scripts": {
+    "start": "parcel ./index.html -p 3500",
+    "build": "parcel ./src/index.js -d build"
+  },
   "author": "AimHigher Web Design",
   "license": "ISC",
   "bugs": {
@@ -14,8 +18,12 @@
   },
   "homepage": "https://github.com/AimHigher-Web-Design/aimhigher#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "parcel-bundler": "^1.4.1"
   },
   "dependencies": {
     "react-feather": "^1.0.8",
