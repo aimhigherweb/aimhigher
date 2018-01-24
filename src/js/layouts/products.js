@@ -64,13 +64,11 @@ export class ProductsServices extends Component {
 class Products extends Component {
     render() {
         let products = services.map(product => {
-            let thisImage = product.slug;
-            console.log(images);
-            // console.log("" + images[thisImage]);
+            let thisImage = product.slug + ".jpg";
             return(
                 <div key={product.slug} className="product">
                     <div className="image-container">
-                        <img alt={'Product image for ' + product.name}  src={images[thisImage] + '.jpg'} />
+                        <img alt={'Product image for ' + product.name}  src={images[thisImage]} />
                     </div>
                     <h3 className="name">{product.name}</h3>
                     {product.price !== '' &&
