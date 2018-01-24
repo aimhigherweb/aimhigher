@@ -6,16 +6,10 @@ import '../../scss/layouts/products.scss';
 import services from '../data/services.js';
 
 //Importing Images
-var images = {};
-
-function importAll (r) {
-    r.keys().forEach(key => images[key] = r(key));
-}
-
-importAll(require.context('../../img/products/', true, /\.jpg$/));
+import images from '../../img/products/*';
 
 class Meta extends Component {
-    render() {
+    render() { 
         let name = 'Products | AimHigher Web Design';
         let description ="See our service offerings";
         let slug = 'services';
@@ -70,10 +64,13 @@ export class ProductsServices extends Component {
 class Products extends Component {
     render() {
         let products = services.map(product => {
+            let thisImage = product.slug;
+            console.log(images);
+            // console.log("" + images[thisImage]);
             return(
                 <div key={product.slug} className="product">
                     <div className="image-container">
-                        <img alt={'Product image for ' + product.name}  src={'/src/img/products/' + product.slug + '.jpg'} />
+                        <img alt={'Product image for ' + product.name}  src={images[thisImage] + '.jpg'} />
                     </div>
                     <h3 className="name">{product.name}</h3>
                     {product.price !== '' &&
@@ -89,5 +86,5 @@ class Products extends Component {
                 {products}
             </div>
         );
-    };
+    }
 }

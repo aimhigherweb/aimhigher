@@ -8,13 +8,7 @@ import '../../scss/layouts/portfolio.scss';
 import siteList from '../data/siteList.js';
 
 //Importing Images
-var images = {};
-
-function importAll (r) {
-    r.keys().forEach(key => images[key] = r(key));
-}
-
-importAll(require.context('../../img/portfolio/', true, /\.jpg$/));
+import {images} from '../../img/portfolio/*';
 
 class Meta extends Component {
     render() {
@@ -59,6 +53,8 @@ export class Portfolio extends Component {
 
 class Sites extends Component {
     render() {
+        console.log({images});
+
         let portfolio = siteList.map(item => {
             return(
                 <div key={item.slug} className={'site ' + item.slug}>
