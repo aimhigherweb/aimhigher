@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "parcel ./index.html -p 3500",
-    "build": "parcel build ./src/index.js -d build/"
+    "build": "parcel build ./index.html -d build && cp ./build/index.html ./build/404.html"
   },
   "author": "AimHigher Web Design",
   "license": "ISC",
