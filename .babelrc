@@ -2,10 +2,5 @@
     "presets": [
         "env", 
         "react"
-    ],
-    "plugins": [
-        "react-hot-loader/babel",
-        "transform-runtime",
-        "transform-object-rest-spread"
     ]
 }
