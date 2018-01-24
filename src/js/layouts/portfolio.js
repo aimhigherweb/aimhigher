@@ -8,7 +8,10 @@ import '../../scss/layouts/portfolio.scss';
 import siteList from '../data/siteList.js';
 
 //Importing Images
-import {images} from '../../img/portfolio/*';
+import frameDesktop from '../../img/portfolio/desktop.png';
+import frameMobile from '../../img/portfolio/mobile.png';
+import desktops from '../../img/portfolio/**/desktop.jpg';
+import mobiles from '../../img/portfolio/**/mobile.jpg';
 
 class Meta extends Component {
     render() {
@@ -53,18 +56,19 @@ export class Portfolio extends Component {
 
 class Sites extends Component {
     render() {
-        console.log({images});
-
+        let styleDesktop = {borderImageSource: 'url(' + frameDesktop + ')'};
+        let styleMobile = {borderImageSource: 'url(' + frameMobile + ')'};
         let portfolio = siteList.map(item => {
+            let thisSite = item.slug;
             return(
                 <div key={item.slug} className={'site ' + item.slug}>
                     <div className="mockups">
-                        <div className="image-container desktop">
-                            <img alt={'Desktop screenshot of ' + item.name} src={'/src/img/portfolio/' + item.slug + '/desktop.jpg'} />
+                        <div className="image-container desktop" style={styleDesktop}>
+                            <img alt={'Desktop screenshot of ' + item.name} src={desktops[thisSite]} />
                         </div>
                         {item.mobile === true &&
-                            <div className="image-container mobile">
-                                <img alt={'Mobile screenshot of ' + item.name}  src={'/src/img/portfolio/' + item.slug + '/mobile.jpg'} />
+                            <div className="image-container mobile" style={styleMobile}>
+                                <img alt={'Mobile screenshot of ' + item.name}  src={mobiles[thisSite]} />
                             </div>
                         }
                     </div>
