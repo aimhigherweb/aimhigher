@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+
+h3 {
+    font-size: 20px;
+}
+
+ol.privacy {
+    padding: 0;
+
+    li {
+        color: $blue_50_dark;
+        font: $font_headings;
+        list-style-position: inside;
+
+        h3 {
+            display: inline;
+        }
+
+        p {
+            color: $grey_75_dark;
+            font: $font_regular;
+            font-size: 15px;
+        }
+    }
+}

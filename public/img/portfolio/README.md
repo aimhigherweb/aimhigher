@@ -1,1 +1,0 @@
-Examples of my code can be found on my github profile.
