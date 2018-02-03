@@ -7,9 +7,9 @@ class ScrollToTop extends Component {
 			window.scrollTo(0, 0);
 
 			if (
-				document.getElementById('header').classList.contains('active')
+				document.getElementsByClassName('main menu active').length > 0
 			) {
-				document.getElementById('header').classList.remove('active');
+				document.getElementById('nav-main').classList.remove('active');
 			}
 		}
 	}
