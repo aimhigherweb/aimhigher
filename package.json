@@ -1,38 +1,39 @@
 {
-  "name": "aimhigher-web-design",
-  "version": "2.0.0",
-  "description": "Main website for AimHigher using the React Starter Kit",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AimHigher-Web-Design/aimhigher.git"
-  },
-  "scripts": {
-    "start": "parcel ./index.html -p 3500",
-    "build": "parcel build ./index.html -d build --public-url / && cp ./build/index.html ./build/404.html"
-  },
-  "author": "AimHigher Web Design",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AimHigher-Web-Design/aimhigher/issues"
-  },
-  "homepage": "https://github.com/AimHigher-Web-Design/aimhigher#readme",
-  "dependencies": {
-    "node-sass": "^4.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-feather": "^1.0.8",
-    "react-helmet": "^5.2.0",
-    "react-icons": "^2.2.7",
-    "react-media": "^1.6.1",
-    "react-router-dom": "^4.2.2",
-    "react-svg": "^2.2.10"
-  },
-  "devDependencies": {
-    "autoprefixer": "^7.2.5",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "parcel-bundler": "^1.2.0",
-    "postcss-modules": "^1.1.0"
-  }
+	"name": "aimhigher-web-design",
+	"version": "2.0.0",
+	"description": "Main website for AimHigher using the React Starter Kit",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AimHigher-Web-Design/aimhigher.git"
+	},
+	"scripts": {
+		"start": "parcel ./index.html -p 3500",
+		"build":
+			"parcel build ./index.html -d build --public-url / && cp ./build/index.html ./build/404.html"
+	},
+	"author": "AimHigher Web Design",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AimHigher-Web-Design/aimhigher/issues"
+	},
+	"homepage": "https://github.com/AimHigher-Web-Design/aimhigher#readme",
+	"dependencies": {
+		"node-sass": "^4.7.2",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0",
+		"react-feather": "^1.0.8",
+		"react-helmet": "^5.2.0",
+		"react-icons": "^2.2.7",
+		"react-media": "^1.6.1",
+		"react-router-dom": "^4.2.2",
+		"react-svg": "^2.2.10"
+	},
+	"devDependencies": {
+		"autoprefixer": "^7.2.5",
+		"babel-preset-env": "^1.6.1",
+		"babel-preset-react": "^6.24.1",
+		"parcel-bundler": "^1.2.0",
+		"prettier": "^1.10.2"
+	}
 }
