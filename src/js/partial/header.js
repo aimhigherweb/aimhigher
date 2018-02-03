@@ -41,7 +41,7 @@ class MainMenu extends React.Component {
 	render() {
 		let navItems = menuItems.map((navItem) => {
 			return (
-				<li key={navItem.title}>
+				<li key={navItem.title} className={'' + navItem.class}>
 					<NavLink to={navItem.slug} activeClassName="current">
 						{navItem.title}
 					</NavLink>

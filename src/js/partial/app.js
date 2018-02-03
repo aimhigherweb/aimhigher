@@ -28,6 +28,7 @@ export const menuItems = [
 		slug: '/',
 		title: 'Home',
 		component: () => <Home />,
+		class: 'hidden',
 	},
 	{
 		slug: '/about-us',

@@ -51,6 +51,10 @@ header {
 					border-top: 2px solid $aqua;
 				}
 			}
+
+			&.hidden {
+				display: none;
+			}
 		}
 	}
 
