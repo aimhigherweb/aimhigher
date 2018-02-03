@@ -51,9 +51,9 @@ class MainMenu extends React.Component {
 
 		return (
 			<nav id="nav-main" className="menu main">
-				<a href="#" className="hamburger" onClick={this.mobileMenu}>
+				<button className="hamburger" onClick={this.mobileMenu}>
 					<Menu />
-				</a>
+				</button>
 				<ul>{navItems}</ul>
 			</nav>
 		);

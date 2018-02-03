@@ -15,8 +15,19 @@ header {
 		top: 4.5vh;
 
 		.hamburger {
+			background: none;
+			border: none;
+			color: $blue;
+			cursor: pointer;
+			padding: 0;
 			position: absolute;
 			right: 0;
+
+			&:active,
+			&:hover,
+			&:focus {
+				border: none;
+			}
 		}
 
 		&.active {
