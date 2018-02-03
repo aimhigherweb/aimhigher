@@ -73,16 +73,14 @@ class FooterMenu extends React.Component {
 
 		return (
 			<nav id="nav-footer" className="menu footer">
-				<Router>
-					<ul>
-						<li>
-							<NavLink to="/" activeClassName="current">
-								Home
-							</NavLink>
-						</li>
-						{navItems}
-					</ul>
-				</Router>
+				<ul>
+					<li>
+						<NavLink to="/" activeClassName="current">
+							Home
+						</NavLink>
+					</li>
+					{navItems}
+				</ul>
 			</nav>
 		);
 	}
