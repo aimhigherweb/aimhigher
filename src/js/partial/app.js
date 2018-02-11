@@ -135,6 +135,14 @@ export class App extends Component {
 			}
 		};
 
+		window.onload = function() {
+			let theseImages = document.getElementsByClassName('placeholder');
+			console.log(theseImages);
+			for (let i=0; i < theseImages.length; i++) {
+				theseImages[i].classList.add('loaded');
+			};
+		}
+
 		document.getElementById('root').classList.remove('style-guide');
 
 		let pages = routeItems.map((page) => {

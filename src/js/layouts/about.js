@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Media from 'react-media';
 import Helmet from 'react-helmet';
+import ReactSVG from 'react-svg';
 
 //Resources
 import ProfileImage320 from '../../img/profile_320.jpg';
 import ProfileImage180 from '../../img/profile_180.jpg';
+import ProfilePlaceholder from '../../img/profile.svg';
 import '../../scss/layouts/about.scss';
 
 class Meta extends Component {
@@ -90,7 +92,7 @@ export class About extends Component {
 								)}
 							/>
 							<Media
-								query="(min-width: 736px)"
+								query="(min-width: 735px)"
 								render={() => (
 									<img
 										alt="Amy Kapernick - Founder of AimHigher Web Design"
@@ -98,6 +100,7 @@ export class About extends Component {
 									/>
 								)}
 							/>
+							<ReactSVG path={ProfilePlaceholder} className="placeholder" />
 							<figcaption>
 								Amy Kapernick - Founder of AimHigher Web Design
 							</figcaption>
@@ -107,4 +110,4 @@ export class About extends Component {
 			</div>
 		);
 	}
-}
+};
