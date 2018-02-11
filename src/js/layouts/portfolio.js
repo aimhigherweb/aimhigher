@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import ReactSVG from 'react-svg';
 
 import { ExternalLink, Github } from 'react-feather';
 
@@ -12,6 +13,8 @@ import frameDesktop from '../../img/portfolio/desktop.png';
 import frameMobile from '../../img/portfolio/mobile.png';
 import desktops from '../../img/portfolio/**/desktop.jpg';
 import mobiles from '../../img/portfolio/**/mobile.jpg';
+import desktopPlaceholders from '../../img/portfolio/**/desktop.svg';
+import mobilePlaceholders from '../../img/portfolio/**/mobile.svg';
 
 class Meta extends Component {
 	render() {
@@ -80,6 +83,7 @@ class Sites extends Component {
 								alt={'Desktop screenshot of ' + item.name}
 								src={desktops[thisSite]}
 							/>
+							<ReactSVG path={desktopPlaceholders[thisSite]} className="placeholder" />
 						</div>
 						{item.mobile === true && (
 							<div
@@ -90,6 +94,7 @@ class Sites extends Component {
 									alt={'Mobile screenshot of ' + item.name}
 									src={mobiles[thisSite]}
 								/>
+								<ReactSVG path={mobilePlaceholders[thisSite]} className="placeholder" />
 							</div>
 						)}
 					</div>

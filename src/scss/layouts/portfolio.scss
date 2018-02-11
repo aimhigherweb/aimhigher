@@ -89,6 +89,7 @@
 
         .image-container {
             border-style: solid;
+            position: relative;
 
             &.desktop {
                 border-width: $desk_width_top $desk_width_right $desk_width_bottom $desk_width_left;

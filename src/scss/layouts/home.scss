@@ -42,6 +42,12 @@ section.parallax {
         }
 
     }
+
+    .placeholder {
+        &.home {
+            min-height: 100vh;
+        }
+    }
   
     .container {
         margin: 90vh 0 15vh;

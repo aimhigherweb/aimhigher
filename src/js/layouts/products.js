@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Helmet} from 'react-helmet';
+import ReactSVG from 'react-svg';
 
 //Resources
 import '../../scss/layouts/products.scss';
@@ -63,12 +64,15 @@ export class ProductsServices extends Component {
 
 class Products extends Component {
     render() {
+        console.log(images);
         let products = services.map(product => {
             let thisImage = product.slug + ".jpg";
+            let thisPlaceholder = product.slug + ".svg";
             return(
                 <div key={product.slug} className="product">
                     <div className="image-container">
                         <img alt={'Product image for ' + product.name}  src={images[thisImage]} />
+                        <ReactSVG path={images[thisPlaceholder]} className="placeholder" />
                     </div>
                     <h3 className="name">{product.name}</h3>
                     {product.price !== '' &&
