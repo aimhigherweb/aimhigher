@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 
 //Resources
 import '../../scss/content.scss';
+import favicons from '../../img/favicons/*';
 
 //Components
 import { Home } from '../layouts/home.js';
@@ -110,39 +111,14 @@ class Meta extends Component {
 	render() {
 		return (
 			<Helmet>
-				<link
-					rel="shortcut icon"
-					href="/src/img/favicons/favicon.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="16x16"
-					href="/src/img/favicons/favicon-16.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="32x32"
-					href="/src/img/favicons/favicon-32.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="96x96"
-					href="/src/img/favicons/favicon-96.png"
-				/>
+				<link rel="shortcut icon" href={favicons['favicon.png']} />
+				<link rel="icon" type="image/png" sizes="16x16" href={favicons['favicon-16.png']} />
+				<link rel="icon" type="image/png" sizes="32x32" href={favicons['favicon-32.png']} />
+				<link rel="icon" type="image/png" sizes="96x96" href={favicons['favicon-96.png']} />
 
-				<link
-					rel="apple-touch-icon"
-					href="/src/img/favicons/favicon-180.png"
-				/>
+				<link rel="apple-touch-icon" href={favicons['favicon-180.png']} />
 				<meta name="theme-color" content="#1C75BC" />
-				<link
-					rel="icon"
-					sizes="192x192"
-					href="/src/img/favicons/favicon-192.png"
-				/>
+				<link rel="icon" sizes="192x192" href={favicons['favicon-192.png']} />
 			</Helmet>
 		);
 	}

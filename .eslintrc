@@ -1,11 +1,10 @@
 {
-    "parser": "babel-eslint",
-    "env": {
-        "browser": true,
-        "node": true
-    },
     "extends": "airbnb",
     "rules": {
-        "indent": [4, "tab"]
+      "func-names": [
+          "error", 
+          "never"
+        ],
+        "indent": [true, "tab"]
     }
-}
+  }
