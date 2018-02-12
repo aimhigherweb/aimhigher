@@ -1,0 +1,168 @@
+@import '../variables.scss';
+
+    // Mockups
+        $width_desk: 300px; //Change this to change the size of the image
+        $width_mob: 75px; //Change this to change the size of the image
+
+        // Desktop
+            $width_desk_full: 1279;
+            $height_desk_full: 1128;
+            $width_desk_img_full: 1191;
+            $height_desk_img_full: 712;
+            $ratio_desk: $height_desk_full / $width_desk_full;
+            $ratio_desk_img: $height_desk_img_full / $width_desk_img_full;
+            $ratio_desk_diff: $width_desk_img_full / $width_desk_full;
+
+            //Size on page
+                
+                $width_desk_img: $width_desk * $ratio_desk_diff;
+                $height_desk: $width_desk * $ratio_desk;
+
+            // Border Details
+                // Border thickness (full size)
+                    $desk_top: 118;
+                    $desk_right: 46;
+                    $desk_bottom: 299.5;
+                    $desk_left: 42;
+
+                // Splice Details
+                    $desk_splice_top: $desk_top / $height_desk_full * 100%;
+                    $desk_splice_right: $desk_right / $width_desk_full * 100%;
+                    $desk_splice_bottom: $desk_bottom / $height_desk_full * 100%;
+                    $desk_splice_left: $desk_left / $width_desk_full * 100%;
+
+                // Border Width
+                    $desk_width_top: $desk_top / $height_desk_full * $height_desk;
+                    $desk_width_right: $desk_right / $width_desk_full * $width_desk;
+                    $desk_width_bottom: $desk_bottom / $height_desk_full * $height_desk;
+                    $desk_width_left: $desk_left / $width_desk_full * $width_desk;
+
+        // Mobile
+            $width_mob_full: 1280;
+            $height_mob_full: 2600;
+            $width_mob_img_full: 1081;
+            $height_mob_img_full: 1925;
+            $ratio_mob: $height_mob_full / $width_mob_full;
+            $ratio_mob_img: $height_mob_img_full / $width_mob_img_full;
+            $ratio_mob_diff: $width_mob_img_full / $width_mob_full;
+
+            //Size on page
+                $width_mob_img: $width_mob * $ratio_mob_diff;
+                $height_mob: $width_mob * $ratio_mob;
+
+            // Border Details
+                // Border thickness (full size)
+                    $mob_top: 333.6;
+                    $mob_right: 99;
+                    $mob_bottom: 350;
+                    $mob_left: 95;
+
+                // Splice Details
+                    $mob_splice_top: $mob_top / $height_mob_full * 100%;
+                    $mob_splice_right: $mob_right / $width_mob_full * 100%;
+                    $mob_splice_bottom: $mob_bottom / $height_mob_full * 100%;
+                    $mob_splice_left: $mob_left / $width_mob_full * 100%;
+
+                // Border Width
+                    $mob_width_top: $mob_top / $height_mob_full * $height_mob;
+                    $mob_width_right: $mob_right / $width_mob_full * $width_mob;
+                    $mob_width_bottom: $mob_bottom / $height_mob_full * $height_mob;
+                    $mob_width_left: $mob_left / $width_mob_full * $width_mob;
+
+.portfolio {
+    display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    max-width: 1500px;
+}
+
+.site {
+    border-radius: 20px;
+    margin-bottom: 40px;
+    padding: 10px;
+    position: relative;
+    width: $width_desk + 20px;
+
+    .mockups {
+        position: relative;
+
+        .image-container {
+            border-style: solid;
+            position: relative;
+
+            &.desktop {
+                border-width: $desk_width_top $desk_width_right $desk_width_bottom $desk_width_left;
+                border-image: url(../../img/portfolio/desktop.png) $desk_splice_top $desk_splice_right $desk_splice_bottom $desk_splice_left stretch;
+                height: $height_desk;
+                width: $width_desk;
+
+                img {
+                    height: $width_desk_img * $ratio_desk_img;
+                    width: $width_desk_img;
+                }
+            }
+
+            &.mobile {
+                border-width: $mob_width_top $mob_width_right $mob_width_bottom $mob_width_left;
+                border-image: url(../../img/portfolio/mobile.png) $mob_splice_top $mob_splice_right $mob_splice_bottom $mob_splice_left stretch;
+                height: $height_mob;
+                position: absolute;
+                    bottom: 0;
+                    right: 0;
+                width: $width_mob;
+
+                img {
+                    height: $width_mob_img * $ratio_mob_img;
+                    width: $width_mob_img;
+                }
+            }
+        }
+    }
+
+    .name {
+        font-size: 1.3em;
+    }
+
+    .url, .date, .repo {
+        font-size: 1rem;
+        font-weight: normal;
+    }
+
+    .url {
+        &:active, &:hover, &:focus {
+            color: $aqua;
+        }
+
+        svg {
+            height: 20px;
+            margin-bottom: -3px;
+            width: 20px;
+        }
+    }
+
+    .date {
+        float: right;
+    }
+
+    .repo {
+        position: absolute;
+        bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 31rem) {
+    .site {    
+        background: $grey_25;
+        background: rgba($grey_50, 0.5);
+        margin: 0 20px 40px;
+    }
+}
+
+@media screen and (min-width: 46rem) {
+    .site {    
+        margin: 0 0 40px;
+        padding: 20px;
+        width: $width_desk + 40px;
+    }
+}
