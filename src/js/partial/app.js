@@ -138,15 +138,15 @@ class Meta extends Component {
 
 export class App extends Component {
 	componentDidUpdate() {
-		let theseImages = document.getElementsByClassName('placeholder');
-		setTimeout(
-			function() {
-				for (let i=0; i < theseImages.length; i++) {
-					theseImages[i].classList.add('loaded');
-				}
-			},
-			1000
-		)
+		// let theseImages = document.getElementsByClassName('placeholder');
+		// setTimeout(
+		// 	function() {
+		// 		for (let i=0; i < theseImages.length; i++) {
+		// 			theseImages[i].classList.add('loaded');
+		// 		}
+		// 	},
+		// 	1000
+		// )
 	}
 
 	render() {
