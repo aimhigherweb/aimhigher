@@ -22,6 +22,8 @@ import { StyleGuide } from '../layouts/styleGuide.js';
 import { WondaiCountry } from '../clientPortal/wondaiCountryFestival/main.js';
 import { SocialPilot } from '../clientPortal/wondaiCountryFestival/socialpilot.js';
 import { GlenrockHay } from '../clientPortal/glenrockHay/main.js';
+import { Bitgenics } from '../clientPortal/bitgenics/main.js';
+import { Owlkeyme } from '../clientPortal/owlkeyme/main.js';
 
 // Variables
 export const menuItems = [
@@ -99,6 +101,16 @@ const clientPages = [
 		slug: '/glenrock-hay',
 		title: 'Glenrock Hay',
 		component: () => <GlenrockHay />,
+	},
+	{
+		slug: '/bitgenics',
+		title: 'Bitgenics',
+		component: () => <Bitgenics />,
+	},
+	{
+		slug: '/owlkeyme',
+		title: 'Owlkeyme',
+		component: () => <Owlkeyme />,
 	},
 ];
 
