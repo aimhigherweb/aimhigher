@@ -62,6 +62,10 @@ blockquote {
     padding-left: 20px;
 }
 
+figure {
+    position: relative;
+}
+
 figcaption {
     border-right: 2px solid $blue;
     color: $blue_75_dark;
@@ -83,6 +87,22 @@ button, .btn {
 
 img {
     max-width: 100%;
+}
+
+svg.placeholder {
+    height: auto;
+        max-height: 100%;
+    position: absolute;
+        top: 0;
+        left: 0;
+    width: auto;
+        min-width: 100%;
+        max-width: 100%;
+    z-index: 20;
+
+    &.loaded {
+        display: none;
+    }
 }
 
 #main {

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 
 //Resources
 import '../../scss/content.scss';
+import favicons from '../../img/favicons/*';
 
 //Components
 import { Home } from '../layouts/home.js';
@@ -21,6 +22,8 @@ import { StyleGuide } from '../layouts/styleGuide.js';
 import { WondaiCountry } from '../clientPortal/wondaiCountryFestival/main.js';
 import { SocialPilot } from '../clientPortal/wondaiCountryFestival/socialpilot.js';
 import { GlenrockHay } from '../clientPortal/glenrockHay/main.js';
+import { Bitgenics } from '../clientPortal/bitgenics/main.js';
+import { Owlkeyme } from '../clientPortal/owlkeyme/main.js';
 
 // Variables
 export const menuItems = [
@@ -99,6 +102,16 @@ const clientPages = [
 		title: 'Glenrock Hay',
 		component: () => <GlenrockHay />,
 	},
+	{
+		slug: '/bitgenics',
+		title: 'Bitgenics',
+		component: () => <Bitgenics />,
+	},
+	{
+		slug: '/owlkeyme',
+		title: 'Owlkeyme',
+		component: () => <Owlkeyme />,
+	},
 ];
 
 const routeItems = menuItems
@@ -110,45 +123,32 @@ class Meta extends Component {
 	render() {
 		return (
 			<Helmet>
-				<link
-					rel="shortcut icon"
-					href="/src/img/favicons/favicon.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="16x16"
-					href="/src/img/favicons/favicon-16.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="32x32"
-					href="/src/img/favicons/favicon-32.png"
-				/>
-				<link
-					rel="icon"
-					type="image/png"
-					sizes="96x96"
-					href="/src/img/favicons/favicon-96.png"
-				/>
+				<link rel="shortcut icon" href={favicons['favicon.png']} />
+				<link rel="icon" type="image/png" sizes="16x16" href={favicons['favicon-16.png']} />
+				<link rel="icon" type="image/png" sizes="32x32" href={favicons['favicon-32.png']} />
+				<link rel="icon" type="image/png" sizes="96x96" href={favicons['favicon-96.png']} />
 
-				<link
-					rel="apple-touch-icon"
-					href="/src/img/favicons/favicon-180.png"
-				/>
+				<link rel="apple-touch-icon" href={favicons['favicon-180.png']} />
 				<meta name="theme-color" content="#1C75BC" />
-				<link
-					rel="icon"
-					sizes="192x192"
-					href="/src/img/favicons/favicon-192.png"
-				/>
+				<link rel="icon" sizes="192x192" href={favicons['favicon-192.png']} />
 			</Helmet>
 		);
 	}
 }
 
 export class App extends Component {
+	componentDidUpdate() {
+		let theseImages = document.getElementsByClassName('placeholder');
+		setTimeout(
+			function() {
+				for (let i=0; i < theseImages.length; i++) {
+					theseImages[i].classList.add('loaded');
+				}
+			},
+			1000
+		)
+	}
+
 	render() {
 		window.onscroll = function() {
 			const perHeight = window.innerHeight * 0.3;
@@ -158,6 +158,13 @@ export class App extends Component {
 				document.getElementById('root').classList.remove('scrolled');
 			}
 		};
+
+		window.onload = function() {
+			let theseImages = document.getElementsByClassName('placeholder');
+			for (let i=0; i < theseImages.length; i++) {
+				theseImages[i].classList.add('loaded');
+			};
+		}
 
 		document.getElementById('root').classList.remove('style-guide');
 

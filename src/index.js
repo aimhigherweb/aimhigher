@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-// import render from 'react-snapshot';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 

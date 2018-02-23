@@ -212,7 +212,7 @@ export class ColourSwatches extends Component {
             );
         });
 
-        // console.log(colours);
+        console.log(colours);
 
         let colVars = '';
 

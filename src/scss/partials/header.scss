@@ -1,12 +1,12 @@
 @import '../variables.scss';
 
 header {
-	background: rgba(#fff, 0.5);
+	background: rgba(#fff, 0.7);
 	height: $height_header;
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 5;
+	z-index: 20;
 
 	nav {
 		float: right;

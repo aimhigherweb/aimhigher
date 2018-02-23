@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import ReactSVG from 'react-svg';
 
 import { ExternalLink, Github } from 'react-feather';
 
@@ -8,10 +9,15 @@ import '../../scss/layouts/portfolio.scss';
 import siteList from '../data/siteList.js';
 
 //Importing Images
-import frameDesktop from '../../img/portfolio/desktop.png';
-import frameMobile from '../../img/portfolio/mobile.png';
-import desktops from '../../img/portfolio/**/desktop.jpg';
-import mobiles from '../../img/portfolio/**/mobile.jpg';
+import frameDesktop from '../../img/portfolio/desktop.svg';
+import frameTablet from '../../img/portfolio/tablet.svg';
+import frameMobile from '../../img/portfolio/mobile.svg';
+import desktops from '../../img/portfolio/**/desktop.png';
+import tablets from '../../img/portfolio/**/tablet.png';
+import mobiles from '../../img/portfolio/**/mobile.png';
+import desktopPlaceholders from '../../img/portfolio/**/desktop.svg';
+import tabletPlaceholders from '../../img/portfolio/**/tablet.svg';
+import mobilePlaceholders from '../../img/portfolio/**/mobile.svg';
 
 class Meta extends Component {
 	render() {
@@ -65,31 +71,35 @@ export class Portfolio extends Component {
 
 class Sites extends Component {
 	render() {
-		let styleDesktop = { borderImageSource: 'url(' + frameDesktop + ')' };
-		let styleMobile = { borderImageSource: 'url(' + frameMobile + ')' };
 		let portfolio = siteList.map((item) => {
 			let thisSite = item.slug;
 			return (
 				<div key={item.slug} className={'site ' + item.slug}>
 					<div className="mockups">
-						<div
-							className="image-container desktop"
-							style={styleDesktop}
-						>
+						<div className="image-container desktop">
+							<ReactSVG path={frameDesktop} className="frame" />
 							<img
 								alt={'Desktop screenshot of ' + item.name}
 								src={desktops[thisSite]}
 							/>
+							<ReactSVG path={desktopPlaceholders[thisSite]} className="placeholder" />
+						</div>
+						<div className="image-container tablet">
+							<ReactSVG path={frameTablet} className="frame" />
+							<img
+								alt={'Tablet screenshot of ' + item.name}
+								src={tablets[thisSite]}
+							/>
+							<ReactSVG path={tabletPlaceholders[thisSite]} className="placeholder" />
 						</div>
 						{item.mobile === true && (
-							<div
-								className="image-container mobile"
-								style={styleMobile}
-							>
+							<div className="image-container mobile">
+								<ReactSVG path={frameMobile} className="frame" />
 								<img
 									alt={'Mobile screenshot of ' + item.name}
 									src={mobiles[thisSite]}
 								/>
+								<ReactSVG path={mobilePlaceholders[thisSite]} className="placeholder" />
 							</div>
 						)}
 					</div>

@@ -30,9 +30,14 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^7.2.5",
+		"babel-eslint": "^8.2.1",
 		"babel-preset-env": "^1.6.1",
 		"babel-preset-react": "^6.24.1",
-		"parcel-bundler": "^1.2.0",
-		"prettier": "^1.10.2"
+		"eslint": "^4.17.0",
+		"eslint-config-airbnb": "^16.1.0",
+		"eslint-plugin-import": "^2.8.0",
+		"eslint-plugin-jsx-a11y": "^6.0.3",
+		"eslint-plugin-react": "^7.6.1",
+		"parcel-bundler": "^1.2.0"
 	}
 }

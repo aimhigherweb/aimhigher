@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import ReactSVG from 'react-svg';
 
 //Resources
 import '../../scss/layouts/home.scss';
 import { ChevronsDown } from 'react-feather';
+import BackgroundPlaceholder from '../../img/parallax/unsplash.svg';
 
 class Meta extends Component {
 	render() {
@@ -65,20 +67,16 @@ export class Home extends Component {
 		return (
 			<section className="parallax home">
 				<Meta />
-				<div className="bcg slide-1 intro" />
+				<div className="bcg slide-1 intro">
+					<ReactSVG path={BackgroundPlaceholder} className="placeholder home" />
+				</div>
 				<div className="container slide-1 intro">
 					<div className="scroll">
-						<a
-							aria-label="Click to scroll"
-							href="#slide-1-content"
-						>
+						<a aria-label="Click to scroll" href="#slide-1-content">
 							<ChevronsDown />
 						</a>
 					</div>
-					<div
-						id="slide-1-content"
-						className="content link-content"
-					>
+					<div id="slide-1-content" className="content link-content">
 						<p>
 							AimHigher Web Design is based in
 							Perth and specialises in designing
