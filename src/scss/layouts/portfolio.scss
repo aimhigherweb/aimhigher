@@ -96,7 +96,7 @@
                     right: 0;
                     bottom: 0;
                     left: 0;
-                z-index: 10;
+                z-index: calc(var(--index-image) + 2);
             }
 
             img, svg.placeholder {
@@ -105,13 +105,14 @@
                     top: var(--offset-top);
                     left: var(--offset-left);
                 width: var(--width-image);
-                z-index: var(--index-image);
+                z-index: calc(var(--index-image) + 1);
             }
 
             svg.placeholder {
                 max-height: unset;
                 min-width: unset;
                 max-width: unset;
+                z-index: var(--index-image);
             }
 
             &.desktop {
@@ -121,7 +122,6 @@
                 --width-image: $width_desk_img;
                 --offset-top: $top_desk;
                 --offset-left: $left_desk;
-                --index-frame: 6;
                 --index-image: 5;
                 position: relative;
             }
@@ -133,8 +133,7 @@
                 --width-image: $width_tab_img;
                 --offset-top: $top_tab;
                 --offset-left: $left_tab;
-                --index-frame: 8;
-                --index-image: 7;
+                --index-image: 10;
                 right: 30px;
                 bottom: 0;
             }
@@ -146,8 +145,7 @@
                 --width-image: $width_mob_img;
                 --offset-top: $top_mob;
                 --offset-left: $left_mob;
-                --index-frame: 10;
-                --index-image: 9;
+                --index-image: 15;
                 bottom: 0;
                 right: 0;
             }

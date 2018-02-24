@@ -87,6 +87,8 @@ button, .btn {
 
 img {
     max-width: 100%;
+    position: relative;
+    z-index: 21;
 }
 
 svg.placeholder {
