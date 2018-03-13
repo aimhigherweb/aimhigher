@@ -19,6 +19,7 @@
 	"homepage": "https://github.com/AimHigher-Web-Design/aimhigher#readme",
 	"dependencies": {
 		"node-sass": "^4.7.2",
+		"npm": "^5.7.1",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0",
 		"react-feather": "^1.0.8",
@@ -29,7 +30,7 @@
 		"react-svg": "^2.2.10"
 	},
 	"devDependencies": {
-		"autoprefixer": "^7.2.5",
+		"autoprefixer": "^8.1.0",
 		"babel-eslint": "^8.2.1",
 		"babel-preset-env": "^1.6.1",
 		"babel-preset-react": "^6.24.1",
@@ -38,6 +39,6 @@
 		"eslint-plugin-import": "^2.8.0",
 		"eslint-plugin-jsx-a11y": "^6.0.3",
 		"eslint-plugin-react": "^7.6.1",
-		"parcel-bundler": "^1.2.0"
+		"parcel-bundler": "^1.6.2"
 	}
 }

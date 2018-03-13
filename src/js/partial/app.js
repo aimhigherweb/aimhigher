@@ -24,6 +24,7 @@ import { SocialPilot } from '../clientPortal/wondaiCountryFestival/socialpilot.j
 import { GlenrockHay } from '../clientPortal/glenrockHay/main.js';
 import { Bitgenics } from '../clientPortal/bitgenics/main.js';
 import { Owlkeyme } from '../clientPortal/owlkeyme/main.js';
+import { DavidManera } from '../clientPortal/davidManera/main.js';
 
 // Variables
 export const menuItems = [
@@ -111,6 +112,11 @@ const clientPages = [
 		slug: '/owlkeyme',
 		title: 'Owlkeyme',
 		component: () => <Owlkeyme />,
+	},
+	{
+		slug: '/david-manera',
+		title: 'David Manera',
+		component: () => <DavidManera />,
 	},
 ];
 
