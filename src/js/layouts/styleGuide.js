@@ -305,7 +305,7 @@ export class ColourSet extends Component {
             <div className="colour set">
                 <ColourSwatch cols={colMain} />
                 <div className="colour group-container">
-                    {colMain.hex != "#FFFFFF" &&
+                    {colMain.hex != "#ffffff" &&
                         <ColourGroup colgroup={colGroupLight} vars='light' />
                     }
                     {colMain.hex != "#000000" &&

@@ -49,7 +49,7 @@ export class StyleGuide extends Component {
             <div className="content">
                 <Meta />
                 <Typography clientName="davidManera" />
-                <ColourSwatches primary="#000080" supporting="#000000" neutral="#FFFFFF" names={names} />
+                <ColourSwatches primary="#000060" supporting="#000000" neutral="#FFFFFF" names={names} />
             </div>
         );
     }
