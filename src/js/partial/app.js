@@ -143,18 +143,6 @@ class Meta extends Component {
 }
 
 export class App extends Component {
-	componentDidUpdate() {
-		let theseImages = document.getElementsByClassName('placeholder');
-		setTimeout(
-			function() {
-				for (let i=0; i < theseImages.length; i++) {
-					theseImages[i].classList.add('loaded');
-				}
-			},
-			1000
-		)
-	}
-
 	render() {
 		window.onscroll = function() {
 			const perHeight = window.innerHeight * 0.3;
@@ -164,13 +152,6 @@ export class App extends Component {
 				document.getElementById('root').classList.remove('scrolled');
 			}
 		};
-
-		window.onload = function() {
-			let theseImages = document.getElementsByClassName('placeholder');
-			for (let i=0; i < theseImages.length; i++) {
-				theseImages[i].classList.add('loaded');
-			};
-		}
 
 		document.getElementById('root').classList.remove('style-guide');
 

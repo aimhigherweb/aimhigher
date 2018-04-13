@@ -68,8 +68,9 @@ export class Home extends Component {
 			<section className="parallax home">
 				<Meta />
 				<div className="bcg slide-1 intro">
-					<ReactSVG path={BackgroundPlaceholder} className="placeholder home" />
+					
 				</div>
+				<ReactSVG path={BackgroundPlaceholder} className="placeholder home" />
 				<div className="container slide-1 intro">
 					<div className="scroll">
 						<a aria-label="Click to scroll" href="#slide-1-content">

@@ -39,6 +39,13 @@ section.parallax {
 
         &.slide-1 {
             background-image: url('../../img/parallax/unsplash_400_266.jpg');
+
+            & + div {
+                svg.placeholder {
+                    position: fixed;
+                    z-index: -2;
+                }
+            }
         }
 
     }
