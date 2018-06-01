@@ -1,46 +1,65 @@
-import React from 'react';
+import React, {Fragment, Component} from 'react';
+import { NavLink } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import ReactSVG from 'react-svg';
 
 //Resources
+import {menuItems} from '../app/index.js';
+import { Menu } from 'react-feather';
 import Favicon from '../../img/favicon.png';
+import Logo from '../../img/logo.svg';
 
-class Meta extends React.Component {
-    render() {
-        return (
-            <Helmet>
-                <meta name="twitter:card" content="summary_large_image" />
-                <link rel="shortcut icon" href={Favicon} />
-                <link rel="icon" sizes="192x192" href={Favicon} />
-                <link rel="apple-touch-icon" href={Favicon} />
-                <meta name="theme-color" content="#1C75BC" />
-                <link rel="mask-icon" href={Favicon} color="#1C75BC" />
-            </Helmet>
-        );
-    }
+const Meta = () => {
+    return (
+        <Helmet>
+            <meta name="twitter:card" content="summary_large_image" />
+            <link rel="shortcut icon" href={Favicon} />
+            <link rel="icon" sizes="192x192" href={Favicon} />
+            <link rel="apple-touch-icon" href={Favicon} />
+            <meta name="theme-color" content="#1C75BC" />
+            <link rel="mask-icon" href={Favicon} color="#1C75BC" />
+        </Helmet>
+    );
 };
   
 
-class Header extends React.Component {
+class Header extends Component {
     render() {        
         return (
-          <div className="inner">
+          <Fragment>
             <Meta />
             <SiteTitle />
-          </div>
+            <MainMenu />
+          </Fragment>
         );
     };
 };
 
-class SiteTitle extends React.Component {
-    render() {
-        return(
-            <div id="site-header" className="site-header">
-                <a href="/">
-                    <h1 className="site-title">My Blog</h1>
-                </a>       
-            </div>
+const SiteTitle = () => (
+	<div className="site-logo">
+		<a aria-label="Logo linked to homepage" href="/">
+			<ReactSVG path={Logo} />
+		</a>
+	</div>
+);
+
+const MainMenu = () => {
+    let navItems = menuItems.map((navItem) => {
+        return (
+            <NavLink key={navItem.title} to={navItem.slug} className={'' + navItem.class} activeClassName="current">
+                {navItem.title}
+            </NavLink>
         );
-    };
-};
+    });
+
+    return (
+        <nav id="nav-main" className="menu main">
+            <a className="hamburger" href="#menu">
+                <Menu />
+            </a>
+            {navItems}
+        </nav>
+    );
+}
 
 export default Header;
