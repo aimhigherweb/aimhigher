@@ -1,168 +1,43 @@
 @import '../variables.scss';
 
-header {
-	background: rgba(#fff, 0.7);
-	height: $height_header;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 20;
-
-	nav {
-		float: right;
-		position: absolute;
-		right: 20px;
-		top: 4.5vh;
-
-		.hamburger {
-			background: none;
-			border: none;
-			color: $blue;
-			cursor: pointer;
-			padding: 0;
-			position: absolute;
-			right: 0;
-
-			&:active,
-			&:hover,
-			&:focus {
-				border: none;
-			}
-		}
-
-		&.active {
-			ul {
-				display: flex;
-			}
-		}
-
-		ul {
-			display: none;
-			flex-direction: column;
-			justify-content: center;
-			list-style-type: none;
-			position: relative;
-			top: 4vh;
-			right: -20px;
-			width: 100vw;
-			max-width: 400px;
-			-webkit-padding-start: 0;
-		}
-
-		li {
-			a {
-				background: #fff;
-				border-bottom: 2px solid $aqua;
-				display: block;
-				padding: 15px;
-			}
-
-			&:first-child {
-				a {
-					border-top: 2px solid $aqua;
-				}
-			}
-
-			&.hidden {
-				display: none;
-			}
-		}
-	}
-
-	ul.menu {
-		list-style-type: none;
-		-webkit-padding-start: 0;
-	}
+#header {
+    height: $height_header;
+        max-height: 150px;
+        min-height: 100px;
+    overflow: hidden;
+    position: relative;
+      top: 0;
+    width: 100%;
+    z-index: 5;
 }
 
-body.scrolled {
-	header {
-		background: rgba(#fff, 0.9);
-	}
+.site-header {
+    a {
+        display: block;
+        height: 100%;
+            max-height: 100%;
+    }
 }
 
-.site-logo {
-	display: flex;
-	justify-content: center;
-	float: left;
-	height: $height_header;
-	padding: 15px;
-	width: 80%;
-
-	div {
-		height: 100%;
-		max-width: 100%;
-	}
-
-	a {
-		height: 100%;
-		max-width: 100%;
-
-		svg {
-			height: auto;
-			max-height: 100%;
-			width: 95vw;
-			max-width: 100%;
-
-			.cls-1 {
-				fill: $blue;
-			}
-			.cls-2 {
-				fill: $aqua;
-			}
-		}
-	}
+.inner {
+    height: 100%;
 }
 
-@media (min-width: 46rem) {
-	header {
-		height: $height_header_640;
+.site-title {
+    background: rgba(#fff, 0.5);
+    color: #000;
+    display: block;
+    font-size: 25px;
+    height: 100%;
+    margin: 0;
+    padding: 20px; 
+    position: absolute;
+        top: 0;
+    width: 100%;
+}
 
-		nav {
-			float: unset;
-			position: relative;
-			top: auto;
-			right: auto;
-
-			.hamburger {
-				display: none;
-			}
-
-			ul {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				-webkit-box-pack: center;
-				margin: 0 auto;
-				padding: 0 20px;
-				top: auto;
-				right: auto;
-				max-width: 1440px;
-			}
-
-			li {
-				margin-left: 5px;
-
-				a {
-					background: none;
-					border: none;
-					padding: 0;
-				}
-
-				&:first-child {
-					margin-left: 0;
-
-					a {
-						border-top: none;
-					}
-				}
-			}
-		}
-	}
-
-	.site-logo {
-		float: unset;
-		height: calc(#{$height_header_640} - 2em);
-		width: 100%;
-	}
+@media screen and (min-width: 40rem) {
+    .site-title {
+        font-size: 3em;
+    }
 }
