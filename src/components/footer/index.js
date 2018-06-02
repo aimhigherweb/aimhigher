@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 
 //Resources
 import {Codepen, Github, Facebook, Twitter, Mail, Instagram} from 'react-feather';
-import footerMenu from '../../components/app/index.js';
+import legalItems from '../app/index.js';
 
 const menuItems = [
 	{
@@ -41,44 +41,10 @@ class Footer extends Component {
     render() {
         return (
             <Fragment>
-                <FooterMenu />
+                <h2>Footer</h2>
             </Fragment>
         );
     };
-};
-
-const FooterMenu = () => {
-    let navItems = menuItems.map((navItem) => {
-        return(
-            <a href={navItem.url} key={navItem.name} target="_blank" className={'social-link ' + navItem.name}>
-                {navItem.icon}
-            </a>
-        );
-    });
-
-    return (
-        <nav className="social">
-            {navItems}
-        </nav>
-    );
-};
-
-const FooterSocial = () => {
-    let navItems = menuItems.map((navItem) => {
-        return (
-            <a
-                aria-label={navItem.name + ' link'}
-                href={navItem.url}
-                key={navItem.name}
-                target="_blank"
-                className={'social-link ' + navItem.name}
-            >
-                {navItem.icon}
-            </a>
-        );
-    });
-
-    return <nav className="social">{navItems}</nav>;
 };
 
 

@@ -73,7 +73,7 @@ export const menuItems = [
   },
 ];
 
-export const footerMenu = [
+export const legalItems = [
   {
     slug: '/privacy',
     title: 'Privacy Policy',
@@ -86,7 +86,7 @@ export const footerMenu = [
   }
 ];
 
-const routeItems = menuItems.concat(footerMenu);
+const routeItems = menuItems.concat(legalItems);
 
 class App extends Component {
   render() {
