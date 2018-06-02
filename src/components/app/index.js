@@ -3,17 +3,13 @@ import { Route, Switch } from 'react-router-dom';
 
 //Components
 import Home from '../../layouts/home/index.js';
-import About from '../../layouts/about/index.js';
+import StandardPage from '../../layouts/standard/index.js';
 import ProductsServices from '../../layouts/services/index.js';
-import Portfolio from '../../layouts/portfolio/index.js';
+// import Portfolio from '../../layouts/portfolio/index.js';
 import Faq from '../../layouts/faq/index.js';
-import CodeEthics from '../../layouts/ethics/index.js';
 import Feed from '../../layouts/blog/index.js';
 import Article from '../../layouts/blog/article/index.js';
-import Contact from '../../layouts/contact/index.js';
-import Privacy from '../../layouts/privacy/index.js';
-import Terms from '../../layouts/terms/index.js';
-import StyleGuide from '../../components/styleGuide/index.js';
+// import StyleGuide from '../../components/styleGuide/index.js';
 
 export const menuItems = [
   {
@@ -25,22 +21,20 @@ export const menuItems = [
   {
 		slug: '/about',
 		title: 'About',
-		component: About,
   },
   {
 		slug: '/services',
 		title: 'Services',
 		component: ProductsServices,
   },
-  {
-		slug: '/portfolio',
-		title: 'Portfolio',
-		component: Portfolio,
-  },
+  // {
+	// 	slug: '/portfolio',
+	// 	title: 'Portfolio',
+	// 	component: Portfolio,
+  // },
   {
 		slug: '/ethics',
 		title: 'Code of Ethics',
-		component: CodeEthics,
   },
   {
 		slug: '/blog',
@@ -63,26 +57,23 @@ export const menuItems = [
   {
 		slug: '/contact',
 		title: 'Contact',
-		component: Contact,
   },
-  {
-		slug: '/style-guide',
-		title: 'Style Guide',
-    component: StyleGuide,
-    hideNav: true,
-  },
+  // {
+	// 	slug: '/style-guide',
+	// 	title: 'Style Guide',
+  //   component: StyleGuide,
+  //   hideNav: true,
+  // },
 ];
 
 export const legalItems = [
   {
     slug: '/privacy',
     title: 'Privacy Policy',
-    component: Privacy
   },
   {
     slug: '/terms',
     title: 'Terms and Conditions',
-    component: Terms
   }
 ];
 
@@ -106,7 +97,7 @@ class App extends Component {
           </Fragment>
         );
       }
-      else {
+      else if (page.component) {
         return (
           <Route path={page.slug} exact component={page.component} key={page.slug} />
         );
@@ -114,9 +105,10 @@ class App extends Component {
     });
     
     return (        
-        <Fragment>
-          {pages}
-        </Fragment>
+      <Switch>
+            {pages}
+            <Route component={StandardPage} />
+      </Switch>
     );
   }
 };

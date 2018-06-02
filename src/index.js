@@ -1,16 +1,16 @@
 import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'emotion-theming';
 
-
-//Import components
+//Components
 import Header from './components/header/index.js';
 import App from './components/app/index.js';
 import Footer from './components/footer/index.js';
 
-const customHistory = createBrowserHistory();
+//Resources
+import './global.js';
+
 
 const theme = {
     colours: {
@@ -26,7 +26,7 @@ const theme = {
 class Main extends React.Component {
 	render() {
 		return (
-			<Router history={customHistory}>
+			<Router basename="/">
 				<ThemeProvider theme={theme}>
 					<Fragment>
 						<header>{<Header />}</header>

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import {Helmet} from 'react-helmet';
-import ReactSVG from 'react-svg';
 
 //Resources
 import services from '../../data/services.js';
 
 //Importing Images
-import images from '../../img/products/*';
+function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
+}
+  
+const images = importAll(require.context('../../img/products/', false, /\.(jpg)$/));
 
 class Meta extends Component {
     render() { 
@@ -71,7 +76,7 @@ class Products extends Component {
                 <div key={product.slug} className="product">
                     <div className="image-container">
                         <img alt={'Product image for ' + product.name}  src={images[thisImage]} />
-                        <ReactSVG path={images[thisPlaceholder]} className="placeholder" />
+                        {/* <ReactSVG path={images[thisPlaceholder]} className="placeholder" /> */}
                     </div>
                     <h3 className="name">{product.name}</h3>
                     {product.price !== '' &&

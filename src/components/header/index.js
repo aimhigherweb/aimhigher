@@ -1,7 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import ReactSVG from 'react-svg';
 
 //Resources
 import {menuItems} from '../app/index.js';
@@ -18,6 +17,7 @@ const Meta = () => {
             <link rel="apple-touch-icon" href={Favicon} />
             <meta name="theme-color" content="#1C75BC" />
             <link rel="mask-icon" href={Favicon} color="#1C75BC" />
+            <base href="/" />
         </Helmet>
     );
 };
@@ -38,18 +38,20 @@ class Header extends Component {
 const SiteTitle = () => (
 	<div className="site-logo">
 		<a aria-label="Logo linked to homepage" href="/">
-			<ReactSVG path={Logo} />
+			<Logo />
 		</a>
 	</div>
 );
 
 const MainMenu = () => {
     let navItems = menuItems.map((navItem) => {
-        return (
-            <NavLink key={navItem.title} to={navItem.slug} className={'' + navItem.class} activeClassName="current">
-                {navItem.title}
-            </NavLink>
-        );
+        if(!navItem.hideNav) {
+            return (
+                <NavLink key={navItem.title} to={navItem.slug} className={'' + navItem.class} activeClassName="current">
+                    {navItem.title}
+                </NavLink>
+            );
+        };
     });
 
     return (

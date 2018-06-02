@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import ReactSVG from 'react-svg';
 
 //Resources
-import { ChevronsDown } from 'react-feather';
 
 class Meta extends Component {
 	render() {
