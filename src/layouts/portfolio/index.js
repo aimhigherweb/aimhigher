@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-// import ReactSVG from 'react-svg';
+import ReactSVG from 'react-svg';
 
 import { ExternalLink, Github } from 'react-feather';
 
@@ -11,12 +11,6 @@ import siteList from '../../data/siteList.js';
 import FrameDesktop from '../../img/portfolio/desktop.svg';
 import FrameTablet from '../../img/portfolio/tablet.svg';
 import FrameMobile from '../../img/portfolio/mobile.svg';
-// import desktops from '../../img/portfolio/**/desktop.png';
-// import tablets from '../../img/portfolio/**/tablet.png';
-// import mobiles from '../../img/portfolio/**/mobile.png';
-// import desktopPlaceholders from '../../img/portfolio/**/desktop.svg';
-// import tabletPlaceholders from '../../img/portfolio/**/tablet.svg';
-// import mobilePlaceholders from '../../img/portfolio/**/mobile.svg';
 
 //Importing Images
 function importAll(r) {
@@ -25,7 +19,9 @@ function importAll(r) {
     return images;
 }
   
-const desktops = importAll(require.context('../../img/portfolio/', false, /\.(png)$/));
+const screenshots = importAll(require.context('../../img/portfolio/', false, /\.(png)$/));
+
+const placeholders = importAll(require.context('../../img/portfolio/', false, /\.(svg)$/));
 
 class Meta extends Component {
 	render() {
@@ -80,23 +76,30 @@ class Portfolio extends Component {
 class Sites extends Component {
 	render() {
 		let portfolio = siteList.map((item) => {
-			let thisSite = item.slug;
-			// console.log(desktops);
+			let desktop = item.slug + '-desktop.png',
+			tablet = item.slug + '-tablet.png',
+			mobile = item.slug + '-mobile.png',
+			desktopPlaceholder = item.slug + '-desktop.svg',
+			tabletPlaceholder = item.slug + '-tablet.svg',
+			mobilePlaceholder = item.slug + '-mobile.svg';
 			return (
 				<div key={item.slug} className={'site ' + item.slug}>
 					<div className="mockups">
 						<div className="image-container desktop">
-							<FrameDesktop />
-							<img alt={'Desktop screenshot of ' + item.name} src={desktops[thisSite]} />
+							<ReactSVG path={FrameDesktop} />
+							<img alt={'Desktop screenshot of ' + item.name} src={screenshots[desktop]} />
+							<ReactSVG path={placeholders[desktopPlaceholder]} />
 						</div>
 						<div className="image-container tablet">
-							<FrameTablet />
-							{/* <img alt={'Tablet screenshot of ' + item.name} src={tablets[thisSite]} /> */}
+							<ReactSVG path={FrameTablet} />
+							<img alt={'Tablet screenshot of ' + item.name} src={screenshots[tablet]} />
+							<ReactSVG path={placeholders[tabletPlaceholder]} />
 						</div>
 						{item.mobile === true && (
 							<div className="image-container mobile">
-								<FrameMobile />
-								{/* <img alt={'Mobile screenshot of ' + item.name} src={mobiles[thisSite]} /> */}
+								<ReactSVG path={FrameMobile} />
+								<img alt={'Mobile screenshot of ' + item.name} src={screenshots[mobile]} />
+								<ReactSVG path={placeholders[mobilePlaceholder]} />
 							</div>
 						)}
 					</div>
