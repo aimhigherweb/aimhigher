@@ -37,6 +37,11 @@ export const menuItems = [
 		title: 'Code of Ethics',
   },
   {
+		slug: '/faq',
+		title: 'FAQ',
+		component: Faq,
+  },
+  {
 		slug: '/blog',
 		title: 'Blog',
     component: Feed,
@@ -50,11 +55,6 @@ export const menuItems = [
     ]
   },
   {
-		slug: '/faq',
-		title: 'FAQ',
-		component: Faq,
-  },
-  {
 		slug: '/contact',
 		title: 'Contact',
   },
@@ -64,11 +64,6 @@ export const menuItems = [
   //   component: StyleGuide,
   //   hideNav: true,
   // },
-  {
-    title: 'Default Page',
-    component: StandardPage,
-    hideNav: true,
-  },
 ];
 
 export const legalItems = [
@@ -87,7 +82,7 @@ const routeItems = menuItems.concat(legalItems);
 class App extends Component {
   render() {
     let pages = routeItems.map((page) => {
-     if(page.subPages) {
+      if(page.subPages) {
         let subp = page.subPages;
         let subPages = subp.map((subpage) => {
           return (

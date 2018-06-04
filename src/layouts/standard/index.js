@@ -39,7 +39,6 @@ const StandardPage = ({location}) => {
         pageSlug = pageSlug.replace(/^\//, '');
     let details = Pages[pageSlug].meta;
 
-    console.log(details);
 
         return (
             <div className="content">
