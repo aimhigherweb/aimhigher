@@ -50,21 +50,34 @@ export const StyleGuide = () => {
 };
 
 export class ColourSwatches extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             colours: {
                 primary: this.props.theme.colours.primary.main, 
-                supporting: this.props.theme.colours.supporting.main, 
+                secondary: this.props.theme.colours.secondary.main, 
                 neutral: this.props.theme.colours.neutral.main,
             },
+            colourTheme: {},
+            names: ['primary', 'secondary', 'neutral'],
         };
     };
 
     componentWillMount() {
-        let colours = this.state.colours;
+        let colours = this.state.colours,
+            colourTheme = {
+                primary: {
+                    main: this.state.colours.primary.main,
+                },
+                secondary: {
+                    main: this.state.colours.primary.main,
+                },
+                neutral: {
+                    main: this.state.colours.primary.main,
+                },
+            };
 
-        console.log(colours);
+        // console.log(colours);
 
         for (var key in colours) {
             const hexToRgb = function(str) { 
@@ -166,6 +179,7 @@ export class ColourSwatches extends Component {
                     ];
 
                     colours[key][cols].hex = rgbToHex(rgbVal[0], rgbVal[1], rgbVal[2]);
+                    colourTheme[key][cols] = colours[key][cols].hex;
                     
                     colours[key][cols].variant = (rgbVal[0] * 0.299) + (rgbVal[0] * 0.587) + (rgbVal[0] * 0.114);
                 };
@@ -185,8 +199,10 @@ export class ColourSwatches extends Component {
                 };
             };
         };
+        // console.log(colourTheme);
         this.setState({
             colours: colours,
+            colourTheme: colourTheme,
         });
     };
 
@@ -196,14 +212,16 @@ export class ColourSwatches extends Component {
 
         let colArray = [colours.primary, colours.supporting, colours.neutral];
 
+        let keys = 0;
+
         let colSets = colArray.map(set => {
+            keys ++;
+            // console.log(set);
             return (
-                <ColourSet set={set} />
+                <ColourSet key={keys} set={set} />
             );
         });
-
-        console.log(colours);
-
+        
         let colVars = '';
 
         for(var i = 0; i < 3; i++) { //Primary, supporting and neutral
@@ -227,7 +245,7 @@ export class ColourSwatches extends Component {
                 };
             };
 
-            console.log(colVars);
+            // console.log(colVars);
         };
 
         return (
@@ -286,10 +304,14 @@ class ColourGroup extends Component {
 
 export class ColourSet extends Component {
     render() {
-        let colGroupLight = this.props.set.light;
-        let colGroupDark = this.props.set.dark;
-        let colMain = this.props.set.main;
+        console.log(this.props);
+        let colGroupLight, colGroupDark, colMain;
 
+        if(this.props.set) {
+            colGroupLight = this.props.set.light;
+            colGroupDark = this.props.set.dark;
+            colMain = this.props.set.main;
+        }
 
         return (
             <div className="colour set">
@@ -321,7 +343,7 @@ export class Typography extends Component {
         };
 
         let theme = this.props.theme;
-        console.log(theme);
+        // console.log(theme);
 
         return (
             <ThemeProvider theme={theme}>
