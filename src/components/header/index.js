@@ -1,6 +1,7 @@
 import React, {Fragment, Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import ReactSVG from 'react-svg';
 
 //Resources
 import {menuItems} from '../app/index.js';
@@ -38,7 +39,7 @@ class Header extends Component {
 const SiteTitle = () => (
 	<div className="site-logo">
 		<a aria-label="Logo linked to homepage" href="/">
-			<Logo />
+			<ReactSVG path={Logo} />
 		</a>
 	</div>
 );

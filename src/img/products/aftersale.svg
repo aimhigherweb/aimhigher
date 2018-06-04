@@ -1,5 +1,4 @@
-<?xml version="1.0" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="256" height="256" viewBox="0 0 256 256">
+<svg width="256" height="256" viewBox="0 0 256 256">
 <rect x="0" y="0" width="256" height="256" id="0" fill="rgb(96,84,78)" fill-opacity="1" />
 <circle cx="154" cy="154" r="55" id="1" fill="rgb(214,234,255)" fill-opacity="0.501961" />
 <circle cx="90" cy="41" r="73" id="2" fill="rgb(0,0,0)" fill-opacity="0.501961" />

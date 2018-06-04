@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import ReactSVG from 'react-svg';
+// import ReactSVG from 'react-svg';
 
 import { ExternalLink, Github } from 'react-feather';
 
@@ -8,15 +8,24 @@ import { ExternalLink, Github } from 'react-feather';
 import siteList from '../../data/siteList.js';
 
 //Importing Images
-import frameDesktop from '../../img/portfolio/desktop.svg';
-import frameTablet from '../../img/portfolio/tablet.svg';
-import frameMobile from '../../img/portfolio/mobile.svg';
-import desktops from '../../img/portfolio/**/desktop.png';
-import tablets from '../../img/portfolio/**/tablet.png';
-import mobiles from '../../img/portfolio/**/mobile.png';
-import desktopPlaceholders from '../../img/portfolio/**/desktop.svg';
-import tabletPlaceholders from '../../img/portfolio/**/tablet.svg';
-import mobilePlaceholders from '../../img/portfolio/**/mobile.svg';
+import FrameDesktop from '../../img/portfolio/desktop.svg';
+import FrameTablet from '../../img/portfolio/tablet.svg';
+import FrameMobile from '../../img/portfolio/mobile.svg';
+// import desktops from '../../img/portfolio/**/desktop.png';
+// import tablets from '../../img/portfolio/**/tablet.png';
+// import mobiles from '../../img/portfolio/**/mobile.png';
+// import desktopPlaceholders from '../../img/portfolio/**/desktop.svg';
+// import tabletPlaceholders from '../../img/portfolio/**/tablet.svg';
+// import mobilePlaceholders from '../../img/portfolio/**/mobile.svg';
+
+//Importing Images
+function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
+}
+  
+const desktops = importAll(require.context('../../img/portfolio/', false, /\.(png)$/));
 
 class Meta extends Component {
 	render() {
@@ -72,33 +81,22 @@ class Sites extends Component {
 	render() {
 		let portfolio = siteList.map((item) => {
 			let thisSite = item.slug;
+			// console.log(desktops);
 			return (
 				<div key={item.slug} className={'site ' + item.slug}>
 					<div className="mockups">
 						<div className="image-container desktop">
-							<ReactSVG path={frameDesktop} className="frame" />
-							<img
-								alt={'Desktop screenshot of ' + item.name}
-								src={desktops[thisSite]}
-							/>
-							<ReactSVG path={desktopPlaceholders[thisSite]} className="placeholder" />
+							<FrameDesktop />
+							<img alt={'Desktop screenshot of ' + item.name} src={desktops[thisSite]} />
 						</div>
 						<div className="image-container tablet">
-							<ReactSVG path={frameTablet} className="frame" />
-							<img
-								alt={'Tablet screenshot of ' + item.name}
-								src={tablets[thisSite]}
-							/>
-							<ReactSVG path={tabletPlaceholders[thisSite]} className="placeholder" />
+							<FrameTablet />
+							{/* <img alt={'Tablet screenshot of ' + item.name} src={tablets[thisSite]} /> */}
 						</div>
 						{item.mobile === true && (
 							<div className="image-container mobile">
-								<ReactSVG path={frameMobile} className="frame" />
-								<img
-									alt={'Mobile screenshot of ' + item.name}
-									src={mobiles[thisSite]}
-								/>
-								<ReactSVG path={mobilePlaceholders[thisSite]} className="placeholder" />
+								<FrameMobile />
+								{/* <img alt={'Mobile screenshot of ' + item.name} src={mobiles[thisSite]} /> */}
 							</div>
 						)}
 					</div>
