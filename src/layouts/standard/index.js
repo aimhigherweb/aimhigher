@@ -37,14 +37,25 @@ const Meta = ({name, description, slug, image}) => {
 const StandardPage = ({location}) => {
     let pageSlug = location.pathname;
         pageSlug = pageSlug.replace(/^\//, '');
-    let details = Pages[pageSlug].meta;
+    let details = '',
+        noPage = false;
 
+    if(Pages[pageSlug]) {
+        details = Pages[pageSlug].meta;
+    }
+    else {
+        noPage = true
+    }
 
         return (
             <div className="content">
-                <Meta {...details} />
-                <h1>{Pages[pageSlug].title}</h1>
-                {Pages[pageSlug].content}
+                {!noPage &&
+                    <Fragment>
+                        <Meta {...details} />
+                        <h1>{Pages[pageSlug].title}</h1>
+                        {Pages[pageSlug].content}
+                    </Fragment>
+                }
             </div>
         );
 };

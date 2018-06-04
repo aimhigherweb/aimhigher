@@ -9,7 +9,7 @@ import Portfolio from '../../layouts/portfolio/index.js';
 import Faq from '../../layouts/faq/index.js';
 import Feed from '../../layouts/blog/index.js';
 import Article from '../../layouts/blog/article/index.js';
-// import StyleGuide from '../../components/styleGuide/index.js';
+import {StyleGuide} from '../style-guide/index.js';
 
 export const menuItems = [
   {
@@ -58,12 +58,11 @@ export const menuItems = [
 		slug: '/contact',
 		title: 'Contact',
   },
-  // {
-	// 	slug: '/style-guide',
-	// 	title: 'Style Guide',
-  //   component: StyleGuide,
-  //   hideNav: true,
-  // },
+  {
+    slug: '/style-guide',
+    title: 'Style Guide',
+    component: StyleGuide,
+  },
 ];
 
 export const legalItems = [
@@ -83,32 +82,28 @@ class App extends Component {
   render() {
     let subPages = [],
         pages = routeItems.map((page) => {
-      if(page.subPages) {
-        let subp = page.subPages;
-        let thisSubPages = subp.map((subpage) => {
-          return (
-            <Route path={page.slug + subpage.slug} exact component={subpage.component} key={subpage.slug} />
-          );
-        });
 
-        const sp = subPages;
+          if(page.subPages) {
+            let subp = page.subPages;
+            let thisSubPages = subp.map((subpage) => {
+              return (
+                <Route path={page.slug + subpage.slug} exact component={subpage.component} key={subpage.slug} />
+              );
+            });
 
-        subPages = sp.concat(thisSubPages);
+            const sp = subPages;
 
-        return (
-            <Route key={page.slug} path={page.slug} exact component={page.component} />
-        );
-      }
-      else if (page.component) {
-        if(page.default) {
-          return;
-        }
-        else {
-          return (
-            <Route path={page.slug} exact component={page.component} key={page.slug} />
-          );
-        };
-      }
+            subPages = sp.concat(thisSubPages);
+
+            return (
+                <Route key={page.slug} path={page.slug} exact component={page.component} />
+            );
+          }
+          else if (page.component) {
+            return (
+              <Route path={page.slug} exact component={page.component} key={page.slug} />
+            );
+          }
     });
     
     return (        
