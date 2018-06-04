@@ -4,9 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 //Components
 import Home from '../../layouts/home/index.js';
 import StandardPage from '../../layouts/standard/index.js';
-// import ProductsServices from '../../layouts/services/index.js';
-// import Portfolio from '../../layouts/portfolio/index.js';
-// import Faq from '../../layouts/faq/index.js';
+import ProductsServices from '../../layouts/services/index.js';
+import Portfolio from '../../layouts/portfolio/index.js';
+import Faq from '../../layouts/faq/index.js';
 import Feed from '../../layouts/blog/index.js';
 import Article from '../../layouts/blog/article/index.js';
 // import StyleGuide from '../../components/styleGuide/index.js';
@@ -22,25 +22,25 @@ export const menuItems = [
 		slug: '/about',
 		title: 'About',
   },
-  // {
-	// 	slug: '/services',
-	// 	title: 'Services',
-	// 	component: ProductsServices,
-  // },
-  // {
-	// 	slug: '/portfolio',
-	// 	title: 'Portfolio',
-	// 	component: Portfolio,
-  // },
-  // {
-	// 	slug: '/ethics',
-	// 	title: 'Code of Ethics',
-  // },
-  // {
-	// 	slug: '/faq',
-	// 	title: 'FAQ',
-	// 	component: Faq,
-  // },
+  {
+		slug: '/services',
+		title: 'Services',
+		component: ProductsServices,
+  },
+  {
+		slug: '/portfolio',
+		title: 'Portfolio',
+		component: Portfolio,
+  },
+  {
+		slug: '/ethics',
+		title: 'Code of Ethics',
+  },
+  {
+		slug: '/faq',
+		title: 'FAQ',
+		component: Faq,
+  },
   {
 		slug: '/blog',
 		title: 'Blog',
@@ -54,10 +54,10 @@ export const menuItems = [
       }
     ]
   },
-  // {
-	// 	slug: '/contact',
-	// 	title: 'Contact',
-  // },
+  {
+		slug: '/contact',
+		title: 'Contact',
+  },
   // {
 	// 	slug: '/style-guide',
 	// 	title: 'Style Guide',
@@ -67,14 +67,14 @@ export const menuItems = [
 ];
 
 export const legalItems = [
-  // {
-  //   slug: '/privacy',
-  //   title: 'Privacy Policy',
-  // },
-  // {
-  //   slug: '/terms',
-  //   title: 'Terms and Conditions',
-  // }
+  {
+    slug: '/privacy',
+    title: 'Privacy Policy',
+  },
+  {
+    slug: '/terms',
+    title: 'Terms and Conditions',
+  }
 ];
 
 const routeItems = menuItems.concat(legalItems);
@@ -110,6 +110,7 @@ class App extends Component {
         };
       }
     });
+    
     return (        
       <Switch>
           {pages}
