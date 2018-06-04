@@ -64,6 +64,11 @@ export const menuItems = [
   //   component: StyleGuide,
   //   hideNav: true,
   // },
+  {
+    title: 'Default Page',
+    component: StandardPage,
+    hideNav: true,
+  },
 ];
 
 export const legalItems = [
@@ -82,7 +87,7 @@ const routeItems = menuItems.concat(legalItems);
 class App extends Component {
   render() {
     let pages = routeItems.map((page) => {
-      if(page.subPages) {
+     if(page.subPages) {
         let subp = page.subPages;
         let subPages = subp.map((subpage) => {
           return (
@@ -101,9 +106,8 @@ class App extends Component {
         return (
           <Route path={page.slug} exact component={page.component} key={page.slug} />
         );
-      }
+      };
     });
-    
     return (        
       <Switch>
             {pages}
