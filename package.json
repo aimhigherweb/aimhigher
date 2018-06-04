@@ -34,7 +34,6 @@
 		"react-media": "^1.6.1",
 		"react-router": "^4.2.0",
 		"react-router-dom": "^4.2.2",
-		"react-svg": "^4.0.13",
 		"react-twitter-widgets": "^1.7.1"
 	},
 	"devDependencies": {

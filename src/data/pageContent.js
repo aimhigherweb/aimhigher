@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import { CheckCircle } from 'react-feather';
-import ReactSVG from 'react-svg';
 
 import ProfilePlaceholder from '../img/profile.svg';
 import Profile from '../img/profile.jpg';
@@ -186,7 +185,7 @@ const About = {
             <div className="image-container">
                 <figure>
                     <img alt="Amy Kapernick - Founder of AimHigher Web Design" src={Profile} />
-                    <ReactSVG path={ProfilePlaceholder} />
+                    <ProfilePlaceholder />
                     <figcaption>
                         Amy Kapernick - Founder of AimHigher Web Design
                     </figcaption>
