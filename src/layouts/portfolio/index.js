@@ -64,7 +64,7 @@ const Sites = (siteList) => {
 						<img alt={'Tablet screenshot of ' + item.name} src={screenshots[tablet]} />
 						<ReactSVG path={placeholders[tabletPlaceholder]} />
 					</div>
-					{item.mobile === true && (
+					{item.mobile && (
 						<div className="image-container mobile">
 							<ReactSVG path={FrameMobile} />
 							<img alt={'Mobile screenshot of ' + item.name} src={screenshots[mobile]} />
@@ -77,14 +77,14 @@ const Sites = (siteList) => {
 					{item.name}
 					{/* </Link> */}
 				</h2>
-				{item.current === true && (
+				{item.current && (
 					<a href={'http://' + item.url} target="_blank">
 						<h3 className="url">
 							{item.url} {<ExternalLink />}
 						</h3>
 					</a>
 				)}
-				{item.github !== false && (
+				{item.github && (
 					<a
 						aria-label="Link to Github Repository"
 						href={item.github}

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 
 // Components
+import { ExternalLink } from 'react-feather';
 import { ColourSwatches, Typography } from '../../components/style-guide/index.js';
 import {Meta} from '../../components/parts/index.js';
 import clients from '../../data/clientPortal.js';
@@ -27,8 +28,18 @@ const ClientPortal = ({location}) => {
 
     return (
         <Fragment>
-            <h1>Client Portal - {clientDetails.title}</h1>
+            <h1>Client Portal - {clientDetails.name}</h1>
             <Meta {...meta} />
+            {clientDetails.live ? (
+                <a href={clientDetails.domain} target="_blank">
+                    <h3 className="url">
+                        {clientDetails.domain} {<ExternalLink />}
+                    </h3>
+                </a>
+            )
+            :
+            <h3 className="url">{clientDetails.domain}</h3>
+            }
             <Typography theme={theme} logo={logos[logo]} ori={clientDetails.logoOri} clientName={client} />
             <ColourSwatches theme={theme} />
         </Fragment>

@@ -301,7 +301,7 @@ const ColourSet = ({set}) => {
 export const Typography = ({logo, ori, theme, clientName}) => {
     let clientLogo, logoOri;
 
-    if (clientName) {
+    if (logo) {
         clientLogo = logo;
         logoOri = ori;
     }
