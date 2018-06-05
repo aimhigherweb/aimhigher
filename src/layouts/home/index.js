@@ -1,68 +1,22 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 
+//Components
+import {Meta} from '../../components/parts/index.js';
+
 //Resources
 
-class Meta extends Component {
-	render() {
-		let name = 'AimHigher Web Design';
-		let description =
-			'AimHigher Web Design bridges the gap between technology and business throughout Australia.';
-		let slug = '';
-		let image =
-			'https://aimhigherwebdesign.com.au/img/logo.png';
-		return (
-			<Helmet>
-				<title>{name}</title>
-				<meta name="description" content={description} />
-				<link
-					rel="canonical"
-					href={
-						'https://aimhigherwebdesign.com.au/' +
-						slug
-					}
-				/>
-
-				{/* Facebook */}
-				<meta
-					property="og:url"
-					content={
-						'https://aimhigherwebdesign.com.au/' +
-						slug
-					}
-				/>
-
-				<meta property="og:title" content={name} />
-				<meta property="og:image" content={image} />
-				<meta
-					property="og:description"
-					content={description}
-				/>
-
-				{/* Twitter */}
-				<meta
-					name="twitter:url"
-					content={
-						'https://aimhigherwebdesign.com.au/' +
-						slug
-					}
-				/>
-				<meta name="twitter:title" content={name} />
-				<meta
-					name="twitter:description"
-					content={description}
-				/>
-				<meta name="twitter:image" content={image} />
-			</Helmet>
-		);
-	}
-}
+const meta = {
+	name: 'AimHigher Web Design',
+	description: 'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
+	slug: '',
+};
 
 class Home extends Component {
 	render() {
 		return (
 			<Fragment>
-                <Meta />
+                <Meta {...meta} />
 				<div>
                     <p>
                         AimHigher Web Design is based in Perth and specialises in designing modern and professional websites that can be easily maintained by anyone, regardless of their technical skill. We also provide a full website management service.

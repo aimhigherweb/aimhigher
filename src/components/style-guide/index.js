@@ -6,43 +6,21 @@ import {ThemeProvider} from 'emotion-theming';
 // Components
 import {FaFacebookSquare, FaTwitterSquare, FaInstagram} from 'react-icons/lib/fa';
 import {aimhigherTheme} from '../../index.js';
+import {Meta} from '../parts/index.js';
 
 //Resources
 import Logo from '../../img/logo.svg';
 
-
-class Meta extends Component {
-    render() {
-        let name = 'Style Guides | AimHigher Web Design';
-        let description ="Want to know more about the style guides we make?";
-        let slug = 'style-guides';
-        let image = 'https://aimhigherwebdesign.com.au/img/logo.png';
-        return (
-            <Helmet>
-                <title>{name}</title>
-                <meta name="description" content={description} />
-                <link rel="canonical" href={'https://aimhigherwebdesign.com.au/' + slug} />
-
-                {/* Facebook */}
-                <meta property="og:url" content={'https://aimhigherwebdesign.com.au/' + slug} />
-                
-                <meta property="og:title" content={name} />
-                <meta property="og:image" content={image} />
-                <meta property="og:description" content={description} />
-
-                {/* Twitter */}
-                <meta name="twitter:url" content={'https://aimhigherwebdesign.com.au/' + slug} />
-                <meta name="twitter:title" content={name} />
-                <meta name="twitter:description" content={description} />
-                <meta name="twitter:image" content={image} />
-            </Helmet>
-        );
-    }
+const meta = {
+    name: 'Style Guides | AimHigher Web Design',
+    description: "Want to know more about the style guides we make?",
+    slug: 'style-guide'
 };
-
+ 
 export const StyleGuide = () => {
     return (
         <Fragment>
+            <Meta {...meta} />
             <Typography theme={aimhigherTheme} />
             <ColourSwatches theme={aimhigherTheme} />
         </Fragment>
@@ -257,52 +235,48 @@ export class ColourSwatches extends Component {
     };
 };
 
-class ColourSwatch extends Component {
-    render() {
-        let thisCols = this.props.cols;
-        let thisHex = thisCols.hex;
-        let vars = thisCols.variant;
-        let opts = thisCols.name;
-        let type;
+const ColourSwatch = ({cols}) => {
+    let thisCols = cols;
+    let thisHex = thisCols.hex;
+    let vars = thisCols.variant;
+    let opts = thisCols.name;
+    let type;
 
-        if(vars >= 186) {
-            type = 'light';
-        }
-        else {
-            type = 'dark';
-        };
-
-        return (
-            <div className={'colour swatch ' + opts + ' ' + type} style={{background: thisHex}}>
-                <p>{thisHex}</p>
-            </div>
-        );
+    if(vars >= 186) {
+        type = 'light';
+    }
+    else {
+        type = 'dark';
     };
+
+    return (
+        <div className={'colour swatch ' + opts + ' ' + type} style={{background: thisHex}}>
+            <p>{thisHex}</p>
+        </div>
+    );
 };
 
-class ColourGroup extends Component {
-    render() {
-        let colArray = [];
+const ColourGroup = ({colgroup, vars}) => {
+    let colArray = [];
 
-        for (var opts in this.props.colgroup) {
-            colArray.unshift(this.props.colgroup[opts]);
-        };
-
-        let colSwatches = colArray.map(swatch => {
-            return (
-                <ColourSwatch key={swatch.name} cols={swatch} />
-            );
-        });
-
-        return (
-            <div className={'colour group ' + this.props.vars}>
-                {colSwatches}
-            </div>
-        );
+    for (var opts in colgroup) {
+        colArray.unshift(colgroup[opts]);
     };
+
+    let colSwatches = colArray.map(swatch => {
+        return (
+            <ColourSwatch key={swatch.name} cols={swatch} />
+        );
+    });
+
+    return (
+        <div className={'colour group ' + vars}>
+            {colSwatches}
+        </div>
+    );
 };
 
-export const ColourSet = ({set}) => {
+const ColourSet = ({set}) => {
     let colGroupLight, colGroupDark, colMain;
 
     colGroupLight = set.light;
@@ -324,88 +298,83 @@ export const ColourSet = ({set}) => {
     );
 };
 
-export class Typography extends Component {
-    render() {
-        let clientLogo, logoOri;
+export const Typography = ({logo, ori, theme, clientName}) => {
+    let clientLogo, logoOri;
 
-        if (this.props.clientName) {
-            clientLogo = this.props.logo;
-            logoOri = this.props.ori;
-        }
-        else {
-            clientLogo = Logo;
-            logoOri = 'landscape';
-        };
+    if (clientName) {
+        clientLogo = logo;
+        logoOri = ori;
+    }
+    else {
+        clientLogo = Logo;
+        logoOri = 'landscape';
+    };
 
-        let theme = this.props.theme;
-        // console.log(theme);
-
-        return (
-            <ThemeProvider theme={theme}>
-                <Fragment>
-                    <h3 className="style-guide-heading">Typography</h3>
-                    <div className="typography">
-                        <div className={"logo-headings " + logoOri}>
-                            <div className={'logo ' + logoOri}>
-                                <figure>
-                                    <ReactSVG path={clientLogo} />
-                                    <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
-                                </figure>
-                            </div>
-                            <div className="headings">
-                                <h1>Heading 1</h1>
-                                    <p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
-                                    <p>Every page should have a H1 as they're used for SEO and screen readers</p>
-                                <h2>Heading 2</h2>
-                                    <p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
-                                <h3>Heading 3</h3>
-                                    <p>This is a third level heading, H3. This is the last level heading that you use on a regular basis (otherwise things can look a little cluttered).</p>
-                                <h4>Heading 4</h4>
-                                <h5>Heading 5</h5>
-                            </div>
+    return (
+        <ThemeProvider theme={theme}>
+            <Fragment>
+                <h3 className="style-guide-heading">Typography</h3>
+                <div className="typography">
+                    <div className={"logo-headings " + logoOri}>
+                        <div className={'logo ' + logoOri}>
+                            <figure>
+                                <ReactSVG path={clientLogo} />
+                                <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
+                            </figure>
                         </div>
-                        <hr />
-                        <div className="content-types">
-                            <h4 className="section-titles">Content Sections</h4>
-                            <p>This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
-                            <blockquote>
-                                This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
-                            </blockquote>
-                            <div className="section-container">
-                                <div className="lists">
-                                    <h4 className="section-title">Lists</h4>
-                                    <ul>
-                                        <li>This</li>
-                                        <li>is a</li>
-                                        <li>bulleted</li>
-                                        <li>list</li>
-                                    </ul>
-                                    <ol>
-                                        <li>This</li>
-                                        <li>is a</li>
-                                        <li>numbered</li>
-                                        <li>list</li>
-                                    </ol>
-                                </div>
-                                <div className="icons">
-                                    <h4 className="section-title">Icons</h4>
-                                    <FaFacebookSquare />
-                                    <FaTwitterSquare />
-                                    <FaInstagram />
-                                </div>
-                            </div>
-                            <div className="form">
-                                <h4 className="section-title">Other Elements</h4>
-                                <form>
-                                    <h5>Form</h5>
-                                    <input type="text" placeholder="Input Field" />
-                                    <button>Button</button>
-                                </form>
-                            </div>
+                        <div className="headings">
+                            <h1>Heading 1</h1>
+                                <p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
+                                <p>Every page should have a H1 as they're used for SEO and screen readers</p>
+                            <h2>Heading 2</h2>
+                                <p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
+                            <h3>Heading 3</h3>
+                                <p>This is a third level heading, H3. This is the last level heading that you use on a regular basis (otherwise things can look a little cluttered).</p>
+                            <h4>Heading 4</h4>
+                            <h5>Heading 5</h5>
                         </div>
                     </div>
-                </Fragment>
-            </ThemeProvider>
-        );
-    };
+                    <hr />
+                    <div className="content-types">
+                        <h4 className="section-titles">Content Sections</h4>
+                        <p>This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
+                        <blockquote>
+                            This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
+                        </blockquote>
+                        <div className="section-container">
+                            <div className="lists">
+                                <h4 className="section-title">Lists</h4>
+                                <ul>
+                                    <li>This</li>
+                                    <li>is a</li>
+                                    <li>bulleted</li>
+                                    <li>list</li>
+                                </ul>
+                                <ol>
+                                    <li>This</li>
+                                    <li>is a</li>
+                                    <li>numbered</li>
+                                    <li>list</li>
+                                </ol>
+                            </div>
+                            <div className="icons">
+                                <h4 className="section-title">Icons</h4>
+                                <FaFacebookSquare />
+                                <FaTwitterSquare />
+                                <FaInstagram />
+                            </div>
+                        </div>
+                        <div className="form">
+                            <h4 className="section-title">Other Elements</h4>
+                            <form>
+                                <h5>Form</h5>
+                                <input type="text" placeholder="Input Field" />
+                                <button>Button</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </Fragment>
+        </ThemeProvider>
+    );
 }

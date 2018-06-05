@@ -6,7 +6,6 @@ import Home from '../../layouts/home/index.js';
 import StandardPage from '../../layouts/standard/index.js';
 import ProductsServices from '../../layouts/services/index.js';
 import Portfolio from '../../layouts/portfolio/index.js';
-import Faq from '../../layouts/faq/index.js';
 import Feed from '../../layouts/blog/index.js';
 import Article from '../../layouts/blog/article/index.js';
 import {StyleGuide} from '../style-guide/index.js';
@@ -39,7 +38,6 @@ export const menuItems = [
   {
 		slug: '/faq',
 		title: 'FAQ',
-		component: Faq,
   },
   {
 		slug: '/blog',

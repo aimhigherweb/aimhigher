@@ -27,11 +27,11 @@ const Meta = () => {
 class Header extends Component {
     render() {        
         return (
-          <Fragment>
-            <Meta />
-            <SiteTitle />
-            <MainMenu />
-          </Fragment>
+            <Fragment>
+                <Meta />
+                <SiteTitle />
+                <MainMenu />
+            </Fragment>
         );
     };
 };

@@ -1,6 +1,9 @@
 import React, {Fragment} from 'react';
-import { CheckCircle } from 'react-feather';
 import ReactSVG from 'react-svg';
+
+import accordion from './faq.js';
+import {Accordion} from '../components/parts/index.js'
+import { CheckCircle } from 'react-feather';
 
 import ProfilePlaceholder from '../img/profile.svg';
 import Profile from '../img/profile.jpg';
@@ -195,10 +198,23 @@ const About = {
     )
 };
 
+const Faq = {
+    title: 'Frequently Asked Questions',
+    meta: {
+        name: 'FAQ | AimHigher Web Design',
+        description: "Have questions? We've already answered some of them for you.",
+        slug: 'faq'
+    },
+    content: (
+        <Accordion items={accordion}  />
+    )
+};
+
 const Pages = {
     about: About,
     contact: Contact,
     ethics: CodeEthics,
+    faq: Faq,
     privacy: Privacy,
     terms: TermsConditions,
 };
