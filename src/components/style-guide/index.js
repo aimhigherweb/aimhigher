@@ -185,6 +185,11 @@ export class ColourSwatches extends Component {
     };
 
     render() {
+        let devMode = false;
+        if (window.location.href.indexOf("#dev") > -1) {
+            devMode = true;
+        }
+
         let colours = this.state.colours;
         let colNames = this.state.names[0];
 
@@ -230,6 +235,7 @@ export class ColourSwatches extends Component {
             <div>
                 <h3>Colours</h3>
                 {colSets}
+                {devMode && <DevColours {...colours} />}
             </div>
         );
     };
@@ -296,6 +302,12 @@ const ColourSet = ({set}) => {
             </div>
         </div>
     );
+};
+
+const DevColours = (colours) => {
+    console.log(colours);
+
+    return null;
 };
 
 export const Typography = ({logo, ori, theme, clientName}) => {
