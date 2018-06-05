@@ -9,6 +9,7 @@ import Portfolio from '../../layouts/portfolio/index.js';
 import Feed from '../../layouts/blog/index.js';
 import Article from '../../layouts/blog/article/index.js';
 import {StyleGuide} from '../style-guide/index.js';
+import ClientPortal from '../../layouts/clientPortal/index.js';
 
 export const menuItems = [
   {
@@ -60,7 +61,14 @@ export const menuItems = [
     slug: '/style-guide',
     title: 'Style Guide',
     component: StyleGuide,
+    hideNav: true,
   },
+  {
+    slug: '/client/:clientName',
+    title: 'Client Portal',
+    component: ClientPortal,
+    hideNav: true,
+  }
 ];
 
 export const legalItems = [
