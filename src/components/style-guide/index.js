@@ -210,7 +210,7 @@ export class ColourSwatches extends Component {
         let colours = this.state.colours;
         let colNames = this.state.names[0];
 
-        let colArray = [colours.primary, colours.supporting, colours.neutral];
+        let colArray = [colours.primary, colours.secondary, colours.neutral];
 
         let keys = 0;
 
@@ -224,7 +224,7 @@ export class ColourSwatches extends Component {
         
         let colVars = '';
 
-        for(var i = 0; i < 3; i++) { //Primary, supporting and neutral
+        for(var i = 0; i < 3; i++) { //Primary, secondary and neutral
             for (var colSet in colArray[i]) { //Light, dark and main
 
                 if (colArray[i][colSet].name) { //If it's main
@@ -302,31 +302,26 @@ class ColourGroup extends Component {
     };
 };
 
-export class ColourSet extends Component {
-    render() {
-        console.log(this.props);
-        let colGroupLight, colGroupDark, colMain;
+export const ColourSet = ({set}) => {
+    let colGroupLight, colGroupDark, colMain;
 
-        if(this.props.set) {
-            colGroupLight = this.props.set.light;
-            colGroupDark = this.props.set.dark;
-            colMain = this.props.set.main;
-        }
+    colGroupLight = set.light;
+    colGroupDark = set.dark;
+    colMain = set.main;
 
-        return (
-            <div className="colour set">
-                <ColourSwatch cols={colMain} />
-                <div className="colour group-container">
-                    {colMain.hex != "#ffffff" &&
-                        <ColourGroup colgroup={colGroupLight} vars='light' />
-                    }
-                    {colMain.hex != "#000000" &&
-                        <ColourGroup colgroup={colGroupDark} vars='dark' />
-                    }
-                </div>
+    return (
+        <div className="colour set">
+            <ColourSwatch cols={colMain} />
+            <div className="colour group-container">
+                {colMain.hex != "#ffffff" &&
+                    <ColourGroup colgroup={colGroupLight} vars='light' />
+                }
+                {colMain.hex != "#000000" &&
+                    <ColourGroup colgroup={colGroupDark} vars='dark' />
+                }
             </div>
-        );
-    };
+        </div>
+    );
 };
 
 export class Typography extends Component {
