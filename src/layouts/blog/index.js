@@ -4,39 +4,18 @@ import {Link as BlogLink} from 'react-router-dom'
 import Prismic from 'prismic-javascript';
 import {Link, RichText, Date} from 'prismic-reactjs';
 
+import {Meta} from '../../components/parts/index.js';
+
 //Resources
 import SiteImage from '../../img/favicon.png';
 import {Facebook, Twitter} from 'react-feather';
 
 let siteUrl = 'http://localhost:3500/';
 
-class Meta extends Component {
-  render() {
-      let name = 'My Blog';
-      let description ='This is my blog, check it out!';
-      let slug = '/';
-      let image = SiteImage;
-      return (
-          <Helmet>
-              <title>{name}</title>
-              <meta name="description" content={description} />
-              <link rel="canonical" href={siteUrl + slug} />
-
-              {/* Facebook */}
-              <meta property="og:url" content={siteUrl + slug} />
-              
-              <meta property="og:title" content={name} />
-              <meta property="og:image" content={image} />
-              <meta property="og:description" content={description} />
-
-              {/* Twitter */}
-              <meta name="twitter:url" content={siteUrl + slug} />
-              <meta name="twitter:title" content={name} />
-              <meta name="twitter:description" content={description} />
-              <meta name="twitter:image" content={image} />
-          </Helmet>
-      );
-  }
+const meta = {
+  name: 'Blog | AimHigher Web Design',
+  description: "We curate articles and other content that may be of interest, about your websites, security, performance, etc.",
+  slug: 'blog'
 };
 
 class Feed extends Component {
@@ -75,7 +54,7 @@ class Feed extends Component {
 
     return (        
       <div>
-        <Meta />
+        <Meta {...meta} />
         <div className="article-feed">
           {items}
         </div>

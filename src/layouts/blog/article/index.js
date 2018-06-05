@@ -6,37 +6,9 @@ import {Tweet} from 'react-twitter-widgets';
 import Codepen from 'react-codepen-embed';
 
 import {Facebook, Twitter} from 'react-feather';
+import {Meta} from '../../../components/parts/index.js';
 
 let siteUrl = 'http://localhost:3500';
-
-class Meta extends Component {
-  render() {
-      let name = this.props.name + ' | My Blog';
-      let description = this.props.description;
-      let slug = this.props.slug;
-      let image = this.props.featureImage;
-      return (
-          <Helmet>
-              <title>{name}</title>
-              <meta name="description" content={description} />
-              <link rel="canonical" href={slug} />
-
-              {/* Facebook */}
-              <meta property="og:url" content={slug} />
-              
-              <meta property="og:title" content={name} />
-              <meta property="og:image" content={image} />
-              <meta property="og:description" content={description} />
-
-              {/* Twitter */}
-              <meta name="twitter:url" content={slug} />
-              <meta name="twitter:title" content={name} />
-              <meta name="twitter:description" content={description} />
-              <meta name="twitter:image" content={image} />
-          </Helmet>
-      );
-  }
-};
 
 
 const Article = ({match}) => (
@@ -83,9 +55,16 @@ class Content extends Component {
 
       let featureImage = item.data.featured_image.url;
 
+      let meta = {
+        name: title + ' | AimHigher Blog',
+        description: item.data.description[0].text,
+        slug: articleLink,
+        image: featureImage,
+      };
+
       intro = (
         <div className="share-icons">
-          <Meta name={title} description={item.data.description[0].text} slug={articleLink} featureImage={featureImage} />
+          <Meta {...meta} />
           <a href={facebookLink} target="_blank" className="facebook share-link">{<Facebook />}</a>
           <a href={twitterLink} target="_blank" className="twitter share-link">{<Twitter />}</a>
         </div>
