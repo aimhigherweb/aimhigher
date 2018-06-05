@@ -1,4 +1,5 @@
-import { injectGlobal } from 'emotion'
+import { injectGlobal } from 'emotion';
+import styled from 'react-emotion';
 
 injectGlobal`
     * {
@@ -53,6 +54,7 @@ injectGlobal`
         font-style: italic;
         font-weight: 100;
         src: url('../fonts/Roboto-ThinItalic.ttf') format('truetype');
+    }
 
     @font-face {
         font-family: 'Roboto';
@@ -124,3 +126,43 @@ injectGlobal`
         src: url('../fonts/Roboto-BlackItalic.ttf') format('truetype');
     }
 `
+
+export const Globals = styled('div')`
+    color: ${props => props.theme.colours.neutral.main}; 
+    font: ${props => props.theme.fonts.regular};
+    fontSize: 14px;
+    lineHeight: 1.4;
+    minHeight: 100vh;
+    margin: 0;
+    overflowX: hidden;
+    position: absolute;
+    width: 100%;
+        max-width: 100vw;
+`;
+
+export const Head1 = styled('h1')`
+    color: ${props => props.theme.colours.primary.dark['90']};
+    font: ${props => props.theme.fonts.headings};
+    fontSize: 2em;
+    textAlign: center;
+`;
+
+export const Head2 = styled('h2')`
+    color: ${props => props.theme.colours.primary.dark['90']};
+    font: ${props => props.theme.fonts.headings};
+    fontSize: 1.6em;
+`;
+
+export const Head3 = styled('h3')`
+    color: ${props => props.theme.colours.primary.dark['50']};
+    font: ${props => props.theme.fonts.headings};
+    fontSize: 1.3em;
+`;
+
+export const Link = styled('a')`
+    color: ${props => props.theme.colours.primary.main};
+    
+    &:hover {
+        color: ${props => props.theme.colours.secondary.main};
+    }
+`;

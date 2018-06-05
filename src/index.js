@@ -10,6 +10,7 @@ import Footer from './components/footer/index.js';
 
 //Resources
 import './global.js';
+import {Globals} from './global.js';
 
 
 export const aimhigherTheme = {
@@ -65,7 +66,14 @@ export const aimhigherTheme = {
 				10: '#090909',
 			}
 		},
-    }
+	},
+	fonts: {
+		light: "300 1em 'Roboto', Arial, sans-serif",
+		regular: "400 1em 'Roboto', Arial, sans-serif",
+		bold: "700 1em 'Roboto', Arial, sans-serif",
+		headings: "700 1.5em 'Space Mono', monospace",
+		code: "400 1em 'Space Mono', monospace"
+	}
 }
 
 class Main extends React.Component {
@@ -73,11 +81,11 @@ class Main extends React.Component {
 		return (
 			<Router basename="/">
 				<ThemeProvider theme={aimhigherTheme}>
-					<Fragment>
+					<Globals>
 						<header>{<Header />}</header>
 						<div>{<App />}</div>
 						<footer>{<Footer />}</footer>
-					</Fragment>
+					</Globals>
 				</ThemeProvider>
 			</Router>
 		);

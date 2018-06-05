@@ -6,6 +6,9 @@ import {Meta} from '../../components/parts/index.js';
 import Pages from '../../data/pageContent.js';
 import Logo from '../../img/logo.png';
 
+//Styled Components
+import {Head1} from '../../global.js';
+
 const StandardPage = ({location}) => {
     let pageSlug = location.pathname;
         pageSlug = pageSlug.replace(/^\//, '');
@@ -24,7 +27,7 @@ const StandardPage = ({location}) => {
                 {!noPage &&
                     <Fragment>
                         <Meta {...details} />
-                        <h1>{Pages[pageSlug].title}</h1>
+                        <Head1>{Pages[pageSlug].title}</Head1>
                         {Pages[pageSlug].content}
                     </Fragment>
                 }
