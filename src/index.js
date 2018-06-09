@@ -10,7 +10,7 @@ import Footer from './components/footer/index.js';
 
 //Resources
 import './global.js';
-import {Globals} from './global.js';
+import {Globals, Main, FooterCont} from './global.js';
 
 
 export const aimhigherTheme = {
@@ -76,15 +76,15 @@ export const aimhigherTheme = {
 	}
 }
 
-class Main extends React.Component {
+class Root extends React.Component {
 	render() {
 		return (
 			<Router basename="/">
 				<ThemeProvider theme={aimhigherTheme}>
 					<Globals>
 						<header>{<Header />}</header>
-						<div>{<App />}</div>
-						<footer>{<Footer />}</footer>
+						<Main>{<App />}</Main>
+						<FooterCont>{<Footer />}</FooterCont>
 					</Globals>
 				</ThemeProvider>
 			</Router>
@@ -92,4 +92,4 @@ class Main extends React.Component {
 	}
 }
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+ReactDOM.render(<Root />, document.getElementById('root'));

@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from 'react';
-import { NavLink } from 'react-router-dom';
 
 //Resources
 import {Codepen, Github, Facebook, Twitter, Mail, Instagram} from 'react-feather';
 import {legalItems} from '../app/index.js';
+
+import {Item, ItemSocial, Nav, SocialNav} from './style.js';
 
 const menuItems = [
 	{
@@ -52,33 +53,33 @@ class Footer extends Component {
 const FooterNav = () => {
 	let legalNav = legalItems.map((legalItem) => {
 		return (
-			<NavLink key={legalItem.title} to={legalItem.slug} activeClassName="current">
+			<Item key={legalItem.title} to={legalItem.slug} activeClassName="current">
 				{legalItem.title}
-			</NavLink>
+			</Item>
 		);
 	});
 
 	return (
-		<nav id="nav-footer" className="menu footer">
-			<NavLink to="/" activeClassName="current">
+		<Nav>
+			<Item to="/" activeClassName="current">
 				Home
-			</NavLink>
+			</Item>
 			{legalNav}
-		</nav>
+		</Nav>
 	);
 };
 
 const FooterSocial = () => {
 	let socialNav = menuItems.map((menuItem) => {
 		return (
-			<a href={menuItem.url} key={menuItem.name} target="_blank" className={'social-link ' + menuItem.name}>
+			<ItemSocial href={menuItem.url} key={menuItem.name} target="_blank">
 				{menuItem.icon}
-			</a>
+			</ItemSocial>
 		);
 	});
 
 	return (
-		<nav className="social">{socialNav}</nav>
+		<SocialNav>{socialNav}</SocialNav>
 	);
 };
 

@@ -1,13 +1,14 @@
 import React, {Fragment, Component} from 'react';
-import { NavLink } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import ReactSVG from 'react-svg';
+import Media from 'react-media';
 
 //Resources
 import {menuItems} from '../app/index.js';
 import { Menu } from 'react-feather';
 import Favicon from '../../img/favicon.png';
 import Logo from '../../img/logo.svg';
+
+import {Item, LogoSVG, Nav} from './style.js';
 
 const Meta = () => {
     return (
@@ -39,7 +40,7 @@ class Header extends Component {
 const SiteTitle = () => (
 	<div className="site-logo">
 		<a aria-label="Logo linked to homepage" href="/">
-			<ReactSVG path={Logo} />
+			<LogoSVG path={Logo} />
 		</a>
 	</div>
 );
@@ -48,20 +49,22 @@ const MainMenu = () => {
     let navItems = menuItems.map((navItem) => {
         if(!navItem.hideNav) {
             return (
-                <NavLink key={navItem.title} to={navItem.slug} className={'' + navItem.class} activeClassName="current">
+                <Item key={navItem.title} to={navItem.slug} className={'' + navItem.class} activeClassName="current">
                     {navItem.title}
-                </NavLink>
+                </Item>
             );
         };
     });
 
     return (
-        <nav id="nav-main" className="menu main">
-            <a className="hamburger" href="#menu">
-                <Menu />
-            </a>
+        <Nav>
+            <Media query="(max-width: 640px)">
+                <a className="hamburger" href="#menu">
+                    <Menu />
+                </a>
+            </Media>
             {navItems}
-        </nav>
+        </Nav>
     );
 }
 

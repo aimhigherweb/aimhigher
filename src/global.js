@@ -15,7 +15,15 @@ injectGlobal`
         box-sizing: border-box;
     }
 
-    img {
+    body {
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        max-width:100vw;
+    }
+
+    img, svg {
+        max-height: 100%;
         max-width: 100%;
     }
 
@@ -174,4 +182,15 @@ export const Link = styled('a')`
     &:hover {
         color: ${props => props.theme.colours.secondary.main};
     }
+`;
+
+export const FooterCont = styled('footer')`
+    display: flex;
+        align-items: center;
+        justify-content: space-between;
+    padding: 10px 20px;
+`;
+
+export const Main = styled('main')`
+    min-height: 55vh;
 `;
