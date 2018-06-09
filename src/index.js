@@ -66,6 +66,8 @@ export const aimhigherTheme = {
 				10: '#090909',
 			}
 		},
+		warning: '#FF7900',
+		fail: '#b50400'
 	},
 	fonts: {
 		light: "300 1em 'Roboto', Arial, sans-serif",

@@ -147,11 +147,11 @@ injectGlobal`
 export const Globals = styled('div')`
     color: ${props => props.theme.colours.neutral.main}; 
     font: ${props => props.theme.fonts.regular};
-    fontSize: 14px;
-    lineHeight: 1.4;
-    minHeight: 100vh;
+    font-size: 14px;
+    line-height: 1.4;
+    min-height: 100vh;
     margin: 0;
-    overflowX: hidden;
+    overflow-x: hidden;
     position: absolute;
     width: 100%;
         max-width: 100vw;
@@ -160,20 +160,26 @@ export const Globals = styled('div')`
 export const Head1 = styled('h1')`
     color: ${props => props.theme.colours.primary.dark['90']};
     font: ${props => props.theme.fonts.headings};
-    fontSize: 2em;
-    textAlign: center;
+    font-size: 2em;
+    text-align: center;
 `;
 
-export const Head2 = styled('h2')`
-    color: ${props => props.theme.colours.primary.dark['90']};
-    font: ${props => props.theme.fonts.headings};
-    fontSize: 1.6em;
+export const Head2 = styled(Head1)`
+    font-size: 1.6em;
+    text-align: left;
 `;
 
-export const Head3 = styled('h3')`
+export const Head3 = styled(Head2)`
     color: ${props => props.theme.colours.primary.dark['50']};
-    font: ${props => props.theme.fonts.headings};
-    fontSize: 1.3em;
+    font-size: 1.3em;
+`;
+
+export const Head4 = styled(Head3)`
+    font-size: 1.2em;
+`;
+
+export const Head5 = styled(Head4)`
+    font-size: 1.1em;
 `;
 
 export const Link = styled('a')`

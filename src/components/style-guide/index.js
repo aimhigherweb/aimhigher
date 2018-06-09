@@ -8,7 +8,8 @@ import {FaFacebookSquare, FaTwitterSquare, FaInstagram} from 'react-icons/lib/fa
 import {aimhigherTheme} from '../../index.js';
 import {Meta} from '../parts/index.js';
 
-import {Head1} from '../../global.js';
+import {Head1, Head2, Head3, Head4, Head5} from '../../global.js';
+import {Swatch} from './style.js';
 
 //Resources
 import Logo from '../../img/logo.svg';
@@ -276,32 +277,54 @@ const ColourSwatch = ({cols}) => {
         thisHex = thisCols.hex,
         vars = thisCols.variant,
         ratio = thisCols.ratio,
-        opts = thisCols.name,
-        type,
-        standard;
+        opts = thisCols.name;
 
     if(vars >= 186) {
-        type = 'light';
+        if(ratio >= 4.5) {
+            return (
+                <Swatch light color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
+        else if(ratio >= 3) {
+            return (
+                <Swatch light conditional color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
+        else {
+            return (
+                <Swatch light fail color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
     }
     else {
-        type = 'dark';
+        if(ratio >= 4.5) {
+            return (
+                <Swatch dark color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
+        else if(ratio >= 3) {
+            return (
+                <Swatch dark conditional color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
+        else {
+            return (
+                <Swatch dark fail color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
     };
-
-    if(ratio >= 4.5) {
-        standard = 'pass';
-    }
-    else if(ratio >= 3) {
-        standard = 'conditional';
-    }
-    else {
-        standard = 'fail';
-    }
-
-    return (
-        <div className={'colour swatch ' + opts + ' ' + type + ' ' + standard} style={{background: thisHex}}>
-            <p>{thisHex}</p>
-        </div>
-    );
 };
 
 const ColourGroup = ({colgroup, vars}) => {
@@ -380,12 +403,12 @@ export const Typography = ({logo, ori, theme, clientName}) => {
                             <Head1>Heading 1</Head1>
                                 <p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
                                 <p>Every page should have a H1 as they're used for SEO and screen readers</p>
-                            <h2>Heading 2</h2>
+                            <Head2>Heading 2</Head2>
                                 <p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
-                            <h3>Heading 3</h3>
+                            <Head3>Heading 3</Head3>
                                 <p>This is a third level heading, H3. This is the last level heading that you use on a regular basis (otherwise things can look a little cluttered).</p>
-                            <h4>Heading 4</h4>
-                            <h5>Heading 5</h5>
+                            <Head4>Heading 4</Head4>
+                            <Head5>Heading 5</Head5>
                         </div>
                     </div>
                     <hr />
