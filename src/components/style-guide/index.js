@@ -8,6 +8,8 @@ import {FaFacebookSquare, FaTwitterSquare, FaInstagram} from 'react-icons/lib/fa
 import {aimhigherTheme} from '../../index.js';
 import {Meta} from '../parts/index.js';
 
+import {Head1} from '../../global.js';
+
 //Resources
 import Logo from '../../img/logo.svg';
 
@@ -40,6 +42,16 @@ export class ColourSwatches extends Component {
             names: ['primary', 'secondary', 'neutral'],
         };
     };
+
+    luminanace(r, g, b) {
+        var a = [r, g, b].map(function (v) {
+            v /= 255;
+            return v <= 0.03928
+                ? v / 12.92
+                : Math.pow( (v + 0.055) / 1.055, 2.4 );
+        });
+        return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+    }
 
     componentWillMount() {
         let colours = this.state.colours,
@@ -159,7 +171,16 @@ export class ColourSwatches extends Component {
                     colours[key][cols].hex = rgbToHex(rgbVal[0], rgbVal[1], rgbVal[2]);
                     colourTheme[key][cols] = colours[key][cols].hex;
                     
-                    colours[key][cols].variant = (rgbVal[0] * 0.299) + (rgbVal[0] * 0.587) + (rgbVal[0] * 0.114);
+                    colours[key][cols].variant = (rgbVal[0] * 0.299) + (rgbVal[1] * 0.587) + (rgbVal[2] * 0.114);
+
+                    if(colours[key][cols].variant >= 186) {
+                        colours[key][cols].ratio = (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
+                        / (this.luminanace(255, 255, 255) + 0.05);
+                    }
+                    else {
+                        colours[key][cols].ratio = (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
+                        / (this.luminanace(0, 0, 0) + 0.05);
+                    };
                 };
 
                 for (var opts in colours[key][cols]) {
@@ -172,7 +193,16 @@ export class ColourSwatches extends Component {
         
                         colours[key][cols][opts].hex = rgbToHex(rgbVal[0], rgbVal[1], rgbVal[2]);
         
-                        colours[key][cols][opts].variant = (rgbVal[0] * 0.299) + (rgbVal[0] * 0.587) + (rgbVal[0] * 0.114);
+                        colours[key][cols][opts].variant = (rgbVal[0] * 0.299) + (rgbVal[1] * 0.587) + (rgbVal[2] * 0.114);
+
+                        if(colours[key][cols][opts].variant >= 186) {
+                            colours[key][cols][opts].ratio = (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
+                            / (this.luminanace(255, 255, 255) + 0.05);
+                        }
+                        else {
+                            colours[key][cols][opts].ratio = (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
+                            / (this.luminanace(0, 0, 0) + 0.05);
+                        };
                     };
                 };
             };
@@ -199,7 +229,7 @@ export class ColourSwatches extends Component {
 
         let colSets = colArray.map(set => {
             keys ++;
-            // console.log(set);
+            console.log(set);
             return (
                 <ColourSet key={keys} set={set} />
             );
@@ -242,11 +272,13 @@ export class ColourSwatches extends Component {
 };
 
 const ColourSwatch = ({cols}) => {
-    let thisCols = cols;
-    let thisHex = thisCols.hex;
-    let vars = thisCols.variant;
-    let opts = thisCols.name;
-    let type;
+    let thisCols = cols,
+        thisHex = thisCols.hex,
+        vars = thisCols.variant,
+        ratio = thisCols.ratio,
+        opts = thisCols.name,
+        type,
+        standard;
 
     if(vars >= 186) {
         type = 'light';
@@ -255,8 +287,18 @@ const ColourSwatch = ({cols}) => {
         type = 'dark';
     };
 
+    if(ratio >= 4.5) {
+        standard = 'pass';
+    }
+    else if(ratio >= 3) {
+        standard = 'conditional';
+    }
+    else {
+        standard = 'fail';
+    }
+
     return (
-        <div className={'colour swatch ' + opts + ' ' + type} style={{background: thisHex}}>
+        <div className={'colour swatch ' + opts + ' ' + type + ' ' + standard} style={{background: thisHex}}>
             <p>{thisHex}</p>
         </div>
     );
@@ -335,7 +377,7 @@ export const Typography = ({logo, ori, theme, clientName}) => {
                             </figure>
                         </div>
                         <div className="headings">
-                            <h1>Heading 1</h1>
+                            <Head1>Heading 1</Head1>
                                 <p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
                                 <p>Every page should have a H1 as they're used for SEO and screen readers</p>
                             <h2>Heading 2</h2>
