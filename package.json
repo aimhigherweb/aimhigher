@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"start": "webpack-dev-server --mode development --hot --open",
-		"build": "webpack --mode production"
+		"build": "webpack --mode production && cp ./dist/index.html ./dist/404.html"
 	},
 	"author": "AimHigher Web Design",
 	"license": "ISC",
