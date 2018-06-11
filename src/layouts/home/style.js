@@ -22,6 +22,8 @@ export const HomeGraphic = styled(ReactSVG)`
 `;
 
 export const HomeContent = styled('div')`
-    font-size: 1.2em;
+    font-size: 1.3em;
+    margin: 0 auto;
     padding: 20px;
+    width: 80%;
 `;
