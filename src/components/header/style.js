@@ -1,14 +1,12 @@
 import styled from 'react-emotion';
-import ReactSVG from 'react-svg';
 import { NavLink } from 'react-router-dom';
 
-export const LogoSVG = styled(ReactSVG)`
-    padding: 20px;
-    
+export const LogoArea = styled('a')`    
     svg {
         display: block;
-        height: 20vh;
+        height: 10vh;
         margin: 0 auto;
+        padding: 20px;
         max-width: 1200px;
     }
 `;
@@ -23,9 +21,10 @@ export const Nav = styled('nav')`
 export const Item = styled(NavLink)`
     border-bottom: 3px solid transparent;
     color: ${props => props.theme.colours.primary.dark['90']};
-    font-size: 1.5em;
+    font: ${props => props.theme.fonts.headings};
+    font-size: 1em;
     font-weight: 500;
-    padding: 10px 5px 5px;
+    padding: 50px 5px 5px;
     text-decoration: none;
 
     &:active, &:hover, &:focus {

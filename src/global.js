@@ -197,6 +197,13 @@ export const FooterCont = styled('footer')`
     padding: 10px 20px;
 `;
 
+export const HeadCont = styled('header')`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
 export const Main = styled('main')`
     min-height: 55vh;
+    overflow: hidden;
 `;

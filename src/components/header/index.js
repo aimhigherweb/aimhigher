@@ -1,6 +1,7 @@
 import React, {Fragment, Component} from 'react';
 import Helmet from 'react-helmet';
 import Media from 'react-media';
+import ReactSVG from 'react-svg';
 
 //Resources
 import {menuItems} from '../app/index.js';
@@ -8,7 +9,8 @@ import { Menu } from 'react-feather';
 import Favicon from '../../img/favicon.png';
 import Logo from '../../img/logo.svg';
 
-import {Item, LogoSVG, Nav} from './style.js';
+
+import {Item, LogoArea, Nav} from './style.js';
 
 const Meta = () => {
     return (
@@ -38,11 +40,9 @@ class Header extends Component {
 };
 
 const SiteTitle = () => (
-	<div className="site-logo">
-		<a aria-label="Logo linked to homepage" href="/">
-			<LogoSVG path={Logo} />
-		</a>
-	</div>
+    <LogoArea aria-label="Logo linked to homepage" href="/">
+        <ReactSVG path={Logo} />
+    </LogoArea>
 );
 
 const MainMenu = () => {

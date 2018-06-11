@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet';
 import {Meta} from '../../components/parts/index.js';
 
 //Resources
+import Graphic from '../../img/graphic.svg';
+import {Hero, HomeContent, HomeGraphic} from './style.js';
 
 const meta = {
 	name: 'AimHigher Web Design',
@@ -17,7 +19,13 @@ class Home extends Component {
 		return (
 			<Fragment>
                 <Meta {...meta} />
-				<div>
+                <Hero>
+                    <HomeGraphic path={Graphic} />
+                    <blockquote>
+                        Bridging the Gap Between Technology and Businesses
+                    </blockquote>
+                </Hero>
+				<HomeContent>
                     <p>
                         AimHigher Web Design is based in Perth and specialises in designing modern and professional websites that can be easily maintained by anyone, regardless of their technical skill. We also provide a full website management service.
                     </p>
@@ -27,7 +35,7 @@ class Home extends Component {
                     <p>
                         We also provide prompt and efficient after-sales technical support to keep your website working for you, while you get on with business.
                     </p>
-                </div>
+                </HomeContent>
             </Fragment>
 		);
 	}

@@ -10,7 +10,7 @@ import Footer from './components/footer/index.js';
 
 //Resources
 import './global.js';
-import {Globals, Main, FooterCont} from './global.js';
+import {Globals, HeadCont, Main, FooterCont} from './global.js';
 
 
 export const aimhigherTheme = {
@@ -84,7 +84,7 @@ class Root extends React.Component {
 			<Router basename="/">
 				<ThemeProvider theme={aimhigherTheme}>
 					<Globals>
-						<header>{<Header />}</header>
+						<HeadCont>{<Header />}</HeadCont>
 						<Main>{<App />}</Main>
 						<FooterCont>{<Footer />}</FooterCont>
 					</Globals>
