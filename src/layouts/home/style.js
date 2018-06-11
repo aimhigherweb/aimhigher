@@ -3,7 +3,12 @@ import ReactSVG from 'react-svg';
 
 export const Hero = styled('div')`
     color: ${props => props.theme.colours.primary.dark['75']};
+    display: flex;
+        align-items: center;
+        justify-content: center;
     font: ${props => props.theme.fonts.headings};
+    padding: 30px;
+
     blockquote {
         font-size: 1.5em;
     }
