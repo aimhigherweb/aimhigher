@@ -4,10 +4,11 @@ import { NavLink } from 'react-router-dom';
 export const LogoArea = styled('a')`    
     svg {
         display: block;
-        height: 14vh;
+        height: auto;
+            max-height: 15vh;
         margin: 0 auto;
         padding: 20px;
-        max-width: 1200px;
+        width: 32vw;
     }
 `;
 
@@ -15,20 +16,25 @@ export const LogoArea = styled('a')`
 export const Nav = styled('nav')`
     display: flex;
         justify-content: space-between;
-    padding: 10px 20px;
+    padding: 40px 20px 10px;
 `;
 
 export const Item = styled(NavLink)`
     border-bottom: 3px solid transparent;
-    color: ${props => props.theme.colours.primary.dark['90']};
+    border-right: 2px solid ${props => props.theme.colours.primary.dark['90']};
+    color: #ffffff;
     font: ${props => props.theme.fonts.headings};
     font-size: 1.1em;
     font-weight: 500;
-    padding: 50px 5px 5px;
+    padding: 2px 10px;
     text-decoration: none;
 
+    &:first-child {
+        border-left: 2px solid ${props => props.theme.colours.primary.dark['90']};
+    }
+
     &:active, &:hover, &:focus {
-        border-color: ${props => props.theme.colours.secondary.dark['90']};
-        color: ${props => props.theme.colours.secondary.dark['90']};
+        border-bottom-color: ${props => props.theme.colours.secondary.dark['90']};
+        color: ${props => props.theme.colours.primary.dark['90']};
     }
 `;

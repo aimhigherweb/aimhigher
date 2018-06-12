@@ -199,11 +199,17 @@ export const FooterCont = styled('footer')`
 
 export const HeadCont = styled('header')`
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+        align-items: center;
+        justify-content: space-between;
+    height: ${props => props.theme.values.header.height['320']};
+    position: relative;
+        z-index: 20;
+
+    polygon, path {
+        fill: ${props => props.home && '#fff'};
+    }
 `;
 
 export const Main = styled('main')`
     min-height: 55vh;
-    overflow: hidden;
 `;

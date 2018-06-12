@@ -75,6 +75,13 @@ export const aimhigherTheme = {
 		bold: "700 1em 'Roboto', Arial, sans-serif",
 		headings: "700 1.5em 'Space Mono', monospace",
 		code: "400 1em 'Space Mono', monospace"
+	},
+	values: {
+		header: {
+			height: {
+				320: '20vh',
+			}
+		}
 	}
 }
 
@@ -84,7 +91,11 @@ class Root extends React.Component {
 			<Router basename="/">
 				<ThemeProvider theme={aimhigherTheme}>
 					<Globals>
-						<HeadCont>{<Header />}</HeadCont>
+						{location.pathname === '/' ?
+							<HeadCont home>{<Header />}</HeadCont>
+						:
+							<HeadCont>{<Header />}</HeadCont>
+						}
 						<Main>{<App />}</Main>
 						<FooterCont>{<Footer />}</FooterCont>
 					</Globals>
