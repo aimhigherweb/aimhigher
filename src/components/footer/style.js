@@ -4,11 +4,26 @@ import { NavLink } from 'react-router-dom';
 export const Nav = styled('nav')`
     display: flex;
         justify-content: space-between;
-    width: 40%;
+    padding: 10px;
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        padding: 0;
+        width: 50%;
+            max-width: 300px;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        width: 40%;
+    }
 `;
 
 export const SocialNav = styled(Nav)`
-    width: 40%;
+    padding: 10px;
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        padding: 0;
+        width: 40%;
+    }
 `;
 
 export const Item = styled(NavLink)`

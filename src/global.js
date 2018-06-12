@@ -193,8 +193,18 @@ export const Link = styled('a')`
 export const FooterCont = styled('footer')`
     display: flex;
         align-items: center;
+        flex-direction: column;
         justify-content: space-between;
     padding: 10px 20px;
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        flex-direction: row;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.realbig}) {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
 `;
 
 export const HeadCont = styled('header')`
