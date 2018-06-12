@@ -14,8 +14,26 @@ export const LogoArea = styled('a')`
     @media (min-width: ${props => props.theme.values.screens.small}) {
         height: auto;
             max-height: 15vh;
-        padding: 20px;
-        width: 32vw;
+        width: 40vw;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        flex-grow: 1;
+        height: auto;
+            max-height: 15vh;
+        width: 23vw;
+
+        svg {
+            padding: 10px 10px 10px 15px;
+        }
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.large}) {
+        width: 30vw;
+
+        svg {
+            padding: 20px;
+        }
     }
 `;
 
@@ -28,13 +46,6 @@ export const Nav = styled('nav')`
     position: absolute;
         top: 0;
         right: 0;
-
-    @media (min-width: ${props => props.theme.values.screens.small}) {
-        display: flex;
-            flex-direction: row;
-        padding: 40px 20px 10px;
-        position: relative;
-    }
 
     #close {
         display: none;
@@ -52,6 +63,24 @@ export const Nav = styled('nav')`
         #hamburger {
             display: none;
         }
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        display: flex;
+            flex-direction: row;
+        margin-left: auto;
+        padding: 0 10px;
+        position: relative;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        margin-left: 0;
+        margin-top: 3vw;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.large}) {
+        margin-top: 1vh;
+        padding: 40px 20px 10px;
     }
 `;
 
@@ -85,25 +114,43 @@ export const Item = styled(NavLink)`
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
         background: transparent;
-        border-right: 2px solid ${props => props.theme.colours.neutral.light['75']};
-        border-bottom-color: transparent;
+        border: none;
+        border-left: 2px solid ${props => props.theme.colours.neutral.light['75']};
+        border-bottom: 3px solid transparent;
         color: #fff;
         display: block;
-        font-size: 1.1em;
+        font-size: 1em;
         font-weight: 500;
         padding: 0 10px;
         text-align: left;
 
-        &:first-child {
-            border-left: 2px solid ${props => props.theme.colours.neutral.light['75']};
+        &:last-child {
+            border-bottom: 3px solid transparent;
+            border-right: 2px solid ${props => props.theme.colours.neutral.light['75']};
         }
 
         &:active, &:hover, &:focus {
             background: transparent;
             border-bottom-color: ${props => props.theme.colours.secondary.dark['90']};
             color: ${props => props.theme.colours.primary.dark['90']};
+
+            &:last-child {
+                border-bottom-color: ${props => props.theme.colours.secondary.dark['90']};
+            }
         }
     } 
+
+    @media (min-width: ${props => props.theme.values.screens.large}) {
+        font-size: 1.1em;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.bigger}) {
+        font-size: 1.3em;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.realbig}) {
+        font-size: 1.5em;
+    }
 `;
 
 export const Hamburger = styled('a')`
@@ -118,5 +165,9 @@ export const Hamburger = styled('a')`
 
     svg {
         max-width: unset;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        display: none;
     }
 `;

@@ -208,6 +208,16 @@ export const HeadCont = styled('header')`
     polygon, path {
         fill: ${props => props.home && '#fff'};
     }
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        flex-wrap: wrap;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        align-items: center;
+        flex-wrap: nowrap;
+        min-height: ${props => props.theme.values.header.height.large};
+    }
 `;
 
 export const Main = styled('main')`

@@ -9,7 +9,7 @@ export const Hero = styled('div')`
     font: ${props => props.theme.fonts.headings};
     height: 60vh;
     position: relative;
-        top: calc(-1 * ${props => props.theme.values.header.height.small});
+        top: calc(-1 * ${props => props.theme.values.header.height.medium});
     z-index: 0;
 
     blockquote {

@@ -58,7 +58,7 @@ const MainMenu = () => {
 
     return (
         <Nav id="menu">
-            <Media query="(max-width: 640px)">
+            <Media query="(max-width: 40rem)">
                 <Fragment>
                     <Hamburger id="hamburger" href="#menu">
                         <Menu />
