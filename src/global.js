@@ -215,10 +215,6 @@ export const HeadCont = styled('header')`
     position: relative;
         z-index: 20;
 
-    polygon, path {
-        fill: ${props => props.home && '#fff'};
-    }
-
     @media (min-width: ${props => props.theme.values.screens.small}) {
         flex-wrap: wrap;
         height: ${props => props.theme.values.header.height.medium};

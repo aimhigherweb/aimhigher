@@ -11,6 +11,10 @@ export const LogoArea = styled('a')`
         width: 70vw;
     }
 
+    path, polygon {
+        fill: #fff;
+    }
+
     @media (min-width: ${props => props.theme.values.screens.small}) {
         height: auto;
             max-height: 15vh;
