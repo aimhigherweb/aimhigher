@@ -5,12 +5,12 @@ import ReactSVG from 'react-svg';
 
 //Resources
 import {menuItems} from '../app/index.js';
-import { Menu } from 'react-feather';
+import { Menu, X } from 'react-feather';
 import Favicon from '../../img/favicon.png';
 import Logo from '../../img/logo.svg';
 
 
-import {Item, LogoArea, Nav} from './style.js';
+import {Hamburger, Item, LogoArea, Nav} from './style.js';
 
 const Meta = () => {
     return (
@@ -57,14 +57,21 @@ const MainMenu = () => {
     });
 
     return (
-        <Nav>
+        <Fragment>
             <Media query="(max-width: 640px)">
-                <a className="hamburger" href="#menu">
+                <Hamburger href="#menu">
                     <Menu />
-                </a>
+                </Hamburger>
             </Media>
-            {navItems}
-        </Nav>
+            <Nav id="menu">
+                <Media query="(max-width: 640px)">
+                    <Hamburger href="#">
+                        <X />
+                    </Hamburger>
+                </Media>
+                {navItems}
+            </Nav>
+        </Fragment>
     );
 }
 

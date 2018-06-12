@@ -87,11 +87,20 @@ export const aimhigherTheme = {
 
 class Root extends React.Component {
 	render() {
+		let home = false;
+		switch (location.pathname) {
+			case '/':
+			case '/#':
+			case '/#menu':
+				home = true;
+				break;
+		}
+
 		return (
 			<Router basename="/">
 				<ThemeProvider theme={aimhigherTheme}>
 					<Globals>
-						{location.pathname === '/' ?
+						{home ?
 							<HeadCont home>{<Header />}</HeadCont>
 						:
 							<HeadCont>{<Header />}</HeadCont>

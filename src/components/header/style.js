@@ -14,14 +14,22 @@ export const LogoArea = styled('a')`
 
 
 export const Nav = styled('nav')`
-    display: flex;
+    display: none;
         justify-content: space-between;
     padding: 40px 20px 10px;
+
+    @media (min-width: 40rem) {
+        display: flex;
+    }
+
+    &:target {
+        display: flex;
+    }
 `;
 
 export const Item = styled(NavLink)`
     border-bottom: 3px solid transparent;
-    border-right: 2px solid rgba(0, 0, 0, 0.3);
+    border-right: 2px solid ${props => props.theme.colours.neutral.light['75']};
     color: #ffffff;
     font: ${props => props.theme.fonts.headings};
     font-size: 1.1em;
@@ -30,11 +38,21 @@ export const Item = styled(NavLink)`
     text-decoration: none;
 
     &:first-child {
-        border-left: 2px solid rgba(0, 0, 0, 0.5);
+        border-left: 2px solid ${props => props.theme.colours.neutral.light['75']};
     }
 
     &:active, &:hover, &:focus {
         border-bottom-color: ${props => props.theme.colours.secondary.dark['90']};
         color: ${props => props.theme.colours.primary.dark['90']};
     }
+
+    svg {
+        max-width: unset;
+    }
+`;
+
+const MobileButton = Item.withComponent('a');
+
+export const Hamburger = styled(MobileButton)`
+    border: none;
 `;
