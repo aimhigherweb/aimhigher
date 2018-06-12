@@ -80,7 +80,7 @@ export const aimhigherTheme = {
 		header: {
 			height: {
 				small: '10vh',
-				medium: '30vh',
+				medium: '20vh',
 				large: '20vh',
 			}
 		},

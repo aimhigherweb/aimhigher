@@ -9,12 +9,31 @@ export const Hero = styled('div')`
     font: ${props => props.theme.fonts.headings};
     height: 60vh;
     position: relative;
-        top: calc(-1 * ${props => props.theme.values.header.height.medium});
+        top: calc(-1 * ${props => props.theme.values.header.height.small});
     z-index: 0;
 
     blockquote {
-        font-size: 1.5em;
-        margin-top: 80px;
+        font-size: 1em;
+        margin: calc(0.5 * ${props => props.theme.values.header.height.small}) 0 0;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        height: 60vh;
+        top: calc(-1 * ${props => props.theme.values.header.height.medium});
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        top: calc(-1 * ${props => props.theme.values.header.height.large});
+
+        blockquote {
+            font-size: 1.4em;
+        }
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.realbig}) {
+        blockquote {
+            font-size: 1.7em;
+        }
     }
 `;
 
@@ -26,7 +45,7 @@ export const HeroBack = styled(ReactSVG)`
         position: absolute;
             top: 0;
             left: -50%;
-        width: 3500px;
+        width: 400vh;
             max-width: unset;
         z-index: 0;
     }
@@ -37,8 +56,16 @@ export const HeroBack = styled(ReactSVG)`
 `;
 
 export const HeroContent = styled('div')`
-    padding: calc(1.5 * ${props => props.theme.values.header.height.small}) 30px 0;
+    padding: calc(0.5 * ${props => props.theme.values.header.height.medium}) 15px 0;
     position: relative;
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        padding: calc(1.5 * ${props => props.theme.values.header.height.medium}) 30px 0;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        padding: calc(1.5 * ${props => props.theme.values.header.height.large}) 30px 0;
+    }
 `;
 
 const personThinking = keyframes`
@@ -84,6 +111,10 @@ export const HomeGraphic = styled(ReactSVG)`
         animation-iteration-count: infinite;
         animation-timing-function: steps(1, end);
     }
+
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        margin-top: -30px;
+    }
 `;
 
 export const HomeContent = styled('div')`
@@ -91,13 +122,51 @@ export const HomeContent = styled('div')`
         align-items: center;
         flex-wrap: wrap;
         justify-content: space-between;
-    font-size: 1.7em;
+    font-size: 1.2em;
     line-height: 1.5;
     margin: 0 auto;
     padding: 20px;
 
     p {
         width: 55%;
+
+        &:nth-of-type(2n) {
+            text-align: right;
+        }
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        font-size: 1.4em;
+        width: 90%;
+            max-width: 1200px;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        font-size: 1.5em;
+
+        p {
+            border-left: 2px solid ${props => props.theme.colours.primary.main};
+            padding-left: 10px;
+
+            &:nth-of-type(2n) {
+                border-left: none;
+                border-right: 2px solid ${props => props.theme.colours.primary.main};
+                padding-left: 0;
+                padding-right: 10px;
+            }
+        }
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.large}) {
+        font-size: 1.7em;
+
+        p {
+            border-width: 4px;
+
+            &:nth-of-type(2n) {
+                border-right-width: 4px;
+            }
+        }
     }
 `;
 
@@ -109,5 +178,9 @@ export const ContentSVG = styled(ReactSVG)`
         height: auto;
             max-height: 250px;
         width: auto;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        
     }
 `;

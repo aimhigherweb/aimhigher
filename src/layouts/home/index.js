@@ -27,9 +27,7 @@ class Home extends Component {
                     <HeroBack path={Background} />
                     <HeroContent>
                         <HomeGraphic path={Graphic} />
-                        <blockquote>
-                            Bridging the gap between businesses and technology
-                        </blockquote>
+                        <blockquote>Bridging the gap between businesses and technology</blockquote>
                     </HeroContent>
                 </Hero>
 				<HomeContent>

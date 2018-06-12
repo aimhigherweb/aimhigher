@@ -201,7 +201,7 @@ export const HeadCont = styled('header')`
     display: flex;
         align-items: center;
         justify-content: space-between;
-    height: ${props => props.theme.values.header.height['320']};
+    height: ${props => props.theme.values.header.height.small};
     position: relative;
         z-index: 20;
 
@@ -211,12 +211,18 @@ export const HeadCont = styled('header')`
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
         flex-wrap: wrap;
+        height: ${props => props.theme.values.header.height.medium};
     }
 
     @media (min-width: ${props => props.theme.values.screens.medium}) {
         align-items: center;
         flex-wrap: nowrap;
         min-height: ${props => props.theme.values.header.height.large};
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.realbig}) {
+        margin: 0 auto;
+        max-width: 1500px;
     }
 `;
 
