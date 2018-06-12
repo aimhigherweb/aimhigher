@@ -32,7 +32,7 @@ export const HeroBack = styled(ReactSVG)`
     }
 
     path {
-        fill: url('#_Linear1-1');
+        fill: url('#background-gradient');
     }
 `;
 
