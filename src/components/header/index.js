@@ -57,21 +57,19 @@ const MainMenu = () => {
     });
 
     return (
-        <Fragment>
+        <Nav id="menu">
             <Media query="(max-width: 640px)">
-                <Hamburger href="#menu">
-                    <Menu />
-                </Hamburger>
-            </Media>
-            <Nav id="menu">
-                <Media query="(max-width: 640px)">
-                    <Hamburger href="#">
+                <Fragment>
+                    <Hamburger id="hamburger" href="#menu">
+                        <Menu />
+                    </Hamburger>
+                    <Hamburger id="close" href="#">
                         <X />
                     </Hamburger>
-                </Media>
-                {navItems}
-            </Nav>
-        </Fragment>
+                </Fragment>
+            </Media>
+            {navItems}
+        </Nav>
     );
 }
 

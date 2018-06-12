@@ -9,7 +9,7 @@ export const Hero = styled('div')`
     font: ${props => props.theme.fonts.headings};
     height: 60vh;
     position: relative;
-        top: calc(-1 * ${props => props.theme.values.header.height['320']});
+        top: calc(-1 * ${props => props.theme.values.header.height.small});
     z-index: 0;
 
     blockquote {
@@ -37,7 +37,7 @@ export const HeroBack = styled(ReactSVG)`
 `;
 
 export const HeroContent = styled('div')`
-    padding: calc(1.5 * ${props => props.theme.values.header.height['320']}) 30px 0;
+    padding: calc(1.5 * ${props => props.theme.values.header.height.small}) 30px 0;
     position: relative;
 `;
 
