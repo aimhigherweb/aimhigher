@@ -213,7 +213,6 @@ export const HeadCont = styled('header')`
         justify-content: space-between;
     height: ${props => props.theme.values.header.height.small};
     position: relative;
-        z-index: 20;
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
         flex-wrap: wrap;

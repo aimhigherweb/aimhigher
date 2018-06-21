@@ -1,13 +1,12 @@
-import React, { Component, Fragment } from 'react';
-import {Helmet} from 'react-helmet';
+import React, { Fragment } from 'react';
 
 //Resources
 import {Meta} from '../../components/parts/index.js';
 import Pages from '../../data/pageContent.js';
-import Logo from '../../img/logo.png';
 
 //Styled Components
 import {Head1} from '../../global.js';
+import {Content} from './style.js';
 
 const StandardPage = ({location}) => {
     let pageSlug = location.pathname;
@@ -19,7 +18,8 @@ const StandardPage = ({location}) => {
         details = Pages[pageSlug].meta;
     }
     else {
-        noPage = true
+        details = Pages['404'].meta;
+        pageSlug = '404';
     }
 
         return (
@@ -27,8 +27,10 @@ const StandardPage = ({location}) => {
                 {!noPage &&
                     <Fragment>
                         <Meta {...details} />
-                        <Head1>{Pages[pageSlug].title}</Head1>
-                        {Pages[pageSlug].content}
+                        <Content>
+                            <Head1>{Pages[pageSlug].title}</Head1>
+                            {Pages[pageSlug].content}
+                        </Content>
                     </Fragment>
                 }
             </div>

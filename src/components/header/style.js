@@ -1,7 +1,11 @@
 import styled from 'react-emotion';
 import { NavLink } from 'react-router-dom';
+import ReactSVG from 'react-svg';
 
-export const LogoArea = styled('a')`    
+export const LogoArea = styled('a')`  
+    position: relative;
+    z-index: 20;
+
     svg {
         display: block;
         height: auto;
@@ -50,6 +54,7 @@ export const Nav = styled('nav')`
     position: absolute;
         top: 0;
         right: 0;
+    z-index: 20;
 
     #close {
         display: none;
@@ -108,7 +113,6 @@ export const Item = styled(NavLink)`
     &:active, &:hover, &:focus {
         background: ${props => props.theme.colours.secondary.dark['90']};
         border-bottom-color: ${props => props.theme.colours.secondary.dark['90']};
-        border-left-color: ${props => props.theme.colours.secondary.dark['90']};
         color: #fff;
     }
 
@@ -173,5 +177,23 @@ export const Hamburger = styled('a')`
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
         display: none;
+    }
+`;
+
+export const HeroBack = styled(ReactSVG)`
+    svg {
+        height: auto;
+            max-height: unset;
+        margin-left: 50%;
+        position: absolute;
+            top: 0;
+            left: -50%;
+        width: 400vh;
+            max-width: unset;
+        z-index: -1;
+    }
+
+    path {
+        fill: url('#background-gradient');
     }
 `;

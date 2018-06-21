@@ -4,13 +4,14 @@ import Media from 'react-media';
 import ReactSVG from 'react-svg';
 
 //Resources
+import Background from '../../img/wave.svg';
 import {menuItems} from '../app/index.js';
 import { Menu, X } from 'react-feather';
 import Favicon from '../../img/favicon.png';
 import Logo from '../../img/logo.svg';
 
 
-import {Hamburger, Item, LogoArea, Nav} from './style.js';
+import {Hamburger, HeroBack, Item, LogoArea, Nav} from './style.js';
 
 const Meta = () => {
     return (
@@ -32,6 +33,7 @@ class Header extends Component {
         return (
             <Fragment>
                 <Meta />
+                <HeroBack path={Background} />
                 <SiteTitle />
                 <MainMenu />
             </Fragment>

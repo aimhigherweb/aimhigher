@@ -10,7 +10,7 @@ export const Hero = styled('div')`
     height: 60vh;
     position: relative;
         top: calc(-1 * ${props => props.theme.values.header.height.small});
-    z-index: 0;
+    z-index: 1;
 
     blockquote {
         font-size: 1em;
@@ -34,24 +34,6 @@ export const Hero = styled('div')`
         blockquote {
             font-size: 1.7em;
         }
-    }
-`;
-
-export const HeroBack = styled(ReactSVG)`
-    svg {
-        height: auto;
-            max-height: unset;
-        margin-left: 50%;
-        position: absolute;
-            top: 0;
-            left: -50%;
-        width: 400vh;
-            max-width: unset;
-        z-index: 0;
-    }
-
-    path {
-        fill: url('#background-gradient');
     }
 `;
 

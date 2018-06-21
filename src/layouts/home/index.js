@@ -6,11 +6,10 @@ import {Meta} from '../../components/parts/index.js';
 
 //Resources
 import Graphic from '../../img/graphic.svg';
-import Background from '../../img/wave.svg';
 import ComputerCoffee from '../../img/computer_coffee.svg';
 import Design from '../../img/design.svg';
 import MultipleHands from '../../img/multiple_computers.svg';
-import {ContentSVG, Hero, HeroBack, HeroContent, HomeContent, HomeGraphic} from './style.js';
+import {ContentSVG, Hero, HeroContent, HomeContent, HomeGraphic} from './style.js';
 
 const meta = {
 	name: 'AimHigher Web Design',
@@ -24,7 +23,6 @@ class Home extends Component {
 			<Fragment>
                 <Meta {...meta} />
                 <Hero>
-                    <HeroBack path={Background} />
                     <HeroContent>
                         <HomeGraphic path={Graphic} />
                         <blockquote>Bridging the gap between businesses and technology</blockquote>

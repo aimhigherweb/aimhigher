@@ -136,6 +136,7 @@ const CodeEthics = {
         </Fragment>
     )
 };
+
 const Contact = {
     title: 'Contact Us',
     meta: {
@@ -213,6 +214,20 @@ const Faq = {
     )
 };
 
+const FourOhFour = {
+    title: '404 - Page Not Found',
+    meta: {
+        name: 'Page Not Found | AimHigher Web Design',
+        description: "Whoops! Something went wrong!",
+        slug: '404',
+    },
+    content: (
+        <Fragment>
+           <p>Uh oh! Something went wrong!</p>
+        </Fragment>
+    )
+};
+
 const Pages = {
     about: About,
     contact: Contact,
@@ -220,6 +235,7 @@ const Pages = {
     faq: Faq,
     privacy: Privacy,
     terms: TermsConditions,
+    404: FourOhFour,
 };
 
 export default Pages;

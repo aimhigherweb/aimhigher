@@ -182,6 +182,18 @@ const clients = {
             },
         },
     },
+    'tech-outsiders': {
+        name: 'Tech Outsiders',
+        slug: 'tech-outsiders',
+        logoOri: 'portrait',
+        domain: 'https',
+        live: true,
+        meta: {
+            name: 'Tech Outsiders | Client Portal',
+            description: "Dont go searching through emails, you can find all your information here!",
+            slug: '/client/tech-outsiders',
+        },
+    },
 };
 
 export default clients;
