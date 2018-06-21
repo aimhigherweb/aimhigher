@@ -7,6 +7,7 @@ import { CheckCircle } from 'react-feather';
 
 import ProfilePlaceholder from '../img/profile.svg';
 import Profile from '../img/profile.jpg';
+import ErrorImage from '../img/404.jpg';
 
 //Styled Components
 import {Link} from '../global.js';
@@ -223,7 +224,9 @@ const FourOhFour = {
     },
     content: (
         <Fragment>
-           <p>Uh oh! Something went wrong!</p>
+           <p>Oh no! 🙊 Something went wrong while we were finding the page for you, so here's a picture of a dog instead.</p>
+           <p>If the dog picture doesn't help, you can try navigating to one of the pages in the menu above.</p>
+           <img src={ErrorImage} />
         </Fragment>
     )
 };
