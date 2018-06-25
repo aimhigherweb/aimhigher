@@ -3,6 +3,8 @@ import Helmet from 'react-helmet';
 
 import Logo from '../../img/logo.png';
 import {ChevronRight, ChevronDown} from 'react-feather';
+import {FigCaption} from '../../global.js';
+import {Image, ImageContainer, Placeholder} from './style.js';
 
 
 export const Meta = ({name, description, slug, image}) => {
@@ -68,3 +70,13 @@ export class Accordion extends Component {
         );
     };
 };
+
+export const Images = ({image, placeholder, alt, caption, custom}) => {
+    return (
+        <ImageContainer custom={custom}>
+            <Image src={image} alt={alt} />
+            <Placeholder path={placeholder} className="placeholder" />
+            <FigCaption>{caption}</FigCaption>
+        </ImageContainer>
+    );
+}

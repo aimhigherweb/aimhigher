@@ -34,7 +34,8 @@ export const menuItems = [
   },
   {
 		slug: '/ethics',
-		title: 'Code of Ethics',
+    title: 'Code of Ethics',
+    hideNav: true,
   },
   {
 		slug: '/faq',
@@ -85,6 +86,20 @@ export const legalItems = [
 const routeItems = menuItems.concat(legalItems);
 
 class App extends Component {
+  hidePlaceholders() {
+    let placeholders = document.getElementsByClassName('placeholder');
+    for(let i = 0; i < placeholders.length; i++) {
+      placeholders[i].style.display = 'none';
+    }
+  }
+
+  componentDidMount() {
+  }
+
+  componentDidUpdate() {
+    // this.hidePlaceholders();
+  }
+
   render() {
     let subPages = [],
         pages = routeItems.map((page) => {

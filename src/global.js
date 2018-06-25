@@ -147,7 +147,7 @@ injectGlobal`
 export const Globals = styled('div')`
     color: ${props => props.theme.colours.neutral.main}; 
     font: ${props => props.theme.fonts.regular};
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.4;
     min-height: 100vh;
     margin: 0;
@@ -233,4 +233,12 @@ export const HeadCont = styled('header')`
 
 export const Main = styled('main')`
     min-height: 55vh;
+`;
+
+export const FigCaption = styled('figcaption')`
+    border-right: 2px solid ${props => props.theme.colours.primary.main};
+    color: ${props => props.theme.colours.primary.dark['75']};
+    font-size: 0.9em;
+    padding-right: 10px;
+    text-align: right;
 `;

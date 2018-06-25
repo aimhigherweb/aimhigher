@@ -2,15 +2,40 @@ import React, {Fragment} from 'react';
 import ReactSVG from 'react-svg';
 
 import accordion from './faq.js';
-import {Accordion} from '../components/parts/index.js'
+import {Accordion, Images} from '../components/parts/index.js'
 import { CheckCircle } from 'react-feather';
 
-import ProfilePlaceholder from '../img/profile.svg';
-import Profile from '../img/profile.jpg';
 import ErrorImage from '../img/404.jpg';
 
 //Styled Components
 import {Link} from '../global.js';
+
+//Importing Images
+function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
+}
+  
+const images = importAll(require.context('../img/placeholders/', false, /\.(jpg)$/));
+
+const placeholders = importAll(require.context('../img/placeholders/', false, /\.(svg)$/));
+
+
+//Variables
+const aboutImages = {
+    image: images['profile.jpg'],
+    placeholder: placeholders['profile.svg'],
+    alt: 'Profile Image of Amy Kapernick, the founder of AimHigher Web Design',
+    caption: 'Amy Kapernick - Founder of AimHigher Web Design',
+    custom: {
+        dimensions: {
+            height: 'auto',
+            width: '30%',
+        },
+        float: 'right',
+    }
+}
 
 const Privacy = {
     title: 'Privacy Policy',
@@ -164,41 +189,31 @@ const About = {
     },
     content: (
         <Fragment>
-           <div>
-                <p>
-                    I grew up in country Queensland and most people we
-                    knew had small businesses. But when I found out how
-                    much it cost them to get a website built, I couldn't
-                    believe it.
-                </p>
-                <p>
-                    AimHigher Web Design was founded to help bridge the
-                    gap between small businesses and technology, and
-                    help everyone (no matter what size your business is,
-                    or if you're a sole trader), get their business
-                    online.
-                </p>
-                <p>
-                    We specialise in helping you out with the entire
-                    process, starting the website, setting up social
-                    media, setting up emails and any of the ongoing
-                    support and maintenance requirements.
-                </p>
-                <p>
-                    You know your business the best, and we know the
-                    web. Let us help you, and leave you to focus on what
-                    you know best!
-                </p>
-            </div>
-            <div className="image-container">
-                <figure>
-                    <img alt="Amy Kapernick - Founder of AimHigher Web Design" src={Profile} />
-                    <ReactSVG path={ProfilePlaceholder} />
-                    <figcaption>
-                        Amy Kapernick - Founder of AimHigher Web Design
-                    </figcaption>
-                </figure>
-            </div>
+            <Images {...aboutImages} />
+            <p>
+                I grew up in country Queensland and most people we
+                knew had small businesses. But when I found out how
+                much it cost them to get a website built, I couldn't
+                believe it.
+            </p>
+            <p>
+                AimHigher Web Design was founded to help bridge the
+                gap between small businesses and technology, and
+                help everyone (no matter what size your business is,
+                or if you're a sole trader), get their business
+                online.
+            </p>
+            <p>
+                We specialise in helping you out with the entire
+                process, starting the website, setting up social
+                media, setting up emails and any of the ongoing
+                support and maintenance requirements.
+            </p>
+            <p>
+                You know your business the best, and we know the
+                web. Let us help you, and leave you to focus on what
+                you know best!
+            </p>
         </Fragment>
     )
 };
