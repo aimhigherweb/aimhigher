@@ -1,7 +1,7 @@
 import React, {Fragment, Component} from 'react';
 import Helmet from 'react-helmet';
 import Media from 'react-media';
-import ReactSVG from 'react-svg';
+import ReactSVG from '@amykate/react-svg';
 
 //Resources
 import Background from '../../img/wave.svg';

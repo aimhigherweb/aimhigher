@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {Helmet} from 'react-helmet';
-import ReactSVG from 'react-svg';
+import ReactSVG from '@amykate/react-svg';
 import {ThemeProvider} from 'emotion-theming';
 
 // Components

@@ -1,6 +1,6 @@
 import styled from 'react-emotion';
 import { NavLink } from 'react-router-dom';
-import ReactSVG from 'react-svg';
+import ReactSVG from '@amykate/react-svg';
 
 export const LogoArea = styled('a')`  
     position: relative;

@@ -1,5 +1,5 @@
 import styled from 'react-emotion';
-import ReactSVG from 'react-svg';
+import ReactSVG from '@amykate/react-svg';
 
 export const ImageContainer = styled('figure')`
     float: ${props => props.custom.float};

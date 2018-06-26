@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import ReactSVG from 'react-svg';
+import ReactSVG from '@amykate/react-svg';
 
 import accordion from './faq.js';
 import {Accordion, Images} from '../components/parts/index.js'
