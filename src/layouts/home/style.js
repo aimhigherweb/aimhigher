@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'react-emotion';
-import ReactSVG from '@amykate/react-svg';
+import ReactSVG from 'react-svg';
 
 export const Hero = styled('div')`
     color: ${props => props.theme.colours.primary.dark['75']};

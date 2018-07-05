@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {Helmet} from 'react-helmet';
-import ReactSVG from '@amykate/react-svg';
+import ReactSVG from 'react-svg';
 import {ThemeProvider} from 'emotion-theming';
 
 // Components
@@ -68,7 +68,7 @@ export class ColourSwatches extends Component {
                 },
             };
 
-        // console.log(colours);
+        console.log(colours);
 
         for (var key in colours) {
             const hexToRgb = function(str) { 
@@ -230,9 +230,9 @@ export class ColourSwatches extends Component {
 
         let colSets = colArray.map(set => {
             keys ++;
-            console.log(set);
+            // console.log(set);
             return (
-                <ColourSet key={keys} set={set} />
+                <ColourSet key={keys} set={set} devMode={devMode} />
             );
         });
         
@@ -266,18 +266,21 @@ export class ColourSwatches extends Component {
             <div>
                 <h3>Colours</h3>
                 {colSets}
-                {devMode && <DevColours {...colours} />}
             </div>
         );
     };
 };
 
-const ColourSwatch = ({cols}) => {
+const ColourSwatch = ({cols, devMode}) => {
     let thisCols = cols,
         thisHex = thisCols.hex,
         vars = thisCols.variant,
         ratio = thisCols.ratio,
         opts = thisCols.name;
+
+    if(devMode) {
+        <DevColours {...thisCols} />
+    };
 
     if(vars >= 186) {
         if(ratio >= 4.5) {
@@ -327,7 +330,7 @@ const ColourSwatch = ({cols}) => {
     };
 };
 
-const ColourGroup = ({colgroup, vars}) => {
+const ColourGroup = ({colgroup, vars, devMode}) => {
     let colArray = [];
 
     for (var opts in colgroup) {
@@ -336,7 +339,7 @@ const ColourGroup = ({colgroup, vars}) => {
 
     let colSwatches = colArray.map(swatch => {
         return (
-            <ColourSwatch key={swatch.name} cols={swatch} />
+            <ColourSwatch key={swatch.name} cols={swatch} devMode={devMode} />
         );
     });
 
@@ -347,7 +350,7 @@ const ColourGroup = ({colgroup, vars}) => {
     );
 };
 
-const ColourSet = ({set}) => {
+const ColourSet = ({set, devMode}) => {
     let colGroupLight, colGroupDark, colMain;
 
     colGroupLight = set.light;
@@ -359,10 +362,10 @@ const ColourSet = ({set}) => {
             <ColourSwatch cols={colMain} />
             <div className="colour group-container">
                 {colMain.hex != "#ffffff" &&
-                    <ColourGroup colgroup={colGroupLight} vars='light' />
+                    <ColourGroup colgroup={colGroupLight} vars='light' devMode={devMode} />
                 }
                 {colMain.hex != "#000000" &&
-                    <ColourGroup colgroup={colGroupDark} vars='dark' />
+                    <ColourGroup colgroup={colGroupDark} vars='dark' devMode={devMode} />
                 }
             </div>
         </div>

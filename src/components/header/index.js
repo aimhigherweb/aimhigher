@@ -1,7 +1,7 @@
 import React, {Fragment, Component} from 'react';
 import Helmet from 'react-helmet';
 import Media from 'react-media';
-import ReactSVG from '@amykate/react-svg';
+import ReactSVG from 'react-svg';
 
 //Resources
 import Background from '../../img/wave.svg';
@@ -33,7 +33,7 @@ class Header extends Component {
         return (
             <Fragment>
                 <Meta />
-                <HeroBack path={Background} />
+                <HeroBack path={Background} renumerateIRIElements={false} />
                 <SiteTitle />
                 <MainMenu />
             </Fragment>

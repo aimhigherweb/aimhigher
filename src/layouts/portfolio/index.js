@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import ReactSVG from '@amykate/react-svg';
+import ReactSVG from 'react-svg';
 
 import { ExternalLink, Github } from 'react-feather';
 

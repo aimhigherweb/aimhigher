@@ -193,6 +193,61 @@ const clients = {
             description: "Dont go searching through emails, you can find all your information here!",
             slug: '/client/tech-outsiders',
         },
+        theme: {
+            colours: {
+                primary: {
+                    main: '#b21e6f',
+                    light: {
+                        10: '#f7e9f1',
+                        25: '#ecc7db',
+                        50: '#d98fb7',
+                        75: '#c55693',
+                        90: '#ba347d',
+                    },
+                    dark: {
+                        10: '#12030b',
+                        25: '#2d081c',
+                        50: '#590f38',
+                        75: '#861753',
+                        90: '#a01b64',
+                    },
+                },
+                secondary: {
+                    main: '#1eb261',
+                    light: {
+                        10: '#e9f7ef',
+                        25: '#c7ecd8',
+                        50: '#8fd9b0',
+                        75: '#56c589',
+                        90: '#34ba71',
+                    },
+                    dark: {
+                        10: '#03120a',
+                        25: '#082d18',
+                        50: '#0f5931',
+                        75: '#178649',
+                        90: '#1ba057',
+                    },
+                },
+                neutral: {
+                    main: '#000000',
+                    light: {
+                        10: '#e6e6e6',
+                        25: '#bfbfbf',
+                        50: '#808080',
+                        75: '#404040',
+                        90: '#191919',
+                    },
+                    dark: {
+                        10: '#000000',
+                        25: '#000000',
+                        50: '#000000',
+                        75: '#000000',
+                        90: '#000000',
+                    },
+                },
+            },
+        },
     },
 };
 
