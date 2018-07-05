@@ -9,7 +9,7 @@ import {aimhigherTheme} from '../../index.js';
 import {Meta} from '../parts/index.js';
 
 import {Head1, Head2, Head3, Head4, Head5} from '../../global.js';
-import {Swatch} from './style.js';
+import {Set, Swatch} from './style.js';
 
 //Resources
 import Logo from '../../img/logo.svg';
@@ -344,9 +344,9 @@ const ColourGroup = ({colgroup, vars, devMode}) => {
     });
 
     return (
-        <div className={'colour group ' + vars}>
+        <Fragment>
             {colSwatches}
-        </div>
+        </Fragment>
     );
 };
 
@@ -358,17 +358,15 @@ const ColourSet = ({set, devMode}) => {
     colMain = set.main;
 
     return (
-        <div className="colour set">
+        <Set>
             <ColourSwatch cols={colMain} />
-            <div className="colour group-container">
                 {colMain.hex != "#ffffff" &&
                     <ColourGroup colgroup={colGroupLight} vars='light' devMode={devMode} />
                 }
                 {colMain.hex != "#000000" &&
                     <ColourGroup colgroup={colGroupDark} vars='dark' devMode={devMode} />
                 }
-            </div>
-        </div>
+        </Set>
     );
 };
 
