@@ -145,6 +145,9 @@ injectGlobal`
 `
 
 export const Globals = styled('div')`
+    --primary: ${props => props.theme.colours.primary.main};
+    --secondary: ${props => props.theme.colours.secondary.main};
+
     color: ${props => props.theme.colours.neutral.main}; 
     font: ${props => props.theme.fonts.regular};
     font-size: 16px;
@@ -204,30 +207,6 @@ export const FooterCont = styled('footer')`
     @media (min-width: ${props => props.theme.values.screens.realbig}) {
         margin: 0 auto;
         max-width: 1200px;
-    }
-`;
-
-export const HeadCont = styled('header')`
-    display: flex;
-        align-items: center;
-        justify-content: space-between;
-    height: ${props => props.theme.values.header.height.small};
-    position: relative;
-
-    @media (min-width: ${props => props.theme.values.screens.small}) {
-        flex-wrap: wrap;
-        height: ${props => props.theme.values.header.height.medium};
-    }
-
-    @media (min-width: ${props => props.theme.values.screens.medium}) {
-        align-items: center;
-        flex-wrap: nowrap;
-        min-height: ${props => props.theme.values.header.height.large};
-    }
-
-    @media (min-width: ${props => props.theme.values.screens.realbig}) {
-        margin: 0 auto;
-        max-width: 1500px;
     }
 `;
 

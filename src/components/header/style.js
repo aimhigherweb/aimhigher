@@ -1,6 +1,39 @@
 import styled from 'react-emotion';
+
 import { NavLink } from 'react-router-dom';
 import ReactSVG from 'react-svg';
+
+export const HeadCont = styled('header')`
+    display: flex;
+        align-items: center;
+        justify-content: space-between;
+    height: ${props => props.theme.values.header.height.small};
+    position: relative;
+
+    --primary: ${props => props.theme.colours.primary.main};
+    --secondary: ${props => props.theme.colours.secondary.main};
+    --wave-colour: transparent;
+    --menu-colour: ${props => props.theme.colours.primary.dark['90']};
+
+    --wave-colour: ${props => props.wave && 'url("#background-gradient")'};
+    --menu-colour: ${props => props.wave && '#fff'};
+    --primary: var(--menu-colour);
+    --secondary: var(--menu-colour);
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        flex-wrap: wrap;
+        height: ${props => props.theme.values.header.height.medium};
+    }
+    @media (min-width: ${props => props.theme.values.screens.medium}) {
+        align-items: center;
+        flex-wrap: nowrap;
+        min-height: ${props => props.theme.values.header.height.large};
+    }
+    @media (min-width: ${props => props.theme.values.screens.realbig}) {
+        margin: 0 auto;
+        max-width: 1500px;
+    }
+`;
 
 export const LogoArea = styled('a')`  
     position: relative;
@@ -13,10 +46,6 @@ export const LogoArea = styled('a')`
         margin: 0 auto;
         padding: 20px;
         width: 70vw;
-    }
-
-    path, polygon {
-        fill: #fff;
     }
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
@@ -125,7 +154,7 @@ export const Item = styled(NavLink)`
         border: none;
         border-left: 2px solid ${props => props.theme.colours.neutral.light['75']};
         border-bottom: 3px solid transparent;
-        color: #fff;
+        color: var(--menu-colour);
         display: block;
         font-size: 1em;
         font-weight: 500;
@@ -194,6 +223,6 @@ export const HeroBack = styled(ReactSVG)`
     }
 
     path {
-        fill: url('#background-gradient');
+        fill: var(--wave-colour);
     }
 `;

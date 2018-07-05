@@ -10,7 +10,8 @@ import Footer from './components/footer/index.js';
 
 //Resources
 import './global.js';
-import {Globals, HeadCont, Main, FooterCont} from './global.js';
+import {Globals, Main, FooterCont} from './global.js';
+import {HeadCont} from './components/header/style.js';
 
 
 export const aimhigherTheme = {
@@ -96,24 +97,17 @@ export const aimhigherTheme = {
 
 class Root extends React.Component {
 	render() {
-		let home = false;
-		switch (location.pathname) {
-			case '/':
-			case '/#':
-			case '/#menu':
-				home = true;
-				break;
+		let wave = true;
+
+		if(location.pathname.includes('/client/') || location.pathname.includes('style-guide')) {
+			wave = false;
 		}
 
 		return (
 			<Router basename="/">
 				<ThemeProvider theme={aimhigherTheme}>
 					<Globals>
-						{home ?
-							<HeadCont home>{<Header />}</HeadCont>
-						:
-							<HeadCont>{<Header />}</HeadCont>
-						}
+						<HeadCont wave={wave}>{<Header />}</HeadCont>
 						<Main>{<App />}</Main>
 						<FooterCont>{<Footer />}</FooterCont>
 					</Globals>
