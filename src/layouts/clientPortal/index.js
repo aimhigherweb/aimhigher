@@ -40,7 +40,7 @@ const ClientPortal = ({location}) => {
             :
             <h3 className="url">{clientDetails.domain}</h3>
             }
-            {/* <Typography theme={theme} logo={logos[logo]} ori={clientDetails.logoOri} clientName={client} /> */}
+            <Typography theme={theme} logo={logos[logo]} ori={clientDetails.logoOri} clientName={client} />
             <ColourSwatches theme={theme} />
         </Fragment>
     );

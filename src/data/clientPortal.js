@@ -120,6 +120,12 @@ const clients = {
                     }
                 },
             },
+            fonts: {
+                light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                headings: "700 1.5em 'Space Mono', monospace",
+            },
         },
     },
     'glenrock-hay': {
