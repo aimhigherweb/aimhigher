@@ -83,7 +83,11 @@ export const aimhigherTheme = {
 				small: '10vh',
 				medium: '20vh',
 				large: '20vh',
-			}
+			},
+		},
+		widths: {
+			content: '1400px',
+			headFoot: '1500px',
 		},
 		screens: {
 			small: '40rem',

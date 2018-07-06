@@ -6,7 +6,7 @@ import ReactSVG from 'react-svg';
 export const HeadCont = styled('header')`
     display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
     height: ${props => props.theme.values.header.height.small};
     position: relative;
 
@@ -22,6 +22,7 @@ export const HeadCont = styled('header')`
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
         flex-wrap: wrap;
+        justify-content: space-between;
         height: ${props => props.theme.values.header.height.medium};
     }
     @media (min-width: ${props => props.theme.values.screens.medium}) {
@@ -31,7 +32,7 @@ export const HeadCont = styled('header')`
     }
     @media (min-width: ${props => props.theme.values.screens.realbig}) {
         margin: 0 auto;
-        max-width: 1500px;
+        max-width: ${props => props.theme.values.widths.headFoot};
     }
 `;
 
@@ -216,7 +217,7 @@ export const HeroBack = styled(ReactSVG)`
         margin-left: 50%;
         position: absolute;
             top: 0;
-            left: -50%;
+            left: -50vw;
         width: 400vh;
             max-width: unset;
         z-index: -1;
