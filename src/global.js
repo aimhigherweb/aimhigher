@@ -223,3 +223,13 @@ export const FigCaption = styled('figcaption')`
     padding-right: 10px;
     text-align: right;
 `;
+
+export const Content = styled('div')`
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 30px;
+    width: 90%;
+        max-width: 1500px;
+`;

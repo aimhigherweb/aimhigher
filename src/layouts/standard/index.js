@@ -5,8 +5,7 @@ import {Meta} from '../../components/parts/index.js';
 import Pages from '../../data/pageContent.js';
 
 //Styled Components
-import {Head1} from '../../global.js';
-import {Content} from './style.js';
+import {Content, Head1} from '../../global.js';
 
 const StandardPage = ({location}) => {
     let pageSlug = location.pathname;

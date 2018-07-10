@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import {Helmet} from 'react-helmet';
-import {ReactSVG} from 'react-svg';
+import ReactSVG from 'react-svg';
 
 //Resources
 import services from '../../data/services.js';
 import {Meta} from '../../components/parts/index.js';
+import {Content} from '../../global.js';
+import {Product, ServicesList} from './style.js';
 
 //Importing Images
 function importAll(r) {
@@ -13,9 +15,7 @@ function importAll(r) {
     return images;
 }
   
-const images = importAll(require.context('../../img/products/', false, /\.(jpg)$/));
-
-const placeholders = importAll(require.context('../../img/products/', false, /\.(svg)$/));
+const graphics = importAll(require.context('../../img/products/', false, /\.(svg)$/));
 
 const meta = {
     name: 'Products | AimHigher Web Design',
@@ -25,7 +25,7 @@ const meta = {
 
 const ProductsServices = () => {
     return (
-        <div className="content">
+        <Content>
             <Meta {...meta} />
             <h1>Products & Services</h1>
             <p>
@@ -41,33 +41,30 @@ const ProductsServices = () => {
                 Check out some of the <a href="/portfolio">websites we've built</a>, and <a href="contact">contact us</a> if we can help you enhance your businesses.
             </p>
             <Products services={services} />
-        </div>
+        </Content>
     );
 };
 
-const Products = (services) => {
-    let serviceList = services.services;
-    let products = serviceList.map(product => {
-        let thisImage = product.slug + ".jpg";
-        let thisPlaceholder = product.slug + ".svg";
+const Products = ({services}) => {
+    let products = services.map(product => {
+        let thisImage = product.slug + ".svg";
         return(
-            <div key={product.slug} className="product">
-                <div className="image-container">
-                    <img alt={'Product image for ' + product.name}  src={images[thisImage]} />
-                    <ReactSVG path={placeholders[thisPlaceholder]} />
-                </div>
+            <Product key={product.slug}>
+                <ReactSVG path={graphics[thisImage]} />
                 <h3 className="name">{product.name}</h3>
                 {product.price !== '' &&
                     <h4 className="price">Starting at {product.price}</h4>
                 }
                 <p className="description">{product.description}</p>
-            </div>
+            </Product>
         );
     });
     return(
-        <div className="products">
+        <ServicesList>
             {products}
-        </div>
+        </ServicesList>
     );
 }
+
+
 export default ProductsServices;
