@@ -75,7 +75,6 @@ export const Images = ({image, placeholder, alt, caption, custom}) => {
     return (
         <ImageContainer custom={custom}>
             <Image src={image} alt={alt} />
-            <Placeholder path={placeholder} className="placeholder" />
             <FigCaption>{caption}</FigCaption>
         </ImageContainer>
     );

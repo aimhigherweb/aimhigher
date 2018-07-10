@@ -212,6 +212,8 @@ export const FooterCont = styled('footer')`
 
 export const Main = styled('main')`
     min-height: 55vh;
+    margin: 0 auto;
+    max-width: ${props => props.theme.values.widths.content};
 `;
 
 export const FigCaption = styled('figcaption')`

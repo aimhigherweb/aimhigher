@@ -172,10 +172,49 @@ const Contact = {
     },
     content: (
         <Fragment>
-           <blockquote>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</blockquote>
-            <div className="contact-form">
-                <iframe src="https://aimhigherwebdesign.typeform.com/to/LeTkEc"></iframe>
-            </div>
+            <blockquote>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</blockquote>
+            <form name="contact" method="post">
+                <input type="hidden" name="contact" value="contact" />
+                <legend>Contact Form</legend>
+                <label for="name">Name</label>
+                <input type="text" name="name"/>
+                <label for="email">Email</label>
+                <input type="email" name="email"/>
+                <label for="phone">Phone Number</label>
+                <input type="text" name="phone" />
+                <label for="website">Do you have an existing website? Or a Facebook page?</label>
+                <input type="text" name="website" />
+                <fieldset>
+                    <legend>What are you looking for?</legend>
+                    <label for="build">
+                        Website Build
+                        <input type="checkbox" name="build" />
+                    </label>
+                    <label for="edit">
+                        Website Editing
+                        <input type="checkbox" name="edit" />
+                    </label>
+                    <label for="email">
+                        Email Hosting
+                        <input type="checkbox" name="email" />
+                    </label>
+                    <label for="hosting">
+                        Website Hosting
+                        <input type="checkbox" name="hosting" />
+                    </label>
+                    <label for="support">
+                        Support
+                        <input type="checkbox" name="support" />
+                    </label>
+                    <label for="other">
+                        Something Else
+                        <input type="checkbox" name="other" />
+                    </label>
+                </fieldset>
+                <label for="message">Message</label>
+                <textarea name="message"></textarea>
+                <button type="submit">Send</button>
+            </form>
         </Fragment>
     )
 };
