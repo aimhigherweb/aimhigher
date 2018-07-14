@@ -16,14 +16,23 @@ export const Product = styled('div')`
     width: 250px;
 
     > div {
-        height: 250px;
-        max-height: 250px;
         width: 100%;
     }
 
     svg {
-        height: 250px;
+        height: auto;
         margin: 0;
         width: auto;
+    }
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        > div {
+            height: 250px;
+            max-height: 250px;
+        }
+
+        svg {
+            height: 250px;
+        }
     }
 `;

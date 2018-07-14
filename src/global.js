@@ -226,10 +226,15 @@ export const FigCaption = styled('figcaption')`
 
 export const Content = styled('div')`
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 30px;
     margin: 0 auto;
     overflow: hidden;
-    padding: 30px;
-    width: 90%;
+    padding: 10px 5%;
+    width: 100%;
         max-width: 1500px;
+
+    @media (min-width: ${props => props.theme.values.screens.small}) {
+        border-radius: 30px;
+        padding: 30px;
+        width: 90%;
+    }
 `;

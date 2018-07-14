@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 import {Link as BlogLink} from 'react-router-dom'
 import Prismic from 'prismic-javascript';
@@ -9,6 +9,7 @@ import {Meta} from '../../components/parts/index.js';
 //Resources
 import SiteImage from '../../img/favicon.png';
 import {Facebook, Twitter} from 'react-feather';
+import {FeedContent} from './style.js';
 
 let siteUrl = 'http://localhost:3500/';
 
@@ -27,10 +28,14 @@ class Feed extends Component {
   };
 
   componentWillMount() {
-    const apiEndpoint = 'https://prismic-react-blog.prismic.io/api/v2';
+    const apiEndpoint = 'https://amygoestoperth.prismic.io/api/v2';
   
     Prismic.api(apiEndpoint).then(api => {
-      api.query(Prismic.Predicates.at('document.type', 'blog_post'), 
+      api.query(
+        [
+          Prismic.Predicates.at('document.type', 'blog_post'),
+          Prismic.Predicates.any('document.tags', ['aimhigher'])
+        ], 
         {orderings: '[document.first_publication_date desc]'}
       ).then(response => {
         if (response) {
@@ -53,12 +58,12 @@ class Feed extends Component {
     
 
     return (        
-      <div>
+      <Fragment>
         <Meta {...meta} />
-        <div className="article-feed">
+        <FeedContent>
           {items}
-        </div>
-      </div>
+        </FeedContent>
+      </Fragment>
     );
   }
 };
