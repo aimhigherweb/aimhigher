@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Helmet from 'react-helmet';
+import {withRouter} from 'react-router-dom';
 
 import Logo from '../../img/logo.png';
 import {ChevronRight, ChevronDown} from 'react-feather';
@@ -65,3 +66,23 @@ export const Images = ({image, placeholder, alt, caption, custom}) => {
         </ImageContainer>
     );
 }
+
+class ScrollToTop extends Component {
+	componentDidUpdate(prevProps) {
+		if (this.props.location !== prevProps.location) {
+			window.scrollTo(0, 0);
+
+			if (
+				document.getElementsByClassName('main menu active').length > 0
+			) {
+				document.getElementById('nav-main').classList.remove('active');
+			}
+		}
+	}
+
+	render() {
+		return this.props.children;
+	}
+}
+
+export default withRouter(ScrollToTop);

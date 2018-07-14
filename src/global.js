@@ -232,6 +232,20 @@ export const Content = styled('div')`
     width: 100%;
         max-width: 1500px;
 
+    p {
+        font-size: 18px;
+    }
+
+    a {
+        color: ${props => props.theme.colours.primary.dark[90]};
+
+        &:active, &:hover, &:focus {
+            background: ${props => props.theme.colours.secondary.light[10]};
+            text-decoration: none;
+        }
+
+    }
+
     @media (min-width: ${props => props.theme.values.screens.small}) {
         border-radius: 30px;
         padding: 30px;
@@ -240,6 +254,9 @@ export const Content = styled('div')`
 `;
 
 export const Form = styled('form')`
+    margin: 0 auto;
+    max-width: 500px;
+
     label, legend {
         color: ${props => props.theme.colours.primary.dark[75]};
         display: flex;
@@ -249,7 +266,6 @@ export const Form = styled('form')`
         font-size: 18px;
         font-weight: bold;
         margin: 0 0 10px;
-        max-width: 500px;
     }
 
     input, textarea {

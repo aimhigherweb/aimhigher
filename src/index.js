@@ -7,6 +7,7 @@ import { ThemeProvider } from 'emotion-theming';
 import Header from './components/header/index.js';
 import App from './components/app/index.js';
 import Footer from './components/footer/index.js';
+import ScrollToTop from './components/parts/index.js';
 
 //Resources
 import './global.js';
@@ -111,9 +112,11 @@ class Root extends React.Component {
 			<Router basename="/">
 				<ThemeProvider theme={aimhigherTheme}>
 					<Globals>
-						<HeadCont wave={wave}>{<Header />}</HeadCont>
-						<Main>{<App />}</Main>
-						<FooterCont>{<Footer />}</FooterCont>
+						<ScrollToTop>
+							<HeadCont wave={wave}>{<Header />}</HeadCont>
+							<Main>{<App />}</Main>
+							<FooterCont>{<Footer />}</FooterCont>
+						</ScrollToTop>
 					</Globals>
 				</ThemeProvider>
 			</Router>
