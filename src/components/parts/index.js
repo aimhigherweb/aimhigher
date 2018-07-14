@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import Logo from '../../img/logo.png';
 import {ChevronRight, ChevronDown} from 'react-feather';
 import {FigCaption} from '../../global.js';
-import {Image, ImageContainer, Placeholder} from './style.js';
+import {Image, ImageContainer, Placeholder, AccordionItem, AccordionTitle, AccordionContent} from './style.js';
 
 
 export const Meta = ({name, description, slug, image}) => {
@@ -36,39 +36,25 @@ export const Meta = ({name, description, slug, image}) => {
     );
 };
 
-export class Accordion extends Component {
-    collapse(accordionItem) {
-        if(document.getElementById(accordionItem).classList.contains('active')) {
-            document.getElementById(accordionItem).classList.remove('active');
-        }
-        else {
-            let current = document.getElementsByClassName('active');
-            while (current[0]) {
-                current[0].classList.remove('active');
-            };
-            document.getElementById(accordionItem).classList.add('active');
-        };
-    };
-    render() {
-        let accordion = this.props.items,
-            children = accordion.map(child => {
-            return(
-                <div key={child.slug} id={child.slug} className="section" onClick={this.collapse.bind(this, child.slug)}>
-                    <h3 className="title">
-                        <span className="closed"><ChevronRight /></span>
-                        <span className="open"><ChevronDown /></span>
-                        {child.title}
-                    </h3>
-                    <div className="content">{child.content}</div>
-                </div>
-            );
-        });
-        return (
-            <div className="accordion">
-                {children}
-            </div>
+export const Accordion = ({items}) => {
+    let accordion = items,
+        children = accordion.map(child => {
+        return(
+            <AccordionItem key={child.slug} id={child.slug}>
+                <AccordionTitle href={'faq#' + child.slug}>
+                    <ChevronRight className="close" />
+                    <ChevronDown className="open" />
+                    {child.title}
+                </AccordionTitle>
+                <AccordionContent>{child.content}</AccordionContent>
+            </AccordionItem>
         );
-    };
+    });
+    return (
+        <div>
+            {children}
+        </div>
+    );
 };
 
 export const Images = ({image, placeholder, alt, caption, custom}) => {
