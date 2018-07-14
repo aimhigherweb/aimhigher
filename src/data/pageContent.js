@@ -174,7 +174,7 @@ const Contact = {
         <Fragment>
             <p>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</p>
             <Form name="contact" method="post">
-                <input type="hidden" name="contact" value="contact" />
+                <input type="hidden" name="form-name" value="contact" />
                 <label htmlFor="name">
                     Name
                     <input type="text" name="name"/>
