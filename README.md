@@ -1,3 +1,3 @@
-This project was built using the AimHigher Web Design starter kit
+# AimHigher Web Design
 
-We might write something here later. Maybe.
+Website for AimHigher Web Design, custom built with React and a blog hosted on prismic
