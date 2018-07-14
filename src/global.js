@@ -238,3 +238,74 @@ export const Content = styled('div')`
         width: 90%;
     }
 `;
+
+export const Form = styled('form')`
+    label, legend {
+        color: ${props => props.theme.colours.primary.dark[75]};
+        display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content:space-between;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 0 10px;
+        max-width: 500px;
+    }
+
+    input, textarea {
+        background: ${props => props.theme.colours.primary.light[10]};
+        border: 1.5px solid ${props => props.theme.colours.primary.dark[75]};
+        box-shadow: none;
+        font: ${props => props.theme.fonts.regular};
+        font-size: 1em;
+        flex-grow: 2;
+        margin: 10px 0;
+        padding: 5px 10px;
+        max-width: 80%;
+    }
+
+    input[name="website"] {
+        width: 100%;
+            max-width: unset;
+    }
+
+    textarea {
+        height: 10em;
+        width: 100%;
+            max-width: unset;
+    }
+
+    fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+        max-width: 500px;
+
+        label {
+            display: inline-block;
+            font-weight: normal;
+
+            input {
+                margin: 5px 10px;
+            }
+        }
+    }
+
+    button {
+        --colour: ${props => props.theme.colours.primary.main};
+        --colour2: #fff;
+
+        border: 2px solid var(--colour);
+        background: var(--colour2);
+        color: var(--colour);
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: bold;
+        padding: 10px 30px;
+
+        &:active, &:hover, &:focus {
+            --colour: #fff;
+            --colour2: ${props => props.theme.colours.primary.main};
+        }
+    }
+`;

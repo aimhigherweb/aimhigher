@@ -46,6 +46,7 @@ export const menuItems = [
 		slug: '/blog',
 		title: 'Blog',
     component: Feed,
+    hideNav: true,
     subPages: [
       {
         slug: '/:id',

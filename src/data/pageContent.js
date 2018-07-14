@@ -8,7 +8,7 @@ import { CheckCircle } from 'react-feather';
 import ErrorImage from '../img/404.jpg';
 
 //Styled Components
-import {Link} from '../global.js';
+import {Link, Form} from '../global.js';
 
 //Importing Images
 function importAll(r) {
@@ -172,49 +172,58 @@ const Contact = {
     },
     content: (
         <Fragment>
-            <blockquote>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</blockquote>
-            <form name="contact" method="post">
+            <p>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</p>
+            <Form name="contact" method="post">
                 <input type="hidden" name="contact" value="contact" />
-                <legend>Contact Form</legend>
-                <label for="name">Name</label>
-                <input type="text" name="name"/>
-                <label for="email">Email</label>
-                <input type="email" name="email"/>
-                <label for="phone">Phone Number</label>
-                <input type="text" name="phone" />
-                <label for="website">Do you have an existing website? Or a Facebook page?</label>
-                <input type="text" name="website" />
+                <label htmlFor="name">
+                    Name
+                    <input type="text" name="name"/>
+                </label>
+                <label htmlFor="email">
+                    Email
+                    <input type="email" name="email"/>
+                </label>
+                <label htmlFor="phone">
+                    Phone
+                    <input type="text" name="phone" />
+                </label>
+                <label htmlFor="website">
+                    Do you have an existing website? Or a Facebook page?
+                    <input type="text" name="website" />
+                </label>
                 <fieldset>
                     <legend>What are you looking for?</legend>
-                    <label for="build">
-                        Website Build
+                    <label htmlFor="build">
                         <input type="checkbox" name="build" />
+                        Website Build
                     </label>
-                    <label for="edit">
-                        Website Editing
+                    <label htmlFor="edit">
                         <input type="checkbox" name="edit" />
+                        Website Editing
                     </label>
-                    <label for="email">
-                        Email Hosting
+                    <label htmlFor="email">
                         <input type="checkbox" name="email" />
+                        Email Hosting
                     </label>
-                    <label for="hosting">
-                        Website Hosting
+                    <label htmlFor="hosting">
                         <input type="checkbox" name="hosting" />
+                        Website Hosting
                     </label>
-                    <label for="support">
-                        Support
+                    <label htmlFor="support">
                         <input type="checkbox" name="support" />
+                        Support
                     </label>
-                    <label for="other">
-                        Something Else
+                    <label htmlFor="other">
                         <input type="checkbox" name="other" />
+                        Something Else
                     </label>
                 </fieldset>
-                <label for="message">Message</label>
-                <textarea name="message"></textarea>
-                <button type="submit">Send</button>
-            </form>
+                <label htmlFor="message">
+                    Message
+                    <textarea name="message"></textarea>
+                </label>
+                <button type="submit">Submit</button>
+            </Form>
         </Fragment>
     )
 };
