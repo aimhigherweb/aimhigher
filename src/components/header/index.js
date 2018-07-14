@@ -60,16 +60,6 @@ const MainMenu = () => {
 
     return (
         <Nav id="menu">
-            <Media query="(max-width: 40rem)">
-                <Fragment>
-                    <Hamburger id="hamburger" href="#menu">
-                        <Menu />
-                    </Hamburger>
-                    <Hamburger id="close" href="#">
-                        <X />
-                    </Hamburger>
-                </Fragment>
-            </Media>
             {navItems}
         </Nav>
     );

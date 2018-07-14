@@ -1,13 +1,13 @@
-import styled from 'react-emotion';
-
+import styled, {keyframes} from 'react-emotion';
 import { NavLink } from 'react-router-dom';
 import ReactSVG from 'react-svg';
 
 export const HeadCont = styled('header')`
     display: flex;
         align-items: center;
+        flex-direction: column;
         justify-content: flex-start;
-    height: ${props => props.theme.values.header.height.small};
+    height: auto;
     position: relative;
 
     --primary: ${props => props.theme.colours.primary.main};
@@ -21,12 +21,14 @@ export const HeadCont = styled('header')`
     --secondary: var(--menu-colour);
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: start;
         height: ${props => props.theme.values.header.height.medium};
     }
     @media (min-width: ${props => props.theme.values.screens.medium}) {
         align-items: center;
+        justify-content: space-between;
         flex-wrap: nowrap;
         min-height: ${props => props.theme.values.header.height.large};
     }
@@ -75,33 +77,37 @@ export const LogoArea = styled('a')`
     }
 `;
 
+const scrolling = keyframes`
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+`;
 
 export const Nav = styled('nav')`
     display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
-    padding-top: ${props => props.theme.values.header.height.small};
-    position: absolute;
-        top: 0;
-        right: 0;
+    height: auto;
+    overflow-x: scroll;
+    max-width: 100vw;
     z-index: 20;
 
-    #close {
-        display: none;
-    }
-
-    &:target {
-        a {
-            display: block;
-        }
-
-        #close {
-            display: block;
-        }
-
-        #hamburger {
-            display: none;
-        }
+    &:after {
+        animation: ${scrolling} 2s linear infinite;
+        color: ${props => props.theme.colours.primary};
+        content: '\00BB';
+        font-size: 2em;
+        position: absolute;
+            right: 10px;
+            bottom: 13%;
     }
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
@@ -109,7 +115,10 @@ export const Nav = styled('nav')`
             flex-direction: row;
         margin-left: auto;
         padding: 0 10px;
-        position: relative;
+
+        &:after {
+            content: normal;
+        }
     }
 
     @media (min-width: ${props => props.theme.values.screens.medium}) {
@@ -124,25 +133,27 @@ export const Nav = styled('nav')`
 `;
 
 export const Item = styled(NavLink)`
-    background: #fff;
-    border-top: 3px solid ${props => props.theme.colours.primary.dark['75']};
-    border-left: 3px solid ${props => props.theme.colours.primary.dark['75']};
+    --border: ${props => props.theme.colours.primary.dark['75']};
+
+    border-top: 3px solid var(--border);
+    border-right: 3px solid var(--border);
+    border-bottom: 3px solid var(--border);
     color: ${props => props.theme.colours.primary.dark['75']};
-    display: none;
     font: ${props => props.theme.fonts.headings};
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 700;
-    padding: 15px 30px;
+    padding: 10px 30px;
     text-align: right;
     text-decoration: none;
 
     &:last-child {
-        border-bottom: 3px solid ${props => props.theme.colours.primary.dark['75']};
+        border-right: none;
     }
 
     &:active, &:hover, &:focus {
-        background: ${props => props.theme.colours.secondary.dark['90']};
-        border-bottom-color: ${props => props.theme.colours.secondary.dark['90']};
+        --border: ${props => props.theme.colours.secondary.dark['90']};
+
+        background: var(--border);
         color: #fff;
     }
 
@@ -151,12 +162,10 @@ export const Item = styled(NavLink)`
     }
 
     @media (min-width: ${props => props.theme.values.screens.small}) {
-        background: transparent;
         border: none;
         border-left: 2px solid ${props => props.theme.colours.neutral.light['75']};
         border-bottom: 3px solid transparent;
         color: var(--menu-colour);
-        display: block;
         font-size: 1em;
         font-weight: 500;
         padding: 0 10px;
@@ -188,25 +197,6 @@ export const Item = styled(NavLink)`
 
     @media (min-width: ${props => props.theme.values.screens.realbig}) {
         font-size: 1.5em;
-    }
-`;
-
-export const Hamburger = styled('a')`
-    background: transparent;
-    border: none;
-    color: #fff;
-    padding: 5px;
-    position: absolute;
-        top: calc(0.5 * ${props => props.theme.values.header.height.small} - 10px);
-        right: 20px;
-    text-decoration: none;
-
-    svg {
-        max-width: unset;
-    }
-
-    @media (min-width: ${props => props.theme.values.screens.small}) {
-        display: none;
     }
 `;
 
