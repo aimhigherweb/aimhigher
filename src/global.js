@@ -232,7 +232,7 @@ export const Content = styled('div')`
     width: 100%;
         max-width: 1500px;
 
-    p {
+    p, li {
         font-size: 18px;
     }
 
