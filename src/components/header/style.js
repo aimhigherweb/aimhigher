@@ -97,6 +97,7 @@ export const Nav = styled('nav')`
         justify-content: space-between;
     height: auto;
     overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
     max-width: 100vw;
     z-index: 20;
 
