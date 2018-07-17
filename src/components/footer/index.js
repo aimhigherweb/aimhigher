@@ -35,7 +35,7 @@ const menuItems = [
 	{
 		name: 'email',
 		icon: <Mail />,
-		url: 'mailto:inquiries@aimhigherwebdesign.com.au',
+		url: 'mailto:inquiries@aimhigherweb.design',
 	},
 ];
 

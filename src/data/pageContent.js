@@ -43,7 +43,7 @@ const Privacy = {
     },
     content: (
         <Fragment>
-            <p>This Privacy Policy sets out our commitment to protecting the privacy of your personal information that we collect through this website <Link href="/">aimhigherwebdesign.com.au</Link> (Site) or directly from you.</p>
+            <p>This Privacy Policy sets out our commitment to protecting the privacy of your personal information that we collect through this website <Link href="/">aimhigherweb.design</Link> (Site) or directly from you.</p>
             <p>Please read this Privacy Policy carefully.  Please contact us if you have any questions.</p>
             <p>You providing us with personal information indicates that you have had sufficient opportunity to access this Privacy Policy and that you have read and accepted it.</p>
             <p>If you do not wish to provide personal information to us, then you do not have to do so, however it may affect your use of this Site or any products and services offered on it.</p>
