@@ -19,13 +19,10 @@ function importAll(r) {
   
 const images = importAll(require.context('../img/placeholders/', false, /\.(jpg)$/));
 
-const placeholders = importAll(require.context('../img/placeholders/', false, /\.(svg)$/));
-
 
 //Variables
 const aboutImages = {
     image: images['profile.jpg'],
-    placeholder: placeholders['profile.svg'],
     alt: 'Profile Image of Amy Kapernick, the founder of AimHigher Web Design',
     caption: 'Amy Kapernick - Founder of AimHigher Web Design',
     custom: {
@@ -46,7 +43,7 @@ const Privacy = {
     },
     content: (
         <Fragment>
-            <p>This Privacy Policy sets out our commitment to protecting the privacy of your personal information that we collect through this website <Link href="/">aimhigherwebdesign.com.au</Link> (Site) or directly from you.</p>
+            <p>This Privacy Policy sets out our commitment to protecting the privacy of your personal information that we collect through this website <Link href="/">aimhigherweb.design</Link> (Site) or directly from you.</p>
             <p>Please read this Privacy Policy carefully.  Please contact us if you have any questions.</p>
             <p>You providing us with personal information indicates that you have had sufficient opportunity to access this Privacy Policy and that you have read and accepted it.</p>
             <p>If you do not wish to provide personal information to us, then you do not have to do so, however it may affect your use of this Site or any products and services offered on it.</p>
@@ -287,11 +284,96 @@ const FourOhFour = {
     },
     content: (
         <Fragment>
-           <p>Oh no! 🙊 Something went wrong while we were finding the page for you, so here's a picture of a dog instead.</p>
+           <p>Oh no!  Something went wrong while we were finding the page for you, so here's a picture of a dog instead.</p>
            <p>If the dog picture doesn't help, you can try navigating to one of the pages in the menu above.</p>
            <img src={ErrorImage} />
         </Fragment>
     )
+};
+
+const OrgChart = {
+    title: 'Our Team',
+    meta: {
+        name: 'Organisation Chart | AimHigher Web Design',
+        description: "Check out who is behind the scenes at AimHigher Web Design",
+        slug: 'org-chart',
+    },
+    content: (
+        <figure>
+            <ul>
+                <li>
+                    <h2>Founder</h2>
+                    <p>Amy Kapernick</p>
+                    <ul>
+                        <li>
+                            <h2>Director of HR</h2>
+                            <p>Amy Kapernick</p>
+                            <ul>
+                                <li>
+                                    <h2>Head of Finance</h2>
+                                    <p>Amy Kapernick</p>
+                                </li>
+                                <li>
+                                    <h2>Executive Assistant</h2>
+                                    <p>Google Home</p>
+                                </li>
+                                <li>
+                                    <h2>Receptionist</h2>
+                                    <p>Amy Kapernick</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2>Chief Technology Officer</h2>
+                            <p>Amy Kapernick</p>
+                            <ul>
+                                <li>
+                                    <h2>Lead Developer</h2>
+                                    <p>Amy Kapernick</p>
+                                    <ul>
+                                        <li>
+                                            <h2>Front End Developer</h2>
+                                            <p>Amy Kapernick</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Lead Designer</h2>
+                                    <p>Amy Kapernick</p>
+                                </li>
+                                <li>
+                                    <h2>Client Support Officer</h2>
+                                    <p>Amy Kapernick</p>
+                                </li>
+                                <li>
+                                    <h2>IT Support Officer</h2>
+                                    <p>Amy Kapernick</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2>Director of Support Services</h2>
+                            <p>Remus ("Remi")</p>
+                        </li>
+                        <li>
+                            <h2>Director of Marketing</h2>
+                            <p>Amy Kapernick</p>
+                            <ul>
+                                <li>
+                                    <h2>Sales Manager</h2>
+                                    <p>Amy Kapernick</p>
+                                </li>
+                                <li>
+                                    <h2>Customer Service Manager</h2>
+                                    <p>Amy Kapernick</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </figure>
+    ),
 };
 
 const Pages = {
@@ -301,6 +383,7 @@ const Pages = {
     faq: Faq,
     privacy: Privacy,
     terms: TermsConditions,
+    orgChart: OrgChart,
     404: FourOhFour,
 };
 

@@ -38,6 +38,8 @@ export const Hero = styled('div')`
 `;
 
 export const HeroContent = styled('div')`
+    --icon-size: auto;
+    
     padding: calc(0.5 * ${props => props.theme.values.header.height.medium}) 15px 0;
     position: relative;
 
