@@ -1,14 +1,5 @@
 const siteList = [
     {
-        name: 'Wondai Country Running Festival',
-        slug: 'wondai-country-festival',
-        url: 'wondaicountryfestival.com.au',
-        date: 'January 2018',
-        mobile: true,
-        current: true,
-        github: 'https://github.com/AimHigher-Web-Design/wondairunningfestival',
-    },
-    {
         name: 'AimHigher Web Design',
         slug: 'aimhigher',
         url: 'aimhigherweb.design',
@@ -16,7 +7,27 @@ const siteList = [
         date3: 'November 2017',
         mobile: true,
         current: true,
+        secure: true,
         github: 'https://github.com/AimHigher-Web-Design/aimhigher',
+    },
+    {
+        name: 'Tech Outsiders',
+        slug: 'tech-outsiders',
+        url: 'techoutsiders.com.au',
+        date: 'Coming Soon!',
+        mobile: false,
+        current: false,
+        secure: true,
+        github: 'https://github.com/AimHigher-Web-Design/tech-outsiders'
+    },
+    {
+        name: 'Wondai Country Running Festival',
+        slug: 'wondai-country-festival',
+        url: 'wondaicountryfestival.com.au',
+        date: 'January 2018',
+        mobile: true,
+        current: true,
+        github: 'https://github.com/AimHigher-Web-Design/wondairunningfestival',
     },
     {
         name: 'Treasure Pics',

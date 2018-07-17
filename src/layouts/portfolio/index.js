@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
 
-import { ExternalLink, Github } from 'react-feather';
+import { ExternalLink, Github, Lock } from 'react-feather';
 
 //Resources
 import siteList from '../../data/siteList.js';
@@ -188,11 +188,13 @@ const Sites = (siteList) => {
 					{/* </Link> */}
 				</h2>
 				{item.current && (
-					<a href={'http://' + item.url} target="_blank">
-						<h3 className="url">
-							{item.url} {<ExternalLink />}
-						</h3>
-					</a>
+                    <h3 className="url">
+                        {item.secure && <Lock className="https" />} 
+                        <a href={'http://' + item.url} target="_blank">
+                            {item.url}
+                        </a>
+                        {<ExternalLink />}
+                    </h3>
 				)}
 				{item.github && (
 					<a
