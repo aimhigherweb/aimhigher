@@ -15,7 +15,7 @@ const menuItems = [
 	{
 		name: 'github',
 		icon: <Github />,
-		url: 'https://github.com/amykapernick/aimhigher-react',
+		url: 'https://github.com/AimHigher-Web-Design/aimhigher',
 	},
 	{
 		name: 'facebook',
