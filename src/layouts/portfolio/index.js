@@ -183,9 +183,7 @@ const Sites = (siteList) => {
 					)}
 				</Mocks>
 				<Name>
-					{/* <Link to={'/' + item.slug}> */}
 					{item.name}
-					{/* </Link> */}
 				</Name>
 				{item.current && (
                     <SiteURL>
