@@ -31,7 +31,6 @@ export const menuItems = [
 		slug: '/portfolio',
 		title: 'Portfolio',
     component: Portfolio,
-    hideNav: true,
   },
   {
 		slug: '/ethics',

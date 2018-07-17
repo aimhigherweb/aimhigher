@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import ReactSVG from 'react-svg';
+
 
 import { ExternalLink, Github } from 'react-feather';
 
@@ -8,7 +8,7 @@ import { ExternalLink, Github } from 'react-feather';
 import siteList from '../../data/siteList.js';
 import {Meta} from '../../components/parts/index.js';
 import {Content} from '../../global.js';
-import {Desktop, Folio, Image, Mobile, Mocks, Site, Tablet} from './style.js';
+import {Desktop, Folio, Frame, Image, Mobile, Mocks, Site, Tablet} from './style.js';
 
 //Importing Images
 import FrameDesktop from '../../img/portfolio/desktop.svg';
@@ -47,22 +47,137 @@ const Sites = (siteList) => {
 		portfolio = theseSites.map((item) => {
 		let desktop = item.slug + '-desktop.png',
 		tablet = item.slug + '-tablet.png',
-		mobile = item.slug + '-mobile.png';
-		console.log(values);
+        mobile = item.slug + '-mobile.png',
+        sizeValues = {
+            height: {
+                desk: undefined,
+                tab: undefined,
+                mob: undefined,
+
+            },
+            left: {
+                desk: undefined,
+                tab: undefined,
+                mob: undefined,
+            },
+            ratio: {
+                desk: undefined,
+                tab: undefined,
+                mob: undefined,
+            },
+            top: {
+                desk: undefined,
+                tab: undefined,
+                mob: undefined,
+            },
+            width: {
+                desk: undefined,
+                deskImg: undefined,
+                tab: undefined,
+                tabImg: undefined,
+                mob: undefined,
+                mobImg: undefined,
+            }
+        },
+        initialSizes = {
+            desk: 300,
+            tab: 200,
+            mob: 75,
+            height: {
+                desk: {
+                    full: 492,
+                    img: 404,
+                },
+                tab: {
+                    full: 490,
+                    img: 380,
+                },
+                mob: {
+                    full: 390.7,
+                    img: 311.8,
+                }
+            },
+            left: {
+                desk: 101.4,
+                tab: 53,
+                mob: 12.1,
+            },
+            top: {
+                desk: 30.5,
+                tab: 63,
+                mob: 34.1,
+            },
+            width: {
+                desk: {
+                    full: 852.7,
+                    img: 650,
+                },
+                tab: {
+                    full: 778,
+                    img: 672,
+                },
+                mob: {
+                    full: 200,
+                    img: 176.5,
+                }
+            },
+        };
+
+        sizeValues.ratio.desk = initialSizes.height.desk.img / initialSizes.width.desk.img;
+        sizeValues.width.desk = initialSizes.desk;
+        sizeValues.width.deskImg = initialSizes.desk * (initialSizes.width.desk.img / initialSizes.width.desk.full);
+        sizeValues.height.desk = initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full);
+        sizeValues.top.desk = initialSizes.top.desk / initialSizes.height.desk.full * initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full);
+        sizeValues.left.desk = initialSizes.left.desk / initialSizes.width.desk.full * initialSizes.desk;
+
+        sizeValues.ratio.tab = initialSizes.height.tab.img / initialSizes.width.tab.img;
+        sizeValues.width.tab = initialSizes.tab;
+        sizeValues.width.tabImg = initialSizes.tab * (initialSizes.width.tab.img / initialSizes.width.tab.full);
+        sizeValues.height.tab = initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full);
+        sizeValues.top.tab = initialSizes.top.tab / initialSizes.height.tab.full * initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full);
+        sizeValues.left.tab = initialSizes.left.tab / initialSizes.width.tab.full * initialSizes.tab;
+
+        sizeValues.ratio.mob = initialSizes.height.mob.img / initialSizes.width.mob.img;
+        sizeValues.width.mob = initialSizes.mob;
+        sizeValues.width.mobImg = initialSizes.mob * (initialSizes.width.mob.img / initialSizes.width.mob.full);
+        sizeValues.height.mob = initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full);
+        sizeValues.top.mob = initialSizes.top.mob / initialSizes.height.mob.full * initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full);
+        sizeValues.left.mob = initialSizes.left.mob / initialSizes.width.mob.full * initialSizes.mob;
+
+        sizeValues.width.desk += 'px';
+        sizeValues.width.tab += 'px';
+        sizeValues.width.mob += 'px';
+
+        sizeValues.width.deskImg += 'px';
+        sizeValues.width.tabImg += 'px';
+        sizeValues.width.mobImg += 'px';
+
+        sizeValues.height.desk += 'px';
+        sizeValues.height.tab += 'px';
+        sizeValues.height.mob += 'px';
+
+        sizeValues.top.desk += 'px';
+        sizeValues.top.tab += 'px';
+        sizeValues.top.mob += 'px';
+
+        sizeValues.left.desk += 'px';
+        sizeValues.left.tab += 'px';
+        sizeValues.left.mob += 'px';
+
 		return (
-			<Site key={item.slug} className={'site ' + item.slug}>
+			<Site key={item.slug} sizes={sizeValues}>
 				<Mocks>
-					<Desktop values={values}>
-						<ReactSVG path={FrameDesktop} />
+					<Desktop>
+						<Frame path={FrameDesktop} />
 						<img alt={'Desktop screenshot of ' + item.name} src={screenshots[desktop]} />
 					</Desktop>
-					<Tablet values={values}>
-						<ReactSVG path={FrameTablet} />
+					<Tablet>
+						<Frame path={FrameTablet} />
 						<img alt={'Tablet screenshot of ' + item.name} src={screenshots[tablet]} />
 					</Tablet>
 					{item.mobile && (
-						<Mobile values={values}>
-							<ReactSVG path={FrameMobile} />
+						<Mobile>
+							<Frame path={FrameMobile} />
 							<img alt={'Mobile screenshot of ' + item.name} src={screenshots[mobile]} />
 						</Mobile>
 					)}
@@ -98,138 +213,3 @@ const Sites = (siteList) => {
 }
 
 export default Portfolio;
-
-let values = {
-    //Change these to change sizes of images (in pixels)
-    desk: 300,
-    tab: 200,
-    mob: 75,
-    height: {
-        desk: {
-            main: undefined,
-            full: 492,
-            img: {
-                main: undefined,
-                full: 404
-            }
-        },
-        tab: {
-            main: undefined,
-            full: 490,
-            img: {
-                main: undefined,
-                full: 380,
-            }
-        },
-        mob: {
-            main: undefined,
-            full: 390.7,
-            img: {
-                main: undefined,
-                full: 311.8,
-            }
-        }
-    },
-    left: {
-        desk: {
-            main: undefined,
-            full: 101.4,
-        },
-        tab: {
-            main: undefined,
-            full: 53,
-        },
-        mob: {
-            main: undefined,
-            full: 12.1,
-        }        
-    },
-    ratio: {
-        desk: {
-            main: undefined,
-            img: undefined,
-            diff: undefined,
-        },
-        tab: {
-            main: undefined,
-            img: undefined,
-            diff: undefined,
-        },
-        mob: {
-            main: undefined,
-            img: undefined,
-            diff: undefined,
-        },
-    },
-    top: {
-        desk: {
-            main: undefined,
-            full: 30.5,
-        },
-        tab: {
-            main: undefined,
-            full: 63,
-        },
-        mob: {
-            main: undefined,
-            full: 34.1
-        }
-    },
-    width: {
-        desk: {
-            main: undefined,
-            full: 852.7,
-            img: {
-                main: undefined,
-                full: 650
-            }
-        },
-        tab: {
-            main: undefined,
-            full: 778,
-            img: {
-                main: undefined,
-                full: 672,
-            }
-        },
-        mob: {
-            main: undefined,
-            full: 200,
-            img: {
-                main: undefined,
-                full: 176.5,
-            }
-        }
-    },
-}
-
-values.ratio.desk.main = Object.assign(x => values.height.desk.full / values.width.desk.full);
-values.ratio.desk.img = Object.assign(x => values.height.desk.img.full / values.width.desk.img.full);
-values.ratio.desk.diff = Object.assign(x => values.width.desk.img.full / values.width.desk.full);
-
-values.width.desk.img = Object.assign(x => values.desk * values.ratio.desk.diff);
-values.height.desk.main = Object.assign(x => values.desk * values.ratio.desk.main);
-
-values.top.desk.main = Object.assign(x => values.top.desk.full / values.height.desk.full * values.desk * values.ratio.desk.main);
-values.left.desk.main = Object.assign(x => values.left.desk.full / values.width.desk.full * values.desk);
-
-values.ratio.tab.main = Object.assign(x => values.height.tab.full / values.width.tab.full);
-values.ratio.tab.img = Object.assign(x => values.height.tab.img.full / values.width.tab.img.full);
-values.ratio.tab.diff = Object.assign(x => values.width.tab.img.full / values.width.tab.full);
-
-values.width.tab.img = Object.assign(x => values.tab * values.ratio.tab.diff);
-values.height.tab.main = Object.assign(x => values.tab * values.ratio.tab.main);
-
-values.top.tab.main = Object.assign(x => values.top.tab.full / values.height.tab.full * values.tab * values.ratio.tab.main);
-
-values.left.tab.main = Object.assign(x => values.left.tab.full / values.width.tab.full * values.width.tab);
-
-values.ratio.mob.main = Object.assign(x => values.height.mob.full / values.width.mob.full);
-values.ratio.mob.img = Object.assign(x => values.height.mob.img.full / values.width.mob.img.full);
-values.ratio.mob.diff = Object.assign(x => values.width.mob.img.full / values.width.mob.full);
-
-values.width.mob.img.main = Object.assign(x => values.mob * values.ratio.mob.diff);
-values.height.mob.main = Object.assign(x => values.mob * values.ratio.mob.main);
-
-values.top.mob.main = Object.assign(x => values.top.mob.full / values.height.mob.full * values.mob * values.ratio.mob.main);
-values.left.mob.main = Object.assign(x => values.left.mob.full / values.width.mob.full * values.mob);

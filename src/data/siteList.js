@@ -11,8 +11,9 @@ const siteList = [
     {
         name: 'AimHigher Web Design',
         slug: 'aimhigher',
-        url: 'aimhigherwebdesign.com.au',
-        date: 'November 2017',
+        url: 'aimhigherweb.design',
+        date: 'July 2018',
+        date3: 'November 2017',
         mobile: true,
         current: true,
         github: 'https://github.com/AimHigher-Web-Design/aimhigher',
