@@ -68,6 +68,7 @@ export const aimhigherTheme = {
 				10: '#090909',
 			}
 		},
+		good: '#46be2d',
 		warning: '#FF7900',
 		fail: '#b50400'
 	},

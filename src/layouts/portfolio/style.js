@@ -1,13 +1,15 @@
 import styled from 'react-emotion';
 import ReactSVG from 'react-svg';
 
+import {Head2} from '../../global.js';
+import {Lock } from 'react-feather';
+
 export const Folio = styled('div')`
-    display: flex;
-        flex-wrap: wrap;
-        justify-items: center;
+    display: grid;
+        grid-gap: 10px;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, minmax(350px, auto));
 `;
-
-
 
 export const Mocks = styled('div')`
     position: relative;
@@ -47,6 +49,8 @@ export const Frame = styled(ReactSVG)`
     z-index: calc(var(--index-image) + 2);
 
     svg {
+        --icon-size: auto;
+
         position: absolute;
             top: 0;
             right: 0;
@@ -71,11 +75,15 @@ export const Mobile = styled(ImageContainer)`
 `;
 
 export const Site = styled('div')`
+    --icon-size: 20px;
+    --link-background: ${props => props.theme.colours.primary.light[10]};
+
     background: ${props => props.theme.colours.secondary.light[10]};
     border-radius: 20px;
     margin: 15px;
     padding: 20px;
-    width: calc(${props => props.sizes.width.desk} + ${props => props.sizes.width.tab});
+    min-width: 350px;
+    max-width: calc(${props => props.sizes.width.desk} + ${props => props.sizes.width.tab});
 
 
     ${Desktop} {
@@ -107,4 +115,39 @@ export const Site = styled('div')`
         --index-image: 15;
     }
 
+`;
+
+export const Name = styled(Head2)`
+    color: ${props => props.theme.colours.primary};
+    font-size: 1.4em;
+
+`;
+
+export const HTTPS = styled(Lock)`
+    color: ${props => props.theme.colours.good};
+    margin-right: 5px;
+    margin-left: 0;
+`;
+
+export const SiteURL = styled('p')`
+    display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    font: ${props => props.theme.fonts.code};
+
+    a {
+        word-break: break-all;
+    }
+    
+    svg {
+        margin-left: 5px;
+    }
+`;
+
+export const Date = styled('p')`
+    color: ${props => props.theme.colours.neutral};
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
 `;

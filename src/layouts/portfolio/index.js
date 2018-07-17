@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
 
-import { ExternalLink, Github, Lock } from 'react-feather';
+import { ExternalLink, Github } from 'react-feather';
 
 //Resources
 import siteList from '../../data/siteList.js';
 import {Meta} from '../../components/parts/index.js';
 import {Content} from '../../global.js';
-import {Desktop, Folio, Frame, Image, Mobile, Mocks, Site, Tablet} from './style.js';
+import {Date, Desktop, HTTPS, Folio, Frame, Mobile, Mocks, Name, Site, SiteURL, Tablet} from './style.js';
 
 //Importing Images
 import FrameDesktop from '../../img/portfolio/desktop.svg';
@@ -123,46 +123,46 @@ const Sites = (siteList) => {
             },
         };
 
-        sizeValues.ratio.desk = initialSizes.height.desk.img / initialSizes.width.desk.img;
-        sizeValues.width.desk = initialSizes.desk;
-        sizeValues.width.deskImg = initialSizes.desk * (initialSizes.width.desk.img / initialSizes.width.desk.full);
-        sizeValues.height.desk = initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full);
-        sizeValues.top.desk = initialSizes.top.desk / initialSizes.height.desk.full * initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full);
-        sizeValues.left.desk = initialSizes.left.desk / initialSizes.width.desk.full * initialSizes.desk;
+            sizeValues.ratio.desk = initialSizes.height.desk.img / initialSizes.width.desk.img;
+            sizeValues.width.desk = initialSizes.desk;
+            sizeValues.width.deskImg = initialSizes.desk * (initialSizes.width.desk.img / initialSizes.width.desk.full);
+            sizeValues.height.desk = initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full);
+            sizeValues.top.desk = initialSizes.top.desk / initialSizes.height.desk.full * initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full);
+            sizeValues.left.desk = initialSizes.left.desk / initialSizes.width.desk.full * initialSizes.desk;
 
-        sizeValues.ratio.tab = initialSizes.height.tab.img / initialSizes.width.tab.img;
-        sizeValues.width.tab = initialSizes.tab;
-        sizeValues.width.tabImg = initialSizes.tab * (initialSizes.width.tab.img / initialSizes.width.tab.full);
-        sizeValues.height.tab = initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full);
-        sizeValues.top.tab = initialSizes.top.tab / initialSizes.height.tab.full * initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full);
-        sizeValues.left.tab = initialSizes.left.tab / initialSizes.width.tab.full * initialSizes.tab;
+            sizeValues.ratio.tab = initialSizes.height.tab.img / initialSizes.width.tab.img;
+            sizeValues.width.tab = initialSizes.tab;
+            sizeValues.width.tabImg = initialSizes.tab * (initialSizes.width.tab.img / initialSizes.width.tab.full);
+            sizeValues.height.tab = initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full);
+            sizeValues.top.tab = initialSizes.top.tab / initialSizes.height.tab.full * initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full);
+            sizeValues.left.tab = initialSizes.left.tab / initialSizes.width.tab.full * initialSizes.tab;
 
-        sizeValues.ratio.mob = initialSizes.height.mob.img / initialSizes.width.mob.img;
-        sizeValues.width.mob = initialSizes.mob;
-        sizeValues.width.mobImg = initialSizes.mob * (initialSizes.width.mob.img / initialSizes.width.mob.full);
-        sizeValues.height.mob = initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full);
-        sizeValues.top.mob = initialSizes.top.mob / initialSizes.height.mob.full * initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full);
-        sizeValues.left.mob = initialSizes.left.mob / initialSizes.width.mob.full * initialSizes.mob;
+            sizeValues.ratio.mob = initialSizes.height.mob.img / initialSizes.width.mob.img;
+            sizeValues.width.mob = initialSizes.mob;
+            sizeValues.width.mobImg = initialSizes.mob * (initialSizes.width.mob.img / initialSizes.width.mob.full);
+            sizeValues.height.mob = initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full);
+            sizeValues.top.mob = initialSizes.top.mob / initialSizes.height.mob.full * initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full);
+            sizeValues.left.mob = initialSizes.left.mob / initialSizes.width.mob.full * initialSizes.mob;
 
-        sizeValues.width.desk += 'px';
-        sizeValues.width.tab += 'px';
-        sizeValues.width.mob += 'px';
+            sizeValues.width.desk += 'px';
+            sizeValues.width.tab += 'px';
+            sizeValues.width.mob += 'px';
 
-        sizeValues.width.deskImg += 'px';
-        sizeValues.width.tabImg += 'px';
-        sizeValues.width.mobImg += 'px';
+            sizeValues.width.deskImg += 'px';
+            sizeValues.width.tabImg += 'px';
+            sizeValues.width.mobImg += 'px';
 
-        sizeValues.height.desk += 'px';
-        sizeValues.height.tab += 'px';
-        sizeValues.height.mob += 'px';
+            sizeValues.height.desk += 'px';
+            sizeValues.height.tab += 'px';
+            sizeValues.height.mob += 'px';
 
-        sizeValues.top.desk += 'px';
-        sizeValues.top.tab += 'px';
-        sizeValues.top.mob += 'px';
+            sizeValues.top.desk += 'px';
+            sizeValues.top.tab += 'px';
+            sizeValues.top.mob += 'px';
 
-        sizeValues.left.desk += 'px';
-        sizeValues.left.tab += 'px';
-        sizeValues.left.mob += 'px';
+            sizeValues.left.desk += 'px';
+            sizeValues.left.tab += 'px';
+            sizeValues.left.mob += 'px';
 
 		return (
 			<Site key={item.slug} sizes={sizeValues}>
@@ -182,31 +182,26 @@ const Sites = (siteList) => {
 						</Mobile>
 					)}
 				</Mocks>
-				<h2 className="name">
+				<Name>
 					{/* <Link to={'/' + item.slug}> */}
 					{item.name}
 					{/* </Link> */}
-				</h2>
+				</Name>
 				{item.current && (
-                    <h3 className="url">
-                        {item.secure && <Lock className="https" />} 
+                    <SiteURL>
+                        {item.secure && <HTTPS />} 
                         <a href={'http://' + item.url} target="_blank">
                             {item.url}
                         </a>
                         {<ExternalLink />}
-                    </h3>
+                    </SiteURL>
 				)}
 				{item.github && (
-					<a
-						aria-label="Link to Github Repository"
-						href={item.github}
-						className="repo"
-						target="_blank"
-					>
+					<a aria-label="Link to Github Repository" href={item.github}target="_blank" rel="nofollow">
 						{<Github />}
 					</a>
 				)}
-				<h3 className="date">{item.date}</h3>
+				<Date>{item.date}</Date>
 			</Site>
 		);
 	});
