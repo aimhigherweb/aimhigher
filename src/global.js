@@ -16,6 +16,8 @@ injectGlobal`
     }
 
     body {
+        --icon-size: 24px;
+
         min-height: 100vh;
         margin: 0;
         overflow-x: hidden;
@@ -25,6 +27,11 @@ injectGlobal`
     img, svg {
         max-height: 100%;
         max-width: 100%;
+    }
+
+    svg {
+        height: var(--icon-size);
+        width: var(--icon-size);
     }
 
     ::-webkit-scrollbar {
@@ -167,30 +174,33 @@ export const Head1 = styled('h1')`
     text-align: center;
 `;
 
-export const Head2 = styled(Head1)`
+export const Head2 = styled('h2')`
+    color: ${props => props.theme.colours.primary.dark['90']};
+    font: ${props => props.theme.fonts.headings};
     font-size: 1.6em;
     text-align: left;
 `;
 
-export const Head3 = styled(Head2)`
+export const Head3 = styled('h3')`
     color: ${props => props.theme.colours.primary.dark['50']};
+    font: ${props => props.theme.fonts.headings};
     font-size: 1.3em;
 `;
 
-export const Head4 = styled(Head3)`
+export const Head4 = styled('h4')`
+    color: ${props => props.theme.colours.primary.dark['50']};
+    font: ${props => props.theme.fonts.headings};
     font-size: 1.2em;
 `;
 
-export const Head5 = styled(Head4)`
+export const Head5 = styled('h5')`
+    color: ${props => props.theme.colours.primary.dark['50']};
+    font: ${props => props.theme.fonts.headings};
     font-size: 1.1em;
 `;
 
 export const Link = styled('a')`
-    color: ${props => props.theme.colours.primary.main};
     
-    &:hover {
-        color: ${props => props.theme.colours.secondary.main};
-    }
 `;
 
 export const FooterCont = styled('footer')`
@@ -225,6 +235,10 @@ export const FigCaption = styled('figcaption')`
 `;
 
 export const Content = styled('div')`
+    --link-background: ${props => props.theme.colours.secondary.light[10]};
+    --link-colour: ${props => props.theme.colours.primary.main};
+    --link-hover: ${props => props.theme.colours.secondary.dark[75]};
+
     background: rgba(255, 255, 255, 0.7);
     margin: 0 auto;
     overflow: hidden;
@@ -237,13 +251,14 @@ export const Content = styled('div')`
     }
 
     a {
-        color: ${props => props.theme.colours.primary.dark[90]};
-
-        &:active, &:hover, &:focus {
-            background: ${props => props.theme.colours.secondary.light[10]};
+        
+        color: var(--link-colour);
+    
+        &:hover {
+            background: var(--link-background);
+            color: var(--link-hover);
             text-decoration: none;
         }
-
     }
 
     @media (min-width: ${props => props.theme.values.screens.small}) {

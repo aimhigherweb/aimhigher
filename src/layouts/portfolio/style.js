@@ -1,23 +1,20 @@
 import styled from 'react-emotion';
+import ReactSVG from 'react-svg';
+
+import {Head2} from '../../global.js';
+import {Lock } from 'react-feather';
 
 export const Folio = styled('div')`
-    display: flex;
-        flex-wrap: wrap;
-        justify-items: center;
-`;
-
-export const Site = styled('div')`
-    background: ${props => props.theme.colours.secondary.light[10]};
-    border-radius: 20px;
-    margin: 15px;
-    padding: 20px;
-    width: desk + width.tab;
+    display: grid;
+        grid-gap: 10px;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, minmax(350px, auto));
 `;
 
 export const Mocks = styled('div')`
     position: relative;
 
-    img, svg {
+    img {
         height: var(--height-image);
         position: absolute;
             top: var(--offset-top);
@@ -42,50 +39,115 @@ export const ImageContainer = styled('div')`
     z-index: var(--index-frame);
 `;
 
-export const Frame = styled('div')`
+export const Frame = styled(ReactSVG)`
     position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
+
     z-index: calc(var(--index-image) + 2);
+
+    svg {
+        --icon-size: auto;
+
+        position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+    }
 `;
 
 
 export const Desktop = styled(ImageContainer)`
-    --height-container: ${props => props.values.height.desk.main};
-    --width-container: ${props => props.values.desk};
-    --height-image: ${props => props.values.width.desk.img} * ${props => props.values.ratio.desk.img};
-    --width-image: ${props => props.values.width.desk.img.main};
-    --offset-top: ${props => props.values.top.desk.main};
-    --offset-left: ${props => props.values.left.desk.main};
-    --index-image: 5;
-
     position: relative;
 `;
 
 export const Tablet = styled(ImageContainer)`
-    --height-container: height.tab;
-    --width-container: width.tab;
-    --height-image: width.tab.img * ratio.tab.img;
-    --width-image: width.tab.img;
-    --offset-top: top.tab;
-    --offset-left: left.tab;
-    --index-image: 10;
-
     right: 30px;
     bottom: 0;
 `;
 
 export const Mobile = styled(ImageContainer)`
-    --height-container: height.mob;
-    --width-container: width.mob;
-    --height-image: width.mob.img * ratio.mob.img;
-    --width-image: width.mob.img;
-    --offset-top: top.mob;
-    --offset-left: left.mob;
-    --index-image: 15;
-
     bottom: 0;
     right: 0;
+`;
+
+export const Site = styled('div')`
+    --icon-size: 20px;
+    --link-background: ${props => props.theme.colours.primary.light[10]};
+
+    background: ${props => props.theme.colours.secondary.light[10]};
+    border-radius: 20px;
+    margin: 15px;
+    padding: 20px;
+    min-width: 350px;
+    max-width: calc(${props => props.sizes.width.desk} + ${props => props.sizes.width.tab});
+
+
+    ${Desktop} {
+        --height-container: ${props => props.sizes.height.desk};
+        --width-container: ${props => props.sizes.width.desk};
+        --width-image: ${props => props.sizes.width.deskImg};
+        --offset-top: ${props => props.sizes.top.desk};
+        --offset-left: ${props => props.sizes.left.desk};
+        --index-image: 5;
+    }
+    
+    ${Tablet} {
+        --height-container: ${props => props.sizes.height.tab};
+        --width-container: ${props => props.sizes.width.tab};
+        --height-image: calc(${props => props.sizes.width.tabImg} * ${props => props.sizes.ratio.tab});
+        --width-image: ${props => props.sizes.width.tabImg};
+        --offset-top: ${props => props.sizes.top.tab};
+        --offset-left: ${props => props.sizes.left.tab};
+        --index-image: 10;
+    }
+
+    ${Mobile} {
+        --height-container: ${props => props.sizes.height.mob};
+        --width-container: ${props => props.sizes.width.mob};
+        --height-image: calc(${props => props.sizes.width.mobImg} * ${props => props.sizes.ratio.mob});
+        --width-image: ${props => props.sizes.width.mobImg};
+        --offset-top: ${props => props.sizes.top.mob};
+        --offset-left: ${props => props.sizes.left.mob};
+        --index-image: 15;
+    }
+
+`;
+
+export const Name = styled(Head2)`
+    color: ${props => props.theme.colours.primary};
+    font-size: 1.4em;
+
+`;
+
+export const HTTPS = styled(Lock)`
+    color: ${props => props.theme.colours.good};
+    margin-right: 5px;
+    margin-left: 0;
+`;
+
+export const SiteURL = styled('p')`
+    display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    font: ${props => props.theme.fonts.code};
+
+    a {
+        word-break: break-all;
+    }
+    
+    svg {
+        margin-left: 5px;
+    }
+`;
+
+export const Date = styled('p')`
+    color: ${props => props.theme.colours.neutral};
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
 `;
