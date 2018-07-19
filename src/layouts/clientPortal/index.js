@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 // Components
 import { ExternalLink } from 'react-feather';
 import { ColourSwatches, Typography } from '../../components/style-guide/index.js';
+import {Content, Head1} from '../../global.js';
 import {Meta} from '../../components/parts/index.js';
 import clients from '../../data/clientPortal.js';
 
@@ -27,8 +28,8 @@ const ClientPortal = ({location}) => {
         logo = client + '-logo.svg';
 
     return (
-        <Fragment>
-            <h1>Client Portal - {clientDetails.name}</h1>
+        <Content>
+            <Head1>Client Portal - {clientDetails.name}</Head1>
             <Meta {...meta} />
             {clientDetails.live ? (
                 <a href={clientDetails.domain} target="_blank">
@@ -42,7 +43,7 @@ const ClientPortal = ({location}) => {
             }
             <Typography theme={theme} logo={logos[logo]} ori={clientDetails.logoOri} clientName={client} />
             <ColourSwatches theme={theme} />
-        </Fragment>
+        </Content>
     );
 }
 

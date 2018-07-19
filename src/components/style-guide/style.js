@@ -1,6 +1,5 @@
 import styled from 'react-emotion';
 
-import {Content} from '../../global.js';
 
 export const Swatch = styled('div')`
     grid-column: ${props => props.opts == 'main' ? 'span 2' : 'span 1'};
@@ -52,7 +51,7 @@ export const Set = styled('div')`
     }
 `;
 
-export const TypoContent = styled(Content)`
+export const TypoContent = styled('div')`
     --icon-size: auto;
 
     figcaption {
@@ -121,5 +120,23 @@ export const Icons = styled('div')`
 
             cursor: pointer;
         }
+    }
+`;
+
+export const FlexBlock = styled('div')`
+    display: flex;
+        flex-wrap: wrap;
+        flex-wrap: ${props => props.sml && 'nowrap'};
+
+    > * {
+        flex: 1 1 auto;
+    }
+
+    @media (min-width: 40em) {
+        flex-wrap: ${props => props.med && 'nowrap'};
+    }
+
+    @media (min-width: 80em) {
+        flex-wrap: ${props => props.lrg && 'nowrap'};
     }
 `;
