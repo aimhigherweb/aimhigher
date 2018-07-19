@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import {Helmet} from 'react-helmet';
 import ReactSVG from 'react-svg';
 import {ThemeProvider} from 'emotion-theming';
 
@@ -8,8 +7,8 @@ import {FaFacebookSquare, FaTwitterSquare, FaInstagram} from 'react-icons/lib/fa
 import {aimhigherTheme} from '../../index.js';
 import {Meta} from '../parts/index.js';
 
-import {Head1, Head2, Head3, Head4, Head5} from '../../global.js';
-import {Set, Swatch} from './style.js';
+import {Content, Head1, Head2, Head3, Head4, Head5} from '../../global.js';
+import {FlexBlock, Icons, Set, Swatch, TypoContent} from './style.js';
 
 //Resources
 import Logo from '../../img/logo.svg';
@@ -24,8 +23,11 @@ export const StyleGuide = () => {
     return (
         <Fragment>
             <Meta {...meta} />
-            <Typography theme={aimhigherTheme} />
-            <ColourSwatches theme={aimhigherTheme} />
+            <Content>
+                <Head1>Style Guide</Head1>
+                <Typography theme={aimhigherTheme} />
+                <ColourSwatches theme={aimhigherTheme} />
+            </Content>
         </Fragment>
     );
 };
@@ -377,82 +379,76 @@ const DevColours = (colours) => {
 };
 
 export const Typography = ({logo, ori, theme, clientName}) => {
-    let clientLogo, logoOri;
+    let clientLogo = Logo, 
+        logoOri = 'landscape';
 
     if (logo) {
         clientLogo = logo;
         logoOri = ori;
-    }
-    else {
-        clientLogo = Logo;
-        logoOri = 'landscape';
     };
 
     return (
         <ThemeProvider theme={theme}>
-            <Fragment>
-                <h3 className="style-guide-heading">Typography</h3>
-                <div className="typography">
-                    <div className={"logo-headings " + logoOri}>
-                        <div className={'logo ' + logoOri}>
-                            <figure>
-                                <ReactSVG path={clientLogo} />
-                                <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
-                            </figure>
-                        </div>
-                        <div className="headings">
-                            <Head1>Heading 1</Head1>
-                                <p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
-                                <p>Every page should have a H1 as they're used for SEO and screen readers</p>
-                            <Head2>Heading 2</Head2>
-                                <p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
-                            <Head3>Heading 3</Head3>
-                                <p>This is a third level heading, H3. This is the last level heading that you use on a regular basis (otherwise things can look a little cluttered).</p>
-                            <Head4>Heading 4</Head4>
-                            <Head5>Heading 5</Head5>
-                        </div>
+            <TypoContent>
+                <FlexBlock med={logoOri == 'portrait' && true}>
+                    <figure>
+                        <ReactSVG path={clientLogo} />
+                        <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
+                    </figure>
+                    <div>
+                        <Head1>Heading 1</Head1>
+                        <p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
+                        <p>Every page should have a H1 as they're used for SEO and screen readers</p>
+                        <Head2>Heading 2</Head2>
+                        <p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
+                        <Head3>Heading 3</Head3>
+                        <p>This is a third level heading, H3. This is the last level heading that you use on a regular basis (otherwise things can look a little cluttered).</p>
+                        <Head4>Heading 4</Head4>
+                        <Head5>Heading 5</Head5>
                     </div>
-                    <hr />
-                    <div className="content-types">
-                        <h4 className="section-titles">Content Sections</h4>
-                        <p>This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
-                        <blockquote>
-                            This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
-                        </blockquote>
-                        <div className="section-container">
-                            <div className="lists">
-                                <h4 className="section-title">Lists</h4>
-                                <ul>
-                                    <li>This</li>
-                                    <li>is a</li>
-                                    <li>bulleted</li>
-                                    <li>list</li>
-                                </ul>
-                                <ol>
-                                    <li>This</li>
-                                    <li>is a</li>
-                                    <li>numbered</li>
-                                    <li>list</li>
-                                </ol>
-                            </div>
-                            <div className="icons">
-                                <h4 className="section-title">Icons</h4>
-                                <FaFacebookSquare />
-                                <FaTwitterSquare />
-                                <FaInstagram />
-                            </div>
-                        </div>
-                        <div className="form">
-                            <h4 className="section-title">Other Elements</h4>
-                            <form>
-                                <h5>Form</h5>
-                                <input type="text" placeholder="Input Field" />
-                                <button>Button</button>
-                            </form>
-                        </div>
+                </FlexBlock>
+                <hr />
+                <Head4>Content Sections</Head4>
+                <FlexBlock lrg>
+                    <p>This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to</p>
+                    <blockquote>
+                        This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
+                    </blockquote>
+                </FlexBlock>
+                <h4 className="section-title">Lists</h4>
+                <FlexBlock med>
+                    <ul>
+                        <li>This</li>
+                        <li>is a</li>
+                        <li>bulleted</li>
+                        <li>list</li>
+                    </ul>
+                    <ol>
+                        <li>This</li>
+                        <li>is a</li>
+                        <li>numbered</li>
+                        <li>list</li>
+                    </ol>
+                </FlexBlock>
+                <FlexBlock med>
+                    <div>
+                        <h4 className="section-title">Icons</h4>
+                        <Icons>
+                            <FaFacebookSquare />
+                            <FaTwitterSquare />
+                            <FaInstagram />
+                        </Icons>
                     </div>
-                </div>
-            </Fragment>
+                    <div>
+                        <h4>Form</h4>
+                        <form>
+                            <label>Input Field</label>
+                            <input type="text" />
+                            <button>Button</button>
+                        </form>
+                    </div>
+                </FlexBlock>
+            </TypoContent>
         </ThemeProvider>
     );
 }
