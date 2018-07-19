@@ -14,21 +14,42 @@ export const Swatch = styled('div')`
     display: flex;
         align-items: center;
         justify-content: center;
+    font-size: 12px;
     position: relative;
+
+    p {
+        font-size: 1em;
+    }
+
+    @media (min-width: 50em) {
+        font-size: 15px;
+    }
+
+    @media (min-width: 60em) {
+        font-size: 18px;
+    }
 `;
 
 export const Set = styled('div')`
-    --min: 12vw;
-    --max: 190px;
-    --gap: 20px;
+    --min: 60px;
+    --max: 1fr;
+    --gap: 10px;
 
     display: grid;
         grid-gap: var(--gap);
-        grid-template-columns: repeat(7, minmax(var(--min), var(--max)));
-        grid-template-rows: repeat(2, 1fr));
-    height: calc((var(--min) * 2) + var(--gap));
-        max-height: calc((var(--max) * 2) + var(--gap));
+        grid-template-columns: repeat(auto-fit, minmax(var(--min), var(--max)));
+        grid-auto-rows: minmax(var(--min), var(--max));
     margin-bottom: var(--gap);
+
+    @media (min-width: 40em) {
+        --gap: 20px;
+    }
+
+    @media (min-width: 45em) {
+        grid-template-columns: repeat(7, var(--max));
+        height: 19vw;
+            max-height: 330px;
+    }
 `;
 
 export const TypoContent = styled(Content)`
@@ -72,6 +93,7 @@ export const TypoContent = styled(Content)`
             border: 3px solid var(--btn-border);
             color: var(--btn-text);
             cursor: pointer;
+            display: block;
             font-size: 1.1em;
             margin-top: 10px;
             padding: 5px 15px;
