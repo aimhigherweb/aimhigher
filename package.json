@@ -9,7 +9,8 @@
 	},
 	"scripts": {
 		"start": "webpack-dev-server --mode development --hot --open",
-		"build": "webpack --mode production && cp ./dist/index.html ./dist/404.html"
+		"build": "webpack --mode production && cp ./dist/index.html ./dist/404.html && npm run render",
+		"render": "react-snap"
 	},
 	"author": "AimHigher Web Design",
 	"license": "ISC",
@@ -44,6 +45,7 @@
 		"babel-preset-react": "^6.24.1",
 		"file-loader": "^1.1.11",
 		"html-webpack-plugin": "^3.2.0",
+		"react-snap": "^1.16.0",
 		"webpack": "^4.10.2",
 		"webpack-cli": "^2.1.5",
 		"webpack-dev-server": "^3.1.4"
