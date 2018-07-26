@@ -12,6 +12,9 @@
 		"build": "webpack --mode production && cp ./dist/index.html ./dist/404.html && npm run render",
 		"render": "react-snap"
 	},
+	"reactSnap": {
+		"source": "dist"
+	}, 
 	"author": "AimHigher Web Design",
 	"license": "ISC",
 	"bugs": {
