@@ -164,8 +164,6 @@ export class ColourSwatches extends Component {
             };
 
             for (var cols in colours[key]) {
-                let a11yPoint = 100;
-
                 if(colours[key][cols] == colours[key].main) {
                     let rgbVal = [
                         colours[key][cols].rgb[0], 
@@ -178,12 +176,13 @@ export class ColourSwatches extends Component {
                     
                     colours[key][cols].variant = (rgbVal[0] * 0.299) + (rgbVal[1] * 0.587) + (rgbVal[2] * 0.114);
 
-                    if(colours[key][cols].variant >= a11yPoint) {
+                    if(colours[key][cols].variant >= 186) {
                         colours[key][cols].ratio = (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
-                        / (this.luminanace(0, 0, 0) + 0.05);
+                        / (this.luminanace(255, 255, 255) + 0.05);
                     }
                     else {
-                        colours[key][cols].ratio = (this.luminanace(255, 255, 255) + 0.05) / (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05);
+                        colours[key][cols].ratio = (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
+                        / (this.luminanace(0, 0, 0) + 0.05);
                     };
                 };
 
@@ -199,12 +198,13 @@ export class ColourSwatches extends Component {
         
                         colours[key][cols][opts].variant = (rgbVal[0] * 0.299) + (rgbVal[1] * 0.587) + (rgbVal[2] * 0.114);
 
-                        if(colours[key][cols][opts].variant >= a11yPoint) {
+                        if(colours[key][cols][opts].variant >= 186) {
                             colours[key][cols][opts].ratio = (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
-                            / (this.luminanace(0, 0, 0) + 0.05);
+                            / (this.luminanace(255, 255, 255) + 0.05);
                         }
                         else {
-                            colours[key][cols][opts].ratio = (this.luminanace(255, 255, 255) + 0.05) / (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05);
+                            colours[key][cols][opts].ratio = (this.luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
+                            / (this.luminanace(0, 0, 0) + 0.05);
                         };
                     };
                 };
@@ -278,30 +278,58 @@ const ColourSwatch = ({cols, devMode}) => {
         thisHex = thisCols.hex,
         vars = thisCols.variant,
         ratio = thisCols.ratio,
-        opts = thisCols.name,
-        variant = 'dark',
-        status = 'fail';
+        opts = thisCols.name;
 
     if(devMode) {
         <DevColours {...thisCols} />
     };
 
-    if(vars >= 100) {
-        variant = 'light';
-    };
-
-    if(ratio >= 4.5) {
-        status = false;
+    if(vars >= 186) {
+        if(ratio >= 4.5) {
+            return (
+                <Swatch light color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
+        else if(ratio >= 3) {
+            return (
+                <Swatch light conditional color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
+        else {
+            return (
+                <Swatch light fail color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
     }
-    else if(ratio >= 3) {
-        status = 'conditional';
+    else {
+        if(ratio >= 4.5) {
+            return (
+                <Swatch dark color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
+        else if(ratio >= 3) {
+            return (
+                <Swatch dark conditional color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
+        else {
+            return (
+                <Swatch dark fail color={thisHex} opts={opts}>
+                    <p>{thisHex}</p>
+                </Swatch>
+            );
+        }
     };
-
-    return (
-        <Swatch variant={variant} status={status} color={thisHex} opts={opts}>
-            <p>{thisHex}</p>
-        </Swatch>
-    );
 };
 
 const ColourGroup = ({colgroup, vars, devMode}) => {
