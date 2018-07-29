@@ -6,10 +6,10 @@ export const Swatch = styled('div')`
     grid-row: ${props => props.opts == 'main' ? 'span 2' : 'span 1'};
     background: ${props => props.color};
     border: 3px solid ${props => props.color};
-    border-color: ${props => props.fail && props.theme.colours.fail};
-    border-color: ${props => props.conditional && props.theme.colours.warning};
+    border-color: ${props => props.status == 'fail' && props.theme.colours.fail};
+    border-color: ${props => props.status == 'conditional' && props.theme.colours.warning};
     border-radius: 10px;
-    color: ${props => props.light ? '#000000' : '#FFFFFF'};
+    color: ${props => props.variant == 'light' ? '#000000' : '#FFFFFF'};
     display: flex;
         align-items: center;
         justify-content: center;
