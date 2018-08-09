@@ -259,7 +259,7 @@ const clients = {
         name: 'Janne Martin',
         slug: 'janne-martin',
         logoOri: 'portrait',
-        domain: 'https://aweddingcelebrant.com.au/',
+        domain: 'https://aweddingcelebrant.com.au',
         live: false,
         meta: {
             name: 'Janne Martin | Civil Celebrant',
@@ -319,6 +319,11 @@ const clients = {
                         10: '#050505',
                     }
                 },
+            },
+            fonts: {
+                regular: "400 1em/1.2 'Muli', Arial, sans-serif",
+                bold: "700 1em/1.2 'Muli', Arial, sans-serif",
+                headings: "400 1.5em 'Ovo', serif",
             },
         },
     },
@@ -386,6 +391,12 @@ const clients = {
                         10: '#',
                     }
                 },
+            },
+            fonts: {
+                light: "",
+                regular: "",
+                bold: "",
+                headings: "",
             },
         },
     },
