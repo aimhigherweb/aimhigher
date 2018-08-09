@@ -255,6 +255,140 @@ const clients = {
             },
         },
     },
+    'janne-martin': {
+        name: 'Janne Martin',
+        slug: 'janne-martin',
+        logoOri: 'portrait',
+        domain: 'https://aweddingcelebrant.com.au/',
+        live: false,
+        meta: {
+            name: 'Janne Martin | Civil Celebrant',
+            description: "Dont go searching through emails, you can find all your information here!",
+            slug: '/client/janne-martin',
+        },
+        theme: {
+            colours: {
+                primary: {
+                    main: '#48318c',
+                    light: {
+                        90: '#5a4698',
+                        75: '#7665a9',
+                        50: '#a498c6',
+                        25: '#d1cce2',
+                        10: '#edeaf4',
+                    },
+                    dark: {
+                        90: '#412c7e',
+                        75: '#362569',
+                        50: '#241946',
+                        25: '#120c23',
+                        10: '#07050e',
+                    }
+                },
+                secondary: {
+                    main: '#ffcc00',
+                    light: {
+                        90: '#ffd119',
+                        75: '#ffd940',
+                        50: '#ffe680',
+                        25: '#fff2bf',
+                        10: '#fffae6',
+                    },
+                    dark: {
+                        90: '#e6b800',
+                        75: '#bf9900',
+                        50: '#806600',
+                        25: '#403300',
+                        10: '#1a1400',
+                    }
+                },
+                neutral: {
+                    main: '#333333',
+                    light: {
+                        90: '#474747',
+                        75: '#666666',
+                        50: '#999999',
+                        25: '#cccccc',
+                        10: '#ebebeb',
+                    },
+                    dark: {
+                        90: '#2e2e2e',
+                        75: '#262626',
+                        50: '#1a1a1a',
+                        25: '#0d0d0d',
+                        10: '#050505',
+                    }
+                },
+            },
+        },
+    },
+    '': {
+        name: '',
+        slug: '',
+        logoOri: 'portrait',
+        domain: '',
+        live: false,
+        meta: {
+            name: '',
+            description: "Dont go searching through emails, you can find all your information here!",
+            slug: '/client/',
+        },
+        theme: {
+            colours: {
+                primary: {
+                    main: '#',
+                    light: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    },
+                    dark: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    }
+                },
+                secondary: {
+                    main: '#',
+                    light: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    },
+                    dark: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    }
+                },
+                neutral: {
+                    main: '#',
+                    light: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    },
+                    dark: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    }
+                },
+            },
+        },
+    },
 };
 
 export default clients;
