@@ -392,7 +392,7 @@ export const Typography = ({logo, ori, theme, clientName}) => {
             <TypoContent>
                 <FlexBlock med={logoOri == 'portrait' && true}>
                     <figure>
-                        <ReactSVG path={clientLogo} />
+                        <ReactSVG path={clientLogo} renumerateIRIElements={false} />
                         <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
                     </figure>
                     <div>
