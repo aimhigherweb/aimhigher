@@ -1,6 +1,5 @@
 import styled from 'react-emotion';
 
-
 export const Swatch = styled('div')`
     grid-column: ${props => props.opts == 'main' ? 'span 2' : 'span 1'};
     grid-row: ${props => props.opts == 'main' ? 'span 2' : 'span 1'};
@@ -53,6 +52,10 @@ export const Set = styled('div')`
 
 export const TypoContent = styled('div')`
     --icon-size: auto;
+
+    p {
+        font: ${props => props.theme.fonts.regular};
+    }
 
     figcaption {
         border-left: 5px solid ${props => props.theme.colours.primary.main};
