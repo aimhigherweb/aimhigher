@@ -9,6 +9,7 @@ import {Meta} from '../../components/parts/index.js';
 import clients from '../../data/clientPortal.js';
 
 //Resources
+import '../../components/style-guide/fonts.js';
 
 //Importing Images
 function importAll(r) {
