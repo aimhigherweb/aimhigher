@@ -8,7 +8,7 @@ import {aimhigherTheme} from '../../index.js';
 import {Meta} from '../parts/index.js';
 
 import {Content, Head1, Head2, Head3, Head4, Head5} from '../../global.js';
-import {FlexBlock, Icons, Set, Swatch, TypoContent} from './style.js';
+import {FlexBlock, Icons, Set, Swatch, TypoContent, PrimaryButton, SecondaryButton, NeutralButton} from './style.js';
 
 //Resources
 import Logo from '../../img/logo.svg';
@@ -350,9 +350,10 @@ const DevColours = (colours) => {
     return null;
 };
 
-export const Typography = ({logo, ori, theme, clientName}) => {
+export const Typography = ({logo, ori, type, theme, clientName}) => {
     let clientLogo = Logo, 
-        logoOri = 'landscape';
+        logoOri = 'landscape',
+        logoType = type;
 
     if (logo) {
         clientLogo = logo;
@@ -364,7 +365,11 @@ export const Typography = ({logo, ori, theme, clientName}) => {
             <TypoContent>
                 <FlexBlock med={logoOri == 'portrait' && true}>
                     <figure>
-                        <ReactSVG path={clientLogo} renumerateIRIElements={false} />
+                        {logoType === 'svg' ?
+                            <ReactSVG path={clientLogo} renumerateIRIElements={false} />
+                        :
+                            <img src={clientLogo} />    
+                        }
                         <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
                     </figure>
                     <div>
@@ -387,8 +392,8 @@ export const Typography = ({logo, ori, theme, clientName}) => {
                         This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
                     </blockquote>
                 </FlexBlock>
-                <h4 className="section-title">Lists</h4>
-                <FlexBlock med>
+                
+                <FlexBlock sml>
                     <ul>
                         <li>This</li>
                         <li>is a</li>
@@ -401,25 +406,36 @@ export const Typography = ({logo, ori, theme, clientName}) => {
                         <li>numbered</li>
                         <li>list</li>
                     </ol>
+                    <Icons>
+                        <FaFacebookSquare />
+                        <FaTwitterSquare />
+                        <FaInstagram />
+                    </Icons>
                 </FlexBlock>
-                <FlexBlock med>
-                    <div>
-                        <h4 className="section-title">Icons</h4>
-                        <Icons>
-                            <FaFacebookSquare />
-                            <FaTwitterSquare />
-                            <FaInstagram />
-                        </Icons>
-                    </div>
-                    <div>
-                        <h4>Form</h4>
-                        <form>
-                            <label>Input Field</label>
+                <div>
+                    <h4>Form</h4>
+                    <form>
+                        <label>
+                            Input Field
                             <input type="text" />
-                            <button>Button</button>
-                        </form>
-                    </div>
-                </FlexBlock>
+                        </label>
+                        <label>
+                            Checkbox
+                            <input type="checkbox" />
+                        </label>
+                        <label>
+                            Radio Button
+                            <input type="radio" />
+                        </label>
+                        <label>
+                            Text Message Field
+                            <textarea />
+                        </label>
+                        <PrimaryButton>Primary Button</PrimaryButton>
+                        <SecondaryButton>Secondary Button</SecondaryButton>
+                        <NeutralButton>Neutral Button/Link</NeutralButton>
+                    </form>
+                </div>
             </TypoContent>
         </ThemeProvider>
     );

@@ -76,8 +76,13 @@ export const TypoContent = styled('div')`
     form {
         label {
             color: ${props => props.theme.colours.primary.dark[90]};
+            display: block;
             font-weight: bold;
-            margin-right: 10px;
+            margin: 0 0 15px;
+
+            input {
+                margin-left: 10px;
+            }
         }
 
         input {
@@ -86,26 +91,68 @@ export const TypoContent = styled('div')`
             padding: 5px 10px;
         }
 
-        button {
-            --btn-back: ${props => props.theme.colours.primary.dark[90]};
-            --btn-border: var(--btn-back);
-            --btn-text: #fff;
-
-            background: var(--btn-back);
-            border: 3px solid var(--btn-border);
-            color: var(--btn-text);
-            cursor: pointer;
+        textarea {
             display: block;
-            font-size: 1.1em;
             margin-top: 10px;
-            padding: 5px 15px;
-
-            &:active, &:hover, &:focus {
-                --btn-back: #fff;
-                --btn-border: ${props => props.theme.colours.primary.dark[90]};
-                --btn-text: var(--btn-border);
-            }
+            width: 100%;
+                max-width: 300px;
         }
+    }
+`;
+
+const Button = styled('button')`
+    --btn-back: ${props => props.theme.colours.primary.dark[90]};
+    --btn-border: var(--btn-back);
+    --btn-text: #fff;
+
+    background: var(--btn-back);
+    border: 3px solid var(--btn-border);
+    color: var(--btn-text);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.1em;
+    margin: 10px;
+    padding: 5px 15px;
+
+    &:active, &:hover, &:focus {
+        --btn-back: #fff;
+        --btn-border: ${props => props.theme.colours.primary.dark[90]};
+        --btn-text: var(--btn-border);
+    }
+`;
+
+export const PrimaryButton = styled(Button)`
+    --btn-back: ${props => props.theme.colours.secondary.main};
+
+    &:active, &:hover, &:focus {
+        --btn-border: ${props => props.theme.colours.secondary.main};
+    }
+`;
+
+export const SecondaryButton = styled(Button)`
+    --btn-back: #fff;
+    --btn-border: ${props => props.theme.colours.primary.dark[90]};
+    --btn-text: var(--btn-border);
+
+    &:active, &:hover, &:focus {
+        --btn-back: ${props => props.theme.colours.primary.dark[90]};
+        --btn-border: var(--btn-back);
+        --btn-text: #fff;
+    }
+`;
+
+export const NeutralButton = styled(Button)`
+    --btn-back: transparent;
+    --btn-border: transparent;
+    --btn-text: ${props => props.theme.colours.primary.dark[90]};
+
+    text-decoration: underline;
+
+    &:active, &:hover, &:focus {
+        --btn-back: ${props => props.theme.colours.primary.dark[90]};
+        --btn-text: #fff;
+
+        text-decoration: none;
     }
 `;
 
@@ -128,6 +175,7 @@ export const Icons = styled('div')`
 
 export const FlexBlock = styled('div')`
     display: flex;
+    align-items: flex-start;
         flex-wrap: wrap;
         flex-wrap: ${props => props.sml && 'nowrap'};
 
