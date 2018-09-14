@@ -394,10 +394,9 @@ const clients = {
                 },
             },
             fonts: {
-                light: "",
-                regular: "",
-                bold: "",
-                headings: "",
+                regular: "400 1em/1.2 'Gudea', Arial, sans-serif",
+                bold: "700 1em/1.2 'Gudea', Arial, sans-serif",
+                headings: "400 1.5em 'Rancho', sans-serif",
             },
         },
     },
