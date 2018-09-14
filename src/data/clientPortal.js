@@ -327,6 +327,79 @@ const clients = {
             },
         },
     },
+    'bellisa-cafe': {
+        name: 'Bellisa Cafe',
+        slug: 'bellisa-cafe',
+        logoOri: 'portrait',
+        domain: 'http://www.bellisacafe.com.au',
+        live: false,
+        meta: {
+            name: 'Bellisa Cafe - A Place to Indulge and Enjoy',
+            description: "Dont go searching through emails, you can find all your information here!",
+            slug: '/client/',
+        },
+        theme: {
+            colours: {
+                primary: {
+                    main: '#ab8e6c',
+                    light: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    },
+                    dark: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    }
+                },
+                secondary: {
+                    main: '#A30413',
+                    light: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    },
+                    dark: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    }
+                },
+                neutral: {
+                    main: '#343C44',
+                    light: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    },
+                    dark: {
+                        90: '#',
+                        75: '#',
+                        50: '#',
+                        25: '#',
+                        10: '#',
+                    }
+                },
+            },
+            fonts: {
+                light: "",
+                regular: "",
+                bold: "",
+                headings: "",
+            },
+        },
+    },
     '': {
         name: '',
         slug: '',
