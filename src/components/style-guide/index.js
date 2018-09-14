@@ -350,9 +350,10 @@ const DevColours = (colours) => {
     return null;
 };
 
-export const Typography = ({logo, ori, theme, clientName}) => {
+export const Typography = ({logo, ori, type, theme, clientName}) => {
     let clientLogo = Logo, 
-        logoOri = 'landscape';
+        logoOri = 'landscape',
+        logoType = type;
 
     if (logo) {
         clientLogo = logo;
@@ -364,7 +365,11 @@ export const Typography = ({logo, ori, theme, clientName}) => {
             <TypoContent>
                 <FlexBlock med={logoOri == 'portrait' && true}>
                     <figure>
-                        <ReactSVG path={clientLogo} renumerateIRIElements={false} />
+                        {logoType === 'svg' ?
+                            <ReactSVG path={clientLogo} renumerateIRIElements={false} />
+                        :
+                            <img src={clientLogo} />    
+                        }
                         <figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
                     </figure>
                     <div>

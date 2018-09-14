@@ -18,7 +18,7 @@ function importAll(r) {
     return images;
 }
   
-const logos = importAll(require.context('../../img/clientPortal/', false, /\.(svg)$/));
+const logos = importAll(require.context('../../img/clientPortal/', false, /\.(svg|png)$/));
 
 const ClientPortal = ({location}) => {
     let pageSlug = location.pathname,
@@ -26,7 +26,13 @@ const ClientPortal = ({location}) => {
         clientDetails = clients[client],
         theme = clientDetails.theme,
         meta = clientDetails.meta,
-        logo = client + '-logo.svg';
+        logoType = 'svg';
+
+    if(clientDetails.logoType) {
+        logoType = clientDetails.logoType;
+    }
+
+    let logo = client + '-logo.' + logoType;
 
     return (
         <Content>
@@ -42,7 +48,7 @@ const ClientPortal = ({location}) => {
             :
             <h3 className="url">{clientDetails.domain}</h3>
             }
-            <Typography theme={theme} logo={logos[logo]} ori={clientDetails.logoOri} clientName={client} />
+            <Typography theme={theme} logo={logos[logo]} type={logoType} ori={clientDetails.logoOri} clientName={client} />
             <ColourSwatches theme={theme} />
         </Content>
     );
