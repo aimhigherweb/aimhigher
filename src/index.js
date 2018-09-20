@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, {hydrate, render} from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'emotion-theming';
 
@@ -125,4 +125,10 @@ class Root extends React.Component {
 	}
 }
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+const rootElement = document.getElementById('root');
+
+if (rootElement.hasChildNodes()) {
+  hydrate(<Root />, rootElement);
+} else {
+  render(<Root />, rootElement);
+}
