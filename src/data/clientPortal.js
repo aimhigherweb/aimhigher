@@ -135,7 +135,47 @@ const clients = {
                     bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
                     headings: "700 1.5em 'Headland One', serif",
                 },
-            }
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Kameron', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Playfair Display', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Prata', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Rosarivo', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Trirong', serif",
+                },
+            },
         ],
     },
     'glenrock-hay': {
