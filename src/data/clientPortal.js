@@ -269,7 +269,7 @@ const clients = {
         theme: {
             colours: {
                 primary: {
-                    main: '#585291',
+                    main: '#3e3582',
                     light: {
                         90: '#69639c',
                         75: '#827dad',
@@ -286,7 +286,7 @@ const clients = {
                     }
                 },
                 secondary: {
-                    main: '#FFF200',
+                    main: '#FFFF00',
                     light: {
                         90: '#fff319',
                         75: '#fff540',
