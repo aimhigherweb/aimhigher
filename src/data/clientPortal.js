@@ -124,9 +124,19 @@ const clients = {
                 light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
                 regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
                 bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
-                headings: "700 1.5em 'Space Mono', monospace",
+                headings: "700 1.5em 'Antic Didone', serif",
             },
         },
+        variant: [
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Headland One', serif",
+                },
+            }
+        ],
     },
     'glenrock-hay': {
         name: 'Glenrock Hay',
