@@ -26,13 +26,38 @@ const ClientPortal = ({location}) => {
         clientDetails = clients[client],
         theme = clientDetails.theme,
         meta = clientDetails.meta,
-        logoType = 'svg';
+        logoType = 'svg',
+        typoPages = false;
 
     if(clientDetails.logoType) {
         logoType = clientDetails.logoType;
     }
 
     let logo = client + '-logo.' + logoType;
+
+    if(clientDetails.variant) {
+        let varNum = 0;
+        typoPages = clientDetails.variant.map((variant) => {
+            let thisTheme = theme;
+
+            if(variant.fonts) {
+                thisTheme.fonts = variant.fonts;
+            }
+
+            if(variant.colours) {
+                thisTheme.colours = variant.colours;
+            }
+
+            varNum += 1;
+
+            return (
+                <Fragment>
+                    <h2>Style Variant {varNum}</h2>
+                    <Typography theme={thisTheme} logo={logos[logo]} type={logoType} ori={clientDetails.logoOri} clientName={client} />
+                </Fragment>
+            );
+        })
+    }
 
     return (
         <Content>
@@ -49,6 +74,7 @@ const ClientPortal = ({location}) => {
             <h3 className="url">{clientDetails.domain}</h3>
             }
             <Typography theme={theme} logo={logos[logo]} type={logoType} ori={clientDetails.logoOri} clientName={client} />
+            {typoPages && typoPages}
             <ColourSwatches theme={theme} />
         </Content>
     );

@@ -124,9 +124,59 @@ const clients = {
                 light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
                 regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
                 bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
-                headings: "700 1.5em 'Space Mono', monospace",
+                headings: "700 1.5em 'Antic Didone', serif",
             },
         },
+        variant: [
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Headland One', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Kameron', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Playfair Display', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Prata', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Rosarivo', serif",
+                },
+            },
+            {
+                fonts: {
+                    light: "300 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    regular: "400 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    bold: "700 1em 'Hypatia Sans Pro', Arial, sans-serif",
+                    headings: "700 1.5em 'Trirong', serif",
+                },
+            },
+        ],
     },
     'glenrock-hay': {
         name: 'Glenrock Hay',
@@ -269,7 +319,7 @@ const clients = {
         theme: {
             colours: {
                 primary: {
-                    main: '#585291',
+                    main: '#3e3582',
                     light: {
                         90: '#69639c',
                         75: '#827dad',
@@ -286,7 +336,7 @@ const clients = {
                     }
                 },
                 secondary: {
-                    main: '#FFF200',
+                    main: '#FFFF00',
                     light: {
                         90: '#fff319',
                         75: '#fff540',
