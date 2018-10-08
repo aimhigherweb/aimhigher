@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react';
 
 //Resources
 import {Codepen, Github, Facebook, Twitter, Mail, Instagram} from 'react-feather';
-import {legalItems} from '../app/index.js';
 
 import {Item, ItemSocial, Nav, SocialNav} from './style.js';
 
@@ -37,6 +36,17 @@ const menuItems = [
 		icon: <Mail />,
 		url: 'mailto:inquiries@aimhigherweb.design',
 	},
+];
+
+const legalItems = [
+	{
+	  slug: '/privacy',
+	  title: 'Privacy Policy',
+	},
+	{
+	  slug: '/terms',
+	  title: 'Terms and Conditions',
+	}
 ];
 
 class Footer extends Component {

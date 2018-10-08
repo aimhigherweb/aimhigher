@@ -1,15 +1,13 @@
-import React, { Component, Fragment } from 'react';
-import { Helmet } from 'react-helmet';
+import React, { Component } from 'react';
 
-//Components
-import {Meta} from '../../components/parts/index.js';
+import Layout from '../components/layout';
 
 //Resources
-import Graphic from '../../img/graphic.svg';
-import ComputerCoffee from '../../img/computer_coffee.svg';
-import Design from '../../img/design.svg';
-import MultipleHands from '../../img/multiple_computers.svg';
-import {ContentSVG, Hero, HeroContent, HomeContent, HomeGraphic} from './style.js';
+import Graphic from '../img/graphic.svg';
+import ComputerCoffee from '../img/computer_coffee.svg';
+import Design from '../img/design.svg';
+import MultipleHands from '../img/multiple_computers.svg';
+import {ContentSVG, Hero, HeroContent, HomeContent, HomeGraphic} from '../styles/index.js';
 
 const meta = {
 	name: 'AimHigher Web Design',
@@ -17,11 +15,10 @@ const meta = {
 	slug: '',
 };
 
-class Home extends Component {
+export default class IndexPage extends Component {
 	render() {
 		return (
-			<Fragment>
-                <Meta {...meta} />
+			<Layout meta={meta}>
                 <Hero>
                     <HeroContent>
                         <HomeGraphic path={Graphic} />
@@ -36,9 +33,7 @@ class Home extends Component {
                     <p>AimHigher Web Design also provide prompt and efficient Aftersale support to keep your website working for you, while you get on with business.</p>
                     <ContentSVG path={MultipleHands} />
                 </HomeContent>
-            </Fragment>
+            </Layout>
 		);
 	}
 }
-
-export default Home;

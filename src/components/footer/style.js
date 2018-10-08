@@ -1,5 +1,5 @@
 import styled from 'react-emotion';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'gatsby';
 
 export const Nav = styled('nav')`
     display: flex;
@@ -26,7 +26,7 @@ export const SocialNav = styled(Nav)`
     }
 `;
 
-export const Item = styled(NavLink)`
+export const Item = styled(Link)`
     border-radius: 10px;
     color: ${props => props.theme.colours.primary.light['75']};
     font-size: 0.8em;

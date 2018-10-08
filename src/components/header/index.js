@@ -1,39 +1,48 @@
 import React, {Fragment, Component} from 'react';
-import Helmet from 'react-helmet';
-import Media from 'react-media';
 import ReactSVG from 'react-svg';
 
 //Resources
-import Background from '../../img/wave.svg';
-import {menuItems} from '../app/index.js';
-import { Menu, X } from 'react-feather';
-import Favicon from '../../img/favicon.png';
-import Logo from '../../img/logo.svg';
+// import Background from '../../img/wave.svg';
+// import Logo from '../../img/logo.svg';
 
 
-import {Hamburger, HeroBack, Item, LogoArea, Nav} from './style.js';
+import {HeroBack, Item, LogoArea, Nav} from './style.js';
 
-const Meta = () => {
-    return (
-        <Helmet>
-            <meta name="twitter:card" content="summary_large_image" />
-            <link rel="shortcut icon" href={Favicon} />
-            <link rel="icon" sizes="192x192" href={Favicon} />
-            <link rel="apple-touch-icon" href={Favicon} />
-            <meta name="theme-color" content="#1C75BC" />
-            <link rel="mask-icon" href={Favicon} color="#1C75BC" />
-            <base href="/" />
-        </Helmet>
-    );
-};
-  
+const menuItems = [
+    {
+        slug: '/about',
+        title: 'About',
+    },
+    {
+        slug: '/services',
+        title: 'Services',
+        component: ProductsServices,
+    },
+    {
+        slug: '/portfolio',
+        title: 'Portfolio',
+        component: Portfolio,
+    },
+    {
+        slug: '/faq',
+        title: 'FAQ',
+    },
+    {
+        slug: '/blog',
+        title: 'Blog',
+        component: Feed,
+    },
+    {
+          slug: '/contact',
+          title: 'Contact',
+    }
+];
 
 class Header extends Component {
     render() {        
         return (
             <Fragment>
-                <Meta />
-                <HeroBack path={Background} renumerateIRIElements={false} />
+                {/* <HeroBack path={Background} renumerateIRIElements={false} /> */}
                 <SiteTitle />
                 <MainMenu />
             </Fragment>
@@ -43,7 +52,7 @@ class Header extends Component {
 
 const SiteTitle = () => (
     <LogoArea aria-label="Logo linked to homepage" href="/">
-        <ReactSVG path={Logo} />
+        {/* <ReactSVG path={Logo} /> */}
     </LogoArea>
 );
 

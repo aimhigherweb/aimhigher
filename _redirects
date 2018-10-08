@@ -1,10 +1,1 @@
 /*    /index.html   200
-
-# Redirect domain aliases to primary domain
-https://aimhigherwebdesign.com/* https://aimhigherweb.design/:splat 301!
-https://aimhigherwebdesign.com.au/* https://aimhigherweb.design/:splat 301!
-https://www.aimhigherweb.design/* https://aimhigherweb.design/:splat 301!
-https://www.aimhigherwebdesign.com/* https://aimhigherweb.design/:splat 301!
-
-# Optional: Redirect default Netlify subdomain to primary domain
-https://aimhigher.netlify.com/* https://aimhigherweb.design/:splat 301!

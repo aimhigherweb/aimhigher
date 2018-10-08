@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'react-emotion';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'gatsby';
 import ReactSVG from 'react-svg';
 
 export const HeadCont = styled('header')`
@@ -133,7 +133,7 @@ export const Nav = styled('nav')`
     }
 `;
 
-export const Item = styled(NavLink)`
+export const Item = styled(Link)`
     --border: ${props => props.theme.colours.primary.dark['75']};
 
     border-top: 3px solid var(--border);
