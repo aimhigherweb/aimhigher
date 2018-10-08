@@ -5,6 +5,7 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout';
 
 import {Content, Head1} from '../components/layout/style';
+import {Article, ArticleFeed, ArticleTitle, Date, Excerpt, ShareIcons, FeatureImage} from '../styles/blog'
 import {Facebook, Twitter} from 'react-feather';
 
 
@@ -24,34 +25,34 @@ export default class Blog extends React.Component {
             <Layout meta={meta} wave>
                 <Content>
                     <Head1>Blog</Head1>
-                    <div className="article-feed">
+                    <ArticleFeed>
                     {posts.map(({node: post}) => {
                         let articleLink = meta.slug + post.fields.slug,
                             facebookLink = 'https://www.facebook.com/sharer/sharer.php?u=' + articleLink,
                             twitterLink = 'https://twitter.com/home?status=So%20%40amys_kapers%20wrote%20this%20really%20cool%20blog%20post,%20you%20should%20check%20it%20out!%20' + articleLink;
 
                         return (
-                            <article id={post.id} key={post.id} className="feed-article">
-                                <div className="image-feature">
+                            <Article id={post.id} key={post.id}>
+                                <FeatureImage>
                                     <img src={post.frontmatter.featuredImage} />
-                                </div>
+                                </FeatureImage>
                                 <header>
-                                    <h2 className="article-title">
+                                    <ArticleTitle>
                                         <Link id={post.id} to={`/${post.fields.slug}`}>
                                             {post.frontmatter.title}
                                         </Link>
-                                    </h2>
-                                    <h6 className="date">{post.frontmatter.publishDate}</h6>
+                                    </ArticleTitle>
+                                    <Date>{post.frontmatter.publishDate}</Date>
                                 </header>
-                                <div className="excerpt">{post.excerpt}</div>
-                                <div className="share-icons">
-                                    <a href={facebookLink} target="_blank" className="facebook share-link">{<Facebook />}</a>
-                                    <a href={twitterLink} target="_blank" className="twitter share-link">{<Twitter />}</a>
-                                </div>
-                            </article>
+                                <Excerpt>{post.excerpt}</Excerpt>
+                                <ShareIcons>
+                                    <a href={facebookLink} target="_blank">{<Facebook />}</a>
+                                    <a href={twitterLink} target="_blank">{<Twitter />}</a>
+                                </ShareIcons>
+                            </Article>
                         )
                     })}
-                </div>
+                </ArticleFeed>
                 </Content>
             </Layout>
         )
