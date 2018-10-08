@@ -97,16 +97,24 @@ export const aimhigherTheme = {
 	}
 }
 
-const Layout = ({children, meta}) => (
-    <ThemeProvider theme={aimhigherTheme}>
-        <Globals>
-            <Meta {...meta} />
-            <HeadCont className="main">{<Header />}</HeadCont>
-            <Main className="main">{children}</Main>
-            <FooterCont className="main">{<Footer />}</FooterCont>
-        </Globals>
-    </ThemeProvider>
-)
+const Layout = ({children, meta, wave}) => {
+	let isWave = false;
+
+	if(wave) {
+		isWave = true;
+	}
+
+	return (
+		<ThemeProvider theme={aimhigherTheme}>
+			<Globals>
+				<Meta {...meta} />
+				<HeadCont wave={isWave}>{<Header />}</HeadCont>
+				<Main>{children}</Main>
+				<FooterCont>{<Footer />}</FooterCont>
+			</Globals>
+		</ThemeProvider>
+	)
+}
 
 const Meta = ({name, description, slug, image}) => {
     let siteUrl = 'https://amygoestoperth.com.au';

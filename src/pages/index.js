@@ -19,7 +19,7 @@ const meta = {
 export default class IndexPage extends Component {
 	render() {
 		return (
-			<Layout meta={meta}>
+			<Layout meta={meta} wave>
                 <Hero>
                     <HeroContent>
                         <HomeGraphic><Graphic /></HomeGraphic>
