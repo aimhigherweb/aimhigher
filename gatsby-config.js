@@ -2,7 +2,7 @@ module.exports = {
     siteMetadata: {
         title: 'AimHigher Web Design',
         description: 'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
-        siteUrl: 'https://aimhigherweb.design'
+        siteUrl: 'https://aimhigherweb.design/'
     },
     plugins: [
         'gatsby-plugin-react-helmet',

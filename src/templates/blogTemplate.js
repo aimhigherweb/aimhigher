@@ -1,36 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
 import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/layout'
+import {Content, Head1} from '../components/layout/style'
+import {Article, ArticleIntro, Date, ShareIcons} from '../styles/article';
 
 import {Facebook, Twitter} from 'react-feather';
 
 export const BlogPostTemplate = ({content, title, slug, tags, publishDate, updateDate, siteUrl}) => {
-    let articleLink = siteUrl + slug,
+    let articleLink = siteUrl + 'blog' + slug,
         facebookLink = 'https://www.facebook.com/sharer/sharer.php?u=' + articleLink,
         twitterLink = 'https://twitter.com/home?status=So%20%40amys_kapers%20wrote%20this%20really%20cool%20blog%20post,%20you%20should%20check%20it%20out!%20' + articleLink;
 
     const intro = (
-        <div className="share-icons">
+        <ShareIcons>
             <a href={facebookLink} target="_blank" className="facebook share-link">{<Facebook />}</a>
             <a href={twitterLink} target="_blank" className="twitter share-link">{<Twitter />}</a>
-        </div>
+        </ShareIcons>
     );
 
     return (
-        <article className="article content">
+        <Article>
             <header>
-                <h1>{title}</h1>
-                <div className="article-intro">
+                <Head1>{title}</Head1>
+                <ArticleIntro>
                     {intro}
-                    <h6 className="date"><time dateTime={updateDate}>{updateDate}</time></h6>
-                </div>
+                    <Date dateTime={updateDate}>{updateDate}</Date>
+                </ArticleIntro>
             </header>
             <main dangerouslySetInnerHTML={{__html: content}}></main>
             <Link to="/" className="back end">Back to Article Feed</Link>
-        </article>
+        </Article>
     )
 }
 
@@ -60,8 +61,10 @@ const BlogPost = ({ data }) => {
     };
 
     return (
-        <Layout meta={meta}>
-            <BlogPostTemplate {...blogPost} />
+        <Layout meta={meta} wave>
+            <Content>
+                <BlogPostTemplate {...blogPost} />
+            </Content>
         </Layout>
     )
 }

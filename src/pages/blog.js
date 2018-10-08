@@ -27,7 +27,7 @@ export default class Blog extends React.Component {
                     <Head1>Blog</Head1>
                     <ArticleFeed>
                     {posts.map(({node: post}) => {
-                        let articleLink = meta.slug + post.fields.slug,
+                        let articleLink = data.site.siteMetadata.siteUrl + meta.slug + post.fields.slug,
                             facebookLink = 'https://www.facebook.com/sharer/sharer.php?u=' + articleLink,
                             twitterLink = 'https://twitter.com/home?status=So%20%40amys_kapers%20wrote%20this%20really%20cool%20blog%20post,%20you%20should%20check%20it%20out!%20' + articleLink;
 
@@ -38,7 +38,7 @@ export default class Blog extends React.Component {
                                 </FeatureImage>
                                 <header>
                                     <ArticleTitle>
-                                        <Link id={post.id} to={`/${post.fields.slug}`}>
+                                        <Link id={post.id} to={`/blog/${post.fields.slug}`}>
                                             {post.frontmatter.title}
                                         </Link>
                                     </ArticleTitle>
