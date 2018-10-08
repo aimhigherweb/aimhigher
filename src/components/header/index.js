@@ -22,10 +22,6 @@ const menuItems = [
           title: 'Portfolio',
     },
     {
-        slug: '/ethics',
-        title: 'Code of Ethics',
-    },
-    {
           slug: '/faq',
           title: 'FAQ',
     },

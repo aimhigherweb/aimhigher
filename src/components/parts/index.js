@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import {ChevronRight, ChevronDown} from 'react-feather';
 import {FigCaption} from '../layout/style';
