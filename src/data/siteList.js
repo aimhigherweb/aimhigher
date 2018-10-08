@@ -21,6 +21,25 @@ const siteList = [
         github: 'https://github.com/AimHigher-Web-Design/tech-outsiders'
     },
     {
+        name: 'Janne Martin',
+        slug: 'janne-martin',
+        url: 'aweddingcelebrant.com.au',
+        date: 'Coming Soon!',
+        mobile: false,
+        current: false,
+        secure: true,
+        github: 'https://github.com/AimHigher-Web-Design/aweddingcelebrant'
+    },
+    {
+        name: 'See Me After',
+        slug: 'seemeafter',
+        url: 'seemeafter.com',
+        date: 'Coming Soon!',
+        mobile: false,
+        current: false,
+        secure: true,
+    },
+    {
         name: 'Wondai Country Running Festival',
         slug: 'wondai-country-festival',
         url: 'wondaicountryfestival.com.au',
