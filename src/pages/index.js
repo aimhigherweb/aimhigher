@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactSVG from 'react-svg';
 
 import Layout from '../components/layout';
 
@@ -21,17 +22,17 @@ export default class IndexPage extends Component {
 			<Layout meta={meta}>
                 <Hero>
                     <HeroContent>
-                        <HomeGraphic path={Graphic} />
+                        <HomeGraphic><Graphic /></HomeGraphic>
                         <blockquote>Bridging the gap between businesses and technology</blockquote>
                     </HeroContent>
                 </Hero>
 				<HomeContent>
                     <p>AimHigher Web Design is based in Perth and helps businesses all over Australia in developing an online presence.</p>
-                    <ContentSVG path={ComputerCoffee} />
-                    <ContentSVG path={Design} />
+                    <ContentSVG><ComputerCoffee /></ContentSVG>
+                    <ContentSVG><Design/></ContentSVG>
                     <p>We specialise in building modern and professional websites that can be easily maintained by anyone, regardless of their technical skill.</p>
                     <p>AimHigher Web Design also provide prompt and efficient Aftersale support to keep your website working for you, while you get on with business.</p>
-                    <ContentSVG path={MultipleHands} />
+                    <ContentSVG><MultipleHands/></ContentSVG>
                 </HomeContent>
             </Layout>
 		);

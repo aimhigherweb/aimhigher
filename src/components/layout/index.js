@@ -2,15 +2,14 @@ import React from "react"
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'emotion-theming';
 
-
 import Header from '../header/index.js'
 import Footer from '../footer/index.js'
 
 import Logo from '../../img/logo.png';
 
-import './style.js';
 import {Globals, Main, FooterCont} from './style.js';
 import {HeadCont} from '../header/style.js';
+
 
 export const aimhigherTheme = {
     colours: {
@@ -102,15 +101,15 @@ const Layout = ({children, meta}) => (
     <ThemeProvider theme={aimhigherTheme}>
         <Globals>
             <Meta {...meta} />
-            <header className="main">{<Header />}</header>
-            <main className="main">{children}</main>
-            <footer className="main">{<Footer />}</footer>
+            <HeadCont className="main">{<Header />}</HeadCont>
+            <Main className="main">{children}</Main>
+            <FooterCont className="main">{<Footer />}</FooterCont>
         </Globals>
     </ThemeProvider>
 )
 
 const Meta = ({name, description, slug, image}) => {
-    let siteUrl = 'https://aimhigherweb.design';
+    let siteUrl = 'https://amygoestoperth.com.au';
 
     if (!image) {
         image = Logo;

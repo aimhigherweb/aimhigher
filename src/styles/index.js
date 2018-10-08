@@ -1,5 +1,4 @@
 import styled, {keyframes} from 'react-emotion';
-import ReactSVG from 'react-svg';
 
 export const Hero = styled('div')`
     color: ${props => props.theme.colours.primary.dark['75']};
@@ -76,7 +75,7 @@ const personIdea = keyframes`
     }
 `;
 
-export const HomeGraphic = styled(ReactSVG)`
+export const HomeGraphic = styled('div')`
     clip-path: polygon(-1.45% 54.49%, 15.93% 52.35%, 15.93% 37.43%, 13.06% 17.68%, 19.7% 6.29%, 44.76% 12.49%, 46.16% 5.29%, 51.57% 0.39%, 60.93% -0.47%, 70.19% -0.83%, 72.78% 4.81%, 76.81% 9.19%, 81.82% 4.74%, 89.35% 8.51%, 91.72% 23.53%, 97.64% 35.66%, 91.71% 50.16%, 100% 51.58%, 99.54% 63.88%, 85.92% 64.44%, 82.08% 76.61%, 74.66% 90.14%, 75.1% 97.49%, 1.45% 97.8%, 1.7% 88.46%, 4.36% 85.83%);
     float: right;
     shape-outside: polygon(-1.45% 54.49%, 15.93% 52.35%, 15.93% 37.43%, 13.06% 17.68%, 19.7% 6.29%, 44.76% 12.49%, 46.16% 5.29%, 51.57% 0.39%, 60.93% -0.47%, 70.19% -0.83%, 72.78% 4.81%, 76.81% 9.19%, 81.82% 4.74%, 89.35% 8.51%, 91.72% 23.53%, 97.64% 35.66%, 91.71% 50.16%, 100% 51.58%, 99.54% 63.88%, 85.92% 64.44%, 82.08% 76.61%, 74.66% 90.14%, 75.1% 97.49%, 1.45% 97.8%, 1.7% 88.46%, 4.36% 85.83%);
@@ -154,7 +153,7 @@ export const HomeContent = styled('div')`
     }
 `;
 
-export const ContentSVG = styled(ReactSVG)`
+export const ContentSVG = styled('div')`
     height: auto;
     width: 40%;
 

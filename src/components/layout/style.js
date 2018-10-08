@@ -1,15 +1,6 @@
 import { injectGlobal } from 'emotion';
 import styled from 'react-emotion';
 
-//Importing Images
-function importAll(r) {
-    let fonts = {};
-    r.keys().map((item, index) => { fonts[item.replace('./', '')] = r(item); });
-    return fonts;
-}
-  
-const fonts = importAll(require.context('./fonts', false, /\.(ttf)$/));
-
 injectGlobal`
     * {
         box-sizing: border-box;
@@ -151,7 +142,7 @@ injectGlobal`
     }
 `
 
-export const Globals = styled('div')`
+export const Globals = styled.div`
     --primary: ${props => props.theme.colours.primary.main};
     --secondary: ${props => props.theme.colours.secondary.main};
 

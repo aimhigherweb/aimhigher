@@ -1,48 +1,65 @@
 import React, {Fragment, Component} from 'react';
-import ReactSVG from 'react-svg';
+import Helmet from 'react-helmet';
 
 //Resources
-// import Background from '../../img/wave.svg';
-// import Logo from '../../img/logo.svg';
-
+import Background from '../../img/wave.svg';
+import Favicon from '../../img/favicon.png';
+import Logo from '../../img/logo.svg';
 
 import {HeroBack, Item, LogoArea, Nav} from './style.js';
 
 const menuItems = [
     {
-        slug: '/about',
-        title: 'About',
+          slug: '/about',
+          title: 'About',
     },
     {
-        slug: '/services',
-        title: 'Services',
-        component: ProductsServices,
+          slug: '/services',
+          title: 'Services',
     },
     {
-        slug: '/portfolio',
-        title: 'Portfolio',
-        component: Portfolio,
+          slug: '/portfolio',
+          title: 'Portfolio',
     },
     {
-        slug: '/faq',
-        title: 'FAQ',
+        slug: '/ethics',
+        title: 'Code of Ethics',
     },
     {
-        slug: '/blog',
-        title: 'Blog',
-        component: Feed,
+          slug: '/faq',
+          title: 'FAQ',
+    },
+    {
+          slug: '/blog',
+          title: 'Blog',
     },
     {
           slug: '/contact',
           title: 'Contact',
-    }
+    },
 ];
+
+const Meta = () => {
+    return (
+        <Helmet>
+            <meta name="twitter:card" content="summary_large_image" />
+            <link rel="shortcut icon" href={Favicon} />
+            <link rel="icon" sizes="192x192" href={Favicon} />
+            <link rel="apple-touch-icon" href={Favicon} />
+            <meta name="theme-color" content="#1C75BC" />
+            <link rel="mask-icon" href={Favicon} color="#1C75BC" />
+            <base href="/" />
+        </Helmet>
+    );
+};
+  
 
 class Header extends Component {
     render() {        
         return (
             <Fragment>
-                {/* <HeroBack path={Background} renumerateIRIElements={false} /> */}
+                <Meta />
+                <HeroBack><Background/></HeroBack>
                 <SiteTitle />
                 <MainMenu />
             </Fragment>
@@ -52,20 +69,16 @@ class Header extends Component {
 
 const SiteTitle = () => (
     <LogoArea aria-label="Logo linked to homepage" href="/">
-        {/* <ReactSVG path={Logo} /> */}
+        <Logo/>
     </LogoArea>
 );
 
 const MainMenu = () => {
-    let navItems = menuItems.map((navItem) => {
-        if(!navItem.hideNav) {
-            return (
-                <Item key={navItem.title} to={navItem.slug} className={'' + navItem.class} activeClassName="current">
-                    {navItem.title}
-                </Item>
-            );
-        };
-    });
+    let navItems = menuItems.map((navItem) => (
+        <Item key={navItem.title} to={navItem.slug} className={'' + navItem.class}>
+            {navItem.title}
+        </Item>
+    ));
 
     return (
         <Nav id="menu">

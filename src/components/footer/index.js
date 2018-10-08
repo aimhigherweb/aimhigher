@@ -63,7 +63,7 @@ class Footer extends Component {
 const FooterNav = () => {
 	let legalNav = legalItems.map((legalItem) => {
 		return (
-			<Item key={legalItem.title} to={legalItem.slug} activeClassName="current">
+			<Item key={legalItem.title} to={legalItem.slug}>
 				{legalItem.title}
 			</Item>
 		);
@@ -71,7 +71,7 @@ const FooterNav = () => {
 
 	return (
 		<Nav>
-			<Item to="/" activeClassName="current">
+			<Item to="/">
 				Home
 			</Item>
 			{legalNav}

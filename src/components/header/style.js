@@ -1,6 +1,5 @@
 import styled, {keyframes} from 'react-emotion';
 import { Link } from 'gatsby';
-import ReactSVG from 'react-svg';
 
 export const HeadCont = styled('header')`
     display: flex;
@@ -201,7 +200,7 @@ export const Item = styled(Link)`
     }
 `;
 
-export const HeroBack = styled(ReactSVG)`
+export const HeroBack = styled('div')`
     svg {
         height: auto;
             max-height: unset;
