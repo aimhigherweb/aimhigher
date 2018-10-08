@@ -1,14 +1,32 @@
 import styled from 'react-emotion';
 
 export const Article = styled('article')`
-    text-align: center;
+    h2, h3, h4 {
+        font: ${props => props.theme.fonts.headings};
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
 
     p {
         text-align: justify;
     }
 
     img {
-        max-height: calc(100vh - #{$height_header});
+        max-height: calc(50vh);
+    }
+
+    blockquote {
+        border-left: 5px solid ${props => props.theme.colours.primary.main};
+        font: ${props => props.theme.fonts.headings};
+            font-size: 1.2em;
+            font-weight: normal;
+        padding: 10px 20px;
     }
 
     .twitter-tweet, iframe {
