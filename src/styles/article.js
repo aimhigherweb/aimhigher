@@ -19,7 +19,7 @@ export const Article = styled('article')`
 
     img {
         display: block;
-        max-height: calc(50vh);
+        max-height: 50vh;
         margin: 0 auto;
     }
 
