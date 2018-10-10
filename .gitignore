@@ -12,9 +12,7 @@
 .netlify
 /public
 /src/resources/*.css
-/static/img/*.jpg
-/static/img/*.png
-/static/img/*.gif
+/static/img/blog/*
 
 # misc
 .DS_Store
