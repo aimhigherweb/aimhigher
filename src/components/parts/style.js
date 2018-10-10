@@ -6,6 +6,11 @@ export const ImageContainer = styled('figure')`
     margin: 0 10px;
     position: relative;
     width: ${props => props.custom.dimensions.width};
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
 `;
 
 export const Image = styled('img')`

@@ -27,7 +27,7 @@ export const FeatureImage = styled('div')`
     display: flex;
         justify-content: center;
         align-items: center;
-    height: 15vh * 2;
+    height: calc(15vh * 2);
         max-height: 300px;
     margin-bottom: 10px;
     overflow: hidden;

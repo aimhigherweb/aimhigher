@@ -10,13 +10,13 @@
 	"scripts": {
 		"start": "cp src/blog/img/* static/img/ && npm run develop",
 		"develop": "gatsby develop",
-		"build": "npm run blogImages && gatsby build",
+		"build": "npm run updatePosts && npm run blogImages && gatsby build",
 		"serve": "gatsby serve",
 		"tests": "npm run a11y",
 		"a11y": "pa11y --reporter cli http://localhost:8000 > a11yreport.txt",
 		"clean": "rm -rf .cache/ public/",
-		"blogImages": "ls && mv src/blog/img static/",
-		"updatePosts": "cd src/blog && git pull"
+		"blogImages": "mv src/blog/img static/",
+		"updatePosts": "git submodule update --remote"
 	},
 	"pre-commit": [],
 	"author": "AimHigher Web Design",
@@ -34,6 +34,7 @@
 		"gatsby": "2.0.17",
 		"gatsby-image": "^2.0.12",
 		"gatsby-plugin-emotion": "^2.0.5",
+		"gatsby-plugin-google-tagmanager": "^2.0.5",
 		"gatsby-plugin-netlify-cms": "next",
 		"gatsby-plugin-react-helmet": "^3.0.0-rc.1",
 		"gatsby-plugin-react-svg": "^2.0.0",

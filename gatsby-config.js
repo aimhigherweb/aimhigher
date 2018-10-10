@@ -27,6 +27,13 @@ module.exports = {
               name: 'images',
             },
         },
+        {
+            resolve: `gatsby-plugin-google-tagmanager`,
+            options: {
+              id: "GTM-WW45VBB",
+              includeInDevelopment: true,
+            },
+        },
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
         {

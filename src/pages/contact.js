@@ -15,7 +15,8 @@ const Contact = () => (
         <Content>
             <Head1>Contact Us</Head1>
             <p>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</p>
-            <Form name="contact" method="post">
+            <Form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="bot-field" />
                 <input type="hidden" name="form-name" value="contact" />
                 <label htmlFor="name">
                     Name
