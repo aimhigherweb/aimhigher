@@ -3,7 +3,7 @@ backend:
   repo: amykapernick/blog-posts
 
 media_folder: img
-public_folder: img
+public_folder: img/blog
 
 collections:
   - name: blog

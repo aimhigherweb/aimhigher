@@ -15,7 +15,7 @@
 		"tests": "npm run a11y",
 		"a11y": "pa11y --reporter cli http://localhost:8000 > a11yreport.txt",
 		"clean": "rm -rf .cache/ public/",
-		"blogImages": "cp src/blog/img/* static/img/",
+		"blogImages": "cp src/blog/img/* static/img/blog/",
 		"updatePosts": "git submodule update --remote",
 		"blogs": "npm run updatePosts && npm run blogImages"
 	},
