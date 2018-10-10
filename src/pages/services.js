@@ -1,12 +1,10 @@
 import React from 'react';
-import ReactSVG from 'react-svg'
 
 //Resources
-import services from '../data/services';
+import services from '../data/services'
 import Layout from '../components/layout';
 import {Content, Head1} from '../components/layout/style';
 import {Product, ServicesList} from '../styles/services';
-
 
 const meta = {
     name: 'Products | AimHigher Web Design',
@@ -39,12 +37,12 @@ const ProductsServices = () => {
 
 const Products = ({services}) => {
     let products = services.map(product => {
-        let thisImage = product.slug + ".svg";
+        console.log(product.graphic)
         return(
             <Product key={product.slug}>
-                <ReactSVG path={'/img/products/' + thisImage} />
+                {product.graphic}
                 <h3 className="name">{product.name}</h3>
-                {product.price !== '' &&
+                {product.price &&
                     <h4 className="price">Starting at {product.price}</h4>
                 }
                 <p className="description">{product.description}</p>
