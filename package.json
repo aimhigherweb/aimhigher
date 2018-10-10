@@ -8,15 +8,16 @@
 		"url": "git+https://github.com/AimHigher-Web-Design/aimhigher.git"
 	},
 	"scripts": {
-		"start": "cp src/blog/img/* static/img/ && npm run develop",
+		"start": "npm run blogs && npm run develop",
 		"develop": "gatsby develop",
-		"build": "npm run updatePosts && npm run blogImages && gatsby build",
+		"build": "npm run blogs && gatsby build",
 		"serve": "gatsby serve",
 		"tests": "npm run a11y",
 		"a11y": "pa11y --reporter cli http://localhost:8000 > a11yreport.txt",
 		"clean": "rm -rf .cache/ public/",
-		"blogImages": "mv src/blog/img static/",
-		"updatePosts": "git submodule update --remote"
+		"blogImages": "cp src/blog/img/* static/img/",
+		"updatePosts": "git submodule update --remote",
+		"blogs": "npm run updatePosts && npm run blogImages"
 	},
 	"pre-commit": [],
 	"author": "AimHigher Web Design",
