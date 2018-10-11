@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactSVG from 'react-svg';
 
 import Layout from '../components/layout';
 
@@ -13,7 +12,7 @@ import {ContentSVG, Hero, HeroContent, HomeContent, HomeGraphic} from '../styles
 const meta = {
 	name: 'AimHigher Web Design',
 	description: 'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
-	slug: '',
+	slug: ''
 };
 
 export default class IndexPage extends Component {
