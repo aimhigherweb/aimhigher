@@ -1,5 +1,7 @@
 import { injectGlobal } from 'emotion';
 import styled from 'react-emotion';
+import withProps from 'recompose/withProps';
+import Img from 'gatsby-image'
 
 injectGlobal`
     * {
@@ -258,6 +260,14 @@ export const Content = styled('div')`
         width: 90%;
     }
 `;
+
+export const Image = withProps({
+    Tag: 'figure'
+})(styled(Img)`
+    &.right {
+        float: right;
+    }
+`);
 
 export const Form = styled('form')`
     margin: 0 auto;

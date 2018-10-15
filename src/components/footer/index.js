@@ -8,32 +8,32 @@ import {Item, ItemSocial, Nav, SocialNav} from './style.js';
 const menuItems = [
 	{
 		name: 'codepen',
-		icon: <Codepen />,
+		icon: Codepen,
 		url: 'https://codepen.io/aimhigherwebdesign-amy/',
 	},
 	{
 		name: 'github',
-		icon: <Github />,
+		icon: Github,
 		url: 'https://github.com/AimHigher-Web-Design/aimhigher',
 	},
 	{
 		name: 'facebook',
-		icon: <Facebook />,
+		icon: Facebook,
 		url: 'https://www.facebook.com/aimhigherwebdesign',
 	},
 	{
 		name: 'twitter',
-		icon: <Twitter />,
+		icon: Twitter,
 		url: 'https://twitter.com/aimhigherweb',
 	},
 	{
 		name: 'instagram',
-		icon: <Instagram />,
+		icon: Instagram,
 		url: 'https://www.instagram.com/aimhigherweb/',
 	},
 	{
 		name: 'email',
-		icon: <Mail />,
+		icon: Mail,
 		url: 'mailto:inquiries@aimhigherweb.design',
 	},
 ];

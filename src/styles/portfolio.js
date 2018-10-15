@@ -14,7 +14,7 @@ export const Folio = styled('div')`
 export const Mocks = styled('div')`
     position: relative;
 
-    img {
+    img, .gatsby-image-wrapper {
         height: var(--height-image);
         position: absolute;
             top: var(--offset-top);

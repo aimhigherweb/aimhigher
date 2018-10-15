@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image'
 
 import { ExternalLink, Github } from 'react-feather';
 
@@ -21,23 +23,34 @@ const meta = {
 
 class Portfolio extends Component {
 	render() {
+        let data = this.props.data;
+
 		return (
 			<Layout mata={meta} wave>
                 <Content>
                     <Head1>Portfolio</Head1>
-                    <Sites siteList={siteList} />
+                    <Sites siteList={siteList} data={data} />
                 </Content>
             </Layout>
 		);
 	}
 }
 
-const Sites = (siteList) => {
-	let theseSites = siteList.siteList,
+const Sites = ({data, siteList}) => {
+    let images = {},
+        imageData = data.allFile.edges;
+
+    imageData.map((image) => {
+        images[image.node.name] = image.node.childImageSharp.fluid
+    })
+
+    // console.log(images);
+
+	let theseSites = siteList,
 		portfolio = theseSites.map((item) => {
-		let desktop = item.slug + '-desktop.png',
-		tablet = item.slug + '-tablet.png',
-        mobile = item.slug + '-mobile.png',
+		let desktop = item.slug + '-desktop',
+		tablet = item.slug + '-tablet',
+        mobile = item.slug + '-mobile',
         sizeValues = {
             height: {
                 desk: undefined,
@@ -159,16 +172,25 @@ const Sites = (siteList) => {
 				<Mocks>
 					<Desktop>
 						<Frame><FrameDesktop/></Frame>
-						<img alt={'Desktop screenshot of ' + item.name} src={'/img/portfolio/' + desktop} />
+                        <Img
+                            fluid={images[desktop]}
+                            alt={'Desktop screenshot of ' + item.name}
+                        />
 					</Desktop>
 					<Tablet>
 						<Frame><FrameTablet/></Frame>
-						<img alt={'Tablet screenshot of ' + item.name} src={'/img/portfolio/' + tablet} />
+						<Img
+                            fluid={images[tablet]}
+                            alt={'Desktop screenshot of ' + item.name}
+                        />
 					</Tablet>
 					{item.mobile && (
 						<Mobile>
 							<Frame><FrameMobile/></Frame>
-							<img alt={'Mobile screenshot of ' + item.name} src={'/img/portfolio/' + mobile} />
+							<Img
+                                fluid={images[mobile]}
+                                alt={'Desktop screenshot of ' + item.name}
+                            />
 						</Mobile>
 					)}
 				</Mocks>
@@ -186,7 +208,7 @@ const Sites = (siteList) => {
 				)}
 				{item.github && (
 					<a aria-label="Link to Github Repository" href={item.github}target="_blank" rel="nofollow">
-						{<Github />}
+						{Github}
 					</a>
 				)}
 				<Date>{item.date}</Date>
@@ -196,5 +218,26 @@ const Sites = (siteList) => {
 
 	return <Folio>{portfolio}</Folio>;
 }
+
+export const query = graphql`
+    query {
+        allFile(filter: {
+            extension: {regex: "/(png)/"}, 
+            relativeDirectory: {eq: "portfolio"}
+        }) {
+            edges {
+                node {
+                    name
+                    childImageSharp {
+                        fluid(maxWidth: 300) {
+                            ...GatsbyImageSharpFluid_tracedSVG
+                        }
+                    }
+                }
+            }
+        }
+    }
+`
+
 
 export default Portfolio;

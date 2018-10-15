@@ -1,11 +1,10 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import {Images} from '../components/parts';
 
-import {Content, Head1} from '../components/layout/style';
+import {Content, Head1, Image} from '../components/layout/style';
 
-import Profile from '../img/placeholders/profile.jpg';
 
 const meta = {
     name: 'About | AimHigher Web Design',
@@ -14,23 +13,21 @@ const meta = {
 };
 
 const images = {
-    image: Profile,
     alt: 'Profile Image of Amy Kapernick, the founder of AimHigher Web Design',
     caption: 'Amy Kapernick - Founder of AimHigher Web Design',
-    custom: {
-        dimensions: {
-            height: 'auto',
-            width: '30%',
-        },
-        float: 'right',
-    }
+    class: 'right'
 }
 
-const About = () => (
+const About = ({data}) => (
     <Layout meta={meta} wave>
         <Content>
             <Head1>About</Head1>
-            <Images {...images} />
+            <Image
+                fixed={data.file.childImageSharp.fixed}
+                title={images.caption}
+                alt={images.alt}
+                className={images.class}
+            />
             <p>
                 I grew up in country Queensland and most people we
                 knew had small businesses. But when I found out how
@@ -58,5 +55,17 @@ const About = () => (
         </Content>
     </Layout>
 )
+
+export const query = graphql`
+    query {
+        file(relativePath: {eq: "profile.jpg"}) {
+            childImageSharp {
+                fixed(width: 250) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+    }
+`
 
 export default About
