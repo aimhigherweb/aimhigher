@@ -6,6 +6,8 @@ import Header from '../header/index.js'
 import Footer from '../footer/index.js'
 
 import Logo from '../../img/logo.png';
+import Favicon from '../../img/favicon.png';
+
 
 import {Globals, Main, FooterCont} from './style.js';
 import {HeadCont} from '../header/style.js';
@@ -128,6 +130,14 @@ const Meta = ({name, description, slug, image}) => {
             <title>{name}</title>
             <meta name="description" content={description} />
             <link rel="canonical" href={siteUrl + slug} />
+
+			<meta name="twitter:card" content="summary_large_image" />
+            <link rel="shortcut icon" href={Favicon} />
+            <link rel="icon" sizes="192x192" href={Favicon} />
+            <link rel="apple-touch-icon" href={Favicon} />
+            <meta name="theme-color" content="#1C75BC" />
+            <link rel="mask-icon" href={Favicon} color="#1C75BC" />
+            <base href="/" />
 
             {/* Facebook */}
             <meta property="og:url" content={siteUrl + slug} />
