@@ -15,15 +15,15 @@ import FrameDesktop from '../img/portfolio/desktop.svg';
 import FrameTablet from '../img/portfolio/tablet.svg';
 import FrameMobile from '../img/portfolio/mobile.svg';
 
-const meta = {
-	name: 'Portfolio | AimHigher Web Design',
-	description: "Check out other projects we've worked on",
-	slug: 'portfolio',
-};
 
 class Portfolio extends Component {
 	render() {
-        let data = this.props.data;
+        let data = this.props.data,
+            meta = {
+            name: 'Portfolio | AimHigher Web Design',
+            description: "Check out other projects we've worked on",
+            slug: 'portfolio',
+        };
 
 		return (
 			<Layout mata={meta} wave>
@@ -43,8 +43,6 @@ const Sites = ({data, siteList}) => {
     imageData.map((image) => {
         images[image.node.name] = image.node.childImageSharp.fluid
     })
-
-    // console.log(images);
 
 	let theseSites = siteList,
 		portfolio = theseSites.map((item) => {
