@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {ChevronRight, ChevronDown} from 'react-feather';
 import {FigCaption} from '../layout/style';
 import {Image, ImageContainer, Placeholder, AccordionItem, AccordionTitle, AccordionContent} from './style.js';
 
@@ -9,12 +8,10 @@ export const Accordion = ({items}) => {
         children = accordion.map(child => {
         return(
             <AccordionItem key={child.slug} id={child.slug}>
-                <AccordionTitle href={'faq#' + child.slug}>
-                    <ChevronRight className="close" />
-                    <ChevronDown className="open" />
+                <AccordionTitle>
                     {child.title}
                 </AccordionTitle>
-                <AccordionContent>{child.content}</AccordionContent>
+                {child.content}
             </AccordionItem>
         );
     });
