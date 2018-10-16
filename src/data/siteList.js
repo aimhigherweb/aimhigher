@@ -11,6 +11,16 @@ const siteList = [
         github: 'https://github.com/AimHigher-Web-Design/aimhigher',
     },
     {
+        name: 'Janne Martin',
+        slug: 'janne-martin',
+        url: 'aweddingcelebrant.com.au',
+        date: 'October 2018',
+        mobile: true,
+        current: true,
+        secure: true,
+        github: 'https://github.com/AimHigher-Web-Design/aweddingcelebrant'
+    },
+    {
         name: 'Tech Outsiders',
         slug: 'tech-outsiders',
         url: 'techoutsiders.com.au',
@@ -19,6 +29,15 @@ const siteList = [
         current: false,
         secure: true,
         github: 'https://github.com/AimHigher-Web-Design/tech-outsiders'
+    },
+    {
+        name: 'See Me After',
+        slug: 'seemeafter',
+        url: 'seemeafter.com',
+        date: 'Coming Soon!',
+        mobile: false,
+        current: false,
+        secure: true,
     },
     {
         name: 'Wondai Country Running Festival',
@@ -43,7 +62,9 @@ const siteList = [
         name: 'Amy Goes to Perth',
         slug: 'amy-goes-to-perth',
         url: 'amygoestoperth.com.au',
-        date: 'October 2017',
+        date: 'October 2018',
+        date2: 'April 2018',
+        date1: 'October 2017',
         mobile: true,
         current: true,
         secure: true,

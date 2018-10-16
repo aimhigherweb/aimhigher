@@ -1,5 +1,4 @@
 import styled from 'react-emotion';
-import ReactSVG from 'react-svg';
 
 export const ImageContainer = styled('figure')`
     float: ${props => props.custom.float};
@@ -7,13 +6,18 @@ export const ImageContainer = styled('figure')`
     margin: 0 10px;
     position: relative;
     width: ${props => props.custom.dimensions.width};
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
 `;
 
 export const Image = styled('img')`
     max-height: 90vh;
 `;
 
-export const Placeholder = styled(ReactSVG)`
+export const Placeholder = styled('div')`
     svg {
         height: auto;
         position: absolute;
@@ -23,60 +27,26 @@ export const Placeholder = styled(ReactSVG)`
     }
 `;
 
-export const AccordionItem = styled('div')`
+export const AccordionItem = styled('details')`
     --border: transparent;
 
     border: 2px solid var(--border);
 
-    div {
-            display: none;
-    }
-
-    &:active, &:hover, &:focus, &:target {
+    &:active, &:hover, &:focus, &[open] {
         --background: ${props => props.theme.colours.secondary.light[10]};
         --border: ${props => props.theme.colours.primary.dark['75']}; 
-
-        .open {
-            display: inline;
-        }
-
-        .close {
-            display: none;
-        }
     }
 
-    &:target {        
-        div {
-            display: block;
-        }
+    div {
+        padding: 5px 25px;
     }
 `;
 
-export const AccordionTitle = styled('a')`
+export const AccordionTitle = styled('summary')`
     background: var(--background);
     color: ${props => props.theme.colours.primary.dark['75']};
+    cursor: pointer;
     display: flex;
     padding: 10px;
     text-decoration: none;
-
-    svg {
-        color: inherit;
-        height: 20px;
-        margin-right: 10px;
-        width: 20px;
-            min-width: 20px;
-            max-width: unset;
-    }
-
-    .open {
-        display: none;
-    }
-
-    .close {
-        display: inline;
-    }
-`;
-
-export const AccordionContent = styled('div')`
-    padding: 5px 25px;
 `;
