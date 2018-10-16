@@ -119,7 +119,7 @@ const Layout = ({children, meta, wave}) => {
 }
 
 const Meta = ({name, description, slug, image}) => {
-    let siteUrl = 'https://amygoestoperth.com.au';
+    let siteUrl = 'https://aimhigherweb.design';
 
     if (!image) {
         image = Logo;
