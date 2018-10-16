@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image'
 
-import { ExternalLink } from 'react-feather';
-import Github from '../img/github.svg';
+import { ExternalLink, GitHub } from 'react-feather';
+// import Github from '../img/github.svg';
 
 //Resources
 import siteList from '../data/siteList.js';
@@ -207,7 +207,7 @@ const Sites = ({data, siteList}) => {
 				)}
 				{item.github && (
 					<a aria-label="Link to Github Repository" href={item.github}target="_blank" rel="nofollow">
-						{Github}
+						{<GitHub/>}
 					</a>
 				)}
 				<Date>{item.date}</Date>
@@ -229,7 +229,7 @@ export const query = graphql`
                     name
                     childImageSharp {
                         fluid(maxWidth: 300) {
-                            ...GatsbyImageSharpFluid_tracedSVG
+                            ...GatsbyImageSharpFluid
                         }
                     }
                 }

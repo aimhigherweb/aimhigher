@@ -24,6 +24,7 @@ injectGlobal`
 
     svg {
         height: var(--icon-size);
+            min-height: var(--icon-size);
         width: var(--icon-size);
     }
 
