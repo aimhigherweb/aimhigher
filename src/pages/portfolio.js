@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image'
 
-import { ExternalLink, Github } from 'react-feather';
+import { ExternalLink } from 'react-feather';
+import Github from '../img/github.svg';
 
 //Resources
 import siteList from '../data/siteList.js';
