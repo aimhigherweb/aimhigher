@@ -285,7 +285,7 @@ export const Form = styled('form')`
         margin: 0 0 10px;
     }
 
-    input, textarea {
+    input, textarea, select {
         background: ${props => props.theme.colours.primary.light[10]};
         border: 1.5px solid ${props => props.theme.colours.primary.dark[75]};
         box-shadow: none;
@@ -342,3 +342,112 @@ export const Form = styled('form')`
         }
     }
 `;
+
+export const FormWide =  styled(Form)`
+    display: flex;
+        flex-wrap: wrap;
+    max-width: 800px;
+
+    h2 {
+        width: 100%;
+    }
+
+    label {
+        flex-grow: 1;
+        justify-content: flex-start;
+        margin-right: 20px;
+
+        input, select {
+            margin-left: 10px;
+        }
+    }
+
+    fieldset {
+        width: 100%;
+    }
+
+    legend {
+        width: 100%;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+		&:checked, &:not(:checked) {
+			position: absolute;
+				left: -200vw;
+
+			& + label {
+				cursor: pointer;
+				display: inline-block;
+				font-weight: normal;
+				line-height: 20px;
+				margin-right: 10px;
+				padding-left: 28px;
+				position: relative;
+
+				&:before, &:after {
+					border-radius: 100%;
+					content: '';
+					position: absolute;
+				}
+
+				&:before {
+					background: #fff;
+					border: 1px solid ${props => props.theme.colours.neutral.light['50']};
+					height: 18px;
+					left: 0;
+					top: 0;
+					width: 18px;							
+				}
+
+				&:after {
+					background: ${props => props.theme.colours.primary.main};
+					height: 12px;
+					top: 4px;
+					left: 4px;
+					transition: all 0.2s ease;
+					width: 12px;
+				}
+			}
+		}
+
+		&:not(:checked) {
+			& + label {
+				&:after {
+					opacity: 0;
+					transform: scale(0);
+				}
+			}
+		}
+
+		&:checked {
+			& + label {
+				color: ${props => props.theme.colours.primary.main};
+
+				&:after {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+		}
+	}
+
+	input[type="checkbox"] {
+		&:checked, &:not(:checked) {
+			& + label {
+				&:before, &:after {
+					border-radius: 0;
+					content: '';
+					position: absolute;
+				}
+
+				&:after {
+					background: transparent;
+					color: ${props => props.theme.colours.primary.main};
+					content: '\002714';
+					top: 0;
+					left: 2px;
+				}
+			}
+		}
+	}
+`
