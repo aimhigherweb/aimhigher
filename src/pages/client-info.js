@@ -26,6 +26,10 @@ const ClientInfo = () => (
                     Email
                     <input type="email" name="email"/>
                 </label>
+                <label for="phone">
+                    Phone
+                    <input type="text" name="phone" />
+                </label>
                 <label for="bill-contact">
                     Are you the best person to send invoices to?
                     <fieldset>
@@ -34,17 +38,21 @@ const ClientInfo = () => (
                         <input type="radio" id="bill-contact-no" name="bill-contact" />
                         <label for="bill-contact-no">No</label>
                         <input type="radio" id="bill-contact-maybe" name="bill-contact" />
-                        <label for="bill-contact-maybe">Yes, but someone else gets them too</label>
+                        <label for="bill-contact-maybe">Yes and someone else should get them too</label>
                     </fieldset>
                 </label>
                 <h2>Alternate Contact</h2>
-                <label for="name">
+                <label for="name-alt">
                     Name
-                    <input type="text" name="name"/>
+                    <input type="text" name="name-alt"/>
                 </label>
-                <label for="email">
+                <label for="email-alt">
                     Email
-                    <input type="email" name="email"/>
+                    <input type="email" name="email-alt"/>
+                </label>
+                <label for="phone-alt">
+                    Phone
+                    <input type="text" name="phone-alt" />
                 </label>
                 <h2>Company Details</h2>
                 <label for="company">

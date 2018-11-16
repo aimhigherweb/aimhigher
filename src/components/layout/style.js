@@ -359,11 +359,13 @@ export const FormWide =  styled(Form)`
 
         input, select {
             margin-left: 10px;
+            max-width: 300px;
         }
     }
 
     fieldset {
         width: 100%;
+            max-width: unset;
     }
 
     legend {
