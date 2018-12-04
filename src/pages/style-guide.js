@@ -1,21 +1,23 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-
+import Layout, { aimhigherTheme } from '../components/layout'
+import { ColourSwatches, Typography } from '../components/style-guide/index.js'
 import { Content, Head1 } from '../components/layout/style'
 
 const meta = {
-	name: 'About | AimHigher Web Design',
-	description:
-		'Who are we? Where did we come from? What are we even doing here?',
-	slug: 'about',
+	name: 'Style Guide | AimHigher Web Design',
+	description: 'Want to know more about the style guides we make?',
+	slug: 'style-guide'
 }
 
 // eslint-disable-next-line one-var
 const StyleGuide = () => (
-	<Layout>
-		<Head1>Style Guide</Head1>
+	<Layout meta={meta}>
+		<Content>
+			<Head1>Style Guide</Head1>
+			<Typography theme={aimhigherTheme} />
+			<ColourSwatches theme={aimhigherTheme} />
+		</Content>
 	</Layout>
 )
 

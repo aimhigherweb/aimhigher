@@ -1,15 +1,15 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import { ThemeProvider } from 'emotion-theming';
+import React from 'react'
+import Helmet from 'react-helmet'
+import { ThemeProvider } from 'emotion-theming'
 
-import Header from '../header/index.js';
-import Footer from '../footer/index.js';
+import Header from '../header/index.js'
+import Footer from '../footer/index.js'
 
-import Logo from '../../img/logo.png';
-import Favicon from '../../img/favicon.png';
+import Logo from '../../img/logo.png'
+import Favicon from '../../img/favicon.png'
 
-import { Globals, Main, FooterCont } from './style.js';
-import { HeadCont } from '../header/style.js';
+import { Globals, Main, FooterCont } from './style.js'
+import { HeadCont } from '../header/style.js'
 
 export const aimhigherTheme = {
 	colours: {
@@ -95,13 +95,13 @@ export const aimhigherTheme = {
 			realbig: '80rem',
 		},
 	},
-};
+}
 
 const Layout = ({ children, meta, wave }) => {
-	let isWave = false;
+	let isWave = false
 
 	if (wave) {
-		isWave = true;
+		isWave = true
 	}
 
 	return (
@@ -113,14 +113,15 @@ const Layout = ({ children, meta, wave }) => {
 				<FooterCont>{<Footer />}</FooterCont>
 			</Globals>
 		</ThemeProvider>
-	);
-};
+	)
+}
 
+// eslint-disable-next-line one-var
 const Meta = ({ name, description, slug, image }) => {
-	let siteUrl = 'https://aimhigherweb.design';
+	let siteUrl = 'https://aimhigherweb.design'
 
 	if (!image) {
-		image = Logo;
+		image = Logo
 	}
 
 	return (
@@ -150,7 +151,7 @@ const Meta = ({ name, description, slug, image }) => {
 			<meta name="twitter:description" content={description} />
 			<meta name="twitter:image" content={image} />
 		</Helmet>
-	);
-};
+	)
+}
 
-export default Layout;
+export default Layout
