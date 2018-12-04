@@ -1,21 +1,19 @@
-import React from "react"
-import Helmet from 'react-helmet'
+import React from 'react';
+import Helmet from 'react-helmet';
 import { ThemeProvider } from 'emotion-theming';
 
-import Header from '../header/index.js'
-import Footer from '../footer/index.js'
+import Header from '../header/index.js';
+import Footer from '../footer/index.js';
 
 import Logo from '../../img/logo.png';
 import Favicon from '../../img/favicon.png';
 
-
-import {Globals, Main, FooterCont} from './style.js';
-import {HeadCont} from '../header/style.js';
-
+import { Globals, Main, FooterCont } from './style.js';
+import { HeadCont } from '../header/style.js';
 
 export const aimhigherTheme = {
-    colours: {
-        primary: {
+	colours: {
+		primary: {
 			main: '#1c75bc',
 			light: {
 				90: '#3283c3',
@@ -30,9 +28,9 @@ export const aimhigherTheme = {
 				50: '#0e3b5e',
 				25: '#071d2f',
 				10: '#030c13',
-			}
+			},
 		},
-        secondary: {
+		secondary: {
 			main: '#16a6b1',
 			light: {
 				90: '#2dafb9',
@@ -47,9 +45,9 @@ export const aimhigherTheme = {
 				50: '#0b5359',
 				25: '#062a2c',
 				10: '#021112',
-			}
+			},
 		},
-        neutral: {
+		neutral: {
 			main: '#5b5b5b',
 			light: {
 				90: '#6b6b6b',
@@ -64,18 +62,18 @@ export const aimhigherTheme = {
 				50: '#2e2e2e',
 				25: '#171717',
 				10: '#090909',
-			}
+			},
 		},
 		good: '#46be2d',
 		warning: '#FF7900',
-		fail: '#b50400'
+		fail: '#b50400',
 	},
 	fonts: {
 		light: "300 1em 'Roboto', Arial, sans-serif",
 		regular: "400 1em 'Roboto', Arial, sans-serif",
 		bold: "700 1em 'Roboto', Arial, sans-serif",
 		headings: "700 1.5em 'Space Mono', monospace",
-		code: "400 1em 'Space Mono', monospace"
+		code: "400 1em 'Space Mono', monospace",
 	},
 	values: {
 		header: {
@@ -95,14 +93,14 @@ export const aimhigherTheme = {
 			large: '60rem',
 			bigger: '70rem',
 			realbig: '80rem',
-		}
-	}
-}
+		},
+	},
+};
 
-const Layout = ({children, meta, wave}) => {
+const Layout = ({ children, meta, wave }) => {
 	let isWave = false;
 
-	if(wave) {
+	if (wave) {
 		isWave = true;
 	}
 
@@ -115,44 +113,44 @@ const Layout = ({children, meta, wave}) => {
 				<FooterCont>{<Footer />}</FooterCont>
 			</Globals>
 		</ThemeProvider>
-	)
-}
-
-const Meta = ({name, description, slug, image}) => {
-    let siteUrl = 'https://aimhigherweb.design';
-
-    if (!image) {
-        image = Logo;
-    }
- 
-    return (
-        <Helmet>
-            <title>{name}</title>
-            <meta name="description" content={description} />
-            <link rel="canonical" href={siteUrl + slug} />
-
-			<meta name="twitter:card" content="summary_large_image" />
-            <link rel="shortcut icon" href={Favicon} />
-            <link rel="icon" sizes="192x192" href={Favicon} />
-            <link rel="apple-touch-icon" href={Favicon} />
-            <meta name="theme-color" content="#1C75BC" />
-            <link rel="mask-icon" href={Favicon} color="#1C75BC" />
-            <base href="/" />
-
-            {/* Facebook */}
-            <meta property="og:url" content={siteUrl + slug} />
-            
-            <meta property="og:title" content={name} />
-            <meta property="og:image" content={image} />
-            <meta property="og:description" content={description} />
-
-            {/* Twitter */}
-            <meta name="twitter:url" content={siteUrl + slug} />
-            <meta name="twitter:title" content={name} />
-            <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={image} />
-        </Helmet>
-    );
+	);
 };
 
-export default Layout
+const Meta = ({ name, description, slug, image }) => {
+	let siteUrl = 'https://aimhigherweb.design';
+
+	if (!image) {
+		image = Logo;
+	}
+
+	return (
+		<Helmet>
+			<title>{name}</title>
+			<meta name="description" content={description} />
+			<link rel="canonical" href={siteUrl + slug} />
+
+			<meta name="twitter:card" content="summary_large_image" />
+			<link rel="shortcut icon" href={Favicon} />
+			<link rel="icon" sizes="192x192" href={Favicon} />
+			<link rel="apple-touch-icon" href={Favicon} />
+			<meta name="theme-color" content="#1C75BC" />
+			<link rel="mask-icon" href={Favicon} color="#1C75BC" />
+			<base href="/" />
+
+			{/* Facebook */}
+			<meta property="og:url" content={siteUrl + slug} />
+
+			<meta property="og:title" content={name} />
+			<meta property="og:image" content={image} />
+			<meta property="og:description" content={description} />
+
+			{/* Twitter */}
+			<meta name="twitter:url" content={siteUrl + slug} />
+			<meta name="twitter:title" content={name} />
+			<meta name="twitter:description" content={description} />
+			<meta name="twitter:image" content={image} />
+		</Helmet>
+	);
+};
+
+export default Layout;
