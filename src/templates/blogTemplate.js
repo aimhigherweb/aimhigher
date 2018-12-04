@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql, Link } from 'gatsby'
 
-import Layout from '../components/layout';
-import { Content, Head1 } from '../components/layout/style';
-import { Article, ArticleIntro, Date, ShareIcons } from '../styles/article';
+import Layout from '../components/layout'
+import { Content, Head1 } from '../components/layout/style'
+import { Article, ArticleIntro, Date, ShareIcons } from '../styles/article'
 
-import { Facebook, Twitter } from 'react-feather';
+import { Facebook, Twitter } from 'react-feather'
 
 export const BlogPostTemplate = ({
 	content,
@@ -15,14 +15,14 @@ export const BlogPostTemplate = ({
 	tags,
 	publishDate,
 	updateDate,
-	siteUrl,
+	siteUrl
 }) => {
 	let articleLink = siteUrl + 'blog' + slug,
 		facebookLink =
 			'https://www.facebook.com/sharer/sharer.php?u=' + articleLink,
 		twitterLink =
 			'https://twitter.com/home?status=So%20%40amys_kapers%20wrote%20this%20really%20cool%20blog%20post,%20you%20should%20check%20it%20out!%20' +
-			articleLink;
+			articleLink
 
 	const intro = (
 		<ShareIcons>
@@ -41,7 +41,7 @@ export const BlogPostTemplate = ({
 				{<Twitter />}
 			</a>
 		</ShareIcons>
-	);
+	)
 
 	return (
 		<Article>
@@ -57,33 +57,31 @@ export const BlogPostTemplate = ({
 				Back to Article Feed
 			</Link>
 		</Article>
-	);
-};
+	)
+}
 
 BlogPostTemplate.propTypes = {
 	content: PropTypes.node.isRequired,
 	description: PropTypes.string,
 	title: PropTypes.string,
-};
+}
 
 const BlogPost = ({ data }) => {
-	const { markdownRemark: post } = data;
-
-	const blogPost = {
-		content: post.html,
-		title: post.frontmatter.title,
-		slug: post.fields.slug,
-		publishDate: post.frontmatter.publishDate,
-		updateDate: post.frontmatter.updateDate,
-		tags: post.frontmatter.tags,
-		siteUrl: data.site.siteMetadata.siteUrl,
-	};
-
-	const meta = {
-		name: post.frontmatter.title + ' | ' + data.site.siteMetadata.title,
-		description: post.frontmatter.description,
-		slug: data.site.siteMetadata.siteUrl + post.fields.slug,
-	};
+	const { markdownRemark: post } = data,
+		blogPost = {
+			content: post.html,
+			title: post.frontmatter.title,
+			slug: post.fields.slug,
+			publishDate: post.frontmatter.publishDate,
+			updateDate: post.frontmatter.updateDate,
+			tags: post.frontmatter.tags,
+			siteUrl: data.site.siteMetadata.siteUrl,
+		},
+		meta = {
+			name: post.frontmatter.title + ' | ' + data.site.siteMetadata.title,
+			description: post.frontmatter.description,
+			slug: data.site.siteMetadata.siteUrl + post.fields.slug,
+		}
 
 	return (
 		<Layout meta={meta} wave>
@@ -91,16 +89,16 @@ const BlogPost = ({ data }) => {
 				<BlogPostTemplate {...blogPost} />
 			</Content>
 		</Layout>
-	);
-};
+	)
+}
 
 BlogPost.propTypes = {
 	data: PropTypes.shape({
 		markdownRemark: PropTypes.object,
 	}),
-};
+}
 
-export default BlogPost;
+export default BlogPost
 
 export const pageQuery = graphql`
 	query BlogPostByID($id: String!) {
@@ -125,4 +123,4 @@ export const pageQuery = graphql`
 			}
 		}
 	}
-`;
+`

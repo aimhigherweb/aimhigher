@@ -1,10 +1,10 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, Component } from 'react'
 
-//Resources
-import Background from '../../img/wave.svg';
-import Logo from '../../img/logo.svg';
+// Resources
+import Background from '../../img/wave.svg'
+import Logo from '../../img/logo.svg'
 
-import { HeroBack, Item, LogoArea, Nav } from './style.js';
+import { HeroBack, Item, LogoArea, Nav } from './style.js'
 
 const menuItems = [
 	{
@@ -31,10 +31,10 @@ const menuItems = [
 		slug: '/contact',
 		title: 'Contact',
 	},
-];
+]
 
 class Header extends Component {
-	render() {
+	render () {
 		return (
 			<Fragment>
 				<HeroBack>
@@ -43,7 +43,7 @@ class Header extends Component {
 				<SiteTitle />
 				<MainMenu />
 			</Fragment>
-		);
+		)
 	}
 }
 
@@ -51,10 +51,11 @@ const SiteTitle = () => (
 	<LogoArea aria-label="Logo linked to homepage" href="/">
 		<Logo />
 	</LogoArea>
-);
+)
 
+// eslint-disable-next-line one-var
 const MainMenu = () => {
-	let navItems = menuItems.map((navItem) => (
+	let navItems = menuItems.map(navItem => (
 		<Item
 			key={navItem.title}
 			to={navItem.slug}
@@ -62,9 +63,9 @@ const MainMenu = () => {
 		>
 			{navItem.title}
 		</Item>
-	));
+	))
 
-	return <Nav id="menu">{navItems}</Nav>;
-};
+	return <Nav id="menu">{navItems}</Nav>
+}
 
-export default Header;
+export default Header

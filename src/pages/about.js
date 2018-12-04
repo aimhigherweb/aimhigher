@@ -1,23 +1,24 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Layout from '../components/layout';
+import Layout from '../components/layout'
 
-import { Content, Head1, Image } from '../components/layout/style';
+import { Content, Head1, Image } from '../components/layout/style'
 
 const meta = {
-	name: 'About | AimHigher Web Design',
-	description:
+		name: 'About | AimHigher Web Design',
+		description:
 		'Who are we? Where did we come from? What are we even doing here?',
-	slug: 'about',
-};
+		slug: 'about',
+	},
 
-const images = {
-	alt: 'Profile Image of Amy Kapernick, the founder of AimHigher Web Design',
-	caption: 'Amy Kapernick - Founder of AimHigher Web Design',
-	class: 'right',
-};
+	images = {
+		alt: 'Profile Image of Amy Kapernick, the founder of AimHigher Web Design',
+		caption: 'Amy Kapernick - Founder of AimHigher Web Design',
+		class: 'right',
+	}
 
+// eslint-disable-next-line one-var
 const About = ({ data }) => (
 	<Layout meta={meta} wave>
 		<Content>
@@ -50,7 +51,7 @@ const About = ({ data }) => (
 			</p>
 		</Content>
 	</Layout>
-);
+)
 
 export const query = graphql`
 	query {
@@ -62,6 +63,6 @@ export const query = graphql`
 			}
 		}
 	}
-`;
+`
 
-export default About;
+export default About
