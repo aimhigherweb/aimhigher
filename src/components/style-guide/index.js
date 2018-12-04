@@ -192,7 +192,7 @@ export class ColourSwatches extends Component {
 			colSets = colArray.map(set => {
 				keys++
 				return (
-					<ColourSet key={keys} set={set} />
+					<ColourSet key={keys} group={keys} set={set} />
 				)
 			}),
 			// eslint-disable-next-line no-unused-vars
@@ -223,7 +223,7 @@ export class ColourSwatches extends Component {
 	};
 };
 
-const ColourSwatch = ({ cols }) => {
+const ColourSwatch = ({ cols, group }) => {
 	let thisCols = cols,
 		thisHex = thisCols.hex,
 		vars = thisCols.variant,
@@ -243,14 +243,14 @@ const ColourSwatch = ({ cols }) => {
 	};
 
 	return (
-		<Swatch variant={variant} status={status} color={thisHex} opts={opts}>
+		<Swatch data-variant={variant} data-opts={opts} data-group={group} variant={variant} status={status} color={thisHex} opts={opts}>
 			<p>{thisHex}</p>
 		</Swatch>
 	)
 }
 
 // eslint-disable-next-line one-var
-const ColourGroup = ({ colgroup, vars }) => {
+const ColourGroup = ({ colgroup, vars, group }) => {
 	let colArray = []
 
 	for (let opts in colgroup) {
@@ -259,7 +259,7 @@ const ColourGroup = ({ colgroup, vars }) => {
 
 	let colSwatches = colArray.map(swatch => {
 		return (
-			<ColourSwatch key={swatch.name} cols={swatch} />
+			<ColourSwatch key={swatch.name} cols={swatch} group={group} />
 		)
 	})
 
@@ -271,21 +271,33 @@ const ColourGroup = ({ colgroup, vars }) => {
 }
 
 // eslint-disable-next-line one-var
-const ColourSet = ({ set }) => {
-	let colGroupLight, colGroupDark, colMain
+const ColourSet = ({ set, group }) => {
+	let colGroupLight, colGroupDark, colMain, setGroup
 
 	colGroupLight = set.light
 	colGroupDark = set.dark
 	colMain = set.main
 
+	switch (group) {
+	case 1:
+		setGroup = 'primary'
+		break
+	case 2:
+		setGroup = 'secondary'
+		break
+	case 3:
+		setGroup = 'neutral'
+		break
+	}
+
 	return (
 		<Set>
-			<ColourSwatch cols={colMain} />
+			<ColourSwatch group={setGroup} cols={colMain} />
 			{colMain.hex !== '#ffffff' &&
-                    <ColourGroup colgroup={colGroupLight} vars='light' />
+                    <ColourGroup group={setGroup} colgroup={colGroupLight} vars='light' />
 			}
 			{colMain.hex !== '#000000' &&
-                    <ColourGroup colgroup={colGroupDark} vars='dark' />
+                    <ColourGroup group={setGroup} colgroup={colGroupDark} vars='dark' />
 			}
 		</Set>
 	)

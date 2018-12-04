@@ -162,33 +162,33 @@ export const Globals = styled.div`
 `
 
 export const Head1 = styled('h1')`
-	color: ${ props => props.theme.colours.primary.dark['90'] };
+	/* color: ${ props => props.theme.colours.primary.dark['90'] }; */
 	font: ${ props => props.theme.fonts.headings };
 	font-size: 2em;
 	text-align: center;
 `
 
 export const Head2 = styled('h2')`
-	color: ${ props => props.theme.colours.primary.dark['90'] };
+	/* color: ${ props => props.theme.colours.primary.dark['90'] }; */
 	font: ${ props => props.theme.fonts.headings };
 	font-size: 1.6em;
 	text-align: left;
 `
 
 export const Head3 = styled('h3')`
-	color: ${ props => props.theme.colours.primary.dark['50'] };
+	/* color: ${ props => props.theme.colours.primary.dark['50'] }; */
 	font: ${ props => props.theme.fonts.headings };
 	font-size: 1.3em;
 `
 
 export const Head4 = styled('h4')`
-	color: ${ props => props.theme.colours.primary.dark['50'] };
+	/* color: ${ props => props.theme.colours.primary.dark['50'] }; */
 	font: ${ props => props.theme.fonts.headings };
 	font-size: 1.2em;
 `
 
 export const Head5 = styled('h5')`
-	color: ${ props => props.theme.colours.primary.dark['50'] };
+	/* color: ${ props => props.theme.colours.primary.dark['50'] }; */
 	font: ${ props => props.theme.fonts.headings };
 	font-size: 1.1em;
 `
@@ -274,7 +274,7 @@ export const Form = styled('form')`
 
 	label,
 	legend {
-		color: ${ props => props.theme.colours.primary.dark[75] };
+		/* color: ${ props => props.theme.colours.primary.dark[75] }; */
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
@@ -287,8 +287,8 @@ export const Form = styled('form')`
 	input,
 	textarea,
 	select {
-		background: ${ props => props.theme.colours.primary.light[10] };
-		border: 1.5px solid ${ props => props.theme.colours.primary.dark[75] };
+		/* background: ${ props => props.theme.colours.primary.light[10] }; */
+		/* border: 1.5px solid ${ props => props.theme.colours.primary.dark[75] }; */
 		box-shadow: none;
 		font: ${ props => props.theme.fonts.regular };
 		font-size: 1em;
@@ -402,7 +402,7 @@ export const FormWide = styled(Form)`
 				&:before {
 					background: #fff;
 					border: 1px solid
-						${ props => props.theme.colours.neutral.light['50'] };
+						/* ${ props => props.theme.colours.neutral.light['50'] }; */
 					height: 18px;
 					left: 0;
 					top: 0;

@@ -75,7 +75,7 @@ export const TypoContent = styled('div')`
 
     form {
         label {
-            color: ${ props => props.theme.colours.primary.dark[90] };
+            color: rgba(${ props => props.theme.colours.primary.main }, 0.9);
             display: block;
             font-weight: bold;
             margin: 0 0 15px;
@@ -86,8 +86,8 @@ export const TypoContent = styled('div')`
         }
 
         input {
-            background: ${ props => props.theme.colours.primary.light[10] };
-            border: 1px solid ${ props => props.theme.colours.primary.dark[75] };
+            background: rgba(${ props => props.theme.colours.primary.light }, 0.10);
+            border: 1px solid rgba(${ props => props.theme.colours.primary.dark }, 0.75);
             padding: 5px 10px;
         }
 
@@ -101,7 +101,7 @@ export const TypoContent = styled('div')`
 `
 
 const Button = styled('button')`
-    --btn-back: ${ props => props.theme.colours.primary.dark[90] };
+    --btn-back: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
     --btn-border: var(--btn-back);
     --btn-text: #fff;
 
@@ -116,7 +116,7 @@ const Button = styled('button')`
 
     &:active, &:hover, &:focus {
         --btn-back: #fff;
-        --btn-border: ${ props => props.theme.colours.primary.dark[90] };
+        --btn-border: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
         --btn-text: var(--btn-border);
     }
 `
@@ -131,11 +131,11 @@ export const PrimaryButton = styled(Button)`
 
 export const SecondaryButton = styled(Button)`
     --btn-back: #fff;
-    --btn-border: ${ props => props.theme.colours.primary.dark[90] };
+    --btn-border: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
     --btn-text: var(--btn-border);
 
     &:active, &:hover, &:focus {
-        --btn-back: ${ props => props.theme.colours.primary.dark[90] };
+        --btn-back: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
         --btn-border: var(--btn-back);
         --btn-text: #fff;
     }
@@ -144,12 +144,12 @@ export const SecondaryButton = styled(Button)`
 export const NeutralButton = styled(Button)`
     --btn-back: transparent;
     --btn-border: transparent;
-    --btn-text: ${ props => props.theme.colours.primary.dark[90] };
+    --btn-text: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
 
     text-decoration: underline;
 
     &:active, &:hover, &:focus {
-        --btn-back: ${ props => props.theme.colours.primary.dark[90] };
+        --btn-back: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
         --btn-text: #fff;
 
         text-decoration: none;
