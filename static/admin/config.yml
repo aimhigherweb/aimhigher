@@ -1,22 +1,33 @@
 backend:
   name: github
-  repo: amykapernick/blog-posts
+  repo: AimHigher-Web-Design/aimhigher
 
-media_folder: img
-public_folder: img/blog
+media_folder: static/img/clientPortal
 
 collections:
-  - name: blog
-    label: Blog
-    folder: posts
+  - name: clients
+    label: Client Details
+    folder: src/clients
     create: true
     editor:
       preview: false
     fields:
       - { name: title, label: Title }
-      - { name: publishDate, label: "Publish Date", widget: date, format: "YYYY-MM-DD" }
-      - { name: updateDate, label: "Update Date", widget: date, format: "YYYY-MM-DD" }
-      - { name: description, label: "Meta Description", widget: text }
-      - { name: tags, label: Tags, widget: list }
-      - { name: featuredImage, label: Featured Image, widget: image }
-      - { name: body, label: Body, widget: markdown}
+      - { name: logo, label: Logo, widget: string }
+      - { name: logoOri, label: Portrait Logo, widget: boolean }
+      - { name: domain, label: Domain, widget: string }
+      - { name: live, label: Live Website?, widget: boolean }
+      - { name: https, label: Secure Website?, widget: boolean }
+      - name: colours
+        label: Colours
+        widget: list
+        fields:
+          - { name: colourPrimary, label: Primary Colour, widget: string }
+          - { name: colourSecondary, label: Secondary Colour, widget: string }
+          - { name: colourNeutral, label: Neutral Colour, widget: string }
+      - name: fonts
+        label: Fonts
+        widget: list
+        fields:
+          - { name: fontHeading, label: Heading Font, widget: string }
+          - { name: fontRegular, label: Body Font, widget: string }

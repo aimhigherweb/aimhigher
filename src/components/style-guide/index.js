@@ -294,11 +294,12 @@ const ColourSet = ({ set }) => {
 export const Typography = ({ logo, ori, type, theme, clientName }) => {
 	let ClientLogo = Logo,
 		logoOri = 'landscape',
-		logoType = type
+		logoType = 'svg'
 
 	if (logo) {
 		ClientLogo = logo
 		logoOri = ori
+		logoType = type
 	};
 
 	return (
