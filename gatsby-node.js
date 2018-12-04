@@ -12,7 +12,10 @@ exports.createPages = ({ actions, graphql }) => {
             id
             fields {
               slug
-            }
+						}
+						frontmatter {
+							templateKey
+						}
           }
         }
       }
@@ -23,20 +26,34 @@ exports.createPages = ({ actions, graphql }) => {
 			return Promise.reject(result.errors)
 		}
 
-		const posts = result.data.allMarkdownRemark.edges
+		const data = result.data.allMarkdownRemark.edges
 
-		posts.forEach(edge => {
+		data.forEach(edge => {
 			const id = edge.node.id
-			createPage({
-				path: 'blog' + edge.node.fields.slug,
-				component: path.resolve(
-					`src/templates/blogTemplate.js`
-				),
-				// additional data can be passed via context
-				context: {
-					id,
-				},
-			})
+
+			if (edge.node.frontmatter.templateKey === 'client') {
+				createPage({
+					path: 'clients' + edge.node.fields.slug,
+					component: path.resolve(
+						`src/templates/styleGuide.js`
+					),
+					// additional data can be passed via context
+					context: {
+						id,
+					},
+				})
+			} else {
+				createPage({
+					path: 'blog' + edge.node.fields.slug,
+					component: path.resolve(
+						`src/templates/blogTemplate.js`
+					),
+					// additional data can be passed via context
+					context: {
+						id,
+					},
+				})
+			}
 		})
 	})
 }

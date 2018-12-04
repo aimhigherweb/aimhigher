@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql, Link } from 'gatsby'
 
-import Layout from '../components/layout';
+import Layout from '../components/layout'
 
-import { Content, Head1 } from '../components/layout/style';
+import { Content, Head1 } from '../components/layout/style'
 import {
 	Article,
 	ArticleFeed,
@@ -12,21 +12,20 @@ import {
 	Date,
 	Excerpt,
 	ShareIcons,
-	FeatureImage,
-} from '../styles/blog';
-import { Facebook, Twitter } from 'react-feather';
+	FeatureImage
+} from '../styles/blog'
+import { Facebook, Twitter } from 'react-feather'
 
 export default class Blog extends React.Component {
-	render() {
-		const { data } = this.props;
-		const { edges: posts } = data.allMarkdownRemark;
-
-		const meta = {
-			name: 'Blog | AimHigher Web Design',
-			description:
-				'Information and general musings of the staff at AimHigher Web Design about building websites',
-			slug: 'blog',
-		};
+	render () {
+		const { data } = this.props,
+			{ edges: posts } = data.allMarkdownRemark,
+			meta = {
+				name: 'Blog | AimHigher Web Design',
+				description:
+					'Information and general musings of the staff at AimHigher Web Design about building websites',
+				slug: 'blog',
+			}
 
 		return (
 			<Layout meta={meta} wave>
@@ -43,7 +42,7 @@ export default class Blog extends React.Component {
 									articleLink,
 								twitterLink =
 									'https://twitter.com/home?status=So%20%40amys_kapers%20wrote%20this%20really%20cool%20blog%20post,%20you%20should%20check%20it%20out!%20' +
-									articleLink;
+									articleLink
 
 							return (
 								<Article id={post.id} key={post.id}>
@@ -56,7 +55,7 @@ export default class Blog extends React.Component {
 										<ArticleTitle>
 											<Link
 												id={post.id}
-												to={`/blog/${post.fields.slug}`}
+												to={`/blog/${ post.fields.slug }`}
 											>
 												{post.frontmatter.title}
 											</Link>
@@ -75,12 +74,12 @@ export default class Blog extends React.Component {
 										</a>
 									</ShareIcons>
 								</Article>
-							);
+							)
 						})}
 					</ArticleFeed>
 				</Content>
 			</Layout>
-		);
+		)
 	}
 }
 
@@ -90,7 +89,7 @@ Blog.propTypes = {
 			edges: PropTypes.array,
 		}),
 	}),
-};
+}
 
 export const pageQuery = graphql`
 	query blogQuery {
@@ -122,4 +121,4 @@ export const pageQuery = graphql`
 			}
 		}
 	}
-`;
+`

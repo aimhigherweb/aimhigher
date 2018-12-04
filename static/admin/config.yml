@@ -12,6 +12,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { name: templateKey, label: Template Key, widget: hidden, default: client }
       - { name: title, label: Title }
       - { name: logo, label: Logo, widget: string }
       - { name: logoOri, label: Portrait Logo, widget: boolean }

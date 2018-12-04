@@ -44,6 +44,13 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${ __dirname }/src/clients`,
+				name: 'client-details',
+			},
+		},
+		{
 			resolve: `gatsby-transformer-remark`,
 			options: {
 				plugins: [
