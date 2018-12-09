@@ -5,6 +5,8 @@ import Layout, { aimhigherTheme } from '../components/layout'
 import { ColourSwatches, Typography } from '../components/style-guide/index.js'
 import { Content, Head1 } from '../components/layout/style'
 
+import '../components/style-guide/fonts'
+
 const ClientPortal = ({ data }) => {
 	const clientInfo = data.markdownRemark.frontmatter,
 		meta = {
@@ -12,6 +14,7 @@ const ClientPortal = ({ data }) => {
 			description: 'Want to know more about the style guides we make?',
 			slug: 'style-guide'
 		},
+		fonts = clientInfo.fonts[0],
 		theme = {
 			colours: {
 				primary: {
@@ -25,18 +28,20 @@ const ClientPortal = ({ data }) => {
 				},
 			},
 			fonts: {
-				light: '300 1em ' + clientInfo.fonts[0].fontRegular,
-				regular: '400 1em ' + clientInfo.fonts[0].fontRegular,
-				bold: '700 1em ' + clientInfo.fonts[0].fontRegular,
-				headings: '700 1.5em ' + clientInfo.fonts[0].fontHeadings,
+				light: '300 1em ' + fonts.fontRegular,
+				regular: '400 1em ' + fonts.fontRegular,
+				bold: '700 1em ' + fonts.fontRegular,
+				headings: '700 1.5em ' + fonts.fontHeading,
 			},
 		}
+
+	console.log(clientInfo.fonts)
 
 	return (
 		<Layout meta={meta}>
 			<Content>
 				<Head1>{clientInfo.title} Style Guide</Head1>
-				<Typography theme={theme} />
+				<Typography theme={theme} logo={clientInfo.logo} />
 				<ColourSwatches theme={theme} />
 			</Content>
 		</Layout>
