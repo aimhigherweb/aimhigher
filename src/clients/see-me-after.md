@@ -1,13 +1,14 @@
 ---
 title: See Me After
 logo: /img/clientPortal/see-me-after-logo.svg
-logoOri: true
+logoOri: false
 domain: seemeafter.com
-live: true
+live: false
 https: true
-colourPrimary: '#c10000'
-colourSecondary: '#455560'
-colourNeutral: '#000000'
+colours:
+  - colourNeutral: '#000000'
+    colourPrimary: '#c10000'
+    colourSecondary: '#455560'
 fonts:
   - fontHeading: '''Antic Didone'', serif'
     fontRegular: '''Hypatia Sans Pro'', Arial, sans-serif'
