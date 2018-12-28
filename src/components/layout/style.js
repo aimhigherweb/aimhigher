@@ -401,8 +401,7 @@ export const FormWide = styled(Form)`
 
 				&:before {
 					background: #fff;
-					border: 1px solid
-						/* ${ props => props.theme.colours.neutral.light['50'] }; */
+					/* border: 1px solid ${ props => props.theme.colours.neutral.light['50'] }; */
 					height: 18px;
 					left: 0;
 					top: 0;
