@@ -85,7 +85,7 @@ const siteList = [
         url: 'www.ecospraytansperth.com.au',
         date: 'October 2015',
         mobile: true,
-        current: true,
+        current: false,
         github: false,
     },
     {
@@ -95,7 +95,7 @@ const siteList = [
         date: 'December 2014',
         date1: 'December 2013',
         mobile: true,
-        current: true,
+        current: false,
         github: false,
     },  
     {
@@ -104,7 +104,7 @@ const siteList = [
         url: 'www.covisor.com.au',
         date: 'January 2015',
         mobile: true,
-        current: true,
+        current: false,
         github: false,
     },
     {
@@ -113,7 +113,7 @@ const siteList = [
         url: 'www.collardsfuelsupplies.com.au',
         date: 'January 2015',
         mobile: true,
-        current: true,
+        current: false,
         github: false,
     },
     {
