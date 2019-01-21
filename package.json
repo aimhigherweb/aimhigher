@@ -42,7 +42,7 @@
 		"gatsby-plugin-react-svg": "^2.0.0",
 		"gatsby-plugin-sharp": "^2.0.0-rc.7",
 		"gatsby-remark-images": "^2.0.3",
-		"gatsby-source-filesystem": "^1.5.39",
+		"gatsby-source-filesystem": "^2.0.16",
 		"gatsby-transformer-remark": "^2.2.0",
 		"gatsby-transformer-sharp": "^2.1.1",
 		"react": "^16.4.2",
