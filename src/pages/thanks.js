@@ -3,6 +3,13 @@ import Layout from '../components/layout';
 
 import {Content, Head1} from '../components/layout/style';
 
+const meta = {
+    name: 'Thank You | AimHigher Web Design',
+    description: "Thanks for getting in touch",
+    slug: 'thanks',
+};
+
+
 const Thanks = () => (
 <Layout meta={meta} wave>
         <Content>
