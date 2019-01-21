@@ -33,7 +33,7 @@
 		"emotion": "^9.2.12",
 		"emotion-server": "^9.2.12",
 		"emotion-theming": "^9.1.2",
-		"gatsby": "^2.0.17",
+		"gatsby": "^2.0.91",
 		"gatsby-image": "^2.0.12",
 		"gatsby-plugin-emotion": "^2.0.5",
 		"gatsby-plugin-google-tagmanager": "^2.0.5",
