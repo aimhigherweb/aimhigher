@@ -86,6 +86,7 @@ const siteList = [
 		date: 'October 2015',
 		mobile: true,
 		current: true,
+		linked: false,
 		github: false,
 	},
 	{
@@ -96,6 +97,7 @@ const siteList = [
 		date1: 'December 2013',
 		mobile: true,
 		current: true,
+		linked: false,
 		github: false,
 	},
 	{
@@ -105,6 +107,7 @@ const siteList = [
 		date: 'January 2015',
 		mobile: true,
 		current: true,
+		linked: false,
 		github: false,
 	},
 	{
@@ -114,6 +117,7 @@ const siteList = [
 		date: 'January 2015',
 		mobile: true,
 		current: true,
+		linked: false,
 		github: false,
 	},
 	{
