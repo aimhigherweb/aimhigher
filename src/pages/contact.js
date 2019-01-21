@@ -1,24 +1,72 @@
 import React from 'react';
+import {navigateTo} from 'gatsby'
+import Recaptcha from 'react-google-recaptcha'
 
 import Layout from '../components/layout';
 
 import {Form, Content, Head1} from '../components/layout/style';
 
-const meta = {
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY,
+meta = {
     name: 'Contact Us | AimHigher Web Design',
     description: "Get in touch with us today and find out how we can help you.",
     slug: 'contact',
 };
 
-const Contact = () => (
-    <Layout meta={meta} wave>
+function encode(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+class Contact extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {};
+    }
+  
+    handleChange = e => {
+      this.setState({ [e.target.name]: e.target.value });
+    };
+  
+    handleRecaptcha = value => {
+      this.setState({ "g-recaptcha-response": value });
+    };
+  
+    handleSubmit = e => {
+      e.preventDefault();
+      const form = e.target;
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": form.getAttribute("name"),
+          ...this.state
+        })
+      })
+        .then(() => navigateTo(form.getAttribute("action")))
+        .catch(error => alert(error));
+    };
+  
+    render() {
+      return (
+        <Layout meta={meta} wave>
         <Content>
             <Head1>Contact Us</Head1>
             <p>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</p>
-            <Form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-                <input type="hidden" name="bot-field" />
-                <input type="hidden" name="form-name" value="contact" />
-                <label for="name">
+            <Form 
+            name="contact-recaptcha"
+            method="post"
+            action="/thanks/"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={this.handleSubmit}
+          >
+            <noscript>
+              <p>This form won’t work with Javascript disabled</p>
+            </noscript>
+            <label for="name">
                     Name
                     <input type="text" name="name"/>
                 </label>
@@ -65,10 +113,19 @@ const Contact = () => (
                     Message
                     <textarea name="message"></textarea>
                 </label>
-                <button type="submit">Submit</button>
+            <Recaptcha
+              ref="recaptcha"
+              sitekey={RECAPTCHA_KEY}
+              onChange={this.handleRecaptcha}
+            />
+            <p>
+              <button type="submit">Submit</button>
+            </p>
             </Form>
         </Content>
     </Layout>
-)
+      );
+    }
+  }
 
 export default Contact
