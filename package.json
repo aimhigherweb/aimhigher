@@ -10,7 +10,7 @@
 	"scripts": {
 		"start": "npm run blogs && npm run develop",
 		"develop": "gatsby develop --https",
-		"build": "npm run blogs && gatsby build",
+		"build": "npm run blogs && echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> env.production && gatsby build",
 		"serve": "gatsby serve",
 		"tests": "npm run a11y",
 		"a11y": "pa11y --reporter cli http://localhost:8000 > a11yreport.txt",
@@ -27,6 +27,7 @@
 	},
 	"homepage": "https://github.com/AimHigher-Web-Design/aimhigher#readme",
 	"dependencies": {
+		"@raae/gatsby-remark-oembed": "^0.0.3",
 		"axios": "^0.18.0",
 		"bluebird": "^3.5.2",
 		"emotion": "^9.2.12",
@@ -47,9 +48,11 @@
 		"gatsby-transformer-sharp": "^2.1.1",
 		"netlify-cms": "^2.1.1",
 		"react": "^16.4.2",
+		"react-async-script": "^1.0.0",
 		"react-dom": "^16.4.2",
 		"react-emotion": "^9.2.12",
 		"react-feather": "^1.1.4",
+		"react-google-recaptcha": "^1.0.5",
 		"react-helmet": "^5.2.0",
 		"react-icons": "^2.2.7",
 		"react-media": "^1.6.1",

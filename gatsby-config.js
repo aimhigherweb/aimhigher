@@ -48,7 +48,7 @@ module.exports = {
             options: {
               plugins: [
                 {
-                  resolve: `gatsby-remark-oembed`
+                  resolve: `@raae/gatsby-remark-oembed`
                 },
                 {
                     resolve: `gatsby-remark-images`,
