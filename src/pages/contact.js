@@ -68,50 +68,50 @@ class Contact extends React.Component {
             </noscript>
             <label for="name">
                     Name
-                    <input type="text" name="name"/>
+                    <input type="text" name="name" onChange={this.handleChange} />
                 </label>
                 <label for="email">
                     Email
-                    <input type="email" name="email"/>
+                    <input type="email" name="email" onChange={this.handleChange} />
                 </label>
                 <label for="phone">
                     Phone
-                    <input type="text" name="phone" />
+                    <input type="text" name="phone" onChange={this.handleChange} />
                 </label>
                 <label for="website">
                     Do you have an existing website? Or a Facebook page?
-                    <input type="text" name="website" />
+                    <input type="text" name="website" onChange={this.handleChange} />
                 </label>
                 <fieldset>
                     <legend>What are you looking for?</legend>
                     <label for="build">
-                        <input type="checkbox" name="build" />
+                        <input type="checkbox" name="build" onChange={this.handleChange} />
                         Website Build
                     </label>
                     <label for="edit">
-                        <input type="checkbox" name="edit" />
+                        <input type="checkbox" name="edit" onChange={this.handleChange} />
                         Website Editing
                     </label>
                     <label for="email">
-                        <input type="checkbox" name="email" />
+                        <input type="checkbox" name="email" onChange={this.handleChange} />
                         Email Hosting
                     </label>
                     <label for="hosting">
-                        <input type="checkbox" name="hosting" />
+                        <input type="checkbox" name="hosting" onChange={this.handleChange} />
                         Website Hosting
                     </label>
                     <label for="support">
-                        <input type="checkbox" name="support" />
+                        <input type="checkbox" name="support" onChange={this.handleChange} />
                         Support
                     </label>
                     <label for="other">
-                        <input type="checkbox" name="other" />
+                        <input type="checkbox" name="other" onChange={this.handleChange} />
                         Something Else
                     </label>
                 </fieldset>
                 <label for="message">
                     Message
-                    <textarea name="message"></textarea>
+                    <textarea name="message"onChange={this.handleChange} ></textarea>
                 </label>
             <Recaptcha
               ref="recaptcha"
