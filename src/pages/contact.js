@@ -60,6 +60,7 @@ class Contact extends React.Component {
             action="/thanks/"
             data-netlify="true"
             data-netlify-recaptcha="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
             <noscript>

@@ -10,7 +10,7 @@
 	"scripts": {
 		"start": "npm run blogs && npm run develop",
 		"develop": "gatsby develop --https",
-		"build": "npm run blogs && echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> env.production && gatsby build",
+		"build": "npm run blogs && echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build",
 		"serve": "gatsby serve",
 		"tests": "npm run a11y",
 		"a11y": "pa11y --reporter cli http://localhost:8000 > a11yreport.txt",
