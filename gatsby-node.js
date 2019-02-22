@@ -42,7 +42,7 @@ exports.createPages = ({ actions, graphql }) => {
 						id,
 					},
 				})
-			} else {
+			} else if (edge.node.frontmatter.templateKey === 'blog-post' && edge.node.frontmatter.tags.includes('AimHigher')) {
 				createPage({
 					path: 'blog' + edge.node.fields.slug,
 					component: path.resolve(

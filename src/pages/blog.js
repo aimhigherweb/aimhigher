@@ -102,7 +102,10 @@ export const pageQuery = graphql`
 		}
 		allMarkdownRemark(
 			sort: { order: DESC, fields: [frontmatter___updateDate] }
-			filter: { frontmatter: { tags: { in: ["AimHigher"] } } }
+			filter: {frontmatter: {
+				templateKey: {eq: "blog-post"}
+				tags: {in: ["AimHigher"]}
+			}}
 		) {
 			edges {
 				node {
