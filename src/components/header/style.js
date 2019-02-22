@@ -115,6 +115,7 @@ export const Nav = styled('nav')`
 		flex-direction: row;
 		margin-left: auto;
 		padding: 0 10px;
+		overflow-x: visible;
 
 		&:after {
 			content: normal;
