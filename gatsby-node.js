@@ -15,6 +15,7 @@ exports.createPages = ({ actions, graphql }) => {
 						}
 						frontmatter {
 							templateKey
+							tags
 						}
           }
         }
@@ -31,7 +32,7 @@ exports.createPages = ({ actions, graphql }) => {
 		data.forEach(edge => {
 			const id = edge.node.id
 
-			if (edge.node.frontmatter.templateKey === 'client') {
+			if (edge.node.frontmatter.templateKey == 'client') {
 				createPage({
 					path: 'clients' + edge.node.fields.slug,
 					component: path.resolve(

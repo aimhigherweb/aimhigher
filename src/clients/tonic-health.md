@@ -9,4 +9,6 @@ colours:
     colourPrimary: '#e87a96'
     colourSecondary: '#44C257'
 fonts:
+  - fontHeading: '''Antic Didone'', serif'
+    fontRegular: '''Hypatia Sans Pro'', Arial, sans-serif'
 ---
