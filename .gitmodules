@@ -1,7 +1,3 @@
-[submodule "plugins/gatsby-remark-oembed"]
-	path = plugins/gatsby-remark-oembed
-	url = https://github.com/raae/gatsby-remark-oembed.git
-	branch = memory-problem
 [submodule "src/blog"]
 	path = src/blog
 	url = https://github.com/amykapernick/blog-posts
