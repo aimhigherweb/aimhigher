@@ -185,4 +185,47 @@ injectGlobal`
         font-weight: 700;
         src: url('/fonts/clients/see-me-after-Trirong-BoldItalic.ttf') format('truetype');
     }
+
+    //Black Box Cakery
+    @font-face {
+        font-family: 'Droid Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/clients/black-box-cakery-DroidSans.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Droid Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: url('/fonts/clients/black-box-cakery-DroidSans-Bold.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/clients/black-box-cakery-Cabin-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Cabin';
+        font-style: italic;
+        font-weight: 400;
+        src: url('/fonts/clients/black-box-cakery-Cabin-Italic.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Cabin';
+        font-style: normal;
+        font-weight: 700;
+        src: url('/fonts/clients/black-box-cakery-Cabin-Bold.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Cabin';
+        font-style: italic;
+        font-weight: 700;
+        src: url('/fonts/clients/black-box-cakery-Cabin-BoldItalic.ttf') format('truetype');
+    }
 `

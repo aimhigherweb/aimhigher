@@ -57,6 +57,10 @@ export const TypoContent = styled('div')`
         font: ${ props => props.theme.fonts.regular };
     }
 
+    img {
+        max-height: 40vh;
+    }
+
     figcaption {
         border-left: 5px solid ${ props => props.theme.colours.primary.main };
         font: ${ props => props.theme.fonts.headings };
