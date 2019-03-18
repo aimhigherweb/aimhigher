@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { ExternalLink, GitHub } from 'react-feather'
-// import Github from '../img/github.svg';
 
 //Resources
 import siteList from '../data/siteList.js'
@@ -37,6 +36,8 @@ class Portfolio extends Component {
 				slug: 'portfolio',
 			}
 
+			// console.log(data.allFile.edges)
+
 		return (
 			<Layout mata={meta} wave>
 				<Content>
@@ -52,9 +53,15 @@ const Sites = ({ data, siteList }) => {
 	let images = {},
 		imageData = data.allFile.edges
 
+		console.log(imageData)
+
 	imageData.map(image => {
 		images[image.node.name] = image.node.childImageSharp.fluid
+		// console.log(image.node.name)
+		// console.log(image.node.childImageSharp)
 	})
+
+	// console.log(images)
 
 	let theseSites = siteList,
 		portfolio = theseSites.map(item => {
@@ -194,6 +201,17 @@ const Sites = ({ data, siteList }) => {
 			sizeValues.left.tab += 'px'
 			sizeValues.left.mob += 'px'
 
+			// console.log(images[tablet])
+
+			// if(images[desktop] == undefined) {
+			// 	console.log(desktop)
+			// 	console.log(images[desktop])
+			// }
+
+			// console.log(images[desktop])
+			// console.log(images[mobile])
+			// console.log(images[tablet])
+
 			return (
 				<Site key={item.slug} sizes={sizeValues}>
 					<Mocks>
@@ -202,7 +220,7 @@ const Sites = ({ data, siteList }) => {
 								<FrameDesktop />
 							</Frame>
 							<Img
-								fixed={images[desktop]}
+								fluid={images[desktop]}
 								alt={'Desktop screenshot of ' + item.name}
 							/>
 						</Desktop>
@@ -211,7 +229,7 @@ const Sites = ({ data, siteList }) => {
 								<FrameTablet />
 							</Frame>
 							<Img
-								fixed={images[tablet]}
+								fluid={images[tablet]}
 								alt={'Desktop screenshot of ' + item.name}
 							/>
 						</Tablet>
@@ -221,7 +239,7 @@ const Sites = ({ data, siteList }) => {
 									<FrameMobile />
 								</Frame>
 								<Img
-									fixed={images[mobile]}
+									fluid={images[mobile]}
 									alt={'Desktop screenshot of ' + item.name}
 								/>
 							</Mobile>
@@ -264,8 +282,8 @@ export const query = graphql`
 				node {
 					name
 					childImageSharp {
-						fixed(width: 300) {
-							...GatsbyImageSharpFixed
+						fluid(maxWidth: 300) {
+							...GatsbyImageSharpFluid
 						}
 					}
 				}

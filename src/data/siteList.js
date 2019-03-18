@@ -31,6 +31,16 @@ const siteList = [
 		github: 'https://github.com/AimHigher-Web-Design/aweddingcelebrant',
 	},
 	{
+		name: 'Black Box Cakery',
+		slug: 'black-box-cakery',
+		url: 'blackboxcakery.com.au',
+		date: 'Coming Soon!',
+		mobile: false,
+		current: false,
+		secure: true,
+		github: 'https://github.com/AimHigher-Web-Design/blackboxcakery',
+	},
+	{
 		name: 'See Me After',
 		slug: 'seemeafter',
 		url: 'seemeafter.com',
