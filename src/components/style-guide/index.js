@@ -359,6 +359,7 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 							Heading 2 helps to define the other sections within the page so you can
 							have multiple H2's within a page
 						</p>
+						<p>There will also be some content that's <strong>bold</strong>, some that's <em>italic</em> and even some that's <strong><em>bold and italic</em></strong>.</p>
 						<Head3>Heading 3</Head3>
 						<p>
 							This is a third level heading, H3. This is the last level heading that
