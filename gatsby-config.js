@@ -1,29 +1,30 @@
 module.exports = {
 	siteMetadata: {
 		title: 'AimHigher Web Design',
-		description: 'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
-		siteUrl: 'https://aimhigherweb.design/'
+		description:
+			'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
+		siteUrl: 'https://aimhigherweb.design/',
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',
 		{
 			resolve: `gatsby-plugin-emotion`,
 			options: {
-				'autoLabel': true,
-				'hoist': true,
-				'sourceMap': true
+				autoLabel: true,
+				hoist: true,
+				sourceMap: true,
 			},
 		},
 		{
 			resolve: 'gatsby-plugin-react-svg',
 			options: {
-				include: './src/img/'
-			}
+				include: './src/img/',
+			},
 		},
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				path: `${ __dirname }/src/img`,
+				path: `${__dirname}/src/img`,
 				name: 'images',
 			},
 		},
@@ -39,14 +40,14 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `${ __dirname }/src/blog/posts`,
+				path: `${__dirname}/src/blog/posts`,
 				name: 'markdown-pages',
 			},
 		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `${ __dirname }/src/clients`,
+				path: `${__dirname}/src/data/clients`,
 				name: 'client-details',
 			},
 		},
@@ -55,7 +56,7 @@ module.exports = {
 			options: {
 				plugins: [
 					{
-						resolve: `gatsby-remark-oembed`
+						resolve: `@raae/gatsby-remark-oembed`,
 					},
 					{
 						resolve: `gatsby-remark-images`,
@@ -71,8 +72,8 @@ module.exports = {
 							usePrettierrc: true,
 						},
 					},
-				]
-			}
+				],
+			},
 		},
 		'gatsby-plugin-netlify-cms',
 		{

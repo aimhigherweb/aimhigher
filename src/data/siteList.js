@@ -11,6 +11,16 @@ const siteList = [
 		github: 'https://github.com/AimHigher-Web-Design/aimhigher',
 	},
 	{
+		name: 'Tech Outsiders',
+		slug: 'tech-outsiders',
+		url: 'techoutsiders.com.au',
+		date: 'November 2018',
+		mobile: true,
+		current: true,
+		secure: true,
+		github: 'https://github.com/AimHigher-Web-Design/tech-outsiders',
+	},
+	{
 		name: 'Janne Martin',
 		slug: 'janne-martin',
 		url: 'aweddingcelebrant.com.au',
@@ -19,16 +29,6 @@ const siteList = [
 		current: true,
 		secure: true,
 		github: 'https://github.com/AimHigher-Web-Design/aweddingcelebrant',
-	},
-	{
-		name: 'Tech Outsiders',
-		slug: 'tech-outsiders',
-		url: 'techoutsiders.com.au',
-		date: 'Coming Soon!',
-		mobile: false,
-		current: false,
-		secure: true,
-		github: 'https://github.com/AimHigher-Web-Design/tech-outsiders',
 	},
 	{
 		name: 'See Me After',

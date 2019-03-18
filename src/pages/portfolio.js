@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import React, { Component } from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-import { ExternalLink, GitHub } from 'react-feather';
+import { ExternalLink, GitHub } from 'react-feather'
 // import Github from '../img/github.svg';
 
 //Resources
-import siteList from '../data/siteList.js';
-import Layout from '../components/layout';
-import { Content, Head1 } from '../components/layout/style';
+import siteList from '../data/siteList.js'
+import Layout from '../components/layout'
+import { Content, Head1 } from '../components/layout/style'
 import {
 	Date,
 	Desktop,
@@ -21,12 +21,12 @@ import {
 	Site,
 	SiteURL,
 	Tablet,
-} from '../styles/portfolio';
+} from '../styles/portfolio'
 
 //Importing Images
-import FrameDesktop from '../img/portfolio/desktop.svg';
-import FrameTablet from '../img/portfolio/tablet.svg';
-import FrameMobile from '../img/portfolio/mobile.svg';
+import FrameDesktop from '../img/portfolio/desktop.svg'
+import FrameTablet from '../img/portfolio/tablet.svg'
+import FrameMobile from '../img/portfolio/mobile.svg'
 
 class Portfolio extends Component {
 	render() {
@@ -35,7 +35,7 @@ class Portfolio extends Component {
 				name: 'Portfolio | AimHigher Web Design',
 				description: "Check out other projects we've worked on",
 				slug: 'portfolio',
-			};
+			}
 
 		return (
 			<Layout mata={meta} wave>
@@ -44,20 +44,20 @@ class Portfolio extends Component {
 					<Sites siteList={siteList} data={data} />
 				</Content>
 			</Layout>
-		);
+		)
 	}
 }
 
 const Sites = ({ data, siteList }) => {
 	let images = {},
-		imageData = data.allFile.edges;
+		imageData = data.allFile.edges
 
-	imageData.map((image) => {
-		images[image.node.name] = image.node.childImageSharp.fluid;
-	});
+	imageData.map(image => {
+		images[image.node.name] = image.node.childImageSharp.fluid
+	})
 
 	let theseSites = siteList,
-		portfolio = theseSites.map((item) => {
+		portfolio = theseSites.map(item => {
 			let desktop = item.slug + '-desktop',
 				tablet = item.slug + '-tablet',
 				mobile = item.slug + '-mobile',
@@ -133,78 +133,66 @@ const Sites = ({ data, siteList }) => {
 							img: 176.5,
 						},
 					},
-				};
+				}
 
-			sizeValues.ratio.desk =
-				initialSizes.height.desk.img / initialSizes.width.desk.img;
-			sizeValues.width.desk = initialSizes.desk;
+			sizeValues.ratio.desk = initialSizes.height.desk.img / initialSizes.width.desk.img
+			sizeValues.width.desk = initialSizes.desk
 			sizeValues.width.deskImg =
-				initialSizes.desk *
-				(initialSizes.width.desk.img / initialSizes.width.desk.full);
+				initialSizes.desk * (initialSizes.width.desk.img / initialSizes.width.desk.full)
 			sizeValues.height.desk =
-				initialSizes.desk *
-				(initialSizes.height.desk.full / initialSizes.width.desk.full);
+				initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full)
 			sizeValues.top.desk =
 				(initialSizes.top.desk / initialSizes.height.desk.full) *
 				initialSizes.desk *
-				(initialSizes.height.desk.full / initialSizes.width.desk.full);
+				(initialSizes.height.desk.full / initialSizes.width.desk.full)
 			sizeValues.left.desk =
-				(initialSizes.left.desk / initialSizes.width.desk.full) *
-				initialSizes.desk;
+				(initialSizes.left.desk / initialSizes.width.desk.full) * initialSizes.desk
 
-			sizeValues.ratio.tab =
-				initialSizes.height.tab.img / initialSizes.width.tab.img;
-			sizeValues.width.tab = initialSizes.tab;
+			sizeValues.ratio.tab = initialSizes.height.tab.img / initialSizes.width.tab.img
+			sizeValues.width.tab = initialSizes.tab
 			sizeValues.width.tabImg =
-				initialSizes.tab *
-				(initialSizes.width.tab.img / initialSizes.width.tab.full);
+				initialSizes.tab * (initialSizes.width.tab.img / initialSizes.width.tab.full)
 			sizeValues.height.tab =
-				initialSizes.tab *
-				(initialSizes.height.tab.full / initialSizes.width.tab.full);
+				initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full)
 			sizeValues.top.tab =
 				(initialSizes.top.tab / initialSizes.height.tab.full) *
 				initialSizes.tab *
-				(initialSizes.height.tab.full / initialSizes.width.tab.full);
+				(initialSizes.height.tab.full / initialSizes.width.tab.full)
 			sizeValues.left.tab =
-				(initialSizes.left.tab / initialSizes.width.tab.full) *
-				initialSizes.tab;
+				(initialSizes.left.tab / initialSizes.width.tab.full) * initialSizes.tab
 
-			sizeValues.ratio.mob =
-				initialSizes.height.mob.img / initialSizes.width.mob.img;
-			sizeValues.width.mob = initialSizes.mob;
+			sizeValues.ratio.mob = initialSizes.height.mob.img / initialSizes.width.mob.img
+			sizeValues.width.mob = initialSizes.mob
 			sizeValues.width.mobImg =
-				initialSizes.mob *
-				(initialSizes.width.mob.img / initialSizes.width.mob.full);
+				initialSizes.mob * (initialSizes.width.mob.img / initialSizes.width.mob.full)
 			sizeValues.height.mob =
-				initialSizes.mob *
-				(initialSizes.height.mob.full / initialSizes.width.mob.full);
+				initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full)
 			sizeValues.top.mob =
 				(initialSizes.top.mob / initialSizes.height.mob.full) *
 				initialSizes.mob *
-				(initialSizes.height.mob.full / initialSizes.width.mob.full);
+				(initialSizes.height.mob.full / initialSizes.width.mob.full)
 			sizeValues.left.mob =
-				(initialSizes.left.mob / initialSizes.width.mob.full) *
-				initialSizes.mob;
+				(initialSizes.left.mob / initialSizes.width.mob.full) * initialSizes.mob
 
-			sizeValues.width.desk += 'px';
-			sizeValues.width.tab += 'px';
-			sizeValues.width.mob += 'px';
+			sizeValues.width.desk += 'px'
+			sizeValues.width.tab += 'px'
+			sizeValues.width.mob += 'px'
 
-			sizeValues.width.deskImg += 'px';
-			sizeValues.width.tabImg += 'px';
-			sizeValues.width.mobImg += 'px';
+			sizeValues.width.deskImg += 'px'
+			sizeValues.width.tabImg += 'px'
+			sizeValues.width.mobImg += 'px'
 
-			sizeValues.height.desk += 'px';
-			sizeValues.height.tab += 'px';
-			sizeValues.height.mob += 'px';
+			sizeValues.height.desk += 'px'
+			sizeValues.height.tab += 'px'
+			sizeValues.height.mob += 'px'
 
-			sizeValues.top.desk += 'px';
-			sizeValues.top.tab += 'px';
-			sizeValues.top.mob += 'px';
+			sizeValues.top.desk += 'px'
+			sizeValues.top.tab += 'px'
+			sizeValues.top.mob += 'px'
 
-			sizeValues.left.desk += 'px';
-			sizeValues.left.tab += 'px';
-			sizeValues.left.mob += 'px';
+			sizeValues.left.desk += 'px'
+			sizeValues.left.tab += 'px'
+			sizeValues.left.mob += 'px'
 
 			return (
 				<Site key={item.slug} sizes={sizeValues}>
@@ -214,7 +202,7 @@ const Sites = ({ data, siteList }) => {
 								<FrameDesktop />
 							</Frame>
 							<Img
-								fluid={images[desktop]}
+								fixed={images[desktop]}
 								alt={'Desktop screenshot of ' + item.name}
 							/>
 						</Desktop>
@@ -223,7 +211,7 @@ const Sites = ({ data, siteList }) => {
 								<FrameTablet />
 							</Frame>
 							<Img
-								fluid={images[tablet]}
+								fixed={images[tablet]}
 								alt={'Desktop screenshot of ' + item.name}
 							/>
 						</Tablet>
@@ -233,7 +221,7 @@ const Sites = ({ data, siteList }) => {
 									<FrameMobile />
 								</Frame>
 								<Img
-									fluid={images[mobile]}
+									fixed={images[mobile]}
 									alt={'Desktop screenshot of ' + item.name}
 								/>
 							</Mobile>
@@ -261,32 +249,29 @@ const Sites = ({ data, siteList }) => {
 					)}
 					<Date>{item.date}</Date>
 				</Site>
-			);
-		});
+			)
+		})
 
-	return <Folio>{portfolio}</Folio>;
-};
+	return <Folio>{portfolio}</Folio>
+}
 
 export const query = graphql`
 	query {
 		allFile(
-			filter: {
-				extension: { regex: "/(png)/" }
-				relativeDirectory: { eq: "portfolio" }
-			}
+			filter: { extension: { regex: "/(png)/" }, relativeDirectory: { eq: "portfolio" } }
 		) {
 			edges {
 				node {
 					name
 					childImageSharp {
-						fluid(maxWidth: 300) {
-							...GatsbyImageSharpFluid
+						fixed(width: 300) {
+							...GatsbyImageSharpFixed
 						}
 					}
 				}
 			}
 		}
 	}
-`;
+`
 
-export default Portfolio;
+export default Portfolio
