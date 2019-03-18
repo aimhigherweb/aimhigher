@@ -1,10 +1,10 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 
 //Resources
-import {Codepen, Facebook, Twitter, Mail, Instagram} from 'react-feather';
+import { Codepen, Facebook, Twitter, Mail, Instagram } from 'react-feather';
 import Github from '../../img/github.svg';
 
-import {Item, ItemSocial, Nav, SocialNav} from './style.js';
+import { Item, ItemSocial, Nav, SocialNav } from './style.js';
 
 const menuItems = [
 	{
@@ -19,47 +19,47 @@ const menuItems = [
 	},
 	{
 		name: 'facebook',
-		icon: <Facebook/>,
+		icon: <Facebook />,
 		url: 'https://www.facebook.com/aimhigherwebdesign',
 	},
 	{
 		name: 'twitter',
-		icon: <Twitter/>,
+		icon: <Twitter />,
 		url: 'https://twitter.com/aimhigherweb',
 	},
 	{
 		name: 'instagram',
-		icon: <Instagram/>,
+		icon: <Instagram />,
 		url: 'https://www.instagram.com/aimhigherweb/',
 	},
 	{
 		name: 'email',
-		icon: <Mail/>,
+		icon: <Mail />,
 		url: 'mailto:inquiries@aimhigherweb.design',
 	},
 ];
 
 const legalItems = [
 	{
-	  slug: '/privacy',
-	  title: 'Privacy Policy',
+		slug: '/privacy',
+		title: 'Privacy Policy',
 	},
 	{
-	  slug: '/terms',
-	  title: 'Terms and Conditions',
-	}
+		slug: '/terms',
+		title: 'Terms and Conditions',
+	},
 ];
 
 class Footer extends Component {
-    render() {
-        return (
-            <Fragment>
+	render() {
+		return (
+			<Fragment>
 				<FooterNav />
 				<FooterSocial />
-            </Fragment>
-        );
-    };
-};
+			</Fragment>
+		);
+	}
+}
 
 const FooterNav = () => {
 	let legalNav = legalItems.map((legalItem) => {
@@ -72,9 +72,7 @@ const FooterNav = () => {
 
 	return (
 		<Nav>
-			<Item to="/">
-				Home
-			</Item>
+			<Item to="/">Home</Item>
 			{legalNav}
 		</Nav>
 	);
@@ -89,9 +87,7 @@ const FooterSocial = () => {
 		);
 	});
 
-	return (
-		<SocialNav>{socialNav}</SocialNav>
-	);
+	return <SocialNav>{socialNav}</SocialNav>;
 };
 
 export default Footer;

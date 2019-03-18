@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: AimHigher-Web-Design/aimhigher
+
+media_folder: static/img/clientPortal
+
+collections:
+  - name: clients
+    label: Client Details
+    folder: src/clients
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { name: templateKey, label: Template Key, widget: hidden, default: client }
+      - { name: title, label: Title }
+      - { name: logo, label: Logo, widget: string }
+      - { name: logoOri, label: Portrait Logo, widget: boolean }
+      - { name: domain, label: Domain, widget: string }
+      - { name: live, label: Live Website?, widget: boolean }
+      - { name: https, label: Secure Website?, widget: boolean }
+      - name: colours
+        label: Colours
+        widget: list
+        fields:
+          - { name: colourPrimary, label: Primary Colour, widget: string }
+          - { name: colourSecondary, label: Secondary Colour, widget: string }
+          - { name: colourNeutral, label: Neutral Colour, widget: string }
+      - name: fonts
+        label: Fonts
+        widget: list
+        fields:
+          - { name: fontHeading, label: Heading Font, widget: string }
+          - { name: fontRegular, label: Body Font, widget: string }
