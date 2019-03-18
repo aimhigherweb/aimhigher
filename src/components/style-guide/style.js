@@ -135,11 +135,11 @@ export const PrimaryButton = styled(Button)`
 
 export const SecondaryButton = styled(Button)`
     --btn-back: #fff;
-    --btn-border: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
+    --btn-border: ${ props => props.theme.colours.primary.main };
     --btn-text: var(--btn-border);
 
     &:active, &:hover, &:focus {
-        --btn-back: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
+        --btn-back: ${ props => props.theme.colours.primary.main};
         --btn-border: var(--btn-back);
         --btn-text: #fff;
     }
@@ -148,12 +148,12 @@ export const SecondaryButton = styled(Button)`
 export const NeutralButton = styled(Button)`
     --btn-back: transparent;
     --btn-border: transparent;
-    --btn-text: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
+    --btn-text: ${ props => props.theme.colours.primary.main };
 
     text-decoration: underline;
 
     &:active, &:hover, &:focus {
-        --btn-back: rgba(${ props => props.theme.colours.primary.dark }, 0.90);
+        --btn-back: ${ props => props.theme.colours.primary.main };
         --btn-text: #fff;
 
         text-decoration: none;
