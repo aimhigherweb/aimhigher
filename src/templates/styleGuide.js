@@ -54,12 +54,12 @@ class ClientPortal extends React.Component {
 			// 	)
 			// })
 
-			theme.fonts = {
-				light: '300 1em ' + fonts[0].fontRegular,
-				regular: '400 1em ' + fonts[0].fontRegular,
-				bold: '700 1em ' + fonts[0].fontRegular,
-				headings: '700 1.5em ' + fonts[0].fontHeading,
-			}
+			// theme.fonts = {
+			// 	light: '300 1em ' + fonts[0].fontRegular,
+			// 	regular: '400 1em ' + fonts[0].fontRegular,
+			// 	bold: '700 1em ' + fonts[0].fontRegular,
+			// 	headings: '700 1.5em ' + fonts[0].fontHeading,
+			// }
 		}
 
 		return (
