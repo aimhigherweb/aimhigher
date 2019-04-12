@@ -24,7 +24,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				path: `${__dirname}/src/img`,
+				path: `./src/img`,
 				name: 'images',
 			},
 		},
@@ -40,14 +40,14 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `${__dirname}/src/blog/posts`,
+				path: `./src/blog/posts`,
 				name: 'markdown-pages',
 			},
 		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `${__dirname}/src/data/clients`,
+				path: `./src/data/clients`,
 				name: 'client-details',
 			},
 		},
