@@ -8,16 +8,17 @@
 		"url": "git+https://github.com/AimHigher-Web-Design/aimhigher.git"
 	},
 	"scripts": {
-		"start": "npm run blogs && npm run develop",
+		"start": "npm run blog && npm run develop",
 		"develop": "gatsby develop --https",
-		"build": "npm run blogs && echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build",
-		"serve": "gatsby serve",
-		"tests": "npm run a11y",
-		"a11y": "pa11y --reporter cli http://localhost:8000 > a11yreport.txt",
+		"build": "npm run blog && echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build",
+		"build:fab": "npm run build && npm run fab:compile",
+		"fab:compile": "fab-static public",
+		"test": "npm run test:a11y",
+		"test:a11y": "pa11y --reporter cli http://localhost:8000 > a11yreport.txt",
 		"clean": "rm -rf .cache/ public/",
-		"blogImages": "cp src/blog/img/* static/img/blog/",
-		"updatePosts": "git submodule update --remote",
-		"blogs": "npm run updatePosts && npm run blogImages"
+		"blog:images": "cp src/blog/img/* static/img/blog/",
+		"blog:posts": "git submodule update --remote",
+		"blog": "npm run blog:posts && npm run blog:images"
 	},
 	"pre-commit": [],
 	"author": "AimHigher Web Design",
@@ -71,6 +72,7 @@
 		"recompose": "^0.30.0"
 	},
 	"devDependencies": {
+		"@fab/static": "^0.1.4",
 		"jest": "^23.6.0",
 		"pre-commit": "^1.2.2"
 	}
