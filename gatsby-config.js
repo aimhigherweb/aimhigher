@@ -18,13 +18,13 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-react-svg',
 			options: {
-				include: './src/img/',
+				include: `${__dirname}/src/img/`,
 			},
 		},
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				path: `./src/img`,
+				path: `${__dirname}/src/img`,
 				name: 'images',
 			},
 		},
@@ -40,14 +40,14 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `./src/blog/posts`,
+				path: `${__dirname}/src/blog/posts`,
 				name: 'markdown-pages',
 			},
 		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `./src/data/clients`,
+				path: `${__dirname}/src/data/clients`,
 				name: 'client-details',
 			},
 		},
