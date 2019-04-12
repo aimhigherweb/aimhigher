@@ -10,7 +10,7 @@
 	"scripts": {
 		"start": "npm run blog && npm run develop",
 		"develop": "gatsby develop --https",
-		"build": "echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build",
+		"build": "npm run blog && echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build",
 		"build:fab": "npm run build && npm run fab:compile",
 		"fab:compile": "fab-static public",
 		"test": "npm run test:a11y",
