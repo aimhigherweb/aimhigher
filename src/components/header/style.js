@@ -38,7 +38,7 @@ export const HeadCont = styled('header')`
 	}
 `
 
-export const LogoArea = styled('a')`
+export const LogoArea = styled(Link)`
 	position: relative;
 	z-index: 20;
 
@@ -103,7 +103,8 @@ export const Nav = styled('nav')`
 
 	&:after {
 		animation: ${scrolling} 2s linear infinite;
-		color: ${props => props.theme.colours.primary};
+		color: ${props => props.theme.colours.primary.main};
+		/* color: ${props => props.theme.colours.primary.dark['75']}; */
 		content: '\00BB';
 		font-size: 2em;
 		position: absolute;
@@ -132,9 +133,14 @@ export const Nav = styled('nav')`
 		margin-top: 1vh;
 		padding: 40px 20px 10px;
 	}
+
+	/* @media (min-width: ${props => props.theme.values.screens.large}) {
+		margin-top: 1vh;
+		padding: 40px 20px 10px;
+	} */
 `
 
-export const Item = styled(Link)`
+export const Item = styled('a')`
 	--border: ${props => props.theme.colours.primary.dark['75']};
 
 	border-top: 3px solid var(--border);

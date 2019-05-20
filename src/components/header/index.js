@@ -34,7 +34,7 @@ const menuItems = [
 ]
 
 class Header extends Component {
-	render () {
+	render() {
 		return (
 			<Fragment>
 				<HeroBack>
@@ -48,7 +48,7 @@ class Header extends Component {
 }
 
 const SiteTitle = () => (
-	<LogoArea aria-label="Logo linked to homepage" href="/">
+	<LogoArea aria-label="Logo linked to homepage" to="/">
 		<Logo />
 	</LogoArea>
 )
@@ -56,11 +56,7 @@ const SiteTitle = () => (
 // eslint-disable-next-line one-var
 const MainMenu = () => {
 	let navItems = menuItems.map(navItem => (
-		<Item
-			key={navItem.title}
-			to={navItem.slug}
-			className={'' + navItem.class}
-		>
+		<Item key={navItem.title} to={navItem.slug}>
 			{navItem.title}
 		</Item>
 	))
