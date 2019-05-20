@@ -32,3 +32,24 @@ collections:
         fields:
           - { name: fontHeading, label: Heading Font, widget: string }
           - { name: fontRegular, label: Body Font, widget: string }
+  - name: docs
+    label: Documentation
+    folder: src/docs
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { name: title, label: Title }
+      - { name: updateDate, label: "Update Date", widget: date, format: "YYYY-MM-DD" }
+      - name: clientList
+        label: Clients
+        widget: list
+        field: 
+          - name: client
+            label: Clients
+            widget: relation
+            collection: clients
+            searchFields: ['title', 'domain']
+            valueField: title
+            displayFields: ['title', 'domain']
+      - { name: body, label: Body, widget: markdown}

@@ -10,12 +10,12 @@ exports.createPages = ({ actions, graphql }) => {
 				edges {
 					node {
 						id
+						fileAbsolutePath
 						fields {
 							slug
 						}
 						frontmatter {
-							templateKey
-							tags
+							mainBlog	
 						}
 					}
 				}
@@ -30,39 +30,57 @@ exports.createPages = ({ actions, graphql }) => {
 		const data = result.data.allMarkdownRemark.edges
 
 		data.forEach(edge => {
-			const id = edge.node.id
-
-			if (edge.node.frontmatter.templateKey == 'client') {
-				createPage({
-					path: 'clients' + edge.node.fields.slug + 'styleguide',
-					component: path.resolve(`src/templates/styleGuide.js`),
-					// additional data can be passed via context
-					context: {
-						id,
-					},
-				})
-			} else if (
-				edge.node.frontmatter.templateKey === 'blog-post' &&
-				edge.node.frontmatter.tags.includes('AimHigher')
-			) {
-				createPage({
-					path: 'blog' + edge.node.fields.slug,
-					component: path.resolve(`src/templates/blogTemplate.js`),
-					// additional data can be passed via context
-					context: {
-						id,
-					},
-				})
-			} else if (edge.node.frontmatter.templateKey === 'case-study') {
-				createPage({
-					path: 'portfolio' + edge.node.fields.slug,
-					component: path.resolve(`src/templates/caseStudy.js`),
-					// additional data can be passed via context
-					context: {
-						id,
-					},
-				})
+			const id = edge.node.id,
+			filePath = edge.node.fileAbsolutePath,
+			templates = {
+				blog: path.resolve('src/templates/blogTemplate.js'),
+				caseStudy: path.resolve('src/templates/caseStudy.js'),
+				client: path.resolve('src/templates/styleGuide.js'),
+				docs: path.resolve('src/templates/docTemplate.js')
+			},
+			regexr = {
+				blog: RegExp(/\/src\/blog\//),
+				caseStudy: RegExp(/\/src\/data\/\/case-studies/),
+				client: RegExp(/\/src\/data\/\/clients/),
+				docs: RegExp(/\/src\/docs\//)
 			}
+
+			let path = edge.node.fields.slug,
+			component = false,
+			context = {
+				id
+			}
+
+			if(regexr.blog.test(filePath)) {
+				if(edge.node.frontmatter.mainBlog == 'AimHigher') {
+					path = 'blog' + edge.node.fields.slug
+					component = templates.blog
+				}
+				else {
+					return
+				}
+			}
+			else if(regexr.caseStudy.test(filePath)) {
+				path = 'portfolio' + edge.node.fields.slug
+				component = templates.caseStudy
+			}
+			else if(regexr.client.test(filePath)) {
+				path = 'clients' + edge.node.fields.slug + 'styleguide'
+				component = templates.client
+			}
+			else if(regexr.docs.test(filePath)) {
+				path = `docs${edge.node.fields.slug}`
+				component = templates.docs
+			}
+			else {
+				return
+			}
+
+			createPage({
+				path: path,
+				component: component,
+				context: context,
+			})
 		})
 	})
 }
