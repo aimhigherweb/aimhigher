@@ -45,7 +45,7 @@ exports.createPages = ({ actions, graphql }) => {
 				docs: RegExp(/\/src\/docs\//)
 			}
 
-			let path = edge.node.fields.slug,
+			let slugPath = edge.node.fields.slug,
 			component = false,
 			context = {
 				id
@@ -53,7 +53,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 			if(regexr.blog.test(filePath)) {
 				if(edge.node.frontmatter.mainBlog == 'AimHigher') {
-					path = 'blog' + edge.node.fields.slug
+					slugPath = 'blog' + edge.node.fields.slug
 					component = templates.blog
 				}
 				else {
@@ -61,23 +61,25 @@ exports.createPages = ({ actions, graphql }) => {
 				}
 			}
 			else if(regexr.caseStudy.test(filePath)) {
-				path = 'portfolio' + edge.node.fields.slug
+				slugPath = 'portfolio' + edge.node.fields.slug
 				component = templates.caseStudy
 			}
 			else if(regexr.client.test(filePath)) {
-				path = 'clients' + edge.node.fields.slug + 'styleguide'
+				slugPath = 'clients' + edge.node.fields.slug + 'styleguide'
 				component = templates.client
 			}
 			else if(regexr.docs.test(filePath)) {
-				path = `docs${edge.node.fields.slug}`
+				slugPath = `docs${edge.node.fields.slug}`
 				component = templates.docs
 			}
 			else {
 				return
 			}
 
+			console.log(edge.node.fields.slug)
+
 			createPage({
-				path: path,
+				path: slugPath,
 				component: component,
 				context: context,
 			})

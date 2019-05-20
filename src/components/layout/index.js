@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'emotion-theming'
+import {cache} from 'emotion'
+import {CacheProvider} from '@emotion/core'
 
 import Header from '../header/index.js'
 import Footer from '../footer/index.js'
@@ -105,7 +107,8 @@ const Layout = ({ children, meta, wave }) => {
 	}
 
 	return (
-		<ThemeProvider theme={aimhigherTheme}>
+		<CacheProvider value={cache}>
+			<ThemeProvider theme={aimhigherTheme}>
 			<Globals>
 				<Meta {...meta} />
 				<HeadCont wave={isWave}>{<Header />}</HeadCont>
@@ -113,6 +116,7 @@ const Layout = ({ children, meta, wave }) => {
 				<FooterCont>{<Footer />}</FooterCont>
 			</Globals>
 		</ThemeProvider>
+		</CacheProvider>
 	)
 }
 
