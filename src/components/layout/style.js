@@ -1,5 +1,5 @@
 import { injectGlobal } from 'emotion'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import withProps from 'recompose/withProps'
 import Img from 'gatsby-image'
 

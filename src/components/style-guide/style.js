@@ -1,4 +1,4 @@
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 export const Swatch = styled('div')`
     grid-column: ${ props => props.opts === 'main' ? 'span 2' : 'span 1' };

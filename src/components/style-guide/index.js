@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { ThemeProvider } from 'emotion-theming'
 
 // Components
-import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/lib/fa'
+import { Facebook, Instagram, Twitter } from 'react-feather'
 
 import { Head1, Head2, Head3, Head4, Head5 } from '../layout/style'
 import {
@@ -404,9 +404,9 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 						<li>list</li>
 					</ol>
 					<Icons>
-						<FaFacebookSquare />
-						<FaTwitterSquare />
-						<FaInstagram />
+						<Facebook />
+						<Twitter />
+						<Instagram />
 					</Icons>
 				</FlexBlock>
 				<div>

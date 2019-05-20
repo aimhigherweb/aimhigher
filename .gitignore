@@ -13,6 +13,7 @@
 /public
 /src/resources/*.css
 /static/img/blog/*
+public/
 
 # misc
 .DS_Store

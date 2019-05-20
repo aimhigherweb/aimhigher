@@ -1,4 +1,4 @@
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 
 export const ImageContainer = styled('figure')`
 	float: ${(props) => props.custom.float};

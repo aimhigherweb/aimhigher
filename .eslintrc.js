@@ -1,7 +1,11 @@
 module.exports = {
 	extends: ['standard', 'prettier'],
-	plugins: ['standard', 'react'],
+	plugins: ['standard', 'react', 'emotion'],
 	rules: {
+		'emotion/jsx-import': 'error',
+		'emotion/no-vanilla': 'error',
+		'emotion/import-from-emotion': 'error',
+		'emotion/styled-import': 'error',
 		'no-var': 'error', // optional, recommended when using es6+
 		'no-unused-vars': 1, // recommended
 		'arrow-spacing': ['error', { before: true, after: true }], // recommended
@@ -20,7 +24,7 @@ module.exports = {
 
 		// options to emulate prettier setup
 		semi: ['error', 'never'],
-		'template-curly-spacing': ['error', 'always'],
+		'template-curly-spacing': ['error', 'never'],
 		'arrow-parens': ['error', 'as-needed'],
 
 		// standard.js
