@@ -104,7 +104,7 @@ export const Nav = styled('nav')`
 	&:after {
 		animation: ${scrolling} 2s linear infinite;
 		color: ${props => props.theme.colours.primary.main};
-		/* color: ${props => props.theme.colours.primary.dark['75']}; */
+		/* color: ${props => props.theme.colours.primary.main}; */
 		content: '\00BB';
 		font-size: 2em;
 		position: absolute;
