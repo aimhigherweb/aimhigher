@@ -12,6 +12,7 @@ class ClientPortal extends React.Component {
 	render() {
 		const { data } = this.props,
 			clientInfo = data.markdownRemark.frontmatter,
+			clientDocs = data.docs.edges,
 			meta = {
 				name: clientInfo.title + ' Style Guide | ' + data.site.title,
 				description: 'Want to know more about the style guides we make?',
@@ -76,7 +77,7 @@ class ClientPortal extends React.Component {
 }
 
 export const pageQuery = graphql`
-	query ClientByID($id: String!) {
+	query($clientId: String!, $id: String!) {
 		site {
 			siteMetadata {
 				title
@@ -103,6 +104,15 @@ export const pageQuery = graphql`
 				fonts {
 					fontHeading
 					fontRegular
+				}
+			}
+		}
+		docs: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/src/docs/" }, frontmatter: { clientList: { in: [$clientId] } } }) {
+			edges {
+				node {
+					frontmatter {
+						title
+					}
 				}
 			}
 		}
