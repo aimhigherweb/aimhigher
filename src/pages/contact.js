@@ -53,10 +53,7 @@ class Contact extends React.Component {
 			<Layout meta={meta} wave>
 				<Content>
 					<Head1>Contact Us</Head1>
-					<p>
-						We'd love the chance to work with you and your website. Send us a few
-						details and someone will be in touch to help you
-					</p>
+					<p>We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you</p>
 					<Form
 						name="contact-recaptcha"
 						method="post"
@@ -69,66 +66,54 @@ class Contact extends React.Component {
 						<noscript>
 							<p>This form won’t work with Javascript disabled</p>
 						</noscript>
-						<label for="name">
+						<label htmlFor="name">
 							Name
 							<input type="text" name="name" onChange={this.handleChange} />
 						</label>
-						<label for="email">
+						<label htmlFor="email">
 							Email
 							<input type="email" name="email" onChange={this.handleChange} />
 						</label>
-						<label for="phone">
+						<label htmlFor="phone">
 							Phone
 							<input type="text" name="phone" onChange={this.handleChange} />
 						</label>
-						<label for="website">
+						<label htmlFor="website">
 							Do you have an existing website? Or a Facebook page?
 							<input type="text" name="website" onChange={this.handleChange} />
 						</label>
 						<fieldset>
 							<legend>What are you looking for?</legend>
-							<label for="build">
+							<label htmlFor="build">
 								<input type="checkbox" name="build" onChange={this.handleChange} />
 								Website Build
 							</label>
-							<label for="edit">
+							<label htmlFor="edit">
 								<input type="checkbox" name="edit" onChange={this.handleChange} />
 								Website Editing
 							</label>
-							<label for="email">
+							<label htmlFor="email">
 								<input type="checkbox" name="email" onChange={this.handleChange} />
 								Email Hosting
 							</label>
-							<label for="hosting">
-								<input
-									type="checkbox"
-									name="hosting"
-									onChange={this.handleChange}
-								/>
+							<label htmlFor="hosting">
+								<input type="checkbox" name="hosting" onChange={this.handleChange} />
 								Website Hosting
 							</label>
-							<label for="support">
-								<input
-									type="checkbox"
-									name="support"
-									onChange={this.handleChange}
-								/>
+							<label htmlFor="support">
+								<input type="checkbox" name="support" onChange={this.handleChange} />
 								Support
 							</label>
-							<label for="other">
+							<label htmlFor="other">
 								<input type="checkbox" name="other" onChange={this.handleChange} />
 								Something Else
 							</label>
 						</fieldset>
-						<label for="message">
+						<label htmlFor="message">
 							Message
 							<textarea name="message" onChange={this.handleChange} />
 						</label>
-						<Recaptcha
-							ref="recaptcha"
-							sitekey={RECAPTCHA_KEY}
-							onChange={this.handleRecaptcha}
-						/>
+						<Recaptcha ref="recaptcha" sitekey={RECAPTCHA_KEY} onChange={this.handleRecaptcha} />
 						<p>
 							<button type="submit">Submit</button>
 						</p>
