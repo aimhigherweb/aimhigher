@@ -45,11 +45,12 @@ collections:
             label: Clients
             widget: list
             field:
-                - name: client
-                  label: Select Client
-                  widget: relation
-                  collection: clients
-                  searchFields: ['title', 'domain']
-                  valueField: title
-                  displayFields: ['title', 'domain']
+                {
+                    name: selectClient,
+                    label: Select Client,
+                    widget: relation,
+                    collection: clients,
+                    searchFields: ['title', 'domain'],
+                    valueField: title,
+                }
           - { name: body, label: Body, widget: markdown }
