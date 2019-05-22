@@ -13,7 +13,6 @@
 		"build": "npm run blog && echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build",
 		"build:fab": "npm run build && npm run fab:compile",
 		"fab:compile": "fab-static public",
-		"test": "npm run test:a11y",
 		"test:a11y": "pa11y --reporter cli http://localhost:8000 > a11yreport.txt",
 		"clean": "rm -rf .cache/ public/",
 		"blog:images": "cp src/blog/img/* static/img/blog/",
