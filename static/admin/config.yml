@@ -1,55 +1,55 @@
 backend:
-  name: github
-  repo: AimHigher-Web-Design/aimhigher
+    name: github
+    repo: AimHigher-Web-Design/aimhigher
 
 media_folder: static/img/clientPortal
 
 collections:
-  - name: clients
-    label: Client Details
-    folder: src/data/clients
-    create: true
-    editor:
-      preview: false
-    fields:
-      - { name: templateKey, label: Template Key, widget: hidden, default: client }
-      - { name: title, label: Title }
-      - { name: logo, label: Logo, widget: string }
-      - { name: logoOri, label: Portrait Logo, widget: boolean }
-      - { name: domain, label: Domain, widget: string }
-      - { name: live, label: Live Website?, widget: boolean }
-      - { name: https, label: Secure Website?, widget: boolean }
-      - name: colours
-        label: Colours
-        widget: list
-        fields:
-          - { name: colourPrimary, label: Primary Colour, widget: string }
-          - { name: colourSecondary, label: Secondary Colour, widget: string }
-          - { name: colourNeutral, label: Neutral Colour, widget: string }
-      - name: fonts
-        label: Fonts
-        widget: list
-        fields:
-          - { name: fontHeading, label: Heading Font, widget: string }
-          - { name: fontRegular, label: Body Font, widget: string }
-  - name: docs
-    label: Documentation
-    folder: src/docs
-    create: true
-    editor:
-      preview: false
-    fields:
-      - { name: title, label: Title }
-      - { name: updateDate, label: "Update Date", widget: date, format: "YYYY-MM-DD" }
-      - name: clientList
-        label: Clients
-        widget: list
-        field: 
-          - name: client
+    - name: clients
+      label: Client Details
+      folder: src/data/clients
+      create: true
+      editor:
+          preview: false
+      fields:
+          - { name: templateKey, label: Template Key, widget: hidden, default: client }
+          - { name: title, label: Title }
+          - { name: logo, label: Logo, widget: string }
+          - { name: logoOri, label: Portrait Logo, widget: boolean }
+          - { name: domain, label: Domain, widget: string }
+          - { name: live, label: Live Website?, widget: boolean }
+          - { name: https, label: Secure Website?, widget: boolean }
+          - name: colours
+            label: Colours
+            widget: list
+            fields:
+                - { name: colourPrimary, label: Primary Colour, widget: string }
+                - { name: colourSecondary, label: Secondary Colour, widget: string }
+                - { name: colourNeutral, label: Neutral Colour, widget: string }
+          - name: fonts
+            label: Fonts
+            widget: list
+            fields:
+                - { name: fontHeading, label: Heading Font, widget: string }
+                - { name: fontRegular, label: Body Font, widget: string }
+    - name: docs
+      label: Documentation
+      folder: src/docs
+      create: true
+      editor:
+          preview: false
+      fields:
+          - { name: title, label: Title }
+          - { name: updateDate, label: 'Update Date', widget: date, format: 'YYYY-MM-DD' }
+          - name: clientList
             label: Clients
-            widget: relation
-            collection: clients
-            searchFields: ['title', 'domain']
-            valueField: title
-            displayFields: ['title', 'domain']
-      - { name: body, label: Body, widget: markdown}
+            widget: list
+            field:
+                - name: client
+                  label: Select Client
+                  widget: relation
+                  collection: clients
+                  searchFields: ['title', 'domain']
+                  valueField: title
+                  displayFields: ['title', 'domain']
+          - { name: body, label: Body, widget: markdown }
