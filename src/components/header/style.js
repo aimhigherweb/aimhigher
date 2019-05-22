@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
 import { Link } from 'gatsby'
 
 export const HeadCont = styled('header')`
@@ -38,7 +37,7 @@ export const HeadCont = styled('header')`
 	}
 `
 
-export const LogoArea = styled('a')`
+export const LogoArea = styled(Link)`
 	position: relative;
 	z-index: 20;
 
@@ -77,39 +76,15 @@ export const LogoArea = styled('a')`
 	}
 `
 
-const scrolling = keyframes`
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-`
-
-export const Nav = styled('nav')`
+export const Nav = styled.nav`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	height: auto;
-	overflow-x: scroll;
+	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
 	max-width: 100vw;
 	z-index: 20;
-
-	&:after {
-		animation: ${scrolling} 2s linear infinite;
-		color: ${props => props.theme.colours.primary};
-		content: '\00BB';
-		font-size: 2em;
-		position: absolute;
-		right: 10px;
-		bottom: 13%;
-	}
 
 	@media (min-width: ${props => props.theme.values.screens.small}) {
 		display: flex;
@@ -117,10 +92,6 @@ export const Nav = styled('nav')`
 		margin-left: auto;
 		padding: 0 10px;
 		overflow-x: visible;
-
-		&:after {
-			content: normal;
-		}
 	}
 
 	@media (min-width: ${props => props.theme.values.screens.medium}) {
@@ -131,6 +102,24 @@ export const Nav = styled('nav')`
 	@media (min-width: ${props => props.theme.values.screens.large}) {
 		margin-top: 1vh;
 		padding: 40px 20px 10px;
+	}
+`
+
+export const HeroBack = styled('div')`
+	svg {
+		height: auto;
+		max-height: unset;
+		margin-left: 50%;
+		position: absolute;
+		top: 0;
+		left: -50vw;
+		width: 400vh;
+		max-width: unset;
+		z-index: -1;
+	}
+
+	path {
+		fill: var(--wave-colour);
 	}
 `
 
@@ -203,23 +192,5 @@ export const Item = styled(Link)`
 
 	@media (min-width: ${props => props.theme.values.screens.realbig}) {
 		font-size: 1.5em;
-	}
-`
-
-export const HeroBack = styled('div')`
-	svg {
-		height: auto;
-		max-height: unset;
-		margin-left: 50%;
-		position: absolute;
-		top: 0;
-		left: -50vw;
-		width: 400vh;
-		max-width: unset;
-		z-index: -1;
-	}
-
-	path {
-		fill: var(--wave-colour);
 	}
 `
