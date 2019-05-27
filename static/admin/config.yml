@@ -45,16 +45,11 @@ collections:
             label: Section
             widget: select
             options: ['WordPress', 'WooCommerce', 'Netlify CMS', 'GitHub', 'Office 365 Exchange', 'GSuite']
-          - name: clientList
-            label: Clients
-            widget: list
-            field:
-                {
-                    name: selectClient,
-                    label: Select Client,
-                    widget: relation,
-                    collection: clients,
-                    searchFields: ['title', 'domain'],
-                    valueField: title,
-                }
+          - name: selectClient,
+            label: Select Client,
+            widget: relation,
+            multiple: true,
+            collection: clients,
+            searchFields: ['title', 'domain'],
+            valueField: title,
           - { name: body, label: Body, widget: markdown }
