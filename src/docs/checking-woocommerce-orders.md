@@ -6,4 +6,16 @@ selectClient:
   - Black Box Cakery
   - Tonic Health
 ---
+![](/static/img/clientPortal/woocommerce_order_details.jpg)
+
 You can view all orders from your website in the WordPress admin dashboard, by navigating on the side menu to **WooCommerce** -> **Orders**.
+
+![](/static/img/clientPortal/woocommerce_orders.jpg)
+
+You can view the details for each order on the order details page, and here you can update the status of the order, for example once you've delivered the order or if you need to cancel it.
+
+![](/static/img/clientPortal/order_status.png)
+
+You can also resend the order details to either yourself or the customer under **Order actions** or add an **Order note**
+
+![](/static/img/clientPortal/order_actions_notes.jpg)
