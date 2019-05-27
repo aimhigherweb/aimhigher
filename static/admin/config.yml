@@ -41,6 +41,10 @@ collections:
       fields:
           - { name: title, label: Title }
           - { name: updateDate, label: 'Update Date', widget: date, format: 'YYYY-MM-DD' }
+          - name: section
+            label: Section
+            widget: select
+            options: ['WordPress', 'WooCommerce', 'Netlify CMS', 'GitHub', 'Office 365 Exchange', 'GSuite']
           - name: clientList
             label: Clients
             widget: list
