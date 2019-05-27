@@ -3,8 +3,9 @@ title: Updating Delivery Date Settings
 updateDate: '2019-05-27'
 section: WooCommerce
 selectClient:
-  - Black Box Cakery
+    - Black Box Cakery
 ---
+
 You can edit the delivery date settings for your store in the WordPress Admin by navigating to **Product Delivery Date** -> **Settings** in the side navigation menu. Most of these settings should stay as-is, but there are a couple that can be changed as required.
 
 ## Global Delivery Settings
@@ -13,8 +14,7 @@ You can edit the delivery date settings for your store in the WordPress Admin by
 **Send delivery information as attachments (ICS files) in email notifications** - Similar to above, this also sends a calendar event with the order confirmation.
 **No delivery on these dates** - This is a good place to block out your holidays, for example it's currently set so that no one can order a product to be delivered on Christmas Eve, Christmas Day and Boxing Day. When you're taking holidays (or if you don't want to deliver on certain public holidays), this is where you can block off the days you're away.
 
-![](/static/img/clientPortal/deliverydates_blockout.png)
-
+![](../img/cms/deliverydates_blockout.png)
 
 **Minimum number of days for rescheduling** - Currently people must give at least 2 days notice when rescheduling their order, this can be changed here.
 
@@ -44,7 +44,7 @@ This is set up so that people must select a delivery date when placing an order.
 
 Here you can see what time slots you have coming up, this will most of the time be the normal recurring ones, but you may also like to offer a once off additional timeslot (eg. the Saturday morning before Christmas)
 
-![](/static/img/clientPortal/delivery-slots.png)
+![](../img/cms/delivery-slots.png)
 
 ### Delivery Charges
 

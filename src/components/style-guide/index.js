@@ -287,7 +287,7 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 		let logoPath = `../../img/cms/see-me-after-logo.svg`
 		// ClientLogo = require(logoPath)
 		ClientLogo = () => <img src={`../img/${logo.relativePath}`} />
-		console.log(ClientLogo)
+		// console.log(ClientLogo)
 	}
 
 	return (

@@ -72,7 +72,6 @@ module.exports = {
 							showCaptions: true,
 							maxWidth: 800,
 							widthWebp: true,
-							sizeByPixelDensity: true,
 						},
 					},
 					{
