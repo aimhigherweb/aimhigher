@@ -283,7 +283,7 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 		logoOri = ori ? oro : 'landscape',
 		logoType = type ? type : 'svg'
 
-	if (!logo.childImageSharp && logo) {
+	if (logo && !logo.childImageSharp) {
 		let logoPath = `../../img/cms/see-me-after-logo.svg`
 		// ClientLogo = require(logoPath)
 		ClientLogo = () => <img src={`../img/${logo.relativePath}`} />
