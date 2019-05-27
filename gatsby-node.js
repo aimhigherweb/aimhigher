@@ -16,7 +16,7 @@ exports.createPages = ({ actions, graphql }) => {
 						}
 						frontmatter {
 							title
-							mainBlog
+							tags
 							section
 						}
 					}
@@ -56,7 +56,7 @@ exports.createPages = ({ actions, graphql }) => {
 				multiple = false
 
 			if (RegExp(regexr.blog).test(filePath)) {
-				if (edge.node.frontmatter.mainBlog == 'AimHigher') {
+				if (edge.node.frontmatter.tags.includes('AimHigher')) {
 					slugPath = 'blog' + edge.node.fields.slug
 					component = templates.blog
 				} else {
