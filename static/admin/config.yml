@@ -2,7 +2,7 @@ backend:
     name: github
     repo: AimHigher-Web-Design/aimhigher
 
-media_folder: static/img/clientPortal
+media_folder: src/img/cms
 
 collections:
     - name: clients

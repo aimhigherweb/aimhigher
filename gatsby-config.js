@@ -1,8 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: 'AimHigher Web Design',
-		description:
-			'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
+		description: 'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
 		siteUrl: 'https://aimhigherweb.design/',
 	},
 	plugins: [
@@ -18,7 +17,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-react-svg',
 			options: {
-				include: `${__dirname}/src/img/`,
+				include: `/${__dirname}\/src\/img\/.*\.svg$/`,
 			},
 		},
 		{
@@ -56,7 +55,7 @@ module.exports = {
 			options: {
 				path: `${__dirname}/src/docs`,
 				name: 'docs',
-			}
+			},
 		},
 		{
 			resolve: `gatsby-transformer-remark`,
@@ -65,12 +64,15 @@ module.exports = {
 					{
 						resolve: `@raae/gatsby-remark-oembed`,
 					},
+					`gatsby-remark-figure-caption`,
+					'gatsby-remark-copy-linked-files',
 					{
 						resolve: `gatsby-remark-images`,
 						options: {
 							showCaptions: true,
-							maxWidth: 1000,
+							maxWidth: 800,
 							widthWebp: true,
+							sizeByPixelDensity: true,
 						},
 					},
 					{

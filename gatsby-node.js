@@ -17,6 +17,7 @@ exports.createPages = ({ actions, graphql }) => {
 						frontmatter {
 							title
 							mainBlog
+							section
 						}
 					}
 				}
@@ -36,7 +37,8 @@ exports.createPages = ({ actions, graphql }) => {
 				templates = {
 					blog: path.resolve('src/templates/blogTemplate.js'),
 					caseStudy: path.resolve('src/templates/caseStudy.js'),
-					client: path.resolve('src/templates/styleGuide.js'),
+					client: path.resolve('src/templates/clientPortal.js'),
+					clientStyle: path.resolve('src/templates/styleGuide.js'),
 					docs: path.resolve('src/templates/docTemplate.js'),
 				},
 				regexr = {
@@ -50,7 +52,8 @@ exports.createPages = ({ actions, graphql }) => {
 				component = false,
 				context = {
 					id,
-				}
+				},
+				multiple = false
 
 			if (RegExp(regexr.blog).test(filePath)) {
 				if (edge.node.frontmatter.mainBlog == 'AimHigher') {
@@ -63,22 +66,33 @@ exports.createPages = ({ actions, graphql }) => {
 				slugPath = 'portfolio' + edge.node.fields.slug
 				component = templates.caseStudy
 			} else if (RegExp(regexr.client).test(filePath)) {
-				slugPath = 'clients' + edge.node.fields.slug + 'styleguide'
-				component = templates.client
+				multiple = true
+				slugPath = [`clients${edge.node.fields.slug}`, `clients${edge.node.fields.slug}style-guide`]
+				component = [templates.client, templates.clientStyle]
 				context.clientId = edge.node.frontmatter.title
 			} else if (RegExp(regexr.docs).test(filePath)) {
-				slugPath = `docs${edge.node.fields.slug}`
+				slugPath = `docs/${edge.node.frontmatter.section.replace(' ', '-').toLowerCase()}${edge.node.fields.slug}`
 				component = templates.docs
 			} else {
 				return
 			}
 
 			if (component) {
-				createPage({
-					path: slugPath,
-					component: component,
-					context: context,
-				})
+				if (multiple) {
+					for (i = 0; i < slugPath.length; i++) {
+						createPage({
+							path: slugPath[i],
+							component: component[i],
+							context: context,
+						})
+					}
+				} else {
+					createPage({
+						path: slugPath,
+						component: component,
+						context: context,
+					})
+				}
 			}
 		})
 	})

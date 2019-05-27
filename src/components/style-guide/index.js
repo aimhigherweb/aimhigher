@@ -4,17 +4,8 @@ import { ThemeProvider } from 'emotion-theming'
 // Components
 import { Facebook, Instagram, Twitter } from 'react-feather'
 
-import { Head1, Head2, Head3, Head4, Head5 } from '../layout/style'
-import {
-	FlexBlock,
-	Icons,
-	Set,
-	Swatch,
-	TypoContent,
-	PrimaryButton,
-	SecondaryButton,
-	NeutralButton,
-} from './style.js'
+import { Head1, Head2, Head3, Head4, Head5, Image } from '../layout/style'
+import { FlexBlock, Icons, Set, Swatch, TypoContent, PrimaryButton, SecondaryButton, NeutralButton } from './style.js'
 
 // Resources
 import Logo from '../../img/logo.svg'
@@ -133,50 +124,32 @@ export class ColourSwatches extends Component {
 				let a11yPoint = 100
 
 				if (colours[key][cols] === colours[key].main) {
-					let rgbVal = [
-						colours[key][cols].rgb[0],
-						colours[key][cols].rgb[1],
-						colours[key][cols].rgb[2],
-					]
+					let rgbVal = [colours[key][cols].rgb[0], colours[key][cols].rgb[1], colours[key][cols].rgb[2]]
 
 					colours[key][cols].hex = rgbToHex(rgbVal[0], rgbVal[1], rgbVal[2])
 					colourTheme[key][cols] = colours[key][cols].hex
 
-					colours[key][cols].variant =
-						rgbVal[0] * 0.299 + rgbVal[1] * 0.587 + rgbVal[2] * 0.114
+					colours[key][cols].variant = rgbVal[0] * 0.299 + rgbVal[1] * 0.587 + rgbVal[2] * 0.114
 
 					if (colours[key][cols].variant >= a11yPoint) {
-						colours[key][cols].ratio =
-							(luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05) /
-							(luminanace(0, 0, 0) + 0.05)
+						colours[key][cols].ratio = (luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05) / (luminanace(0, 0, 0) + 0.05)
 					} else {
-						colours[key][cols].ratio =
-							(luminanace(255, 255, 255) + 0.05) /
-							(luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
+						colours[key][cols].ratio = (luminanace(255, 255, 255) + 0.05) / (luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
 					}
 				}
 
 				for (let opts in colours[key][cols]) {
 					if (colours[key][cols] !== colours[key].main) {
-						let rgbVal = [
-							colours[key][cols][opts].rgb[0],
-							colours[key][cols][opts].rgb[1],
-							colours[key][cols][opts].rgb[2],
-						]
+						let rgbVal = [colours[key][cols][opts].rgb[0], colours[key][cols][opts].rgb[1], colours[key][cols][opts].rgb[2]]
 
 						colours[key][cols][opts].hex = rgbToHex(rgbVal[0], rgbVal[1], rgbVal[2])
 
-						colours[key][cols][opts].variant =
-							rgbVal[0] * 0.299 + rgbVal[1] * 0.587 + rgbVal[2] * 0.114
+						colours[key][cols][opts].variant = rgbVal[0] * 0.299 + rgbVal[1] * 0.587 + rgbVal[2] * 0.114
 
 						if (colours[key][cols][opts].variant >= a11yPoint) {
-							colours[key][cols][opts].ratio =
-								(luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05) /
-								(luminanace(0, 0, 0) + 0.05)
+							colours[key][cols][opts].ratio = (luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05) / (luminanace(0, 0, 0) + 0.05)
 						} else {
-							colours[key][cols][opts].ratio =
-								(luminanace(255, 255, 255) + 0.05) /
-								(luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
+							colours[key][cols][opts].ratio = (luminanace(255, 255, 255) + 0.05) / (luminanace(rgbVal[0], rgbVal[1], rgbVal[2]) + 0.05)
 						}
 					}
 				}
@@ -186,7 +159,7 @@ export class ColourSwatches extends Component {
 	}
 
 	render() {
-		console.log(this.props)
+		// console.log(this.props)
 		let mainColours = {
 				primary: this.props.theme.colours.primary.main,
 				secondary: this.props.theme.colours.secondary.main,
@@ -218,13 +191,7 @@ export class ColourSwatches extends Component {
 				} else {
 					// Loops through light and dark groups
 					for (let colGroup in colArray[i][colSet]) {
-						let thisCols =
-							'$' +
-							colNames[i] +
-							'_' +
-							colArray[i][colSet][colGroup].name +
-							':' +
-							colArray[i][colSet][colGroup].hex
+						let thisCols = '$' + colNames[i] + '_' + colArray[i][colSet][colGroup].name + ':' + colArray[i][colSet][colGroup].hex
 
 						colVars += thisCols
 					}
@@ -261,15 +228,7 @@ const ColourSwatch = ({ cols, group }) => {
 	}
 
 	return (
-		<Swatch
-			data-variant={variant}
-			data-opts={opts}
-			data-group={group}
-			variant={variant}
-			status={status}
-			color={thisHex}
-			opts={opts}
-		>
+		<Swatch data-variant={variant} data-opts={opts} data-group={group} variant={variant} status={status} color={thisHex} opts={opts}>
 			<p>{thisHex}</p>
 		</Swatch>
 	)
@@ -313,25 +272,22 @@ const ColourSet = ({ set, group }) => {
 	return (
 		<Set>
 			<ColourSwatch group={setGroup} cols={colMain} />
-			{colMain.hex !== '#ffffff' && (
-				<ColourGroup group={setGroup} colgroup={colGroupLight} vars="light" />
-			)}
-			{colMain.hex !== '#000000' && (
-				<ColourGroup group={setGroup} colgroup={colGroupDark} vars="dark" />
-			)}
+			{colMain.hex !== '#ffffff' && <ColourGroup group={setGroup} colgroup={colGroupLight} vars="light" />}
+			{colMain.hex !== '#000000' && <ColourGroup group={setGroup} colgroup={colGroupDark} vars="dark" />}
 		</Set>
 	)
 }
 
 export const Typography = ({ logo, ori, type, theme, clientName }) => {
-	let ClientLogo = Logo,
-		logoOri = 'landscape',
-		logoType = 'svg'
+	let ClientLogo = logo ? logo : Logo,
+		logoOri = ori ? oro : 'landscape',
+		logoType = type ? type : 'svg'
 
-	if (logo) {
-		ClientLogo = logo
-		logoOri = ori
-		logoType = type
+	if (!logo.childImageSharp && logo) {
+		let logoPath = `../../img/cms/see-me-after-logo.svg`
+		// ClientLogo = require(logoPath)
+		ClientLogo = () => <img src={`../img/${logo.relativePath}`} />
+		console.log(ClientLogo)
 	}
 
 	return (
@@ -339,32 +295,26 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 			<TypoContent>
 				<FlexBlock med={logoOri === 'portrait' && true}>
 					<figure>
-						{logoType === 'svg' ? <ClientLogo /> : <img src={ClientLogo} />}
-						<figcaption>
-							This is what an image caption will look like, not all images will have
-							captions though.
-						</figcaption>
+						{logoType === 'svg' ? <ClientLogo /> : <Image fluid={logo.childImageSharp.fluid} />}
+						<figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
 					</figure>
 					<div>
 						<Head1>Heading 1</Head1>
-						<p>
-							Traditionally, you'll only see one Heading 1 per page. It's the main
-							page title, the name of the page.
-						</p>
-						<p>
-							Every page should have a H1 as they're used for SEO and screen readers
-						</p>
+						<p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
+						<p>Every page should have a H1 as they're used for SEO and screen readers</p>
 						<Head2>Heading 2</Head2>
+						<p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
 						<p>
-							Heading 2 helps to define the other sections within the page so you can
-							have multiple H2's within a page
+							There will also be some content that's <strong>bold</strong>, some that's <em>italic</em> and even some that's{' '}
+							<strong>
+								<em>bold and italic</em>
+							</strong>
+							.
 						</p>
-						<p>There will also be some content that's <strong>bold</strong>, some that's <em>italic</em> and even some that's <strong><em>bold and italic</em></strong>.</p>
 						<Head3>Heading 3</Head3>
 						<p>
-							This is a third level heading, H3. This is the last level heading that
-							you use on a regular basis (otherwise things can look a little
-							cluttered).
+							This is a third level heading, H3. This is the last level heading that you use on a regular basis (otherwise things can
+							look a little cluttered).
 						</p>
 						<Head4>Heading 4</Head4>
 						<Head5>Heading 5</Head5>
@@ -374,19 +324,15 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 				<Head4>Content Sections</Head4>
 				<FlexBlock lrg>
 					<p>
-						This is a paragraph. This is how most of your content will look on your
-						website. Far far away, behind the word mountains, far from the countries
-						Vokalia and Consonantia, there live the blind texts. Separated they live in
-						Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-						A small river named Duden flows by their place and supplies it with the
-						necessary regelialia. It is a paradisematic country, in which roasted parts
-						of sentences fly into your mouth. Even the all-powerful Pointing has no
-						control about the blind texts it is an almost unorthographic life One day
-						however a small line of blind text by the name of Lorem Ipsum decided to
+						This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far
+						from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
+						coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the
+						necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the
+						all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of
+						blind text by the name of Lorem Ipsum decided to
 					</p>
 					<blockquote>
-						This is a blockquote. These are often used to show breakout text, like you
-						should see with a quote in a newspaper or magazine.
+						This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
 					</blockquote>
 				</FlexBlock>
 
