@@ -1,8 +1,12 @@
 ---
-title: Sample Document
-updateDate: '2019-05-19'
-clientList:
+title: Logging in to WordPress
+updateDate: '2019-05-27'
+section: WordPress
+selectClient:
   - Black Box Cakery
-  - See Me After
+  - Tonic Health
 ---
-There is a document and information here.
+To login to the admin dashboard for your website, navigate to <https://yourwebsite.com/wp-admin> and login using the details provided to you.
+![](/static/img/clientPortal/screenshot_2019-05-27-log-in-‹-black-box-cakery-—-wordpress.png)
+If you've forgotten your password, click the **Lost your password?** link under the login form.
+If you're still unable to login, contact <mailto:support@aimhigherweb.design>
