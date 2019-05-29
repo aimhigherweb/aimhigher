@@ -256,8 +256,14 @@ export const Content = styled('div')`
 export const Image = withProps({
 	Tag: 'figure',
 })(styled(Img)`
-	&.right {
-		float: right;
+	margin: 0;
+	max-width: 100%;
+
+	@media (min-width: ${props => props.theme.values.screens.medium}) {
+		&.right {
+			float: right;
+			margin-left: 10px;
+		}
 	}
 `)
 
