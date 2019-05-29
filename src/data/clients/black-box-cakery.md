@@ -3,7 +3,7 @@ templateKey: client
 title: Black Box Cakery
 logo: ../../img/cms/black-box-cakery-logo.svg
 domain: blackboxcakery.com.au
-live: false
+live: true
 https: true
 colours:
     - colourNeutral: '#AAAAAA'
