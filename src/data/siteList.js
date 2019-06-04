@@ -20,6 +20,16 @@ const siteList = [
 		github: 'https://github.com/AimHigher-Web-Design/tech-outsiders',
 	},
 	{
+		name: 'Ming Johanson',
+		slug: 'ming-johanson',
+		url: 'mingjohanson.com.au',
+		date: 'Coming Soon',
+		mobile: false,
+		current: false,
+		secure: true,
+		live: false,
+	},
+	{
 		name: 'Janne Martin',
 		slug: 'janne-martin',
 		url: 'aweddingcelebrant.com.au',
