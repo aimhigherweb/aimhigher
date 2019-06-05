@@ -3,21 +3,16 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { Content, Head1 } from '../components/layout/style'
+import { DocContent } from '../styles/doc'
 import { Article, ArticleIntro, Date } from '../styles/article'
 
-
-export const DocTemplate = ({
-	content,
-	title,
-	updateDate,
-}) => {
-
+export const DocTemplate = ({ content, title, updateDate }) => {
 	return (
 		<Article>
 			<header>
 				<Head1>{title}</Head1>
 				<ArticleIntro>
-					<Date dateTime={updateDate}>{updateDate}</Date>
+					<Date dateTime={updateDate}>Last Updated: {updateDate}</Date>
 				</ArticleIntro>
 			</header>
 			<main dangerouslySetInnerHTML={{ __html: content }} />
@@ -40,9 +35,9 @@ const Doc = ({ data }) => {
 
 	return (
 		<Layout meta={meta}>
-			<Content>
+			<DocContent>
 				<DocTemplate {...doc} />
-			</Content>
+			</DocContent>
 		</Layout>
 	)
 }

@@ -3,12 +3,12 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { ColourSwatches, Typography } from '../components/style-guide/index.js'
-import { Content, Head1 } from '../components/layout/style'
+import { Content, Head1, Image } from '../components/layout/style'
 import { PrimaryButton } from '../components/style-guide/style'
 
 import '../components/style-guide/fonts'
 
-class ClientPortal extends React.Component {
+class StyleGuide extends React.Component {
 	render() {
 		const { data } = this.props,
 			clientInfo = data.markdownRemark.frontmatter,
@@ -67,7 +67,7 @@ class ClientPortal extends React.Component {
 				<Content>
 					<Head1>{clientInfo.title} Style Guide</Head1>
 					{variantFonts && variantFonts}
-					<Typography theme={theme} logo={clientInfo.logo} />
+					<Typography theme={theme} type={clientInfo.logoType} logo={clientInfo.logo} ori={clientInfo.logoOri} />
 					<ColourSwatches theme={theme} />
 				</Content>
 			</Layout>
@@ -76,7 +76,7 @@ class ClientPortal extends React.Component {
 }
 
 export const pageQuery = graphql`
-	query ClientByID($id: String!) {
+	query($id: String!) {
 		site {
 			siteMetadata {
 				title
@@ -90,8 +90,16 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
-				logo
+				logo {
+					relativePath
+					childImageSharp {
+						fluid(maxHeight: 300) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
 				logoOri
+				logoType
 				domain
 				live
 				https
@@ -109,4 +117,4 @@ export const pageQuery = graphql`
 	}
 `
 
-export default ClientPortal
+export default StyleGuide

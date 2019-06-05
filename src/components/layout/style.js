@@ -155,33 +155,33 @@ export const globals = props => css`
 `
 
 export const Head1 = styled('h1')`
-	color: ${props => props.theme.colours.primary.dark['90']};
+	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['90']};
 	font: ${props => props.theme.fonts.headings};
 	font-size: 2em;
 	text-align: center;
 `
 
 export const Head2 = styled('h2')`
-	color: ${props => props.theme.colours.primary.dark['90']};
+	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['90']};
 	font: ${props => props.theme.fonts.headings};
 	font-size: 1.6em;
 	text-align: left;
 `
 
 export const Head3 = styled('h3')`
-	color: ${props => props.theme.colours.primary.dark['50']};
+	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['50']};
 	font: ${props => props.theme.fonts.headings};
 	font-size: 1.3em;
 `
 
 export const Head4 = styled('h4')`
-	color: ${props => props.theme.colours.primary.dark['50']};
+	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['50']};
 	font: ${props => props.theme.fonts.headings};
 	font-size: 1.2em;
 `
 
 export const Head5 = styled('h5')`
-	color: ${props => props.theme.colours.primary.dark['50']};
+	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['50']};
 	font: ${props => props.theme.fonts.headings};
 	font-size: 1.1em;
 `
@@ -256,8 +256,14 @@ export const Content = styled('div')`
 export const Image = withProps({
 	Tag: 'figure',
 })(styled(Img)`
-	&.right {
-		float: right;
+	margin: 0;
+	max-width: 100%;
+
+	@media (min-width: ${props => props.theme.values.screens.medium}) {
+		&.right {
+			float: right;
+			margin-left: 10px;
+		}
 	}
 `)
 
