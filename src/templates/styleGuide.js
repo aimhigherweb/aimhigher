@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -6,7 +6,7 @@ import { ColourSwatches, Typography } from '../components/style-guide/index.js'
 import { Content, Head1, Image } from '../components/layout/style'
 import { PrimaryButton } from '../components/style-guide/style'
 
-import '../components/style-guide/fonts'
+import Globals from '../components/style-guide/fonts'
 
 class StyleGuide extends React.Component {
 	render() {
@@ -64,12 +64,15 @@ class StyleGuide extends React.Component {
 
 		return (
 			<Layout meta={meta}>
-				<Content>
-					<Head1>{clientInfo.title} Style Guide</Head1>
-					{variantFonts && variantFonts}
-					<Typography theme={theme} type={clientInfo.logoType} logo={clientInfo.logo} ori={clientInfo.logoOri} />
-					<ColourSwatches theme={theme} />
-				</Content>
+				<Fragment>
+					<Globals />
+					<Content>
+						<Head1>{clientInfo.title} Style Guide</Head1>
+						{variantFonts && variantFonts}
+						<Typography theme={theme} type={clientInfo.logoType} logo={clientInfo.logo} ori={clientInfo.logoOri} />
+						<ColourSwatches theme={theme} />
+					</Content>
+				</Fragment>
 			</Layout>
 		)
 	}

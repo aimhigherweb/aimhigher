@@ -1,10 +1,10 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components'
 
 export const Article = styled('article')`
 	h2,
 	h3,
 	h4 {
-		font: ${(props) => props.theme.fonts.headings};
+		font: ${props => props.theme.fonts.headings};
 	}
 
 	h3 {
@@ -26,8 +26,8 @@ export const Article = styled('article')`
 	}
 
 	blockquote {
-		border-left: 5px solid ${(props) => props.theme.colours.primary.main};
-		font: ${(props) => props.theme.fonts.headings};
+		border-left: 5px solid ${props => props.theme.colours.primary.main};
+		font: ${props => props.theme.fonts.headings};
 		font-size: 1.2em;
 		font-weight: normal;
 		padding: 10px 20px;
@@ -44,18 +44,18 @@ export const Article = styled('article')`
 			left: calc(50vw - 50%);
 		}
 	}
-`;
+`
 
 export const ArticleIntro = styled('div')`
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
-`;
+`
 
 export const Date = styled('time')`
 	display: block;
 	font-size: 0.9em;
-`;
+`
 
 export const ShareIcons = styled('div')`
 	display: flex;
@@ -65,4 +65,4 @@ export const ShareIcons = styled('div')`
 	bottom: auto;
 	right: auto;
 	min-width: 150px;
-`;
+`

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import ReactSVG from 'react-svg'
 
 import { Head2 } from '../components/layout/style'
@@ -97,9 +97,7 @@ export const Site = styled('div')`
 	${Tablet} {
 		--height-container: ${props => props.sizes.height.tab};
 		--width-container: ${props => props.sizes.width.tab};
-		--height-image: calc(
-			${props => props.sizes.width.tabImg} * ${props => props.sizes.ratio.tab}
-		);
+		--height-image: calc(${props => props.sizes.width.tabImg} * ${props => props.sizes.ratio.tab});
 		--width-image: ${props => props.sizes.width.tabImg};
 		--offset-top: ${props => props.sizes.top.tab};
 		--offset-left: ${props => props.sizes.left.tab};
@@ -109,9 +107,7 @@ export const Site = styled('div')`
 	${Mobile} {
 		--height-container: ${props => props.sizes.height.mob};
 		--width-container: ${props => props.sizes.width.mob};
-		--height-image: calc(
-			${props => props.sizes.width.mobImg} * ${props => props.sizes.ratio.mob}
-		);
+		--height-image: calc(${props => props.sizes.width.mobImg} * ${props => props.sizes.ratio.mob});
 		--width-image: ${props => props.sizes.width.mobImg};
 		--offset-top: ${props => props.sizes.top.mob};
 		--offset-left: ${props => props.sizes.left.mob};

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { ThemeProvider } from 'emotion-theming'
+import { ThemeProvider } from 'styled-components'
 
 // Components
 import { Facebook, Instagram, Twitter } from 'react-feather'

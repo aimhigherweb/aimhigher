@@ -1,13 +1,13 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components'
 
 export const ServicesList = styled('div')`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-`;
+`
 
 export const Product = styled('div')`
-	background: ${(props) => props.theme.colours.primary.light[10]};
+	background: ${props => props.theme.colours.primary.light[10]};
 	border-radius: 10px;
 	flex: 1 1 auto;
 	margin: 15px;
@@ -25,7 +25,7 @@ export const Product = styled('div')`
 		width: auto;
 	}
 
-	@media (min-width: ${(props) => props.theme.values.screens.small}) {
+	@media (min-width: ${props => props.theme.values.screens.small}) {
 		> div {
 			height: 250px;
 			max-height: 250px;
@@ -35,4 +35,4 @@ export const Product = styled('div')`
 			height: 250px;
 		}
 	}
-`;
+`

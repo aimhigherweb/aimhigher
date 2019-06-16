@@ -1,6 +1,6 @@
-import { injectGlobal } from 'emotion'
+import styled, { createGlobalStyle } from 'styled-components'
 
-injectGlobal`
+const Globals = createGlobalStyle`
     // Janne Martin
     @font-face {
         font-family: 'Ovo';
@@ -229,3 +229,5 @@ injectGlobal`
         src: url('/fonts/clients/black-box-cakery-Cabin-BoldItalic.ttf') format('truetype');
     }
 `
+
+export default Globals

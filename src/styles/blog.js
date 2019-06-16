@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components'
 
 export const ArticleFeed = styled('div')`
 	display: grid;
 	grid-gap: 30px;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	padding: 20px 15px;
-`;
+`
 
 export const Article = styled('article')`
 	background: rgb(255, 255, 255, 0.7);
@@ -23,9 +23,9 @@ export const Article = styled('article')`
 	&:active,
 	&:hover,
 	&:focus {
-		background: ${(props) => props.theme.colours.primary.light['25']};
+		background: ${props => props.theme.colours.primary.light['25']};
 	}
-`;
+`
 
 export const FeatureImage = styled('div')`
 	display: flex;
@@ -43,7 +43,7 @@ export const FeatureImage = styled('div')`
 		width: auto;
 		max-width: unset;
 	}
-`;
+`
 
 export const ArticleTitle = styled('h2')`
 	font-size: 1.1em;
@@ -52,17 +52,17 @@ export const ArticleTitle = styled('h2')`
 	a {
 		text-decoration: none;
 	}
-`;
+`
 
 export const Date = styled('time')`
 	display: block;
 	font-size: 12px;
 	margin: 10px 0;
-`;
+`
 
 export const Excerpt = styled('div')`
 	font-size: 0.8em;
-`;
+`
 
 export const ShareIcons = styled('div')`
 	font-size: 30px;
@@ -74,4 +74,4 @@ export const ShareIcons = styled('div')`
 	a {
 		padding: 5px;
 	}
-`;
+`

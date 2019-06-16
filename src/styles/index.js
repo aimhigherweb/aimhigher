@@ -1,5 +1,4 @@
-import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
+import styled, { keyframes } from 'styled-components'
 
 export const Hero = styled('div')`
 	color: ${props => props.theme.colours.primary.dark['75']};

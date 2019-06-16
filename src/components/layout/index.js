@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
-import { ThemeProvider } from 'emotion-theming'
-import { Global } from '@emotion/core'
+import { ThemeProvider } from 'styled-components'
 
 import Header from '../header/index.js'
 import Footer from '../footer/index.js'
@@ -9,7 +8,7 @@ import Footer from '../footer/index.js'
 import Logo from '../../img/logo.png'
 import Favicon from '../../img/favicon.png'
 
-import { globals, Main, FooterCont } from './style.js'
+import { Globals, Main, FooterCont } from './style.js'
 import { HeadCont } from '../header/style.js'
 
 export const aimhigherTheme = {
@@ -108,11 +107,13 @@ const Layout = ({ children, meta, wave }) => {
 	return (
 		<Fragment>
 			<ThemeProvider theme={aimhigherTheme}>
-				<Global styles={globals} />
-				<Meta {...meta} />
-				<HeadCont wave={isWave}>{<Header />}</HeadCont>
-				<Main>{children}</Main>
-				<FooterCont>{<Footer />}</FooterCont>
+				<Fragment>
+					<Globals />
+					<Meta {...meta} />
+					<HeadCont wave={isWave}>{<Header />}</HeadCont>
+					<Main>{children}</Main>
+					<FooterCont>{<Footer />}</FooterCont>
+				</Fragment>
 			</ThemeProvider>
 		</Fragment>
 	)

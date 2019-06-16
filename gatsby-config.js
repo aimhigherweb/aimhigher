@@ -7,11 +7,9 @@ module.exports = {
 	plugins: [
 		'gatsby-plugin-react-helmet',
 		{
-			resolve: `gatsby-plugin-emotion`,
+			resolve: `gatsby-plugin-styled-components`,
 			options: {
-				autoLabel: true,
-				hoist: true,
-				sourceMap: true,
+				displayName: true,
 			},
 		},
 		{

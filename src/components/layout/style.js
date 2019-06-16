@@ -1,20 +1,19 @@
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
+import styled, { createGlobalStyle } from 'styled-components'
 import withProps from 'recompose/withProps'
 import Img from 'gatsby-image'
 
-export const globals = props => css`
+export const Globals = createGlobalStyle`
 	* {
 		box-sizing: border-box;
 	}
 
 	body {
 		--icon-size: 24px;
-		--primary: ${props.colours.primary.main};
-		--secondary: ${props.colours.secondary.main};
+		--primary: ${props => props.theme.colours.primary.main};
+		--secondary: ${props => props.theme.colours.secondary.main};
 
-		color: ${props.colours.neutral.main};
-		font: ${props.fonts.regular};
+		color: ${props => props.theme.colours.neutral.main};
+		font: ${props => props.theme.fonts.regular};
 		font-size: 16px;
 		line-height: 1.4;
 		min-height: 100vh;
