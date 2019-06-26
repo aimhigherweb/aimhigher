@@ -1,5 +1,4 @@
 ---
-templateKey: case-study
 title: Glenrock Hay
 logo: /img/clientPortal/glenrock-hay-logo.svg
 logoOri: landscape

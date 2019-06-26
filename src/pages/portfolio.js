@@ -8,19 +8,7 @@ import { ExternalLink, GitHub } from 'react-feather'
 import siteList from '../data/siteList.js'
 import Layout from '../components/layout'
 import { Content, Head1 } from '../components/layout/style'
-import {
-	Date,
-	Desktop,
-	HTTPS,
-	Folio,
-	Frame,
-	Mobile,
-	Mocks,
-	Name,
-	Site,
-	SiteURL,
-	Tablet,
-} from '../styles/portfolio'
+import { Date, Desktop, HTTPS, Folio, Frame, Mobile, Mocks, Name, Site, SiteURL, Tablet } from '../styles/portfolio'
 
 //Importing Images
 import FrameDesktop from '../img/portfolio/desktop.svg'
@@ -36,7 +24,7 @@ class Portfolio extends Component {
 				slug: 'portfolio',
 			}
 
-			// console.log(data.allFile.edges)
+		// console.log(data.allFile.edges)
 
 		return (
 			<Layout mata={meta} wave>
@@ -49,11 +37,11 @@ class Portfolio extends Component {
 	}
 }
 
-const Sites = ({ data, siteList }) => {
+export const Sites = ({ data, siteList }) => {
 	let images = {},
 		imageData = data.allFile.edges
 
-		console.log(imageData)
+	console.log(imageData)
 
 	imageData.map(image => {
 		images[image.node.name] = image.node.childImageSharp.fluid
@@ -144,42 +132,33 @@ const Sites = ({ data, siteList }) => {
 
 			sizeValues.ratio.desk = initialSizes.height.desk.img / initialSizes.width.desk.img
 			sizeValues.width.desk = initialSizes.desk
-			sizeValues.width.deskImg =
-				initialSizes.desk * (initialSizes.width.desk.img / initialSizes.width.desk.full)
-			sizeValues.height.desk =
-				initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full)
+			sizeValues.width.deskImg = initialSizes.desk * (initialSizes.width.desk.img / initialSizes.width.desk.full)
+			sizeValues.height.desk = initialSizes.desk * (initialSizes.height.desk.full / initialSizes.width.desk.full)
 			sizeValues.top.desk =
 				(initialSizes.top.desk / initialSizes.height.desk.full) *
 				initialSizes.desk *
 				(initialSizes.height.desk.full / initialSizes.width.desk.full)
-			sizeValues.left.desk =
-				(initialSizes.left.desk / initialSizes.width.desk.full) * initialSizes.desk
+			sizeValues.left.desk = (initialSizes.left.desk / initialSizes.width.desk.full) * initialSizes.desk
 
 			sizeValues.ratio.tab = initialSizes.height.tab.img / initialSizes.width.tab.img
 			sizeValues.width.tab = initialSizes.tab
-			sizeValues.width.tabImg =
-				initialSizes.tab * (initialSizes.width.tab.img / initialSizes.width.tab.full)
-			sizeValues.height.tab =
-				initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full)
+			sizeValues.width.tabImg = initialSizes.tab * (initialSizes.width.tab.img / initialSizes.width.tab.full)
+			sizeValues.height.tab = initialSizes.tab * (initialSizes.height.tab.full / initialSizes.width.tab.full)
 			sizeValues.top.tab =
 				(initialSizes.top.tab / initialSizes.height.tab.full) *
 				initialSizes.tab *
 				(initialSizes.height.tab.full / initialSizes.width.tab.full)
-			sizeValues.left.tab =
-				(initialSizes.left.tab / initialSizes.width.tab.full) * initialSizes.tab
+			sizeValues.left.tab = (initialSizes.left.tab / initialSizes.width.tab.full) * initialSizes.tab
 
 			sizeValues.ratio.mob = initialSizes.height.mob.img / initialSizes.width.mob.img
 			sizeValues.width.mob = initialSizes.mob
-			sizeValues.width.mobImg =
-				initialSizes.mob * (initialSizes.width.mob.img / initialSizes.width.mob.full)
-			sizeValues.height.mob =
-				initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full)
+			sizeValues.width.mobImg = initialSizes.mob * (initialSizes.width.mob.img / initialSizes.width.mob.full)
+			sizeValues.height.mob = initialSizes.mob * (initialSizes.height.mob.full / initialSizes.width.mob.full)
 			sizeValues.top.mob =
 				(initialSizes.top.mob / initialSizes.height.mob.full) *
 				initialSizes.mob *
 				(initialSizes.height.mob.full / initialSizes.width.mob.full)
-			sizeValues.left.mob =
-				(initialSizes.left.mob / initialSizes.width.mob.full) * initialSizes.mob
+			sizeValues.left.mob = (initialSizes.left.mob / initialSizes.width.mob.full) * initialSizes.mob
 
 			sizeValues.width.desk += 'px'
 			sizeValues.width.tab += 'px'
@@ -219,29 +198,20 @@ const Sites = ({ data, siteList }) => {
 							<Frame>
 								<FrameDesktop />
 							</Frame>
-							<Img
-								fluid={images[desktop]}
-								alt={'Desktop screenshot of ' + item.name}
-							/>
+							<Img fluid={images[desktop]} alt={'Desktop screenshot of ' + item.name} />
 						</Desktop>
 						<Tablet>
 							<Frame>
 								<FrameTablet />
 							</Frame>
-							<Img
-								fluid={images[tablet]}
-								alt={'Desktop screenshot of ' + item.name}
-							/>
+							<Img fluid={images[tablet]} alt={'Desktop screenshot of ' + item.name} />
 						</Tablet>
 						{item.mobile && (
 							<Mobile>
 								<Frame>
 									<FrameMobile />
 								</Frame>
-								<Img
-									fluid={images[mobile]}
-									alt={'Desktop screenshot of ' + item.name}
-								/>
+								<Img fluid={images[mobile]} alt={'Desktop screenshot of ' + item.name} />
 							</Mobile>
 						)}
 					</Mocks>
@@ -256,12 +226,7 @@ const Sites = ({ data, siteList }) => {
 						</SiteURL>
 					)}
 					{item.github && (
-						<a
-							aria-label="Link to Github Repository"
-							href={item.github}
-							target="_blank"
-							rel="nofollow"
-						>
+						<a aria-label="Link to Github Repository" href={item.github} target="_blank" rel="nofollow">
 							{<GitHub />}
 						</a>
 					)}
@@ -275,9 +240,7 @@ const Sites = ({ data, siteList }) => {
 
 export const query = graphql`
 	query {
-		allFile(
-			filter: { extension: { regex: "/(png)/" }, relativeDirectory: { eq: "portfolio" } }
-		) {
+		allFile(filter: { extension: { regex: "/(png)/" }, relativeDirectory: { eq: "portfolio" } }) {
 			edges {
 				node {
 					name

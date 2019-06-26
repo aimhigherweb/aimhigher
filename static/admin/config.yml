@@ -15,10 +15,10 @@ collections:
           - { name: templateKey, label: Template Key, widget: hidden, default: client }
           - { name: title, label: Title }
           - { name: logo, label: Logo, widget: string }
-          - { name: logoOri, label: Portrait Logo, widget: boolean }
+          - { name: logoOri, label: Portrait Logo, widget: boolean, required: false }
           - { name: domain, label: Domain, widget: string }
-          - { name: live, label: Live Website?, widget: boolean }
-          - { name: https, label: Secure Website?, widget: boolean }
+          - { name: live, label: Live Website?, widget: boolean, required: false }
+          - { name: https, label: Secure Website?, widget: boolean, required: false }
           - name: colours
             label: Colours
             widget: list

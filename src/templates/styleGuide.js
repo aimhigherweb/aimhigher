@@ -10,6 +10,7 @@ import Globals from '../components/style-guide/fonts'
 
 class StyleGuide extends React.Component {
 	render() {
+		console.log(this.props.pageContext)
 		const { data } = this.props,
 			clientInfo = data.markdownRemark.frontmatter,
 			meta = {
@@ -101,7 +102,6 @@ export const pageQuery = graphql`
 						}
 					}
 				}
-				logoOri
 				logoType
 				domain
 				live
