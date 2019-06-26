@@ -280,7 +280,7 @@ const ColourSet = ({ set, group }) => {
 
 export const Typography = ({ logo, ori, type, theme, clientName }) => {
 	let ClientLogo = logo ? logo : Logo,
-		logoOri = ori ? oro : 'landscape',
+		logoOri = ori ? ori : 'landscape',
 		logoType = type ? type : 'svg'
 
 	if (logo && !logo.childImageSharp) {
