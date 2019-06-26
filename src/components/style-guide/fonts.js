@@ -71,14 +71,14 @@ const Globals = createGlobalStyle`
         font-family: 'Hypatia Sans Pro';
         font-style: normal;
         font-weight: 400;
-        src: url('/fonts/clients/see-me-after-HypatiaSansPro-Regular.otf') format('truetype');
+        src: url('/fonts/clients/see-me-after-HypatiaSansPro-Regular.otf') format('opentype');
     }
 
     @font-face {
         font-family: 'Hypatia Sans Pro';
         font-style: normal;
         font-weight: 700;
-        src: url('/fonts/clients/see-me-after-HypatiaSansPro-Bold.otf') format('truetype');
+        src: url('/fonts/clients/see-me-after-HypatiaSansPro-Bold.otf') format('opentype');
     }
 
     @font-face {
@@ -227,6 +227,35 @@ const Globals = createGlobalStyle`
         font-style: italic;
         font-weight: 700;
         src: url('/fonts/clients/black-box-cakery-Cabin-BoldItalic.ttf') format('truetype');
+    }
+
+    //Ming Johanson
+    @font-face {
+        font-family: 'Arno Pro';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/clients/ming-johanson-ArnoPro-Regular.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'Arno Pro';
+        font-style: italic;
+        font-weight: 400;
+        src: url('/fonts/clients/ming-johanson-ArnoPro-Italic.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'Arno Pro';
+        font-style: normal;
+        font-weight: 700;
+        src: url('/fonts/clients/ming-johanson-ArnoPro-Bold.otf') format('opentype');
+    }
+
+    @font-face {
+        font-family: 'Arno Pro';
+        font-style: italic;
+        font-weight: 700;
+        src: url('/fonts/clients/ming-johanson-ArnoPro-BoldItalic.otf') format('opentype');
     }
 `
 

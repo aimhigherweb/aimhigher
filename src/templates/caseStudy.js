@@ -34,9 +34,9 @@ const CaseStudy = ({ data }) => {
 		},
 	}
 
-	allImages.forEach(image => {
-		if()
-	})
+	// allImages.forEach(image => {
+	// 	if()
+	// })
 
 	return (
 		<Layout meta={meta} wave>
