@@ -19,6 +19,7 @@ collections:
           - { name: domain, label: Domain, widget: string }
           - { name: live, label: Live Website?, widget: boolean, required: false }
           - { name: https, label: Secure Website?, widget: boolean, required: false }
+          - { name: hideTypography, label: Hide Typography Section?, widget: boolean, required: false }
           - name: colours
             label: Colours
             widget: list

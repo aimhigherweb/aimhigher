@@ -70,7 +70,9 @@ class StyleGuide extends React.Component {
 					<Content>
 						<Head1>{clientInfo.title} Style Guide</Head1>
 						{variantFonts && variantFonts}
-						<Typography theme={theme} type={clientInfo.logoType} logo={clientInfo.logo} ori={clientInfo.logoOri} />
+						{!clientInfo.hideTypography && (
+							<Typography theme={theme} type={clientInfo.logoType} logo={clientInfo.logo} ori={clientInfo.logoOri} />
+						)}
 						<ColourSwatches theme={theme} />
 					</Content>
 				</Fragment>
@@ -106,6 +108,7 @@ export const pageQuery = graphql`
 				domain
 				live
 				https
+				hideTypography
 				colours {
 					colourNeutral
 					colourPrimary

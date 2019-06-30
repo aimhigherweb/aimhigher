@@ -6,12 +6,12 @@ logoOri: true
 domain: mingjohanson.com.au
 live: true
 https: true
+hideTypography: true
 colours:
-  - colourNeutral: '#58595C'
-    colourPrimary: '#10BDC8'
-    colourSecondary: '#92278F'
+    - colourNeutral: '#58595C'
+      colourPrimary: '#10BDC8'
+      colourSecondary: '#92278F'
 fonts:
-  - fontHeading: '''Arno Pro'', serif'
-    fontRegular: '''Arno Pro'', serif'
+    - fontHeading: "'Arno Pro', serif"
+      fontRegular: "'Arno Pro', serif"
 ---
-
