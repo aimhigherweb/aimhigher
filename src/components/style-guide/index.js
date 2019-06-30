@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import { Facebook, Instagram, Twitter } from 'react-feather'
 import calculateColours from './functions'
 import { Head1, Head2, Head3, Head4, Head5, Image } from '../layout/style'
-import { FlexBlock, Icons, Set, Swatch, TypoContent, PrimaryButton, SecondaryButton, NeutralButton } from './style.js'
+import { FlexBlock, Icons, Set, Swatch, TypoContent, PrimaryButton, SecondaryButton, NeutralButton, Colours } from './style.js'
 
 // Resources
 import Logo from '../../img/logo.svg'
@@ -53,10 +53,10 @@ export class ColourSwatches extends Component {
 		}
 
 		return (
-			<div>
-				<h3>Colours</h3>
+			<Colours>
+				<h2>Colours</h2>
 				{colSets}
-			</div>
+			</Colours>
 		)
 	}
 }
@@ -127,6 +127,7 @@ const ColourSet = ({ set, group }) => {
 			<ColourSwatch group={setGroup} cols={colMain} />
 			{colMain.hex !== '#ffffff' && <ColourGroup group={setGroup} colgroup={colGroupLight} vars="light" />}
 			{colMain.hex !== '#000000' && <ColourGroup group={setGroup} colgroup={colGroupDark} vars="dark" />}
+			<h3>{setGroup}</h3>
 		</Set>
 	)
 }

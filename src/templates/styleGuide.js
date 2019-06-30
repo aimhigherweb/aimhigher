@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { ColourSwatches, Typography } from '../components/style-guide/index.js'
+import { StyleSect } from '../components/style-guide/style'
 import { Content, Head1, Image } from '../components/layout/style'
 import { PrimaryButton } from '../components/style-guide/style'
 
@@ -70,10 +71,12 @@ class StyleGuide extends React.Component {
 					<Content>
 						<Head1>{clientInfo.title} Style Guide</Head1>
 						{variantFonts && variantFonts}
-						{!clientInfo.hideTypography && (
-							<Typography theme={theme} type={clientInfo.logoType} logo={clientInfo.logo} ori={clientInfo.logoOri} />
-						)}
-						<ColourSwatches theme={theme} />
+						<StyleSect>
+							{!clientInfo.hideTypography && (
+								<Typography theme={theme} type={clientInfo.logoType} logo={clientInfo.logo} ori={clientInfo.logoOri} />
+							)}
+							<ColourSwatches theme={theme} />
+						</StyleSect>
 					</Content>
 				</Fragment>
 			</Layout>
