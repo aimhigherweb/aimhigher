@@ -5,7 +5,24 @@ import { ThemeProvider } from 'styled-components'
 import { Facebook, Instagram, Twitter } from 'react-feather'
 import calculateColours from './functions'
 import { Head1, Head2, Head3, Head4, Head5, Image } from '../layout/style'
-import { FlexBlock, Icons, Set, Swatch, TypoContent, PrimaryButton, SecondaryButton, NeutralButton, Colours } from './style.js'
+import {
+	Fonts,
+	Headings,
+	Typo,
+	Buttons,
+	Links,
+	Images,
+	Forms,
+	FlexBlock,
+	Icons,
+	Set,
+	Swatch,
+	TypoContent,
+	PrimaryButton,
+	SecondaryButton,
+	NeutralButton,
+	Colours,
+} from './style.js'
 
 // Resources
 import Logo from '../../img/logo.svg'
@@ -146,37 +163,26 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<TypoContent>
-				<FlexBlock med={logoOri === 'portrait' && true}>
-					<figure>
-						{logoType === 'svg' ? <ClientLogo /> : <Image fluid={logo.childImageSharp.fluid} />}
-						<figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
-					</figure>
-					<div>
-						<Head1>Heading 1</Head1>
-						<p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
-						<p>Every page should have a H1 as they're used for SEO and screen readers</p>
-						<Head2>Heading 2</Head2>
-						<p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
-						<p>
-							There will also be some content that's <strong>bold</strong>, some that's <em>italic</em> and even some that's{' '}
-							<strong>
-								<em>bold and italic</em>
-							</strong>
-							.
-						</p>
-						<Head3>Heading 3</Head3>
-						<p>
-							This is a third level heading, H3. This is the last level heading that you use on a regular basis (otherwise things can
-							look a little cluttered).
-						</p>
-						<Head4>Heading 4</Head4>
-						<Head5>Heading 5</Head5>
-					</div>
-				</FlexBlock>
-				<hr />
-				<Head4>Content Sections</Head4>
-				<FlexBlock lrg>
+			<Fragment>
+				<Fonts>HEading Regular</Fonts>
+				<Headings>
+					<Head1>Heading 1</Head1>
+					<Head2>Heading 2</Head2>
+					<Head3>Heading 3</Head3>
+					<Head4>Heading 4</Head4>
+					<Head5>Heading 5</Head5>
+				</Headings>
+				<Typo>
+					<p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
+					<p>Every page should have a H1 as they're used for SEO and screen readers</p>
+					<p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
+					<p>
+						There will also be some content that's <strong>bold</strong>, some that's <em>italic</em> and even some that's{' '}
+						<strong>
+							<em>bold and italic</em>
+						</strong>
+						.
+					</p>
 					<p>
 						This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far
 						from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
@@ -188,9 +194,7 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 					<blockquote>
 						This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
 					</blockquote>
-				</FlexBlock>
-
-				<FlexBlock sml>
+					<hr />
 					<ul>
 						<li>This</li>
 						<li>is a</li>
@@ -203,37 +207,43 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 						<li>numbered</li>
 						<li>list</li>
 					</ol>
+				</Typo>
+				<Buttons>
 					<Icons>
 						<Facebook />
 						<Twitter />
 						<Instagram />
 					</Icons>
-				</FlexBlock>
-				<div>
-					<h4>Form</h4>
-					<form>
-						<label>
-							Input Field
-							<input type="text" />
-						</label>
-						<label>
-							Checkbox
-							<input type="checkbox" />
-						</label>
-						<label>
-							Radio Button
-							<input type="radio" />
-						</label>
-						<label>
-							Text Message Field
-							<textarea />
-						</label>
-						<PrimaryButton>Primary Button</PrimaryButton>
-						<SecondaryButton>Secondary Button</SecondaryButton>
-						<NeutralButton>Neutral Button/Link</NeutralButton>
-					</form>
-				</div>
-			</TypoContent>
+					<PrimaryButton>Primary Button</PrimaryButton>
+					<SecondaryButton>Secondary Button</SecondaryButton>
+					<NeutralButton>Neutral Button/Link</NeutralButton>
+				</Buttons>
+				<Links>Links</Links>
+				<Images>
+					<figure>
+						{logoType === 'svg' ? <ClientLogo /> : <Image fluid={logo.childImageSharp.fluid} />}
+						<figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
+					</figure>
+				</Images>
+				<Forms>
+					<label>
+						Input Field
+						<input type="text" />
+					</label>
+					<label>
+						Checkbox
+						<input type="checkbox" />
+					</label>
+					<label>
+						Radio Button
+						<input type="radio" />
+					</label>
+					<label>
+						Text Message Field
+						<textarea />
+					</label>
+				</Forms>
+			</Fragment>
 		</ThemeProvider>
 	)
 }

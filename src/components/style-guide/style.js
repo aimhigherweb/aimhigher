@@ -43,62 +43,8 @@ export const Set = styled('div')`
 	}
 `
 
-export const TypoContent = styled('div')`
-	--icon-size: auto;
-
-	p {
-		font: ${props => props.theme.fonts.regular};
-	}
-
-	img {
-		max-height: 40vh;
-	}
-
-	figcaption {
-		border-left: 5px solid ${props => props.theme.colours.primary.main};
-		font: ${props => props.theme.fonts.headings};
-		font-size: 0.9em;
-		font-weight: normal;
-		padding-left: 5px;
-	}
-
-	blockquote {
-		border-right: 5px solid ${props => props.theme.colours.secondary.main};
-		font: ${props => props.theme.fonts.headings};
-		font-size: 1.2em;
-		padding-right: 10px;
-		text-align: right;
-	}
-
-	form {
-		label {
-			color: rgba(${props => props.theme.colours.primary.main}, 0.9);
-			display: block;
-			font-weight: bold;
-			margin: 0 0 15px;
-
-			input {
-				margin-left: 10px;
-			}
-		}
-
-		input {
-			background: rgba(${props => props.theme.colours.primary.light}, 0.1);
-			border: 1px solid rgba(${props => props.theme.colours.primary.dark}, 0.75);
-			padding: 5px 10px;
-		}
-
-		textarea {
-			display: block;
-			margin-top: 10px;
-			width: 100%;
-			max-width: 300px;
-		}
-	}
-`
-
 const Button = styled('button')`
-	--btn-back: rgba(${props => props.theme.colours.primary.dark}, 0.9);
+	--btn-back: var(--colourPrimary);
 	--btn-border: var(--btn-back);
 	--btn-text: #fff;
 
@@ -115,30 +61,30 @@ const Button = styled('button')`
 	&:hover,
 	&:focus {
 		--btn-back: #fff;
-		--btn-border: rgba(${props => props.theme.colours.primary.dark}, 0.9);
+		--btn-border: var(--colourPrimary);
 		--btn-text: var(--btn-border);
 	}
 `
 
 export const PrimaryButton = styled(Button)`
-	--btn-back: ${props => props.theme.colours.secondary.main};
+	--btn-back: var(--colourSecondary);
 
 	&:active,
 	&:hover,
 	&:focus {
-		--btn-border: ${props => props.theme.colours.secondary.main};
+		--btn-border: var(--colourSecondary);
 	}
 `
 
 export const SecondaryButton = styled(Button)`
 	--btn-back: #fff;
-	--btn-border: ${props => props.theme.colours.primary.main};
+	--btn-border: var(--colourPrimary);
 	--btn-text: var(--btn-border);
 
 	&:active,
 	&:hover,
 	&:focus {
-		--btn-back: ${props => props.theme.colours.primary.main};
+		--btn-back: var(--colourPrimary);
 		--btn-border: var(--btn-back);
 		--btn-text: #fff;
 	}
@@ -147,14 +93,14 @@ export const SecondaryButton = styled(Button)`
 export const NeutralButton = styled(Button)`
 	--btn-back: transparent;
 	--btn-border: transparent;
-	--btn-text: ${props => props.theme.colours.primary.main};
+	--btn-text: var(--colourPrimary);
 
 	text-decoration: underline;
 
 	&:active,
 	&:hover,
 	&:focus {
-		--btn-back: ${props => props.theme.colours.primary.main};
+		--btn-back: var(--colourPrimary);
 		--btn-text: #fff;
 
 		text-decoration: none;
@@ -163,7 +109,7 @@ export const NeutralButton = styled(Button)`
 
 export const Icons = styled('div')`
 	--icon-size: 40px;
-	--icon-colour: ${props => props.theme.colours.primary.main};
+	--icon-colour: var(--colourPrimary);
 
 	display: flex;
 
@@ -180,35 +126,31 @@ export const Icons = styled('div')`
 	}
 `
 
-export const FlexBlock = styled('div')`
-	display: flex;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	flex-wrap: ${props => props.sml && 'nowrap'};
-
-	> * {
-		flex: 1 1 auto;
-	}
-
-	@media (min-width: 40em) {
-		flex-wrap: ${props => props.med && 'nowrap'};
-	}
-
-	@media (min-width: 80em) {
-		flex-wrap: ${props => props.lrg && 'nowrap'};
-	}
-`
 export const StyleSect = styled('div')`
+	--fontRegular: ${props => props.theme.fonts.regular};
+	--fontHeadings: ${props => props.theme.fonts.headings};
+	--colourPrimary: ${props => props.theme.colours.primary.main};
+	--colourSecondary: ${props => props.theme.colours.secondary.main};
+
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(auto-fit, auto);
+	grid-template-areas:
+		'colours fonts fonts'
+		'colours heading heading'
+		'colours buttons links'
+		'typo typo typo'
+		'images images images'
+		'forms forms forms';
 `
 export const Colours = styled('div')`
-	border: 2px solid ${props => props.theme.colours.primary.main};
+	border: 2px solid var(--colourPrimary);
+	grid-area: colours;
 	padding: 0 20px 20px;
 
 	h2 {
 		background: #fff;
-		color: ${props => props.theme.colours.primary.main};
+		color: var(--colourPrimary);
 		display: inline-block;
 		font-size: 1.2em;
 		font-weight: normal;
@@ -222,4 +164,31 @@ export const Colours = styled('div')`
 	&:only-child {
 		grid-column: 1 / -1;
 	}
+`
+export const Fonts = styled('div')`
+	grid-area: fonts;
+`
+
+export const Headings = styled('div')`
+	grid-area: heading;
+`
+
+export const Typo = styled('div')`
+	grid-area: typo;
+`
+
+export const Buttons = styled('div')`
+	grid-area: buttons;
+`
+
+export const Links = styled('div')`
+	grid-area: links;
+`
+
+export const Images = styled('div')`
+	grid-area: images;
+`
+
+export const Forms = styled('form')`
+	grid-area: forms;
 `

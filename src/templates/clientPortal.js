@@ -12,13 +12,14 @@ class ClientPortal extends React.Component {
 			meta = {
 				name: clientInfo.title + ' Client Info | ' + data.site.title,
 				description: "All the links you'll need for your website and documentation",
-				slug: data.markdownRemark.fields.slug,
+				slug: `/clients/${data.markdownRemark.fields.slug}`,
 			}
 
 		return (
 			<Layout meta={meta}>
 				<Content>
 					<Head1>{clientInfo.title}</Head1>
+					<Link to={`${meta.slug}/style-guide`}>Style Guide</Link>
 					{clientDocs && (
 						<Fragment>
 							<Head2>Documentation</Head2>

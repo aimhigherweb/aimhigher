@@ -11,13 +11,12 @@ import Globals from '../components/style-guide/fonts'
 
 class StyleGuide extends React.Component {
 	render() {
-		console.log(this.props.pageContext)
 		const { data } = this.props,
 			clientInfo = data.markdownRemark.frontmatter,
 			meta = {
-				name: clientInfo.title + ' Style Guide | ' + data.site.title,
+				name: `${clientInfo.title} Style Guide | ${data.site.siteMetadata.title}`,
 				description: 'Want to know more about the style guides we make?',
-				slug: 'style-guide',
+				slug: this.props.location.pathname,
 			},
 			fonts = clientInfo.fonts[0]
 		let theme = {
@@ -72,10 +71,10 @@ class StyleGuide extends React.Component {
 						<Head1>{clientInfo.title} Style Guide</Head1>
 						{variantFonts && variantFonts}
 						<StyleSect>
+							<ColourSwatches theme={theme} />
 							{!clientInfo.hideTypography && (
 								<Typography theme={theme} type={clientInfo.logoType} logo={clientInfo.logo} ori={clientInfo.logoOri} />
 							)}
-							<ColourSwatches theme={theme} />
 						</StyleSect>
 					</Content>
 				</Fragment>
