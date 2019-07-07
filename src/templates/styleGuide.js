@@ -18,7 +18,6 @@ const StyleGuide = ({ data }) => {
 		},
 		[fonts, setFonts] = useState(clientInfo.fonts[0]),
 		toggleFonts = font => {
-			console.log(font)
 			setFonts(font)
 		}
 
@@ -61,8 +60,6 @@ const StyleGuide = ({ data }) => {
 			regular: fonts.fontRegular.substring(0, fonts.fontRegular.indexOf(',')).replace(/'/g, ''),
 		}
 
-	console.log(colours)
-
 	if (variantFonts) {
 		let variants = [],
 			j = -1
@@ -90,7 +87,14 @@ const StyleGuide = ({ data }) => {
 				<Globals />
 				<Content>
 					<Head1>{clientInfo.title} Style Guide</Head1>
-					{variantFonts && <Variants>{variantFonts}</Variants>}
+					{variantFonts && (
+						<Variants>
+							<label>
+								There are a few different options for fonts, toggle through the options below and see which one works best for you
+							</label>
+							{variantFonts}
+						</Variants>
+					)}
 					<StyleSect style={variables}>
 						<ColourSwatches theme={theme} />
 						{!clientInfo.hideTypography && (

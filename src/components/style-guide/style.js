@@ -14,7 +14,7 @@ export const Swatch = styled('div')`
 	position: relative;
 
 	p {
-		font-size: 1em;
+		font-size: 0.7em;
 	}
 
 	@media (min-width: 50em) {
@@ -132,7 +132,7 @@ export const Variants = styled('div')`
 	flex-wrap: wrap;
 	margin-bottom: 30px;
 
-	label {
+	label:not(:first-child) {
 		--btn-back: transparent;
 		--btn-border: ${props => props.theme.colours.neutral.main};
 		--btn-text: ${props => props.theme.colours.neutral.main};
