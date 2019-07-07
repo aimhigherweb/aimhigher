@@ -41,7 +41,7 @@ export const Set = styled('div')`
 `
 
 const Button = styled('button')`
-	--btn-back: var(--colourPrimary);
+	--btn-back: var(--colour-primary);
 	--btn-border: var(--btn-back);
 	--btn-text: #fff;
 
@@ -50,7 +50,7 @@ const Button = styled('button')`
 	color: var(--btn-text);
 	cursor: pointer;
 	display: inline-block;
-	font: var(--fontRegular);
+	font: var(--font-regular);
 	font-size: 1.1em;
 	margin: 10px;
 	padding: 5px 15px;
@@ -59,30 +59,30 @@ const Button = styled('button')`
 	&:hover,
 	&:focus {
 		--btn-back: #fff;
-		--btn-border: var(--colourPrimary);
+		--btn-border: var(--colour-primary);
 		--btn-text: var(--btn-border);
 	}
 `
 
 export const PrimaryButton = styled(Button)`
-	--btn-back: var(--colourSecondary);
+	--btn-back: var(--colour-secondary);
 
 	&:active,
 	&:hover,
 	&:focus {
-		--btn-border: var(--colourSecondary);
+		--btn-border: var(--colour-secondary);
 	}
 `
 
 export const SecondaryButton = styled(Button)`
 	--btn-back: #fff;
-	--btn-border: var(--colourPrimary);
+	--btn-border: var(--colour-primary);
 	--btn-text: var(--btn-border);
 
 	&:active,
 	&:hover,
 	&:focus {
-		--btn-back: var(--colourPrimary);
+		--btn-back: var(--colour-primary);
 		--btn-border: var(--btn-back);
 		--btn-text: #fff;
 	}
@@ -91,14 +91,14 @@ export const SecondaryButton = styled(Button)`
 export const NeutralButton = styled(Button)`
 	--btn-back: transparent;
 	--btn-border: transparent;
-	--btn-text: var(--colourPrimary);
+	--btn-text: var(--colour-primary);
 
 	text-decoration: underline;
 
 	&:active,
 	&:hover,
 	&:focus {
-		--btn-back: var(--colourPrimary);
+		--btn-back: var(--colour-primary);
 		--btn-text: #fff;
 
 		text-decoration: none;
@@ -107,7 +107,7 @@ export const NeutralButton = styled(Button)`
 
 export const Icons = styled('div')`
 	--icon-size: 40px;
-	--icon-colour: var(--colourPrimary);
+	--icon-colour: var(--colour-primary);
 
 	display: flex;
 
@@ -166,7 +166,7 @@ export const Variants = styled('div')`
 
 export const StyleSect = styled('div')`
 	display: grid;
-	font: var(--fontRegular);
+	font: var(--font-regular);
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(auto-fit, auto);
 	grid-template-areas:
@@ -180,9 +180,9 @@ export const StyleSect = styled('div')`
 
 export const StyleHead = styled('h2')`
 	background: #fff;
-	color: var(--colourPrimary);
+	color: var(--colour-primary);
 	display: inline-block;
-	font: var(--fontHeadings);
+	font: var(--font-headings);
 	font-size: 1.2em;
 	font-weight: normal;
 	margin: 0 auto;
@@ -193,7 +193,7 @@ export const StyleHead = styled('h2')`
 `
 
 export const Colours = styled('div')`
-	border: 2px solid var(--colourPrimary);
+	border: 2px solid var(--colour-primary);
 	grid-area: colours;
 	padding: 0 20px 20px;
 
@@ -202,7 +202,7 @@ export const Colours = styled('div')`
 	}
 `
 export const Fonts = styled('div')`
-	border: 2px solid var(--colourPrimary);
+	border: 2px solid var(--colour-primary);
 	border-left: none;
 	grid-area: fonts;
 	padding: 0 20px 20px;
@@ -211,12 +211,12 @@ export const Fonts = styled('div')`
 		margin: 20px 0;
 
 		&:first-of-type {
-			font: var(--fontHeadings);
+			font: var(--font-headings);
 			font-size: 1em;
 		}
 
 		&:nth-of-type(2) {
-			font: var(--fontRegular);
+			font: var(--font-regular);
 		}
 
 		p {
@@ -233,10 +233,10 @@ export const Fonts = styled('div')`
 `
 
 export const Headings = styled('div')`
-	border: 2px solid var(--colourPrimary);
+	border: 2px solid var(--colour-primary);
 	border-left: none;
 	border-top: none;
-	font: var(--fontHeadings);
+	font: var(--font-headings);
 	font-size: 1em;
 	grid-area: heading;
 	padding: 0 20px 20px;
@@ -246,29 +246,29 @@ export const Headings = styled('div')`
 	}
 
 	h1 {
-		color: var(--colourPrimary);
+		color: var(--colour-primary);
 		text-align: left;
 	}
 
 	h2 {
-		color: var(--colourPrimaryDark90);
+		color: var(--colour-primary-dark-90);
 	}
 
 	h2 {
-		color: var(--colourPrimaryDark90);
+		color: var(--colour-primary-dark-90);
 		font-weight: normal;
 	}
 
 	h3,
 	h4,
 	h5 {
-		color: var(--colourPrimaryDark50);
+		color: var(--colour-primary-dark-50);
 		font-weight: normal;
 	}
 `
 
 export const Buttons = styled('div')`
-	border: 2px solid var(--colourPrimary);
+	border: 2px solid var(--colour-primary);
 	border-left: none;
 	border-top: none;
 	grid-area: buttons;
@@ -276,7 +276,7 @@ export const Buttons = styled('div')`
 `
 
 export const Links = styled('div')`
-	border: 2px solid var(--colourPrimary);
+	border: 2px solid var(--colour-primary);
 	border-left: none;
 	border-top: none;
 	grid-area: links;
@@ -284,21 +284,21 @@ export const Links = styled('div')`
 `
 
 export const Typo = styled('div')`
-	border: 2px solid var(--colourPrimary);
+	border: 2px solid var(--colour-primary);
 	border-top: none;
 	grid-area: typo;
 	padding: 0 20px 20px;
 `
 
 export const Images = styled('div')`
-	border: 2px solid var(--colourPrimary);
+	border: 2px solid var(--colour-primary);
 	border-top: none;
 	grid-area: images;
 	padding: 0 20px 20px;
 `
 
 export const Forms = styled('form')`
-	border: 2px solid var(--colourPrimary);
+	border: 2px solid var(--colour-primary);
 	border-top: none;
 	grid-area: forms;
 	padding: 0 20px 20px;
