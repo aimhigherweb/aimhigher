@@ -10,9 +10,6 @@ module.exports = {
 			resolve: `gatsby-plugin-styled-components`,
 			options: {
 				displayName: true,
-				cssLoaderOptions: {
-					camelCase: 'asIs',
-				},
 			},
 		},
 		{
