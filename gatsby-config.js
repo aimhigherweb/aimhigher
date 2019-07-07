@@ -11,7 +11,7 @@ module.exports = {
 			options: {
 				displayName: true,
 				cssLoaderOptions: {
-					camelCase: asIs,
+					camelCase: 'asIs',
 				},
 			},
 		},
