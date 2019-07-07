@@ -27,9 +27,6 @@ export const Swatch = styled('div')`
 `
 
 export const Set = styled('div')`
-	--min: 60px;
-	--max: 1fr;
-
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 100px;
