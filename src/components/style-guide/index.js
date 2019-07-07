@@ -16,6 +16,7 @@ import {
 	FlexBlock,
 	Icons,
 	Set,
+	StyleHead,
 	Swatch,
 	TypoContent,
 	PrimaryButton,
@@ -71,7 +72,7 @@ export class ColourSwatches extends Component {
 
 		return (
 			<Colours>
-				<h2>Colours</h2>
+				<StyleHead>Colours</StyleHead>
 				{colSets}
 			</Colours>
 		)
@@ -149,7 +150,7 @@ const ColourSet = ({ set, group }) => {
 	)
 }
 
-export const Typography = ({ logo, ori, type, theme, clientName }) => {
+export const Typography = ({ logo, ori, type, theme, clientName, fonts }) => {
 	let ClientLogo = logo ? logo : Logo,
 		logoOri = ori ? ori : 'landscape',
 		logoType = type ? type : 'svg'
@@ -162,88 +163,103 @@ export const Typography = ({ logo, ori, type, theme, clientName }) => {
 	}
 
 	return (
-		<ThemeProvider theme={theme}>
-			<Fragment>
-				<Fonts>HEading Regular</Fonts>
-				<Headings>
-					<Head1>Heading 1</Head1>
-					<Head2>Heading 2</Head2>
-					<Head3>Heading 3</Head3>
-					<Head4>Heading 4</Head4>
-					<Head5>Heading 5</Head5>
-				</Headings>
-				<Typo>
-					<p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
-					<p>Every page should have a H1 as they're used for SEO and screen readers</p>
-					<p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
-					<p>
-						There will also be some content that's <strong>bold</strong>, some that's <em>italic</em> and even some that's{' '}
-						<strong>
-							<em>bold and italic</em>
-						</strong>
-						.
-					</p>
-					<p>
-						This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far
-						from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
-						coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the
-						necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the
-						all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of
-						blind text by the name of Lorem Ipsum decided to
-					</p>
-					<blockquote>
-						This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
-					</blockquote>
-					<hr />
-					<ul>
-						<li>This</li>
-						<li>is a</li>
-						<li>bulleted</li>
-						<li>list</li>
-					</ul>
-					<ol>
-						<li>This</li>
-						<li>is a</li>
-						<li>numbered</li>
-						<li>list</li>
-					</ol>
-				</Typo>
-				<Buttons>
-					<Icons>
-						<Facebook />
-						<Twitter />
-						<Instagram />
-					</Icons>
-					<PrimaryButton>Primary Button</PrimaryButton>
-					<SecondaryButton>Secondary Button</SecondaryButton>
-					<NeutralButton>Neutral Button/Link</NeutralButton>
-				</Buttons>
-				<Links>Links</Links>
-				<Images>
-					<figure>
-						{logoType === 'svg' ? <ClientLogo /> : <Image fluid={logo.childImageSharp.fluid} />}
-						<figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
-					</figure>
-				</Images>
-				<Forms>
-					<label>
-						Input Field
-						<input type="text" />
-					</label>
-					<label>
-						Checkbox
-						<input type="checkbox" />
-					</label>
-					<label>
-						Radio Button
-						<input type="radio" />
-					</label>
-					<label>
-						Text Message Field
-						<textarea />
-					</label>
-				</Forms>
-			</Fragment>
-		</ThemeProvider>
+		<Fragment>
+			<Fonts>
+				<StyleHead>Fonts</StyleHead>
+				<div>
+					<p>{clientName}</p>
+					<p>{fonts.heading}</p>
+				</div>
+				<div>
+					<p>{clientName}</p>
+					<p>{fonts.regular}</p>
+				</div>
+			</Fonts>
+			<Headings>
+				<StyleHead>Headings</StyleHead>
+				<Head1>Heading 1</Head1>
+				<Head2>Heading 2</Head2>
+				<Head3>Heading 3</Head3>
+				<Head4>Heading 4</Head4>
+				<Head5>Heading 5</Head5>
+			</Headings>
+			<Typo>
+				<StyleHead>Typography</StyleHead>
+				<p>Traditionally, you'll only see one Heading 1 per page. It's the main page title, the name of the page.</p>
+				<p>Every page should have a H1 as they're used for SEO and screen readers</p>
+				<p>Heading 2 helps to define the other sections within the page so you can have multiple H2's within a page</p>
+				<p>
+					There will also be some content that's <strong>bold</strong>, some that's <em>italic</em> and even some that's{' '}
+					<strong>
+						<em>bold and italic</em>
+					</strong>
+					.
+				</p>
+				<p>
+					This is a paragraph. This is how most of your content will look on your website. Far far away, behind the word mountains, far from
+					the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+					Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+					It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no
+					control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem
+					Ipsum decided to
+				</p>
+				<blockquote>
+					This is a blockquote. These are often used to show breakout text, like you should see with a quote in a newspaper or magazine.
+				</blockquote>
+				<hr />
+				<ul>
+					<li>This</li>
+					<li>is a</li>
+					<li>bulleted</li>
+					<li>list</li>
+				</ul>
+				<ol>
+					<li>This</li>
+					<li>is a</li>
+					<li>numbered</li>
+					<li>list</li>
+				</ol>
+			</Typo>
+			<Buttons>
+				<StyleHead>Buttons</StyleHead>
+				<PrimaryButton>Primary Button</PrimaryButton>
+				<SecondaryButton>Secondary Button</SecondaryButton>
+				<NeutralButton>Neutral Button</NeutralButton>
+			</Buttons>
+			<Links>
+				<StyleHead>Icons</StyleHead>
+				<Icons>
+					<Facebook />
+					<Twitter />
+					<Instagram />
+				</Icons>
+			</Links>
+			<Images>
+				<StyleHead>Images</StyleHead>
+				<figure>
+					{logoType === 'svg' ? <ClientLogo /> : <Image fluid={logo.childImageSharp.fluid} />}
+					<figcaption>This is what an image caption will look like, not all images will have captions though.</figcaption>
+				</figure>
+			</Images>
+			<Forms>
+				<StyleHead>Forms</StyleHead>
+				<label>
+					Input Field
+					<input type="text" />
+				</label>
+				<label>
+					Checkbox
+					<input type="checkbox" />
+				</label>
+				<label>
+					Radio Button
+					<input type="radio" />
+				</label>
+				<label>
+					Text Message Field
+					<textarea />
+				</label>
+			</Forms>
+		</Fragment>
 	)
 }

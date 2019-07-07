@@ -53,6 +53,7 @@ const Button = styled('button')`
 	color: var(--btn-text);
 	cursor: pointer;
 	display: inline-block;
+	font: var(--fontRegular);
 	font-size: 1.1em;
 	margin: 10px;
 	padding: 5px 15px;
@@ -126,13 +127,49 @@ export const Icons = styled('div')`
 	}
 `
 
-export const StyleSect = styled('div')`
-	--fontRegular: ${props => props.theme.fonts.regular};
-	--fontHeadings: ${props => props.theme.fonts.headings};
-	--colourPrimary: ${props => props.theme.colours.primary.main};
-	--colourSecondary: ${props => props.theme.colours.secondary.main};
+export const Variants = styled('div')`
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
 
+	label {
+		--btn-back: transparent;
+		--btn-border: ${props => props.theme.colours.neutral.main};
+		--btn-text: ${props => props.theme.colours.neutral.main};
+
+		border: 2px solid var(--btn-border);
+		background: var(--btn-back);
+		color: var(--btn-text);
+		margin: 5px;
+		padding: 5px 10px;
+
+		&:active,
+		&:hover,
+		&:focus {
+			--btn-back: ${props => props.theme.colours.primary.main};
+			--btn-border: ${props => props.theme.colours.primary.main};
+			--btn-text: #fff;
+		}
+	}
+
+	input {
+		display: none;
+	}
+
+	input:checked + label {
+		--btn-back: ${props => props.theme.colours.secondary.main};
+		--btn-border: ${props => props.theme.colours.secondary.main};
+		--btn-text: #fff;
+	}
+
+	span {
+		font-family: var(--font);
+	}
+`
+
+export const StyleSect = styled('div')`
 	display: grid;
+	font: var(--fontRegular);
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(auto-fit, auto);
 	grid-template-areas:
@@ -143,52 +180,129 @@ export const StyleSect = styled('div')`
 		'images images images'
 		'forms forms forms';
 `
+
+export const StyleHead = styled('h2')`
+	background: #fff;
+	color: var(--colourPrimary);
+	display: inline-block;
+	font: var(--fontHeadings);
+	font-size: 1.2em;
+	font-weight: normal;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+	top: -0.7em;
+	text-transform: lowercase;
+`
+
 export const Colours = styled('div')`
 	border: 2px solid var(--colourPrimary);
 	grid-area: colours;
 	padding: 0 20px 20px;
-
-	h2 {
-		background: #fff;
-		color: var(--colourPrimary);
-		display: inline-block;
-		font-size: 1.2em;
-		font-weight: normal;
-		margin: 0 auto;
-		padding: 0 10px;
-		position: relative;
-		top: -0.7em;
-		text-transform: lowercase;
-	}
 
 	&:only-child {
 		grid-column: 1 / -1;
 	}
 `
 export const Fonts = styled('div')`
+	border: 2px solid var(--colourPrimary);
+	border-left: none;
 	grid-area: fonts;
+	padding: 0 20px 20px;
+
+	div {
+		margin: 20px 0;
+
+		&:first-of-type {
+			font: var(--fontHeadings);
+			font-size: 1em;
+		}
+
+		&:nth-of-type(2) {
+			font: var(--fontRegular);
+		}
+
+		p {
+			font-size: 0.8em;
+			line-height: 1;
+			font-weight: normal;
+
+			&:first-child {
+				font-size: 2em;
+				margin: 0;
+			}
+		}
+	}
 `
 
 export const Headings = styled('div')`
+	border: 2px solid var(--colourPrimary);
+	border-left: none;
+	border-top: none;
+	font: var(--fontHeadings);
+	font-size: 1em;
 	grid-area: heading;
-`
+	padding: 0 20px 20px;
 
-export const Typo = styled('div')`
-	grid-area: typo;
+	*:not(:first-child) {
+		font-family: inherit;
+	}
+
+	h1 {
+		color: var(--colourPrimary);
+		text-align: left;
+	}
+
+	h2 {
+		color: var(--colourPrimaryDark90);
+	}
+
+	h2 {
+		color: var(--colourPrimaryDark90);
+		font-weight: normal;
+	}
+
+	h3,
+	h4,
+	h5 {
+		color: var(--colourPrimaryDark50);
+		font-weight: normal;
+	}
 `
 
 export const Buttons = styled('div')`
+	border: 2px solid var(--colourPrimary);
+	border-left: none;
+	border-top: none;
 	grid-area: buttons;
+	padding: 0 20px 20px;
 `
 
 export const Links = styled('div')`
+	border: 2px solid var(--colourPrimary);
+	border-left: none;
+	border-top: none;
 	grid-area: links;
+	padding: 0 20px 20px;
+`
+
+export const Typo = styled('div')`
+	border: 2px solid var(--colourPrimary);
+	border-top: none;
+	grid-area: typo;
+	padding: 0 20px 20px;
 `
 
 export const Images = styled('div')`
+	border: 2px solid var(--colourPrimary);
+	border-top: none;
 	grid-area: images;
+	padding: 0 20px 20px;
 `
 
 export const Forms = styled('form')`
+	border: 2px solid var(--colourPrimary);
+	border-top: none;
 	grid-area: forms;
+	padding: 0 20px 20px;
 `
