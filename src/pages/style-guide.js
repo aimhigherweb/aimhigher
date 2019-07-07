@@ -15,13 +15,13 @@ const meta = {
 const StyleGuide = () => {
 	console.log(aimhigherTheme)
 	let variables = {
-			'--fontRegular': aimhigherTheme.fonts.regular,
-			'--fontHeadings': aimhigherTheme.fonts.headings,
-			'--colourPrimary': aimhigherTheme.colours.primary.main,
-			'--colourPrimaryDark90': aimhigherTheme.colours.primary.dark[90],
-			'--colourPrimaryDark50': aimhigherTheme.colours.primary.dark[50],
-			'--colourSecondary': aimhigherTheme.colours.secondary.main,
-			'--colourNeutral': aimhigherTheme.colours.neutral.main,
+			'--font-regular': aimhigherTheme.fonts.regular,
+			'--font-headings': aimhigherTheme.fonts.headings,
+			'--colour-primary': aimhigherTheme.colours.primary.main,
+			'--colour-primary-dark-90': aimhigherTheme.colours.primary.dark[90],
+			'--colour-primary-dark-50': aimhigherTheme.colours.primary.dark[50],
+			'--colour-secondary': aimhigherTheme.colours.secondary.main,
+			'--colour-neutral': aimhigherTheme.colours.neutral.main,
 		},
 		fontNames = {
 			heading: 'Space Mono',
