@@ -14,7 +14,7 @@ collections:
       fields:
           - { name: templateKey, label: Template Key, widget: hidden, default: client }
           - { name: title, label: Title }
-          - { name: logo, label: Logo, widget: string, required: false }
+          - { name: logo, label: Logo, widget: image, multiple: false, required: false }
           - { name: logoOri, label: Portrait Logo, widget: boolean, required: false }
           - { name: domain, label: Domain, widget: string }
           - { name: live, label: Live Website?, widget: boolean, required: false }
