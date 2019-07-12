@@ -5,6 +5,35 @@ module.exports = {
 		siteUrl: 'https://aimhigherweb.design/',
 	},
 	plugins: [
+		'gatsby-plugin-sharp',
+		'gatsby-transformer-sharp',
+		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [
+					`gatsby-remark-relative-images`,
+					{
+						resolve: `@raae/gatsby-remark-oembed`,
+					},
+					`gatsby-remark-figure-caption`,
+					'gatsby-remark-copy-linked-files',
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							showCaptions: true,
+							maxWidth: 800,
+							widthWebp: true,
+						},
+					},
+					{
+						resolve: `gatsby-remark-prettier`,
+						options: {
+							usePrettierrc: true,
+						},
+					},
+				],
+			},
+		},
 		'gatsby-plugin-react-helmet',
 		{
 			resolve: `gatsby-plugin-styled-components`,
@@ -32,8 +61,7 @@ module.exports = {
 				includeInDevelopment: true,
 			},
 		},
-		'gatsby-plugin-sharp',
-		'gatsby-transformer-sharp',
+
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -60,32 +88,6 @@ module.exports = {
 			options: {
 				path: `${__dirname}/src/docs`,
 				name: 'docs',
-			},
-		},
-		{
-			resolve: `gatsby-transformer-remark`,
-			options: {
-				plugins: [
-					{
-						resolve: `@raae/gatsby-remark-oembed`,
-					},
-					`gatsby-remark-figure-caption`,
-					'gatsby-remark-copy-linked-files',
-					{
-						resolve: `gatsby-remark-images`,
-						options: {
-							showCaptions: true,
-							maxWidth: 800,
-							widthWebp: true,
-						},
-					},
-					{
-						resolve: `gatsby-remark-prettier`,
-						options: {
-							usePrettierrc: true,
-						},
-					},
-				],
 			},
 		},
 		'gatsby-plugin-netlify-cms',

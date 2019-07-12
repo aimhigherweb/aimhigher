@@ -129,15 +129,7 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
-				logo {
-					relativePath
-					childImageSharp {
-						fluid(maxHeight: 300) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-				logoType
+				logo
 				domain
 				live
 				https
@@ -157,3 +149,12 @@ export const pageQuery = graphql`
 `
 
 export default StyleGuide
+
+// {
+// 	relativePath
+// 	childImageSharp {
+// 		fluid(maxHeight: 300) {
+// 			...GatsbyImageSharpFluid
+// 		}
+// 	}
+// }

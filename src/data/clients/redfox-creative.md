@@ -1,7 +1,7 @@
 ---
 templateKey: client
 title: RedFox Creative
-logoOri: true
+logo: /src/img/cms/ming-johanson-logo.svg
 domain: redfoxcreate.com
 live: false
 https: true

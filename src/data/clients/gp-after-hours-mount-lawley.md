@@ -2,6 +2,7 @@
 templateKey: client
 title: GP After Hours - Mount Lawley
 domain: gpafterhoursmountlawley.com.au
+logo: /src/img/cms/ming-johanson-logo.svg
 live: true
 https: true
 hideTypography: true
