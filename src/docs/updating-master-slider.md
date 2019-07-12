@@ -3,8 +3,9 @@ title: Updating Master Slider
 updateDate: '2019-07-12'
 section: WordPress
 selectClient:
-  - GP After Hours - Mount Lawley
+    - GP After Hours - Mount Lawley
 ---
+
 Navigate to **Master Slider** in the side menu and click on the slider you're wanting to edit
 
 ![](/src/img/cms/inkedmaster_slide_dash_li.jpg)
@@ -34,7 +35,5 @@ You can click and drag the slides to re-order them.
 To change a slider image, in the **Background**, click the **delete** icon for the **Background** image, then click the **+** icon that appears.
 
 Choose an existing image from the **Media Library** or upload a new image. At the biggest point, the slider images will be `1200px` wide and `500px` tall so make sure the image is big enough to fit this size.
-
-
 
 Make sure you remember to click **Save Changes** at the bottom when you're done.
