@@ -9,17 +9,31 @@ import { PrimaryButton, Variants } from '../components/style-guide/style'
 import calculateColours from '../components/style-guide/functions'
 import Globals from '../components/style-guide/fonts'
 
+import { aimhigherTheme } from '../components/layout'
+
 const StyleGuide = ({ data }) => {
 	const clientInfo = data.markdownRemark.frontmatter,
+		defaultHeading = aimhigherTheme.fonts.headings,
+		defaultFont = aimhigherTheme.fonts.regular,
+		clientFonts = clientInfo.fonts
+			? clientInfo.fonts
+			: [
+					{
+						fontHeading: defaultHeading.substring(defaultHeading.indexOf('\u00027'), defaultHeading.length),
+						fontRegular: defaultFont.substring(defaultFont.indexOf('\u00027'), defaultFont.length),
+					},
+			  ],
 		meta = {
 			name: `${clientInfo.title} Style Guide | ${data.site.siteMetadata.title}`,
 			description: 'Want to know more about the style guides we make?',
 			slug: `/clients/${data.markdownRemark.fields.slug}/style-guide`,
 		},
-		[fonts, setFonts] = useState(clientInfo.fonts[0]),
+		[fonts, setFonts] = useState(clientFonts[0]),
 		toggleFonts = font => {
 			setFonts(font)
 		}
+
+	console.log(clientFonts)
 
 	let theme = {
 			colours: {
@@ -45,7 +59,7 @@ const StyleGuide = ({ data }) => {
 			secondary: theme.colours.secondary.main,
 			neutral: theme.colours.neutral.main,
 		}),
-		variantFonts = clientInfo.fonts[1] ? true : false,
+		variantFonts = clientFonts[1] ? true : false,
 		variables = {
 			'--font-regular': theme.fonts.regular,
 			'--font-headings': theme.fonts.headings,
@@ -63,8 +77,8 @@ const StyleGuide = ({ data }) => {
 	if (variantFonts) {
 		let variants = [],
 			j = -1
-		for (let i = 0; i < clientInfo.fonts.length; i++) {
-			variants[i] = clientInfo.fonts[i]
+		for (let i = 0; i < clientFonts.length; i++) {
+			variants[i] = clientFonts[i]
 		}
 		variantFonts = variants.map(font => {
 			let heading = font.fontHeading.substring(0, font.fontHeading.indexOf(',')).replace(/'/g, ''),

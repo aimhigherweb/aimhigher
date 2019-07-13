@@ -30,6 +30,7 @@ collections:
           - name: fonts
             label: Fonts
             widget: list
+            required: false
             fields:
                 - { name: fontHeading, label: Heading Font, widget: string }
                 - { name: fontRegular, label: Body Font, widget: string }
