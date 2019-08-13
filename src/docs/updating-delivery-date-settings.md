@@ -49,3 +49,19 @@ Here you can see what time slots you have coming up, this will most of the time 
 ### Delivery Charges
 
 If you'd like, you can add additional charges for certain days, eg. a surcharge for a Saturday delivery or for a public holiday.
+
+## Adding New Delivery Slots
+
+You can add a new delivery slot (eg. Saturdays) on a product or global basis.
+
+### Product Delivery Slots
+
+Navigate to **Products** -> _Select Product_ -> **Product Delivery Date** -> **Delivery Options**.
+
+![](../img/cms/new_delivery_slot.png)
+
+Fill in the details for the new delivery slot and click **Add Time Slot**, then fill in the time slot details and click **Update** for the product.
+
+Your new timeslot will now be available when the product is ordered.
+
+If you'd like to just add one particular delivery slot, you can check the **Specific Dates** box rather than **Recurring Weekdays**.
