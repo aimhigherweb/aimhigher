@@ -9,7 +9,7 @@ selectClient:
 
 ![](../img/cms/woocommerce_order_details.jpg)
 
-You can view all orders from your website in the WordPress admin dashboard, by navigating on the side menu to **WooCommerce** -> **Orders**.
+You can view all orders from your website in the WordPress admin dashboard, by navigating on the side menu to **WooCommerce** → **Orders**.
 
 ![](../img/cms/woocommerce_orders.jpg)
 

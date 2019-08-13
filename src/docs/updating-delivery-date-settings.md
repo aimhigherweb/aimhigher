@@ -6,7 +6,7 @@ selectClient:
     - Black Box Cakery
 ---
 
-You can edit the delivery date settings for your store in the WordPress Admin by navigating to **Product Delivery Date** -> **Settings** in the side navigation menu. Most of these settings should stay as-is, but there are a couple that can be changed as required.
+You can edit the delivery date settings for your store in the WordPress Admin by navigating to **Product Delivery Date** → **Settings** in the side navigation menu. Most of these settings should stay as-is, but there are a couple that can be changed as required.
 
 ## Global Delivery Settings
 
@@ -56,7 +56,7 @@ You can add a new delivery slot (eg. Saturdays) on a product or global basis.
 
 ### Product Delivery Slots
 
-Navigate to **Products** -> _Select Product_ -> **Product Delivery Date** -> **Delivery Options**.
+Navigate to **Products** → _Select Product_ → **Product Delivery Date** → **Delivery Options**.
 
 ![](../img/cms/new_delivery_slot.png)
 
