@@ -7,8 +7,7 @@ live: false
 https: true
 hideTypography: true
 colours:
-  - colourNeutral: '#58595C'
-    colourPrimary: '#414B43'
-    colourSecondary: '#A0BBAA'
+    - colourNeutral: '#1F251E'
+      colourPrimary: '#5B6B61'
+      colourSecondary: '#663878'
 ---
-
