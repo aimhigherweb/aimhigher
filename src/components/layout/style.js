@@ -245,6 +245,14 @@ export const Content = styled('div')`
 		}
 	}
 
+	.graphic {
+		display: block;
+		height: auto;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 700px;
+	}
+
 	@media (min-width: ${props => props.theme.values.screens.small}) {
 		border-radius: 30px;
 		padding: 30px;

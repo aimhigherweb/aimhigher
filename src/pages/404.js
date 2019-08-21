@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 
 import { Content, Head1 } from '../components/layout/style'
+import NotFound from '../img/notfound.svg'
 
 const meta = {
 	name: 'Page Not Found | AimHigher Web Design',
@@ -20,6 +21,7 @@ const FourOhFour = () => (
 				Whoops! Looks like that page may have moved or doesn't exist. Try going back <Link to="/">home</Link> or navigating to anther page
 				from the menu above.
 			</p>
+			<NotFound className="graphic" />
 		</Content>
 	</Layout>
 )
