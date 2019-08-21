@@ -71,7 +71,7 @@ exports.createPages = ({ actions, graphql }) => {
 				component = [templates.client, templates.clientStyle]
 				context.clientId = edge.node.frontmatter.title
 			} else if (RegExp(regexr.docs).test(filePath)) {
-				slugPath = `docs/${edge.node.frontmatter.section.replace(' ', '-').toLowerCase()}${edge.node.fields.slug}`
+				slugPath = `docs/${edge.node.frontmatter.section.replace(/\w/g, '-').toLowerCase()}${edge.node.fields.slug}`
 				component = templates.docs
 			} else {
 				return
