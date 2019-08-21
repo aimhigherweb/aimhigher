@@ -10,12 +10,12 @@ A shared mailbox is separate from your main email, but you use that account to l
 
 ## Accessing a shared mailbox online
 
--   Login to your emails at <https://outlook.office365.com>
+-   Login to your emails at <a href="https://outlook.office365.com" target="_blank">https://outlook.office365.com</a>
 -   Click on your profile image/placeholder in the top right corner of the screen and click **Open another mailbox**
 
 ![](/src/img/cms/office365-open_new_mailbox.png)
 
--   In the dialog box, enter the email for the shared mailbox you're trying to access, eg. _support@aimhigherweb.design_ and click **Open**
+-   In the dialog box, enter the email for the shared mailbox you're trying to access, eg. `support@aimhigherweb.design` and click **Open**
 
 ![](/src/img/cms/office365-new_mailbox_name.png)
 
