@@ -12,4 +12,28 @@ export const DocContent = styled(Content)`
 			max-height: unset;
 		}
 	}
+
+	table {
+		border-collapse: collapse;
+		text-align: left;
+
+		tbody {
+			tr {
+				&:nth-child(2n - 1) {
+					background: ${props => props.theme.colours.primary.light[10]};
+				}
+			}
+		}
+
+		td {
+			color: ${props => props.theme.colours.neutral.dark[75]};
+			border: 1px solid ${props => props.theme.colours.primary.light[50]};
+			padding: 5px 10px;
+		}
+
+		th {
+			color: ${props => props.theme.colours.primary.dark[50]};
+			padding: 10px 15px;
+		}
+	}
 `
