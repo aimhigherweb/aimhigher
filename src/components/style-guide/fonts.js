@@ -257,6 +257,50 @@ const Globals = createGlobalStyle`
         font-weight: 700;
         src: url('/fonts/clients/ming-johanson-ArnoPro-BoldItalic.otf') format('opentype');
     }
+
+    //How to Eat a Veggie
+
+    @font-face {
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/clients/how-to-eat-a-veggie-Nunito-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        src: url('/fonts/clients/how-to-eat-a-veggie-Nunito-Bold.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/clients/how-to-eat-a-veggie-OpenSans-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: url('/fonts/clients/how-to-eat-a-veggie-OpenSans-Bold.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: italic;
+        font-weight: 400;
+        src: url('/fonts/clients/how-to-eat-a-veggie-OpenSans-Italic.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: italic;
+        font-weight: 700;
+        src: url('/fonts/clients/how-to-eat-a-veggie-OpenSans-BoldItalic.ttf') format('truetype');
+    }
 `
 
 export default Globals
