@@ -31,7 +31,7 @@ const services = [
 		graphic: <Aftersale />,
 		description:
 			"Websites shouldn't just be 'set and forget'. We're always there for any questions that you have (except if it's 3am). We also offer customised maintenance plans to help manage your website, so you don't have to.",
-		price: '$100/month',
+		price: '$150/month',
 	},
 	{
 		name: 'Website Hosting',
