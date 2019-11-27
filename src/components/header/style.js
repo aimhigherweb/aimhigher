@@ -18,6 +18,9 @@ export const HeadCont = styled('header')`
 	--menu-colour: ${props => props.wave && '#fff'};
 	--primary: var(--menu-colour);
 	--secondary: var(--menu-colour);
+	--logo-neutral: ${props => (props.wave ? '#fff' : props.theme.colours.neutral.main)};
+	--logo-secondary: ${props => (props.wave ? '#fff' : props.theme.colours.secondary.main)};
+	--logo-gradient: ${props => (props.wave ? '#fff' : 'url("#LogoGradient")')};
 
 	@media (min-width: ${props => props.theme.values.screens.small}) {
 		flex-direction: row;

@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import Header from '../header/index.js'
 import Footer from '../footer/index.js'
 
-import Logo from '../../img/logo.png'
+import Logo from '../../img/logo.jpg'
 import Favicon from '../../img/favicon.png'
 
 import { Globals, Main, FooterCont } from './style.js'

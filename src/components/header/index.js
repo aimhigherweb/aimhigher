@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react'
 
 // Resources
 import Background from '../../img/wave.svg'
-import Logo from '../../img/logo.svg'
+import Logo from '../../img/logo_new.svg'
 
 import { HeroBack, Item, LogoArea, Nav } from './style.js'
 
