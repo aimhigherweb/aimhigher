@@ -70,8 +70,8 @@ export const aimhigherTheme = {
 	},
 	fonts: {
 		regular: 'Quicksand, Arial, sans-serif',
-		headings: "'Space Mono', monospace",
-		code: "'Space Mono', monospace",
+		headings: 'Lato, Arial, sans-serif',
+		code: "'Source Code Pro', monospace",
 	},
 	values: {
 		header: {
