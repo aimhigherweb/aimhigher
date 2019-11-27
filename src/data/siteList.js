@@ -1,5 +1,15 @@
 const siteList = [
 	{
+		name: 'Ming Johanson',
+		slug: 'ming-johanson',
+		url: 'mingjohanson.com.au',
+		date: 'October 2019',
+		mobile: true,
+		current: true,
+		secure: true,
+		live: true,
+	},
+	{
 		name: 'Black Box Cakery',
 		slug: 'black-box-cakery',
 		url: 'blackboxcakery.com.au',
@@ -18,16 +28,6 @@ const siteList = [
 		current: true,
 		secure: true,
 		github: 'https://github.com/AimHigher-Web-Design/tech-outsiders',
-	},
-	{
-		name: 'Ming Johanson',
-		slug: 'ming-johanson',
-		url: 'mingjohanson.com.au',
-		date: 'Coming Soon',
-		mobile: false,
-		current: false,
-		secure: true,
-		live: false,
 	},
 	{
 		name: 'Janne Martin',
