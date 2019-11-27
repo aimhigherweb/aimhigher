@@ -78,8 +78,11 @@ export const Globals = createGlobalStyle`
 
 	@font-face {
 		font-family: 'Quicksand';
+		font-weight: ;
+		font-style: normal;
 		src: url('./fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
 	}
+
 `
 
 export const Head1 = styled('h1')`

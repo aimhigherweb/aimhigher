@@ -6,6 +6,7 @@ export const Hero = styled('div')`
 	align-items: center;
 	justify-content: center;
 	font-family: ${props => props.theme.fonts.headings};
+	font-size: 1.5em;
 	height: 60vh;
 	position: relative;
 	top: calc(-1 * ${props => props.theme.values.header.height.small});
