@@ -13,7 +13,7 @@ export const Globals = createGlobalStyle`
 		--secondary: ${props => props.theme.colours.secondary.main};
 
 		color: ${props => props.theme.colours.neutral.main};
-		font: ${props => props.theme.fonts.regular};
+		font-family: ${props => props.theme.fonts.regular};
 		font-size: 16px;
 		line-height: 1.4;
 		min-height: 100vh;
@@ -151,37 +151,42 @@ export const Globals = createGlobalStyle`
 		font-weight: 900;
 		src: url('./fonts/Roboto-BlackItalic.ttf') format('truetype');
 	}
+
+	@font-face {
+		font-family: 'Quicksand';
+		src: url('./fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+	}
 `
 
 export const Head1 = styled('h1')`
 	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['90']};
-	font: ${props => props.theme.fonts.headings};
+	font-family: ${props => props.theme.fonts.headings};
 	font-size: 2em;
 	text-align: center;
 `
 
 export const Head2 = styled('h2')`
 	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['90']};
-	font: ${props => props.theme.fonts.headings};
+	font-family: ${props => props.theme.fonts.headings};
 	font-size: 1.6em;
 	text-align: left;
 `
 
 export const Head3 = styled('h3')`
 	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['50']};
-	font: ${props => props.theme.fonts.headings};
+	font-family: ${props => props.theme.fonts.headings};
 	font-size: 1.3em;
 `
 
 export const Head4 = styled('h4')`
 	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['50']};
-	font: ${props => props.theme.fonts.headings};
+	font-family: ${props => props.theme.fonts.headings};
 	font-size: 1.2em;
 `
 
 export const Head5 = styled('h5')`
 	color: ${props => props.theme.colours.primary.dark && props.theme.colours.primary.dark['50']};
-	font: ${props => props.theme.fonts.headings};
+	font-family: ${props => props.theme.fonts.headings};
 	font-size: 1.1em;
 `
 
@@ -296,7 +301,7 @@ export const Form = styled('form')`
 		/* background: ${props => props.theme.colours.primary.light[10]}; */
 		/* border: 1.5px solid ${props => props.theme.colours.primary.dark[75]}; */
 		box-shadow: none;
-		font: ${props => props.theme.fonts.regular};
+		font-family: ${props => props.theme.fonts.regular};
 		font-size: 1em;
 		flex-grow: 2;
 		margin: 10px 0;

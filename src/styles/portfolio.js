@@ -130,7 +130,7 @@ export const SiteURL = styled('p')`
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	font: ${props => props.theme.fonts.code};
+	font-family: ${props => props.theme.fonts.code};
 
 	a {
 		word-break: break-all;

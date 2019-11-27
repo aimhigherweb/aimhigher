@@ -69,11 +69,9 @@ export const aimhigherTheme = {
 		fail: '#b50400',
 	},
 	fonts: {
-		light: "300 1em 'Roboto', Arial, sans-serif",
-		regular: "400 1em 'Roboto', Arial, sans-serif",
-		bold: "700 1em 'Roboto', Arial, sans-serif",
-		headings: "700 1.5em 'Space Mono', monospace",
-		code: "400 1em 'Space Mono', monospace",
+		regular: 'Quicksand, Arial, sans-serif',
+		headings: "'Space Mono', monospace",
+		code: "'Space Mono', monospace",
 	},
 	values: {
 		header: {

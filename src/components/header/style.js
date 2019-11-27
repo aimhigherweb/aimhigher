@@ -130,7 +130,7 @@ export const Item = styled(Link)`
 	border-right: 3px solid var(--border);
 	border-bottom: 3px solid var(--border);
 	color: ${props => props.theme.colours.primary.dark['75']};
-	font: ${props => props.theme.fonts.headings};
+	font-family: ${props => props.theme.fonts.headings};
 	font-size: 1.2em;
 	font-weight: 700;
 	padding: 10px 30px;

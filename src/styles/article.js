@@ -4,7 +4,7 @@ export const Article = styled('article')`
 	h2,
 	h3,
 	h4 {
-		font: ${props => props.theme.fonts.headings};
+		font-family: ${props => props.theme.fonts.headings};
 	}
 
 	h3 {
@@ -27,7 +27,7 @@ export const Article = styled('article')`
 
 	blockquote {
 		border-left: 5px solid ${props => props.theme.colours.primary.main};
-		font: ${props => props.theme.fonts.headings};
+		font-family: ${props => props.theme.fonts.headings};
 		font-size: 1.2em;
 		font-weight: normal;
 		padding: 10px 20px;

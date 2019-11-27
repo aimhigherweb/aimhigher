@@ -5,7 +5,7 @@ export const Hero = styled('div')`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font: ${props => props.theme.fonts.headings};
+	font-family: ${props => props.theme.fonts.headings};
 	height: 60vh;
 	position: relative;
 	top: calc(-1 * ${props => props.theme.values.header.height.small});

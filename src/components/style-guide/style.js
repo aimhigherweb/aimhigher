@@ -50,7 +50,7 @@ const Button = styled('button')`
 	color: var(--btn-text);
 	cursor: pointer;
 	display: inline-block;
-	font: var(--font-regular);
+	font-family: var(--font-regular);
 	font-size: 1.1em;
 	margin: 10px;
 	padding: 5px 15px;
@@ -166,7 +166,7 @@ export const Variants = styled('div')`
 
 export const StyleSect = styled('div')`
 	display: grid;
-	font: var(--font-regular);
+	font-family: var(--font-regular);
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(auto-fit, auto);
 	grid-template-areas:
@@ -182,7 +182,7 @@ export const StyleHead = styled('h2')`
 	background: #fff;
 	color: var(--colour-primary);
 	display: inline-block;
-	font: var(--font-headings);
+	font-family: var(--font-headings);
 	font-size: 1.2em;
 	font-weight: normal;
 	margin: 0 auto;
@@ -211,12 +211,12 @@ export const Fonts = styled('div')`
 		margin: 20px 0;
 
 		&:first-of-type {
-			font: var(--font-headings);
+			font-family: var(--font-headings);
 			font-size: 1em;
 		}
 
 		&:nth-of-type(2) {
-			font: var(--font-regular);
+			font-family: var(--font-regular);
 		}
 
 		p {
@@ -236,7 +236,7 @@ export const Headings = styled('div')`
 	border: 2px solid var(--colour-primary);
 	border-left: none;
 	border-top: none;
-	font: var(--font-headings);
+	font-family: var(--font-headings);
 	font-size: 1em;
 	grid-area: heading;
 	padding: 0 20px 20px;
