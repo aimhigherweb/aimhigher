@@ -24,8 +24,8 @@ const StyleGuide = () => {
 			'--colour-neutral': aimhigherTheme.colours.neutral.main,
 		},
 		fontNames = {
-			heading: 'Space Mono',
-			regular: 'Roboto',
+			heading: 'Lato',
+			regular: 'Quicksand',
 		}
 	return (
 		<Layout meta={meta}>
