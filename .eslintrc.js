@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['standard', 'prettier'],
+	extends: ['standard'],
 	plugins: ['standard', 'react', 'emotion'],
 	rules: {
 		'emotion/jsx-import': 'error',
