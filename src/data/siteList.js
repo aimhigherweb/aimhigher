@@ -20,6 +20,16 @@ const siteList = [
 		github: 'https://github.com/AimHigher-Web-Design/blackboxcakery',
 	},
 	{
+		name: 'How to Eat a Veggie',
+		slug: 'how-to-eat-a-veggie',
+		url: 'howtoeataveggie.com.au',
+		date: 'Coming Soon!',
+		mobile: false,
+		current: false,
+		secure: true,
+		live: false,
+	},
+	{
 		name: 'Tech Outsiders',
 		slug: 'tech-outsiders',
 		url: 'techoutsiders.com.au',
