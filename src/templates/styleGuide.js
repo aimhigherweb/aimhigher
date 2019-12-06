@@ -48,10 +48,8 @@ const StyleGuide = ({ data }) => {
 				},
 			},
 			fonts: {
-				light: '300 1em ' + fonts.fontRegular,
-				regular: '400 1em ' + fonts.fontRegular,
-				bold: '700 1em ' + fonts.fontRegular,
-				headings: '700 1.5em ' + fonts.fontHeading,
+				regular: fonts.fontRegular,
+				headings: fonts.fontHeading,
 			},
 		},
 		colours = calculateColours({

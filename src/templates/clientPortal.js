@@ -20,7 +20,7 @@ class ClientPortal extends React.Component {
 				<Content>
 					<Head1>{clientInfo.title}</Head1>
 					<Link to={`${meta.slug}/style-guide`}>Style Guide</Link>
-					{clientDocs && (
+					{clientDocs && clientDocs.length > 0 && (
 						<Fragment>
 							<Head2>Documentation</Head2>
 							<ul>

@@ -301,6 +301,20 @@ const Globals = createGlobalStyle`
         font-weight: 700;
         src: url('/fonts/clients/how-to-eat-a-veggie-OpenSans-BoldItalic.ttf') format('truetype');
     }
+
+    @font-face {
+        font-family: 'Cedarville Cursive';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/clients/how-to-eat-a-veggie-CedarvilleCursive-Regular.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Miniver';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/clients/how-to-eat-a-veggie-Miniver-Regular.ttf') format('truetype');
+    }
 `
 
 export default Globals

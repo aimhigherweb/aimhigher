@@ -6,10 +6,10 @@ domain: howtoeataveggie.com.au
 live: false
 https: true
 colours:
-    - colourNeutral: '#1F251E'
-      colourPrimary: '#496f57'
-      colourSecondary: '#4a19b4'
+    - colourNeutral: '#171b19'
+      colourPrimary: '#5C6B63'
+      colourSecondary: '#663877'
 fonts:
-    - fontHeading: "'Nunito', Arial, sans-serif"
-      fontRegular: "'Open Sans', Arial, sans-serif"
+    - fontHeading: "'Miniver', Arial, sans-serif"
+      fontRegular: "'Nunito', Arial, sans-serif"
 ---
