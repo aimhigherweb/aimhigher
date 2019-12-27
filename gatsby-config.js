@@ -25,12 +25,6 @@ module.exports = {
 							widthWebp: true,
 						},
 					},
-					{
-						resolve: `gatsby-remark-prettier`,
-						options: {
-							usePrettierrc: true,
-						},
-					},
 				],
 			},
 		},

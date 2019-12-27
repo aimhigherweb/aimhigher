@@ -87,6 +87,7 @@ const siteList = [
 		mobile: false,
 		current: true,
 		github: false,
+		hide: true,
 	},
 	{
 		name: 'Amy Goes to Perth',
@@ -117,6 +118,7 @@ const siteList = [
 		mobile: true,
 		current: false,
 		github: false,
+		hide: true,
 	},
 	{
 		name: 'Glenrock Hay',
@@ -127,6 +129,7 @@ const siteList = [
 		mobile: true,
 		current: false,
 		github: false,
+		hide: true,
 	},
 	{
 		name: 'Covisor',
@@ -136,6 +139,7 @@ const siteList = [
 		mobile: true,
 		current: false,
 		github: false,
+		hide: true,
 	},
 	{
 		name: 'Collards Fuel Supplies',
@@ -145,6 +149,7 @@ const siteList = [
 		mobile: true,
 		current: false,
 		github: false,
+		hide: true,
 	},
 	{
 		name: "Queensland Rural, Regional & Remote Women's Network",
@@ -154,6 +159,7 @@ const siteList = [
 		mobile: false,
 		current: false,
 		github: false,
+		hide: true,
 	},
 ]
 
