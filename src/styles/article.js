@@ -44,6 +44,17 @@ export const Article = styled('article')`
 			left: calc(50vw - 50%);
 		}
 	}
+
+	.gallery {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		img {
+			height: 250px;
+			margin: 10px;
+		}
+	}
 `
 
 export const ArticleIntro = styled('div')`
