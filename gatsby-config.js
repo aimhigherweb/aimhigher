@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
 	siteMetadata: {
 		title: 'AimHigher Web Design',
@@ -11,20 +13,20 @@ module.exports = {
 			resolve: `gatsby-transformer-remark`,
 			options: {
 				plugins: [
-					`gatsby-remark-relative-images`,
+					// `gatsby-remark-relative-images`,
 					{
 						resolve: `@raae/gatsby-remark-oembed`,
 					},
-					`gatsby-remark-figure-caption`,
-					'gatsby-remark-copy-linked-files',
-					{
-						resolve: `gatsby-remark-images`,
-						options: {
-							showCaptions: true,
-							maxWidth: 800,
-							widthWebp: true,
-						},
-					},
+					// `gatsby-remark-figure-caption`,
+					// 'gatsby-remark-copy-linked-files',
+					// {
+					// 	resolve: `gatsby-remark-images`,
+					// 	options: {
+					// 		showCaptions: true,
+					// 		maxWidth: 800,
+					// 		widthWebp: true,
+					// 	},
+					// },
 				],
 			},
 		},
@@ -55,12 +57,12 @@ module.exports = {
 				includeInDevelopment: true,
 			},
 		},
-
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: `gatsby-source-contentful`,
 			options: {
-				path: `${__dirname}/src/blog/posts`,
-				name: 'markdown-pages',
+				spaceId: process.env.GATSBY_SPACE_ID,
+				accessToken: process.env.GATSBY_API_KEY,
+				downloadLocal: true,
 			},
 		},
 		{
