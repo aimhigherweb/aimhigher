@@ -9,20 +9,11 @@ import { Article, ArticleIntro, Date, ShareIcons } from '../styles/article'
 import { Facebook, Twitter } from 'react-feather'
 
 export const BlogPostTemplate = ({
-	content,
-	title,
-	slug,
-	tags,
-	publishDate,
-	updateDate,
-	siteUrl
+	content, title, slug, blog, tags, publishDate, updateDate, siteUrl
 }) => {
-	let articleLink = siteUrl + 'blog' + slug,
-		facebookLink =
-			'https://www.facebook.com/sharer/sharer.php?u=' + articleLink,
-		twitterLink =
-			'https://twitter.com/home?status=So%20%40amys_kapers%20wrote%20this%20really%20cool%20blog%20post,%20you%20should%20check%20it%20out!%20' +
-			articleLink
+	const articleLink = `${siteUrl}${slug}`,
+	facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${articleLink}`,
+	twitterLink = `https://twitter.com/home?status=So%20%40amys_kapers%20wrote%20this%20really%20cool%20blog%20post,%20you%20should%20check%20it%20out!%20${articleLink}`
 
 	const intro = (
 		<ShareIcons>
@@ -60,27 +51,21 @@ export const BlogPostTemplate = ({
 	)
 }
 
-BlogPostTemplate.propTypes = {
-	content: PropTypes.node.isRequired,
-	description: PropTypes.string,
-	title: PropTypes.string,
-}
-
 const BlogPost = ({ data }) => {
-	const { markdownRemark: post } = data,
+	const { contentfulBlogPost: post } = data,
 		blogPost = {
-			content: post.html,
-			title: post.frontmatter.title,
-			slug: post.fields.slug,
-			publishDate: post.frontmatter.publishDate,
-			updateDate: post.frontmatter.updateDate,
-			tags: post.frontmatter.tags,
+			content: post.body.childMarkdownRemark.html,
+			title: post.title,
+			slug: post.slug,
+			publishDate: post.publishDate || post.createdAt,
+			updateDate: post.updatedDate || post.publishDate || post.updatedAt,
+			tags: post.tags,
 			siteUrl: data.site.siteMetadata.siteUrl,
 		},
 		meta = {
-			name: post.frontmatter.title + ' | ' + data.site.siteMetadata.title,
-			description: post.frontmatter.description,
-			slug: data.site.siteMetadata.siteUrl + post.fields.slug,
+			name: post.title + ' | ' + data.site.siteMetadata.title,
+			description: post.description,
+			slug: data.site.siteMetadata.siteUrl + post.slug,
 		}
 
 	return (
@@ -90,12 +75,6 @@ const BlogPost = ({ data }) => {
 			</Content>
 		</Layout>
 	)
-}
-
-BlogPost.propTypes = {
-	data: PropTypes.shape({
-		markdownRemark: PropTypes.object,
-	}),
 }
 
 export default BlogPost
@@ -108,18 +87,27 @@ export const pageQuery = graphql`
 				siteUrl
 			}
 		}
-		markdownRemark(id: { eq: $id }) {
-			id
-			fields {
-				slug
-			}
-			html
-			frontmatter {
-				publishDate(formatString: "DD MMM YYYY")
-				updateDate(formatString: "DD MMM YYYY")
-				title
+		contentfulBlogPost(id: { eq: $id }) {
+			title
+			tags
+			publishDate(formatString: "DD MMM YYYY")
+			updatedAt(formatString: "DD MMM YYYY")
+			updatedDate(formatString: "DD MMM YYYY")
+			createdAt(formatString: "DD MMM YYYY")
+			slug
+			blog
+			description {
 				description
-				tags
+			}
+			body {
+				childMarkdownRemark {
+					html
+				}
+			}
+			featuredImage {
+				file {
+					url
+				}
 			}
 		}
 	}

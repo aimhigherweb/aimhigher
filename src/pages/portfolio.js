@@ -191,48 +191,52 @@ export const Sites = ({ data, siteList }) => {
 			// console.log(images[mobile])
 			// console.log(images[tablet])
 
-			return (
-				<Site key={item.slug} sizes={sizeValues}>
-					<Mocks>
-						<Desktop>
-							<Frame>
-								<FrameDesktop />
-							</Frame>
-							<Img fluid={images[desktop]} alt={'Desktop screenshot of ' + item.name} />
-						</Desktop>
-						<Tablet>
-							<Frame>
-								<FrameTablet />
-							</Frame>
-							<Img fluid={images[tablet]} alt={'Desktop screenshot of ' + item.name} />
-						</Tablet>
-						{item.mobile && (
-							<Mobile>
+			if (!item.hide) {
+				return (
+					<Site key={item.slug} sizes={sizeValues}>
+						<Mocks>
+							<Desktop>
 								<Frame>
-									<FrameMobile />
+									<FrameDesktop />
 								</Frame>
-								<Img fluid={images[mobile]} alt={'Desktop screenshot of ' + item.name} />
-							</Mobile>
+								<Img fluid={images[desktop]} alt={'Desktop screenshot of ' + item.name} />
+							</Desktop>
+							<Tablet>
+								<Frame>
+									<FrameTablet />
+								</Frame>
+								<Img fluid={images[tablet]} alt={'Desktop screenshot of ' + item.name} />
+							</Tablet>
+							{item.mobile && (
+								<Mobile>
+									<Frame>
+										<FrameMobile />
+									</Frame>
+									<Img fluid={images[mobile]} alt={'Desktop screenshot of ' + item.name} />
+								</Mobile>
+							)}
+						</Mocks>
+						<Name>{item.name}</Name>
+						{item.current && (
+							<SiteURL>
+								{item.secure && <HTTPS />}
+								<a href={'http://' + item.url} target="_blank">
+									{item.url}
+								</a>
+								{<ExternalLink />}
+							</SiteURL>
 						)}
-					</Mocks>
-					<Name>{item.name}</Name>
-					{item.current && (
-						<SiteURL>
-							{item.secure && <HTTPS />}
-							<a href={'http://' + item.url} target="_blank">
-								{item.url}
+						{item.github && (
+							<a aria-label="Link to Github Repository" href={item.github} target="_blank" rel="nofollow">
+								{<GitHub />}
 							</a>
-							{<ExternalLink />}
-						</SiteURL>
-					)}
-					{item.github && (
-						<a aria-label="Link to Github Repository" href={item.github} target="_blank" rel="nofollow">
-							{<GitHub />}
-						</a>
-					)}
-					<Date>{item.date}</Date>
-				</Site>
-			)
+						)}
+						<Date>{item.date}</Date>
+					</Site>
+				)
+			} else {
+				return
+			}
 		})
 
 	return <Folio>{portfolio}</Folio>

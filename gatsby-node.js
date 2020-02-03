@@ -1,10 +1,49 @@
+require('dotenv').config()
+
+
 const path = require('path'),
 	{ createFilePath } = require('gatsby-source-filesystem')
 
+	
 exports.createPages = ({ actions, graphql }) => {
 	const { createPage } = actions
 
 	return graphql(`
+	{
+		allContentfulBlogPost {
+			edges {
+				node {
+					slug
+					id
+					blog
+				}
+			}
+		}
+	}
+`).then(result => {
+	if (result.errors) {
+		result.errors.forEach(e => console.error(e.toString()))
+		return Promise.reject(result.errors)
+	}
+
+	const posts = result.data.allContentfulBlogPost.edges
+
+
+	posts.forEach(edge => {
+		if(edge.node.blog !== null && edge.node.blog.includes('AimHigher')) {
+			const id = edge.node.id
+			createPage({
+				path: `blog/${edge.node.slug}`,
+				component: path.resolve(`src/templates/blogTemplate.js`),
+				// additional data can be passed via context
+				context: {
+					id,
+				},
+			})
+		}
+	})
+}).then(
+	graphql(`
 		{
 			allMarkdownRemark(limit: 1000) {
 				edges {
@@ -16,15 +55,20 @@ exports.createPages = ({ actions, graphql }) => {
 						}
 						frontmatter {
 							title
-							tags
 							section
 						}
 					}
 				}
 			}
 		}
-	`).then(result => {
-		if (result.errors) {
+	`)
+)
+	
+	.then(result => {
+		if (!result) {
+			console.log('error')
+			return
+		} else if (result.errors) {
 			result.errors.forEach(e => console.error(e.toString()))
 			return Promise.reject(result.errors)
 		}
@@ -35,14 +79,12 @@ exports.createPages = ({ actions, graphql }) => {
 			const id = edge.node.id,
 				filePath = edge.node.fileAbsolutePath,
 				templates = {
-					blog: path.resolve('src/templates/blogTemplate.js'),
 					caseStudy: path.resolve('src/templates/caseStudy.js'),
 					client: path.resolve('src/templates/clientPortal.js'),
 					clientStyle: path.resolve('src/templates/styleGuide.js'),
 					docs: path.resolve('src/templates/docTemplate.js'),
 				},
 				regexr = {
-					blog: '/src/blog/',
 					caseStudy: '/src/data/case-studies',
 					client: '/src/data/clients',
 					docs: '/src/docs/',
@@ -55,14 +97,7 @@ exports.createPages = ({ actions, graphql }) => {
 				},
 				multiple = false
 
-			if (RegExp(regexr.blog).test(filePath)) {
-				if (edge.node.frontmatter.tags.includes('AimHigher')) {
-					slugPath = 'blog' + edge.node.fields.slug
-					component = templates.blog
-				} else {
-					return
-				}
-			} else if (RegExp(regexr.caseStudy).test(filePath)) {
+			if (RegExp(regexr.caseStudy).test(filePath)) {
 				slugPath = 'portfolio' + edge.node.fields.slug
 				component = templates.caseStudy
 			} else if (RegExp(regexr.client).test(filePath)) {
@@ -101,7 +136,8 @@ exports.createPages = ({ actions, graphql }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
 	const { createNodeField } = actions
 
-	if (node.internal.type === `MarkdownRemark`) {
+
+	if (node.internal.type === `MarkdownRemark` && node.fileAbsolutePath) {
 		const value = createFilePath({ node, getNode })
 		createNodeField({
 			name: `slug`,
