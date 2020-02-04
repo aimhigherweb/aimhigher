@@ -61,7 +61,8 @@ module.exports = {
 			resolve: `gatsby-source-contentful`,
 			options: {
 				spaceId: process.env.GATSBY_SPACE_ID,
-				accessToken: process.env.GATSBY_API_KEY,
+				accessToken: process.env.GATSBY_PREVIEW_KEY || process.env.GATSBY_API_KEY,
+				host: process.env.GATSBY_PREVIEW_KEY ?`preview.contentful.com` : `cdn.contentful.com`,
 				downloadLocal: true,
 			},
 		},
