@@ -95,40 +95,39 @@ exports.createPages = ({ actions, graphql }) => {
 				context = {
 					id,
 				},
-				multiple = false
+				page = {
+					path: slugPath,
+					component: component,
+					context: context,
+				}
 
 			if (RegExp(regexr.caseStudy).test(filePath)) {
-				slugPath = 'portfolio' + edge.node.fields.slug
-				component = templates.caseStudy
+				page.path = `portfolio${edge.node.fields.slug}`
+				page.component = templates.caseStudy
 			} else if (RegExp(regexr.client).test(filePath)) {
-				multiple = true
-				slugPath = [`clients${edge.node.fields.slug}`, `clients${edge.node.fields.slug}style-guide`]
-				component = [templates.client, templates.clientStyle]
-				context.clientId = edge.node.frontmatter.title
+				page.path = `clients${edge.node.fields.slug}`
+				page.component = templates.client
+				page.context.clientId = edge.node.frontmatter.title
+
+				createPage({
+					path: `${page.path}style-guide`,
+					component: templates.clientStyle,
+					context: page.context
+				})
+
+				
 			} else if (RegExp(regexr.docs).test(filePath)) {
-				slugPath = `docs/${edge.node.frontmatter.section.replace(/\s/g, '-').toLowerCase()}${edge.node.fields.slug}`
-				component = templates.docs
+				page.path = `docs/${edge.node.frontmatter.section.replace(/\s/g, '-').toLowerCase()}${edge.node.fields.slug}`
+				page.component = templates.docs
 			} else {
 				return
 			}
 
-			if (component) {
-				if (multiple) {
-					for (i = 0; i < slugPath.length; i++) {
-						createPage({
-							path: slugPath[i],
-							component: component[i],
-							context: context,
-						})
-					}
-				} else {
-					createPage({
-						path: slugPath,
-						component: component,
-						context: context,
-					})
-				}
-			}
+			createPage({
+				path: slugPath,
+				component: component,
+				context: context,
+			})
 		})
 	})
 }
