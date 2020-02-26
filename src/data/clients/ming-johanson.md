@@ -1,5 +1,4 @@
 ---
-templateKey: client
 title: Ming Johanson
 logo: /src/img/cms/ming-johanson-logo.svg
 logoOri: true

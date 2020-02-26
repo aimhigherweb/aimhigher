@@ -1,5 +1,4 @@
 ---
-templateKey: client
 title: Kangaroo Inn
 logo: /src/img/cms/ming-johanson-logo.svg
 logoOri: true

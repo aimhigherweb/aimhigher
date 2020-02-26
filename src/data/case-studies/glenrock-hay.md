@@ -1,7 +1,5 @@
 ---
 title: Glenrock Hay
-logo: /img/clientPortal/glenrock-hay-logo.svg
-logoOri: landscape
 domain: glenrockhay.com
 live: true
 https: false

@@ -34,6 +34,7 @@ collections:
             fields:
                 - { name: fontHeading, label: Heading Font, widget: string }
                 - { name: fontRegular, label: Body Font, widget: string }
+          - { name: body, label: Body, widget: markdown }
     - name: docs
       label: Documentation
       folder: src/docs
@@ -51,6 +52,22 @@ collections:
             label: Select Client
             widget: relation
             multiple: true
+            collection: clients
+            searchFields: ['title', 'domain']
+            valueField: title
+          - { name: body, label: Body, widget: markdown }
+    - name: casestudy
+      label: Case Study
+      folder: src/data/casestudy
+      create: true
+      editor:
+          preview: false
+      fields:
+          - { name: title, label: Title }
+          - { name: updateDate, label: Project Date, widget: string }
+          - name: selectClient
+            label: Select Client
+            widget: relation
             collection: clients
             searchFields: ['title', 'domain']
             valueField: title

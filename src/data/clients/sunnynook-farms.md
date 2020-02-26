@@ -1,5 +1,4 @@
 ---
-templateKey: client
 title: Sunnynook Farms
 logo: /src/img/cms/logo_placeholder.svg
 logoOri: false

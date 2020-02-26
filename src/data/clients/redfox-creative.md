@@ -1,5 +1,4 @@
 ---
-templateKey: client
 title: RedFox Creative
 logo: /src/img/cms/ming-johanson-logo.svg
 domain: redfoxcreate.com

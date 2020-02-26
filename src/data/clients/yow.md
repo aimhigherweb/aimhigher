@@ -1,5 +1,4 @@
 ---
-templateKey: client
 title: YOW! Conferences
 domain: yowconference.com
 live: true

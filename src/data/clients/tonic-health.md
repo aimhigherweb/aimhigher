@@ -1,5 +1,4 @@
 ---
-templateKey: client
 title: Tonic Health
 logo: /src/img/cms/tonic-health-logo.jpg
 domain: tonichealth.com.au

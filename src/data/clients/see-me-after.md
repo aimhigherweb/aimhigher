@@ -1,5 +1,4 @@
 ---
-templateKey: client
 title: See Me After
 logo: /src/img/cms/see-me-after-logo.svg
 logoOri: false
