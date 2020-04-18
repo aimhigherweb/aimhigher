@@ -87,6 +87,5 @@ module.exports = {
 				name: 'docs',
 			},
 		},
-		'gatsby-plugin-netlify-cms',
 	],
 }
