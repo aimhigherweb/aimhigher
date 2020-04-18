@@ -19,6 +19,27 @@ exports.createPages = ({ actions, graphql }) => {
 				}
 			}
 		}
+		allMarkdownRemark(limit: 1000) {
+			edges {
+				node {
+					id
+					fileAbsolutePath
+					fields {
+						slug
+					}
+					frontmatter {
+						title
+						section
+						colours {
+							colourPrimary
+						}
+						fonts {
+							fontRegular
+						}
+					}
+				}
+			}
+		}
 	}
 `).then(result => {
 	if (result.errors) {
@@ -27,7 +48,6 @@ exports.createPages = ({ actions, graphql }) => {
 	}
 
 	const posts = result.data.allContentfulBlogPost.edges
-
 
 	posts.forEach(edge => {
 		if(edge.node.blog !== null && edge.node.blog.includes('AimHigher')) {
@@ -42,94 +62,72 @@ exports.createPages = ({ actions, graphql }) => {
 			})
 		}
 	})
-}).then(
-	graphql(`
-		{
-			allMarkdownRemark(limit: 1000) {
-				edges {
-					node {
-						id
-						fileAbsolutePath
-						fields {
-							slug
-						}
-						frontmatter {
-							title
-							section
-						}
-					}
-				}
-			}
-		}
-	`)
-)
-	
-	.then(result => {
-		if (!result) {
-			console.log('error')
-			return
-		} else if (result.errors) {
-			result.errors.forEach(e => console.error(e.toString()))
-			return Promise.reject(result.errors)
-		}
 
-		const data = result.data.allMarkdownRemark.edges
+	const data = result.data.allMarkdownRemark.edges
+
+		// console.log(data)
 
 		data.forEach(edge => {
 			const id = edge.node.id,
 				filePath = edge.node.fileAbsolutePath,
 				templates = {
-					caseStudy: path.resolve('src/templates/caseStudy.js'),
-					client: path.resolve('src/templates/clientPortal.js'),
-					clientStyle: path.resolve('src/templates/styleGuide.js'),
-					docs: path.resolve('src/templates/docTemplate.js'),
 				},
 				regexr = {
-					caseStudy: '/src/data/case-studies',
-					client: '/src/data/clients',
-					docs: '/src/docs/',
 				}
 
-			let slugPath = edge.node.fields.slug,
-				component = false,
-				context = {
-					id,
-				},
-				page = {
-					path: slugPath,
-					component: component,
-					context: context,
-				}
-
-			if (RegExp(regexr.caseStudy).test(filePath)) {
-				page.path = `portfolio${edge.node.fields.slug}`
-				page.component = templates.caseStudy
-			} else if (RegExp(regexr.client).test(filePath)) {
-				page.path = `clients${edge.node.fields.slug}`
-				page.component = templates.client
-				page.context.clientId = edge.node.frontmatter.title
-
-				createPage({
-					path: `${page.path}style-guide`,
-					component: templates.clientStyle,
-					context: page.context
-				})
-
-				
-			} else if (RegExp(regexr.docs).test(filePath)) {
-				page.path = `docs/${edge.node.frontmatter.section.replace(/\s/g, '-').toLowerCase()}${edge.node.fields.slug}`
-				page.component = templates.docs
-			} else {
+			if(!edge.node.fields) {
 				return
 			}
 
-			createPage({
-				path: slugPath,
-				component: component,
-				context: context,
-			})
+			// console.log({
+			// 	'slug': edge.node.fields.slug,
+			// 	'path': filePath
+			// })
+
+			if(RegExp(/\/src\/data\/clients/).test(filePath)) {
+				createPage({
+					path: `clients${edge.node.fields.slug}`,
+					component: path.resolve('src/templates/clientPortal.js'),
+					context: {
+						id,
+						clientId: edge.node.frontmatter.title
+					}
+				})
+
+				if(edge.node.frontmatter.colours && edge.node.frontmatter.fonts) {
+					createPage({
+						path: `clients${edge.node.fields.slug}style-guide`,
+						component: path.resolve('src/templates/styleGuide.js'),
+						context: {
+							id,
+							clientId: edge.node.frontmatter.title
+						}
+					})
+				}
+			}
+			else if(RegExp(/\/src\/data\/case-studies/).test(filePath)) {
+				createPage({
+					path: `portfolio${edge.node.fields.slug}`,
+					component: path.resolve('src/templates/caseStudy.js'),
+					context: {
+						id,
+					}
+				})
+			}
+			else if(RegExp(/\/src\/docs\//).test(filePath)) {
+				createPage({
+					path: `docs${edge.node.fields.slug}`,
+					component: path.resolve('src/templates/docTemplate.js'),
+					context: {
+						id,
+					}
+				})
+			}
+			else {
+				return
+			}
 		})
-	})
+})
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

@@ -13,13 +13,14 @@ class ClientPortal extends React.Component {
 				name: clientInfo.title + ' Client Info | ' + data.site.title,
 				description: "All the links you'll need for your website and documentation",
 				slug: `/clients/${data.markdownRemark.fields.slug}`,
-			}
+			},
+			styleGuide = (clientInfo.colours && clientInfo.fonts) ? true : false
 
 		return (
 			<Layout meta={meta}>
 				<Content>
 					<Head1>{clientInfo.title}</Head1>
-					<Link to={`${meta.slug}/style-guide`}>Style Guide</Link>
+					{styleGuide && <Link to={`${meta.slug}/style-guide`}>Style Guide</Link>}
 					{clientDocs && clientDocs.length > 0 && (
 						<Fragment>
 							<Head2>Documentation</Head2>
@@ -58,6 +59,12 @@ export const pageQuery = graphql`
 				domain
 				live
 				https
+				colours {
+					colourPrimary
+				}
+				fonts {
+					fontRegular
+				}
 			}
 		}
 		docs: allMarkdownRemark(

@@ -3,6 +3,15 @@ title: Glenrock Hay
 domain: glenrockhay.com
 live: true
 https: false
+logo: /src/img/cms/glenrock-hay-logo.svg
+hideTypography: true
+colours:
+  - colourNeutral: '#58595C'
+    colourPrimary: '#10BDC8'
+    colourSecondary: '#92278F'
+fonts:
+  - fontHeading: '''Arno Pro'', serif'
+    fontRegular: '''Arno Pro'', serif'
 ---
 
 We've been working with Glenrock Hay and their website since the very beginning, they were our very first client.

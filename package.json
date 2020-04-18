@@ -8,8 +8,8 @@
 		"url": "git+https://github.com/AimHigher-Web-Design/aimhigher.git"
 	},
 	"scripts": {
-		"start": "npm run develop -- --port $PORT",
-		"develop": "gatsby develop",
+		"start": "npm run dev -- --port $PORT",
+		"dev": "gatsby develop",
 		"build": "echo SITE_RECAPTCHA_KEY=$SITE_RECAPTCHA_KEY >> .env.production && gatsby build"
 	},
 	"pre-commit": [],
