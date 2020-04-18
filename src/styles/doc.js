@@ -13,6 +13,29 @@ export const DocContent = styled(Content)`
 		}
 	}
 
+	img, figure {
+		border: 2px solid ${props => props.theme.colours.primary.main};
+	}
+
+	figure {
+		padding: 10px 10px 0;
+		width: auto;
+
+		.gatsby-resp-image-wrapper {
+			margin: 0;
+		}
+
+		img {
+			border: none;
+		}
+
+		figcaption {
+			border-top: 2px solid ${props => props.theme.colours.primary.main};
+			margin: 10px -10px 0;
+			padding: 10px 20px;
+		}
+	}
+
 	table {
 		border-collapse: collapse;
 		text-align: left;
