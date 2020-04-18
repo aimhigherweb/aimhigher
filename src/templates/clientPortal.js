@@ -14,12 +14,17 @@ class ClientPortal extends React.Component {
 				description: "All the links you'll need for your website and documentation",
 				slug: `/clients/${data.markdownRemark.fields.slug}`,
 			},
-			styleGuide = (clientInfo.colours && clientInfo.fonts) ? true : false
+			styleGuide = (clientInfo.colours && clientInfo.fonts) ? true : false,
+			domain = clientInfo.live && clientInfo.domain,
+			siteUrl = clientInfo.https ? `https://${domain}` : `http://${domain}`
+
+			console.log({domain, siteUrl, clientInfo})
 
 		return (
 			<Layout meta={meta}>
 				<Content>
 					<Head1>{clientInfo.title}</Head1>
+					{domain && <a href={siteUrl} target="_blank">{siteUrl}</a>}
 					{styleGuide && <Link to={`${meta.slug}/style-guide`}>Style Guide</Link>}
 					{clientDocs && clientDocs.length > 0 && (
 						<Fragment>
