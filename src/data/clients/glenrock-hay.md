@@ -3,7 +3,7 @@ title: Glenrock Hay
 domain: glenrockhay.com
 live: true
 https: false
-logo: /src/img/cms/glenrock-hay-logo.svg
+logo: ../img/cms/glenrock-hay-logo.svg
 hideTypography: true
 colours:
   - colourNeutral: '#58595C'

@@ -1,6 +1,6 @@
 ---
 title: Sunnynook Farms
-logo: /src/img/cms/logo_placeholder.svg
+logo: ../img/cms/logo_placeholder.svg
 logoOri: false
 domain: sunnynookfarms.com.au
 live: false

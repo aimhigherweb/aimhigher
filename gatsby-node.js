@@ -65,24 +65,13 @@ exports.createPages = ({ actions, graphql }) => {
 
 	const data = result.data.allMarkdownRemark.edges
 
-		// console.log(data)
-
 		data.forEach(edge => {
 			const id = edge.node.id,
-				filePath = edge.node.fileAbsolutePath,
-				templates = {
-				},
-				regexr = {
-				}
+				filePath = edge.node.fileAbsolutePath
 
 			if(!edge.node.fields) {
 				return
 			}
-
-			// console.log({
-			// 	'slug': edge.node.fields.slug,
-			// 	'path': filePath
-			// })
 
 			if(RegExp(/\/src\/data\/clients/).test(filePath)) {
 				createPage({
@@ -116,7 +105,7 @@ exports.createPages = ({ actions, graphql }) => {
 			}
 			else if(RegExp(/\/src\/docs\//).test(filePath)) {
 				createPage({
-					path: `docs${edge.node.fields.slug}`,
+					path: `docs/${edge.node.frontmatter.section.replace(/\s/g, '-').toLowerCase()}${edge.node.fields.slug}`,
 					component: path.resolve('src/templates/docTemplate.js'),
 					context: {
 						id,

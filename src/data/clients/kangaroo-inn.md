@@ -1,6 +1,6 @@
 ---
 title: Kangaroo Inn
-logo: /src/img/cms/ming-johanson-logo.svg
+logo: ../img/cms/ming-johanson-logo.svg
 logoOri: true
 domain: kangarooinn.com.au
 live: true

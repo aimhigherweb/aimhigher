@@ -1,6 +1,6 @@
 ---
 title: RedFox Creative
-logo: /src/img/cms/ming-johanson-logo.svg
+logo: ../img/cms/ming-johanson-logo.svg
 domain: redfoxcreate.com
 live: false
 https: true

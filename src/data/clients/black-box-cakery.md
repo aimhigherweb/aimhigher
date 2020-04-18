@@ -1,6 +1,6 @@
 ---
 title: Black Box Cakery
-logo: /src/img/cms/black-box-cakery-logo.svg
+logo: ../img/cms/black-box-cakery-logo.svg
 domain: blackboxcakery.com.au
 live: true
 https: true

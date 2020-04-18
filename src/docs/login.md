@@ -5,6 +5,7 @@ section: WordPress
 selectClient:
     - Black Box Cakery
     - Tonic Health
+    - Techtrails Toolkit
 ---
 
 To login to the admin dashboard for your website, navigate to <https://yourwebsite.com/wp-admin> and login using the details provided to you.

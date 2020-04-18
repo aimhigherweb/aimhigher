@@ -19,14 +19,14 @@ module.exports = {
 					},
 					// `gatsby-remark-figure-caption`,
 					// 'gatsby-remark-copy-linked-files',
-					// {
-					// 	resolve: `gatsby-remark-images`,
-					// 	options: {
-					// 		showCaptions: true,
-					// 		maxWidth: 800,
-					// 		widthWebp: true,
-					// 	},
-					// },
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							showCaptions: true,
+							maxWidth: 800,
+							widthWebp: true,
+						},
+					},
 				],
 			},
 		},

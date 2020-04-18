@@ -1,18 +1,18 @@
 ---
 title: Updating Master Slider
 updateDate: '2019-07-12'
-section: WordPress
+section: Custom
 selectClient:
     - GP After Hours - Mount Lawley
 ---
 
 Navigate to **Master Slider** in the side menu and click on the slider you're wanting to edit
 
-![](/src/img/cms/inkedmaster_slide_dash_li.jpg)
+![](../img/cms/inkedmaster_slide_dash_li.jpg)
 
 In the top section, you can view the slides currently being used, and from here you can add, remove and reorder slides
 
-![](/src/img/cms/inkedadd_remove_reorder_li.jpg)
+![](../img/cms/inkedadd_remove_reorder_li.jpg)
 
 ## Removing slides
 
@@ -30,7 +30,7 @@ You can click and drag the slides to re-order them.
 
 ## Changing Slide Image
 
-![](/src/img/cms/inkedchange_image_li.jpg)
+![](../img/cms/inkedchange_image_li.jpg)
 
 To change a slider image, in the **Background**, click the **delete** icon for the **Background** image, then click the **+** icon that appears.
 

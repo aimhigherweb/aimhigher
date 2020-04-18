@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Helmet from 'react-helmet'
+import {Helmet} from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 
 import Header from '../header/index.js'
@@ -119,7 +119,7 @@ const Layout = ({ children, meta, wave }) => {
 
 // eslint-disable-next-line one-var
 const Meta = ({ name, description, slug, image }) => {
-	let siteUrl = 'https://aimhigherweb.design'
+	const siteUrl = 'https://aimhigherweb.design'
 
 	if (!image) {
 		image = Logo
@@ -141,7 +141,6 @@ const Meta = ({ name, description, slug, image }) => {
 
 			{/* Facebook */}
 			<meta property="og:url" content={siteUrl + slug} />
-
 			<meta property="og:title" content={name} />
 			<meta property="og:image" content={image} />
 			<meta property="og:description" content={description} />

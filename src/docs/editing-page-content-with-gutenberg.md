@@ -4,6 +4,7 @@ updateDate: '2019-05-27'
 section: WordPress
 selectClient:
     - Black Box Cakery
+    - Techtrails Toolkit
 ---
 
 If you have an updated/new website, you'll be using the new Gutenberg editor on your WordPress site.

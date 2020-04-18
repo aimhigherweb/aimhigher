@@ -26,7 +26,7 @@ class ClientPortal extends React.Component {
 							<Head2>Documentation</Head2>
 							<ul>
 								{clientDocs.map(doc => (
-									<li>
+									<li key={doc.node.fields.slug}>
 										<Link to={`docs/${doc.node.frontmatter.section.replace(/\s/g, '-').toLowerCase()}${doc.node.fields.slug}`}>
 											{doc.node.frontmatter.title}
 										</Link>

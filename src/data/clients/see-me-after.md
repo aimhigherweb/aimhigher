@@ -1,6 +1,6 @@
 ---
 title: See Me After
-logo: /src/img/cms/see-me-after-logo.svg
+logo: ../img/cms/see-me-after-logo.svg
 logoOri: false
 domain: seemeafter.com
 live: false

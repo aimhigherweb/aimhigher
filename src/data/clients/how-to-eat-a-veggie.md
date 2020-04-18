@@ -1,6 +1,6 @@
 ---
 title: How to Eat a Veggie
-logo: /src/img/cms/how-to-eat-a-veggie-logo.svg
+logo: ../img/cms/how-to-eat-a-veggie-logo.svg
 domain: howtoeataveggie.com.au
 live: false
 https: true
