@@ -9,7 +9,7 @@ import { Article, ArticleIntro, Date, ShareIcons } from '../styles/article'
 import { Facebook, Twitter } from 'react-feather'
 
 export const BlogPostTemplate = ({
-	content, title, slug, blog, tags, publishDate, updateDate, siteUrl
+	content, title, slug, publishDate, siteUrl
 }) => {
 	const articleLink = `${siteUrl}${slug}`,
 	facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${articleLink}`,
@@ -40,7 +40,7 @@ export const BlogPostTemplate = ({
 				<Head1>{title}</Head1>
 				<ArticleIntro>
 					{intro}
-					<Date dateTime={updateDate}>{updateDate}</Date>
+					<Date dateTime={publishDate}>{publishDate}</Date>
 				</ArticleIntro>
 			</header>
 			<main dangerouslySetInnerHTML={{ __html: content }} />
@@ -52,20 +52,18 @@ export const BlogPostTemplate = ({
 }
 
 const BlogPost = ({ data }) => {
-	const { contentfulBlogPost: post } = data,
+	const { markdownRemark: post } = data,
 		blogPost = {
-			content: post.body.childMarkdownRemark.html,
-			title: post.title,
-			slug: post.slug,
-			publishDate: post.publishDate || post.createdAt,
-			updateDate: post.updatedDate || post.publishDate || post.updatedAt,
-			tags: post.tags,
+			content: post.html,
+			title: post.frontmatter.title,
+			slug: post.fields.slug,
+			publishDate: post.frontmatter.date,
 			siteUrl: data.site.siteMetadata.siteUrl,
 		},
 		meta = {
-			name: post.title + ' | ' + data.site.siteMetadata.title,
-			description: post.description,
-			slug: data.site.siteMetadata.siteUrl + post.slug,
+			name: post.frontmatter.title + ' | ' + data.site.siteMetadata.title,
+			description: post.frontmatter.description,
+			slug: data.site.siteMetadata.siteUrl + post.fields.slug,
 		}
 
 	return (
@@ -87,28 +85,17 @@ export const pageQuery = graphql`
 				siteUrl
 			}
 		}
-		contentfulBlogPost(id: { eq: $id }) {
-			title
-			tags
-			publishDate(formatString: "DD MMM YYYY")
-			updatedAt(formatString: "DD MMM YYYY")
-			updatedDate(formatString: "DD MMM YYYY")
-			createdAt(formatString: "DD MMM YYYY")
-			slug
-			blog
-			description {
+		markdownRemark(id: { eq: $id }) {
+			fields {
+				slug
+			}
+			frontmatter {
+				date(formatString: "DD MMM YYYY")
+				title
 				description
+				featured
 			}
-			body {
-				childMarkdownRemark {
-					html
-				}
-			}
-			featuredImage {
-				file {
-					url
-				}
-			}
+			html
 		}
 	}
 `

@@ -10,15 +10,6 @@ exports.createPages = ({ actions, graphql }) => {
 
 	return graphql(`
 	{
-		allContentfulBlogPost {
-			edges {
-				node {
-					slug
-					id
-					blog
-				}
-			}
-		}
 		allMarkdownRemark(limit: 1000) {
 			edges {
 				node {
@@ -46,22 +37,6 @@ exports.createPages = ({ actions, graphql }) => {
 		result.errors.forEach(e => console.error(e.toString()))
 		return Promise.reject(result.errors)
 	}
-
-	const posts = result.data.allContentfulBlogPost.edges
-
-	posts.forEach(edge => {
-		if(edge.node.blog !== null && edge.node.blog.includes('AimHigher')) {
-			const id = edge.node.id
-			createPage({
-				path: `blog/${edge.node.slug}`,
-				component: path.resolve(`src/templates/blogTemplate.js`),
-				// additional data can be passed via context
-				context: {
-					id,
-				},
-			})
-		}
-	})
 
 	const data = result.data.allMarkdownRemark.edges
 
@@ -107,6 +82,15 @@ exports.createPages = ({ actions, graphql }) => {
 				createPage({
 					path: `docs/${edge.node.frontmatter.section.replace(/\s/g, '-').toLowerCase()}${edge.node.fields.slug}`,
 					component: path.resolve('src/templates/docTemplate.js'),
+					context: {
+						id,
+					}
+				})
+			}
+			else if(RegExp(/\/src\/posts\//).test(filePath)) {
+				createPage({
+					path: `blog${edge.node.fields.slug}`,
+					component: path.resolve('src/templates/blogTemplate.js'),
 					context: {
 						id,
 					}

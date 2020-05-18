@@ -58,15 +58,6 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-source-contentful`,
-			options: {
-				spaceId: process.env.GATSBY_SPACE_ID,
-				accessToken: process.env.GATSBY_PREVIEW_KEY || process.env.GATSBY_API_KEY,
-				host: process.env.GATSBY_PREVIEW_KEY ?`preview.contentful.com` : `cdn.contentful.com`,
-				downloadLocal: true,
-			},
-		},
-		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				path: `${__dirname}/src/data/clients`,
@@ -85,6 +76,13 @@ module.exports = {
 			options: {
 				path: `${__dirname}/src/docs`,
 				name: 'docs',
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/src/posts`,
+				name: 'posts',
 			},
 		},
 	],
