@@ -18,8 +18,6 @@ class ClientPortal extends React.Component {
 			domain = clientInfo.live && clientInfo.domain,
 			siteUrl = clientInfo.https ? `https://${domain}` : `http://${domain}`
 
-			console.log({domain, siteUrl, clientInfo})
-
 		return (
 			<Layout meta={meta}>
 				<Content>
