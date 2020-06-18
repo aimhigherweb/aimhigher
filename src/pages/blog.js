@@ -24,7 +24,6 @@ export default class Blog extends React.Component {
 					<Head1>Blog</Head1>
 					<ArticleFeed>
 						{posts.map(({ node: post }) => {
-							console.log(post)
 							let articleLink = `${data.site.siteMetadata.siteUrl}${meta.slug}${post.fields.slug}`,
 								facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${articleLink}`,
 								twitterLink =

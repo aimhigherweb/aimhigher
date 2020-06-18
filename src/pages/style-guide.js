@@ -13,7 +13,6 @@ const meta = {
 
 // eslint-disable-next-line one-var
 const StyleGuide = () => {
-	console.log(aimhigherTheme)
 	let variables = {
 			'--font-regular': aimhigherTheme.fonts.regular,
 			'--font-headings': aimhigherTheme.fonts.headings,

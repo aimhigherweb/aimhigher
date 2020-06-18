@@ -33,7 +33,6 @@ const StyleGuide = ({ data }) => {
 			setFonts(font)
 		}
 
-	console.log(clientFonts)
 
 	let theme = {
 			colours: {

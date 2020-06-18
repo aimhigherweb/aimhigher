@@ -41,7 +41,6 @@ export const Sites = ({ data, siteList }) => {
 	let images = {},
 		imageData = data.allFile.edges
 
-	console.log(imageData)
 
 	imageData.map(image => {
 		images[image.node.name] = image.node.childImageSharp.fluid

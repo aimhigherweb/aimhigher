@@ -83,6 +83,7 @@ const FooterSocial = () => {
 		return (
 			<ItemSocial href={menuItem.url} key={menuItem.name} target="_blank">
 				{menuItem.icon}
+				<span>{menuItem.name}</span>
 			</ItemSocial>
 		);
 	});

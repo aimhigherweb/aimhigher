@@ -85,5 +85,11 @@ module.exports = {
 				name: 'posts',
 			},
 		},
+		{
+			resolve: 'gatsby-plugin-html-attributes',
+			options: {
+				lang: 'en'
+			}
+		}
 	],
 }

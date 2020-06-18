@@ -32,6 +32,11 @@ export const Item = styled(Link)`
 	font-size: 0.8em;
 	padding: 5px 7px;
 
+	span {
+		position: absolute;
+		right: -200vw;
+	}
+
 	&:active,
 	&:hover,
 	&:focus {
