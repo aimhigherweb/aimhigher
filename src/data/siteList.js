@@ -1,5 +1,15 @@
 const siteList = [
 	{
+		name: 'Climate Clever',
+		slug: 'climate-clever',
+		url: 'climateclever.org',
+		date: 'June 2020',
+		mobile: true,
+		current: true,
+		secure: true,
+		live: true,
+	},
+	{
 		name: 'Ming Johanson',
 		slug: 'ming-johanson',
 		url: 'mingjohanson.com.au',
@@ -40,6 +50,15 @@ const siteList = [
 		github: 'https://github.com/AimHigher-Web-Design/tech-outsiders',
 	},
 	{
+		name: 'See Me After',
+		slug: 'see-me-after',
+		url: 'seemeafter.com',
+		date: 'January 2020',
+		mobile: true,
+		current: true,
+		secure: true,
+	},
+	{
 		name: 'Janne Martin',
 		slug: 'janne-martin',
 		url: 'aweddingcelebrant.com.au',
@@ -48,15 +67,6 @@ const siteList = [
 		current: true,
 		secure: true,
 		github: 'https://github.com/AimHigher-Web-Design/aweddingcelebrant',
-	},
-	{
-		name: 'See Me After',
-		slug: 'seemeafter',
-		url: 'seemeafter.com',
-		date: 'Coming Soon!',
-		mobile: false,
-		current: false,
-		secure: true,
 	},
 	{
 		name: 'Wondai Country Running Festival',
