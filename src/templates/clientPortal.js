@@ -12,7 +12,7 @@ class ClientPortal extends React.Component {
 			meta = {
 				name: clientInfo.title + ' Client Info | ' + data.site.title,
 				description: "All the links you'll need for your website and documentation",
-				slug: `/clients/${data.markdownRemark.fields.slug}`,
+				slug: `/clients${data.markdownRemark.fields.slug}`,
 			},
 			styleGuide = (clientInfo.colours && clientInfo.fonts) ? true : false,
 			domain = clientInfo.live && clientInfo.domain,
@@ -23,7 +23,7 @@ class ClientPortal extends React.Component {
 				<Content>
 					<Head1>{clientInfo.title}</Head1>
 					{domain && <a href={siteUrl} target="_blank">{siteUrl}</a>}
-					{styleGuide && <Link to={`${meta.slug}/style-guide`}>Style Guide</Link>}
+					{styleGuide && <Link to={`${meta.slug}style-guide`}>Style Guide</Link>}
 					{clientDocs && clientDocs.length > 0 && (
 						<Fragment>
 							<Head2>Documentation</Head2>
