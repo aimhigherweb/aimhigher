@@ -23,7 +23,7 @@ class ClientPortal extends React.Component {
 				<Content>
 					<Head1>{clientInfo.title}</Head1>
 					{domain && <a href={siteUrl} target="_blank">{siteUrl}</a>}
-					{styleGuide && <Link to={`${meta.slug}style-guide`}>Style Guide</Link>}
+					{styleGuide && <p><Link to={`${meta.slug}style-guide`}>Style Guide</Link></p>}
 					{clientDocs && clientDocs.length > 0 && (
 						<Fragment>
 							<Head2>Documentation</Head2>
