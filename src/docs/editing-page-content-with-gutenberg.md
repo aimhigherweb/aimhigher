@@ -6,6 +6,7 @@ selectClient:
     - Black Box Cakery
     - Techtrails Toolkit
     - Crary Australia
+    - Ming Johanson
 ---
 
 If you have an updated/new website, you'll be using the new Gutenberg editor on your WordPress site. The Gutenberg editor allows creating custom content blocks and gives a good visual editing experience as well as a good developer experience. When editing a page, you can add new content blocks by typing or clicking the **+** icon to add a new block.

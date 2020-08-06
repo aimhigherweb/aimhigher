@@ -5,6 +5,7 @@ section: WooCommerce
 selectClient:
     - Black Box Cakery
     - Tonic Health
+    - Ming Johanson
 ---
 
 You can edit product details by navigating to **Products** in the side navigation menu and clicking on the product you want to edit.

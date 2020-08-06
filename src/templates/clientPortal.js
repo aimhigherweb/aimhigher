@@ -10,7 +10,7 @@ class ClientPortal extends React.Component {
 			clientInfo = data.markdownRemark.frontmatter,
 			clientDocs = data.docs.edges == [] ? false : data.docs.edges,
 			meta = {
-				name: clientInfo.title + ' Client Info | ' + data.site.title,
+				name: clientInfo.title + ' Client Info | ' + data.site.siteMetadata.title,
 				description: "All the links you'll need for your website and documentation",
 				slug: `/clients${data.markdownRemark.fields.slug}`,
 			},
