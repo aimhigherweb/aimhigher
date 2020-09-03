@@ -26,6 +26,7 @@ const StyleGuide = () => {
 			heading: 'Lato',
 			regular: 'Quicksand',
 		}
+
 	return (
 		<Layout meta={meta}>
 			<Content>

@@ -118,6 +118,7 @@ const StyleGuide = ({ data }) => {
 								ori={clientInfo.logoOri}
 							/>
 						)}
+						
 					</StyleSect>
 				</Content>
 			</Fragment>

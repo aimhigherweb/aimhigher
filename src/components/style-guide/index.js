@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 // Components
@@ -23,6 +23,7 @@ import {
 	SecondaryButton,
 	NeutralButton,
 	Colours,
+	Modal
 } from './style.js'
 
 // Resources
@@ -30,7 +31,10 @@ import Logo from '../../img/logo.svg'
 
 export class ColourSwatches extends Component {
 	render() {
-		// console.log(this.props)
+		const openModal = (e) => {
+			document.querySelector('.modal').classList.add('open')
+		}
+
 		let mainColours = {
 				primary: this.props.theme.colours.primary.main,
 				secondary: this.props.theme.colours.secondary.main,
@@ -47,8 +51,6 @@ export class ColourSwatches extends Component {
 			}),
 			// eslint-disable-next-line no-unused-vars
 			colVars = ''
-
-		// console.log(colours)
 
 		for (let i = 0; i < 3; i++) {
 			// Primary, secondary and neutral
@@ -72,11 +74,50 @@ export class ColourSwatches extends Component {
 
 		return (
 			<Colours>
-				<StyleHead>Colours</StyleHead>
+				<StyleHead><button onClick={openModal}>Colours</button></StyleHead>
 				{colSets}
+				<StyleModal {...colours} />
 			</Colours>
 		)
 	}
+}
+
+export const StyleModal = ({primary, secondary, neutral}) => {
+	const theme = {
+		colours: {
+			primary, secondary, neutral
+		}
+	},
+	closeModal = (e) => {
+		document.querySelector('.modal').classList.remove('open')
+	}
+
+
+	let sass =``
+	
+
+	Object.keys(theme.colours).forEach(set => {
+		Object.keys(theme.colours[set]).forEach(ver => {
+			if(theme.colours[set][ver].hex) {
+				sass = `${sass}$${set}: ${theme.colours[set][ver].hex};\n`;
+			}
+			else {
+				Object.keys(theme.colours[set][ver]).forEach(shade => {
+					sass = `${sass}$${set}_${ver}_${shade}: ${theme.colours[set][ver][shade].hex};\n`;
+				})
+			}
+		})
+	})
+
+	return (
+		<Modal className="modal">
+			<button onClick={closeModal}>Close</button>
+			<h2>Sass Variables</h2>
+			<pre>{sass}</pre>
+			<h2>Theme Object</h2>
+			<pre>{JSON.stringify(theme, null, 1)}</pre>
+		</Modal>
+	)
 }
 
 const ColourSwatch = ({ cols, group }) => {

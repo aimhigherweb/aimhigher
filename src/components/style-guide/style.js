@@ -190,6 +190,16 @@ export const StyleHead = styled('h2')`
 	position: relative;
 	top: -0.7em;
 	text-transform: lowercase;
+
+	button {
+		background: inherit;
+		border: inherit;
+		color: inherit;
+		display: inline;
+		font-family: inherit;
+		font-size: inherit;
+		text-transform: inherit;
+	}
 `
 
 export const Colours = styled('div')`
@@ -302,4 +312,33 @@ export const Forms = styled('form')`
 	border-top: none;
 	grid-area: forms;
 	padding: 0 20px 20px;
+`
+
+export const Modal = styled('div')`
+	background: #fff;
+	border: 2px solid ${props => props.theme.colours.primary.main};
+	border-radius: 20px;
+	display: none;
+	padding: 20px;
+	position: fixed;
+	top: 10vh;
+	left: 30vw;
+	min-height: 300px;
+	width: 40vw;
+	z-index: 100;
+
+	pre {
+		background: ${props => props.theme.colours.neutral.dark[50]};
+		border-radius: 10px;
+		color: #fff;
+		max-height: 300px;
+		padding: 10px;
+		overflow: hidden;
+		user-select: all;
+		word-break: break-word;
+	}
+
+	&.open {
+		display: block;
+	}
 `
