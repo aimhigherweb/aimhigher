@@ -10,6 +10,16 @@ const siteList = [
 		live: true,
 	},
 	{
+		name: 'Plico Energy',
+		slug: 'plico',
+		url: 'plicoenergy.com.au',
+		date: 'Coming Soon',
+		mobile: false,
+		current: false,
+		secure: true,
+		live: true,
+	},
+	{
 		name: 'Ming Johanson',
 		slug: 'ming-johanson',
 		url: 'mingjohanson.com.au',
