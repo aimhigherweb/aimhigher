@@ -14,6 +14,7 @@
   to = "portal.aimhigherweb.dev/docs/:splat"
   status = 302
 
+# TODO: Add a11y tests
 # [[plugins]]
 # package = "netlify-plugin-a11y"
 #   [plugins.inputs]
@@ -29,7 +30,6 @@
 
 [[plugins]]
 package = "netlify-plugin-checklinks"
-
   [plugins.inputs]
   recursive = true
   pretty = true
@@ -40,12 +40,12 @@ package = "netlify-plugin-checklinks"
   checkExternal = true
   followSourceMaps = true
 
-[[plugins]]
-  package = "netlify-plugin-html-validate"
-
-  [plugins.inputs]
-    ext = "html"
-    config = "config.htmlvalidate.json"
+# TODO: Add validation back in
+# [[plugins]]
+#   package = "netlify-plugin-html-validate"
+#   [plugins.inputs]
+#     ext = "html"
+#     config = "config.htmlvalidate.json"
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
