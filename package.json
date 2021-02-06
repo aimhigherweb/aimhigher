@@ -14,7 +14,9 @@
 	},
 	"author": "Amy Kapernick <amy@aimhigherweb.design> (https://aimhigherweb.design)",
 	"dependencies": {
-		"gatsby": "^2.32.3"
+		"gatsby": "^2.32.3",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1"
 	},
 	"devDependencies": {
 		"eslint": "^7.19.0",
