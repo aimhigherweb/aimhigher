@@ -14,11 +14,13 @@
 	},
 	"author": "Amy Kapernick <amy@aimhigherweb.design> (https://aimhigherweb.design)",
 	"dependencies": {
-		"eslint": "^7.17.0",
+		"gatsby": "^2.32.3"
+	},
+	"devDependencies": {
+		"eslint": "^7.19.0",
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-loader": "^4.0.2",
-		"gatsby": "^2.30.1",
-		"stylelint": "^13.8.0",
+		"stylelint": "^13.9.0",
 		"stylelint-config-property-sort-order-smacss": "^7.0.0",
 		"stylelint-order": "^4.1.0",
 		"stylelint-scss": "^3.18.0"

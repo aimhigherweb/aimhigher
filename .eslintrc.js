@@ -23,7 +23,7 @@ module.exports = {
 		],
 		'no-var': `error`,
 		'no-unused-vars': 1,
-		'one-var': [2, `consecutive`],
+		'one-var': [{ initialised: `never`, uninitialised: `consecutive` }],
 		quotes: [`error`, `backtick`],
 		'no-param-reassign': 0,
 		'react/jsx-uses-react': `error`,
