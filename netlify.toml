@@ -2,3 +2,14 @@
   base = "."
   publish = "public/"
   command = "npm run build"
+
+[context.production]
+  environment = {NODE_ENV = "production"}
+
+[context.dev]
+  environment = {NODE_ENV = "development"}
+
+[[redirects]]
+  from = "/docs/*"
+  to = "portal.aimhigherweb.dev/docs/:splat"
+  status = 302
