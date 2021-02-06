@@ -13,3 +13,27 @@
   from = "/docs/*"
   to = "portal.aimhigherweb.dev/docs/:splat"
   status = 302
+
+# [[plugins]]
+# package = "netlify-plugin-a11y"
+#   [plugins.inputs]
+#   checkPaths = [
+# 	'/',
+#     '/about',
+#     '/services',
+#     '/portfolio',
+# 	'/contact',
+# 	'/faq',
+# 	'blog'
+#   ]
+
+[[plugins]]
+package = "netlify-plugin-checklinks"
+
+  [plugins.inputs]
+  recursive = true
+  pretty = true
+  skipPatterns = []
+  todoPatterns = []
+  checkExternal = true
+  followSourceMaps = true
