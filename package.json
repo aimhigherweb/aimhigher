@@ -1,7 +1,7 @@
 {
 	"name": "aimhigher",
 	"version": "7.0.0",
-	"description": "Website for AimHigher Web Design",
+	"description": "Website for AimHigher Web",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
