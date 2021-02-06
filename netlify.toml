@@ -34,7 +34,7 @@ package = "netlify-plugin-checklinks"
   recursive = true
   pretty = true
   skipPatterns = [
-	  "/opt/build/*"
+	  "public/sw.js"
   ]
   todoPatterns = []
   checkExternal = true
