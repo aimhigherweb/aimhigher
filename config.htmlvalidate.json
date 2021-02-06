@@ -1,5 +1,5 @@
 {
 	"extends": [
-		"html-validate:recommended"s
+		"html-validate:recommended"
 	]
 }
