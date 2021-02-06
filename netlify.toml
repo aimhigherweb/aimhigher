@@ -45,7 +45,7 @@ package = "netlify-plugin-checklinks"
 
   [plugins.inputs]
     ext = "html"
-    config = ".htmlvalidate.json"
+    config = "config.htmlvalidate.json"
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"

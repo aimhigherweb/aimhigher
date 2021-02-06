@@ -2,7 +2,8 @@
 	"name": "aimhigher",
 	"version": "7.0.0",
 	"description": "Website for AimHigher Web",
-	"main": "index.js",
+	"main": "src/pages/index.js",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/aimhigherweb/aimhigher.git"
@@ -24,6 +25,7 @@
 		"eslint": "^7.19.0",
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-loader": "^4.0.2",
+		"netlify-plugin-html-validate": "^0.2.0",
 		"stylelint": "^13.9.0",
 		"stylelint-config-property-sort-order-smacss": "^7.0.0",
 		"stylelint-order": "^4.1.0",
