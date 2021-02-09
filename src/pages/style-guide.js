@@ -2,11 +2,12 @@ import React from 'react'
 
 import Layout from '../components/layout'
 
-import Button from '../../lib/parts/button'
+import TypoPage from '../components/partials/typo'
 
 const StyleGuide = () => (
 	<Layout>
-		<Button>Click here!</Button>
+		<h1>Style Guide</h1>
+		<TypoPage />
 	</Layout>
 )
 

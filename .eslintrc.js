@@ -1,7 +1,14 @@
 module.exports = {
 	extends: [`airbnb-base`],
-	plugins: [`import`, `react`],
-	parser: `babel-eslint`,
+	plugins: [
+		`import`,
+		`react`,
+		`@babel/plugin-syntax-jsx`
+	],
+	parser: `@babel/eslint-parser`,
+	parserOptions: {
+		requireConfigFile: false,
+	},
 	rules: {
 		'linebreak-style': 0,
 		'no-tabs': 0,
@@ -23,7 +30,7 @@ module.exports = {
 		],
 		'no-var': `error`,
 		'no-unused-vars': 1,
-		'one-var': [{ initialised: `never`, uninitialised: `consecutive` }],
+		// 'one-var': [1, { initialised: `never`, uninitialised: `consecutive` }],
 		quotes: [`error`, `backtick`],
 		'no-param-reassign': 0,
 		'react/jsx-uses-react': `error`,

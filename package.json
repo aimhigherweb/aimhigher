@@ -15,6 +15,7 @@
 	},
 	"author": "Amy Kapernick <amy@aimhigherweb.design> (https://aimhigherweb.design)",
 	"dependencies": {
+		"@babel/plugin-syntax-jsx": "^7.12.13",
 		"gatsby": "^2.32.3",
 		"gatsby-plugin-sass": "^3.2.0",
 		"react": "^17.0.1",
@@ -22,9 +23,12 @@
 		"sass": "^1.32.6"
 	},
 	"devDependencies": {
+		"@babel/eslint-parser": "^7.12.13",
 		"eslint": "^7.19.0",
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-loader": "^4.0.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-react": "^7.22.0",
 		"netlify-plugin-html-validate": "^0.2.0",
 		"stylelint": "^13.9.0",
 		"stylelint-config-property-sort-order-smacss": "^7.0.0",
