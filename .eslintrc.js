@@ -3,12 +3,14 @@ module.exports = {
 	plugins: [
 		`import`,
 		`react`,
-		`@babel/plugin-syntax-jsx`
 	],
 	parser: `@babel/eslint-parser`,
 	parserOptions: {
 		requireConfigFile: false,
 	},
+	presets: [
+		`@babel/preset-react`
+	],
 	rules: {
 		'linebreak-style': 0,
 		'no-tabs': 0,
@@ -30,7 +32,7 @@ module.exports = {
 		],
 		'no-var': `error`,
 		'no-unused-vars': 1,
-		// 'one-var': [1, { initialised: `never`, uninitialised: `consecutive` }],
+		'one-var': [`error`, { initialized: `never`, uninitialized: `consecutive` }],
 		quotes: [`error`, `backtick`],
 		'no-param-reassign': 0,
 		'react/jsx-uses-react': `error`,
