@@ -57,7 +57,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-html-attributes`,
 			options: {
-				lang: `en_AU`
+				lang: `en-AU`
 			}
 		}
 	]
