@@ -6,9 +6,6 @@ import Layout from '../components/layout'
 const IndexPage = ({data}) => {
 	const {sections, banner: {childMarkdownRemark: banner}} = data
 	const {edges: blocks} = sections
-	// const {sections: {edges: blocks}} = data
-
-	console.log(banner)
 
 	return (
 		<Layout>
@@ -20,7 +17,7 @@ const IndexPage = ({data}) => {
 				</a>
 			</blockquote>
 			{blocks.map(block => (
-				<section>
+				<section key={block.node.id}>
 					<div dangerouslySetInnerHTML={{__html: block.node.childMarkdownRemark.html}} />
 				</section>
 			))}
@@ -72,6 +69,7 @@ export const query = graphql`
 		) {
 			edges {
 				node {
+					id
 					childMarkdownRemark {
 						html
 					}

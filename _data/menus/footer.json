@@ -1,0 +1,14 @@
+[
+	{
+		"label": "Home",
+		"link": "/"
+	},
+	{
+		"label": "Privacy Policy",
+		"link": "/privacy"
+	},
+	{
+		"label": "Terms and Conditions",
+		"link": "/terms"
+	}
+]

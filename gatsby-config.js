@@ -14,11 +14,32 @@ module.exports = {
 			}
 		},
 		{
+			resolve: `gatsby-plugin-react-svg`,
+			options: {
+				rule: {
+					include: `${__dirname}/lib/img`
+				}
+			}
+		},
+		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `content`,
 				path: `${__dirname}/_data/content`
 
+			}
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `menus`,
+				path: `${__dirname}/_data/menus`
+			}
+		},
+		{
+			resolve: `gatsby-transformer-json`,
+			options: {
+				typeName: `menus`,
 			}
 		},
 		{

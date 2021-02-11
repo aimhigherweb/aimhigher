@@ -1,0 +1,32 @@
+[
+	{
+		"label": "Twitter",
+		"link": "https://twitter.com/amys_kapers",
+		"icon": "twitter"
+	},
+	{
+		"label": "Instagram",
+		"link": "https://www.instagram.com/amys_kapers",
+		"icon": "instagram"
+	},
+	{
+		"label": "GitHub",
+		"link": "https://github.com/aimhigherweb",
+		"icon": "github"
+	},
+	{
+		"label": "Codepen",
+		"link": "https://codepen.io/amys_kapers",
+		"icon": "codepen"
+	},
+	{
+		"label": "LinkedIn",
+		"link": "https://www.linkedin.com/in/amykapernick",
+		"icon": "linkedin"
+	},
+	{
+		"label": "Facebook",
+		"link": "https://www.facebook.com/aimhigherweb",
+		"icon": "facebook"
+	}
+]

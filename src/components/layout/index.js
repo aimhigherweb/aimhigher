@@ -1,11 +1,18 @@
-import React from 'react'
+import React, {Fragment} from 'react'
+
+import Header from '../partials/header'
+import Footer from '../partials/footer'
 
 import '../../../lib/styles/global.scss'
 
 const Layout = ({children}) => (
-	<main>
-		{children}
-	</main>
+	<Fragment>
+		<Header />
+		<main>
+			{children}
+		</main>
+		<Footer />
+	</Fragment>
 )
 
 export default Layout
