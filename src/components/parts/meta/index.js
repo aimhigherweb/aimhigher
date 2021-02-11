@@ -39,13 +39,13 @@ const Meta = (meta) => (
 
 					<meta property="og:title" content={title} />
 					<meta property="og:description" content={description} />
-					<meta property="og:image" content="/img/socials/linkedin_wide.png" />
+					{/* <meta property="og:image" content="/img/socials/linkedin_wide.png" /> */}
 					<meta name="author" content="AimHigher Web" />
 					<meta property="og:url" content="https://aimhigherweb.dev" />
 
 					<meta name="twitter:card" content="summary_large_image" />
 					<meta name="twitter:site" content="@amys_kapers" />
-					<meta property="twitter:image" content="/img/socials/twitter_wide.png" />
+					{/* <meta property="twitter:image" content="/img/socials/twitter_wide.png" /> */}
 					<meta name="twitter:creator" content="@amys_kapers" />
 				</Helmet>
 			);

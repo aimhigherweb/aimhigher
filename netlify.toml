@@ -37,7 +37,7 @@ package = "netlify-plugin-checklinks"
 	  "public/sw.js"
   ]
   todoPatterns = []
-  checkExternal = true
+  checkExternal = false
   followSourceMaps = true
 
 # TODO: Add validation back in
