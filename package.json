@@ -40,6 +40,7 @@
 		"eslint-plugin-react": "^7.22.0",
 		"eslint-plugin-simple-import-sort": "^7.0.0",
 		"eslint-webpack-plugin": "^2.5.0",
+		"netlify-plugin-a11y": "^0.0.12",
 		"netlify-plugin-html-validate": "^0.2.0",
 		"stylelint": "^13.9.0",
 		"stylelint-config-property-sort-order-smacss": "^7.0.0",

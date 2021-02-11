@@ -15,18 +15,18 @@
   status = 302
 
 # TODO: Add a11y tests
-# [[plugins]]
-# package = "netlify-plugin-a11y"
-#   [plugins.inputs]
-#   checkPaths = [
-# 	'/',
-#     '/about',
-#     '/services',
-#     '/portfolio',
-# 	'/contact',
-# 	'/faq',
-# 	'blog'
-#   ]
+[[plugins]]
+package = "netlify-plugin-a11y"
+  [plugins.inputs]
+  checkPaths = [
+    '/',
+    # '/about',
+    # '/services',
+    # '/portfolio',
+    # '/contact',
+    # '/faq',
+    # 'blog'
+  ]
 
 [[plugins]]
 package = "netlify-plugin-checklinks"
