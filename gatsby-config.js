@@ -29,6 +29,14 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
+				name: `images`,
+				path: `${__dirname}/src/img`
+
+			}
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
 				name: `content`,
 				path: `${__dirname}/_data/content`
 
@@ -41,6 +49,8 @@ module.exports = {
 				path: `${__dirname}/_data/menus`
 			}
 		},
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
 		{
 			resolve: `gatsby-transformer-json`,
 			options: {
