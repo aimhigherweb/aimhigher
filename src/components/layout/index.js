@@ -1,18 +1,20 @@
-import React, {Fragment} from 'react'
+import '../../../lib/styles/global.scss';
 
-import Header from '../partials/header'
-import Footer from '../partials/footer'
+import React, { Fragment } from 'react';
 
-import '../../../lib/styles/global.scss'
+import Footer from '../partials/footer';
+import Header from '../partials/header';
+import Meta from '../parts/meta';
 
-const Layout = ({children}) => (
+const Layout = ({ children, meta }) => (
 	<Fragment>
+		<Meta {...meta} />
 		<Header />
 		<main>
 			{children}
 		</main>
 		<Footer />
 	</Fragment>
-)
+);
 
-export default Layout
+export default Layout;

@@ -1,4 +1,9 @@
 module.exports = {
+	siteMetadata: {
+		title: `AimHigher Web`,
+		description: `Bridging the gap between businesses and website technologies`,
+		url: `https://aimhigherweb.design`
+	},
 	plugins: [
 		{
 			resolve: `gatsby-plugin-sass`,
@@ -47,6 +52,7 @@ module.exports = {
 			options: {
 
 			}
-		}
+		},
+		`gatsby-plugin-react-helmet`
 	]
 };
