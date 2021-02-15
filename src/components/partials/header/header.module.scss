@@ -4,9 +4,41 @@
 	--logo-gradient: #{var.$white};
 	display: flex;
 	align-items: center;
-
+	justify-content: space-between;
 	padding: 20px;
 
-	background: var.$gradient;
 	color: var.$white;
+}
+
+@media(min-width: 40em) {
+	.header {
+		align-items: flex-start;
+		align-items: start;
+	}
+
+	.logo {
+		flex: 1 0 150px;
+		max-width: 250px;
+		margin-right: 20px;
+	}
+}
+
+@media(min-width: 50em) {
+	.header {
+		padding: 50px;
+	}
+}
+
+@media(min-width: 60em) {
+	.header {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 65px 0;
+	}
+
+	.logo {
+		width: 30vw;
+		max-width: 400px;
+	}
 }

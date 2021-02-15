@@ -1,3 +1,11 @@
+.menu {
+	color: var.$white;
+}
+
+.close {
+	height: 2em;
+}
+
 .nav {
 	position: relative;
 	z-index: 10;
@@ -76,10 +84,45 @@
 	color: inherit;
 }
 
-.menu {
-	color: var.$white;
-}
+@media(min-width: 40em) {
+	.nav {
+		display: block;
+		position: static;
+		// flex: 1 0 auto;
+		margin: 0;
 
-.close {
-	height: 2em;
+		ul {
+			display: flex;
+			position: static;
+			width: auto;
+			max-width: unset;
+			padding: 0;
+			background: none;
+
+			&:before {
+				content: normal;
+			}
+		}
+	}
+
+	.hamburger {
+		display: none;
+	}
+
+	.item {
+		margin: 0 10px;
+		padding: 0;
+		font-size: 1em;
+
+		&:after {
+			content: normal;
+		}
+
+		&:hover {
+			&:after {
+				content: '';
+				bottom: 20%;
+			}
+		}
+	}
 }

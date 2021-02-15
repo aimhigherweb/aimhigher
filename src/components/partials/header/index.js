@@ -35,9 +35,9 @@ const Header = () => (
 
 			return (
 				<header className={styles.header}>
-					<Link to="/">
+					<Link to="/" className={styles.logo}>
 						<Logo />
-						<span className="sr-only">Link to homepage</span>
+						<span className="sr-only">Homepage</span>
 					</Link>
 					<Nav items={items} />
 				</header>
