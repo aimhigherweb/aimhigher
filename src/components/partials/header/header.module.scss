@@ -3,11 +3,20 @@
 	--logo-secondary: #{var.$white};
 	--logo-gradient: #{var.$white};
 	display: flex;
+	position: relative;
 	align-items: center;
 	justify-content: space-between;
 	padding: 20px;
 
 	color: var.$white;
+}
+
+.banner {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: -30%;
+	width: 200vw;
 }
 
 @media(min-width: 40em) {
