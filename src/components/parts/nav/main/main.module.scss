@@ -1,11 +1,85 @@
 .nav {
+	position: relative;
+	z-index: 10;
+	margin-left: 10px;
+	color: var.$neutral;
 
+	ul {
+		position: absolute;
+		top: -10px;
+		right: -10px;
+		width: 90vw;
+		max-width: 400px;
+		max-height: 90vh;
+		padding: 20px;
+		text-align: center;
+
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: #f5f5f5;
+		}
+	}
+
+	ul, .close {
+		display: none;
+	}
+
+	li {
+		&:nth-child(2n) {
+			--heading_underline: #{var.$pink};
+		}
+	}
+
+	&[open] {
+		ul, .close {
+			display: block;
+		}
+
+		.menu {
+			display: none;
+		}
+	}
 }
 
 .item {
+	@include mixins.underline;
+
+	padding: 20px 10px;
 	color: inherit;
 	font-family: var.$font_headings;
 	font-size: 1.5em;
 	font-weight: bold;
 	text-decoration: none;
+
+	&:after {
+		bottom: 30%;
+	}
+
+	&:hover {
+		&:after {
+			content: normal;
+		}
+	}
+}
+
+.hamburger {
+	position: relative;
+	z-index: 5;
+	border: none;
+	background: none;
+	color: inherit;
+}
+
+.menu {
+	color: var.$white;
+}
+
+.close {
+	height: 2em;
 }

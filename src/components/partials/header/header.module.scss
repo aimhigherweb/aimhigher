@@ -2,6 +2,8 @@
 	--logo-neutral: #{var.$white};
 	--logo-secondary: #{var.$white};
 	--logo-gradient: #{var.$white};
+	display: flex;
+	align-items: center;
 
 	padding: 20px;
 
