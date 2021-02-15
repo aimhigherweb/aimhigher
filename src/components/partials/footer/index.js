@@ -1,7 +1,7 @@
-import React from 'react'
-import {StaticQuery, graphql, Link} from 'gatsby'
+import { graphql, Link, StaticQuery } from 'gatsby';
+import React from 'react';
 
-import Icon from '../../../../lib/parts/icon'
+import Icon from '../../../../lib/parts/icon';
 
 const Footer = () => (
 	<StaticQuery
@@ -49,14 +49,14 @@ const Footer = () => (
 			}
 		`}
 		render={(data) => {
-			const footer = data.footer.edges[0].node.childrenMenus
-			const social = data.social.edges[0].node.childrenMenus
+			const footer = data.footer.edges[0].node.childrenMenus;
+			const social = data.social.edges[0].node.childrenMenus;
 
 			return (
 				<footer>
 					<nav>
 						<ul>
-							{footer.map(({label, link}) => (
+							{footer.map(({ label, link }) => (
 								<li key={label}>
 									<Link to={link} activeClassName={`current`}>{label}</Link>
 								</li>
@@ -66,18 +66,20 @@ const Footer = () => (
 
 					<nav>
 						<ul>
-							{social.map(({label, link, icon}) => (
+							{social.map(({ label, link, icon }) => (
 								<li key={label}>
-									<Icon icon={icon} />
-									<a href={link} target="_blank">{label}</a>
+									<a href={link} target="_blank">
+										<Icon icon={icon} />
+										<span className="sr-only">{label}</span>
+									</a>
 								</li>
 							))}
 						</ul>
 					</nav>
 				</footer>
-			)
+			);
 		}}
 	/>
-)
+);
 
-export default Footer
+export default Footer;

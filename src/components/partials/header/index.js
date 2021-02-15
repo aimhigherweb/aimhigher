@@ -2,6 +2,8 @@ import { graphql, Link, StaticQuery } from 'gatsby';
 import React from 'react';
 
 import Logo from '../../../../lib/parts/logo';
+import Nav from "../../parts/nav/main";
+import styles from './header.module.scss';
 
 const Header = () => (
 	<StaticQuery
@@ -32,20 +34,12 @@ const Header = () => (
 			const items = menu.edges[0].node.childrenMenus;
 
 			return (
-				<header>
+				<header className={styles.header}>
 					<Link to="/">
 						<Logo />
 						<span className="sr-only">Link to homepage</span>
 					</Link>
-					<nav>
-						<ul>
-							{items.map(({ label, link }) => (
-								<li key={label}>
-									<Link to={link} activeClassName="current">{label}</Link>
-								</li>
-							))}
-						</ul>
-					</nav>
+					<Nav items={items} />
 				</header>
 			);
 		}}

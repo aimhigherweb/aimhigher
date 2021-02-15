@@ -1,0 +1,10 @@
+.header {
+	--logo-neutral: #{var.$white};
+	--logo-secondary: #{var.$white};
+	--logo-gradient: #{var.$white};
+
+	padding: 20px;
+
+	background: var.$gradient;
+	color: var.$white;
+}

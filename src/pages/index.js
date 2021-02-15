@@ -1,29 +1,29 @@
-import React from 'react'
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby';
+import React from 'react';
 
-import Layout from '../components/layout'
+import Layout from '../components/layout';
 
-const IndexPage = ({data}) => {
-	const {sections, banner: {childMarkdownRemark: banner}} = data
-	const {edges: blocks} = sections
+const IndexPage = ({ data }) => {
+	const { sections, banner: { childMarkdownRemark: banner } } = data;
+	const { edges: blocks } = sections;
 
 	return (
 		<Layout>
 			<blockquote>
-				<h1 dangerouslySetInnerHTML={{__html: banner.frontmatter.tagline}} />
-				<div dangerouslySetInnerHTML={{__html: banner.html}} />
+				<h1 dangerouslySetInnerHTML={{ __html: banner.frontmatter.tagline }} />
+				<div dangerouslySetInnerHTML={{ __html: banner.html }} />
 				<a href={banner.frontmatter.cta.link}>
 					{banner.frontmatter.cta.text}
 				</a>
 			</blockquote>
-			{blocks.map(block => (
+			{blocks.map((block) => (
 				<section key={block.node.id}>
-					<div dangerouslySetInnerHTML={{__html: block.node.childMarkdownRemark.html}} />
+					<div dangerouslySetInnerHTML={{ __html: block.node.childMarkdownRemark.html }} />
 				</section>
 			))}
 		</Layout>
-	)
-}
+	);
+};
 
 export const query = graphql`
 	query {
@@ -77,6 +77,6 @@ export const query = graphql`
 			}
 		}
 	}
-`
+`;
 
-export default IndexPage
+export default IndexPage;
