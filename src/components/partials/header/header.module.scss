@@ -11,12 +11,16 @@
 	color: var.$white;
 }
 
+.logo {
+	width: 200px;
+}
+
 .banner {
 	position: absolute;
 	z-index: -1;
-	top: 0;
-	left: -30%;
-	width: 200vw;
+	top: -130px;
+	left: -400px;
+	width: 1000px;
 }
 
 @media(min-width: 40em) {
@@ -26,15 +30,27 @@
 	}
 
 	.logo {
-		flex: 1 0 150px;
-		max-width: 250px;
+		width: 150px;
 		margin-right: 20px;
+	}
+
+	.banner {
+		left: -500px;
 	}
 }
 
 @media(min-width: 50em) {
 	.header {
 		padding: 50px;
+	}
+
+	.logo {
+		width: 250px;
+	}
+
+	.banner {
+		top: -80px;
+		left: -380px;
 	}
 }
 
@@ -47,7 +63,40 @@
 	}
 
 	.logo {
-		width: 30vw;
-		max-width: 400px;
+		width: 300px;
+	}
+
+	.banner {
+		top: -100px;
+		left: -500px;
+		width: 1200px;
+	}
+}
+
+@media(min-width: 70em) {
+	.logo {
+		width: 400px;
+	}
+
+	.banner {
+		top: -150px;
+		left: -700px;
+		width: 1700px;
+	}
+}
+
+@media(min-width: 80em) {
+	.banner {
+		top: -200px;
+		left: -800px;
+		width: 2000px;
+	}
+}
+
+@media(min-width: 90em) {
+	.banner {
+		top: -220px;
+		left: -950px;
+		width: 2200px;
 	}
 }
