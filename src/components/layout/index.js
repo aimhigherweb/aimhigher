@@ -8,13 +8,13 @@ import Header from '../partials/header';
 import Meta from '../parts/meta';
 import styles from './layout.module.scss';
 
-const Layout = ({ children, meta }) => (
+const Layout = ({ children, meta, altHeader }) => (
 	<Fragment>
 		{process.env.NODE_ENV === `development`
 			&& <DevStyles />
 		}
 		<Meta {...meta} />
-		<Header />
+		<Header {...altHeader} />
 		<main className={styles.content}>
 			{children}
 		</main>

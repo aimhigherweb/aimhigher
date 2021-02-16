@@ -1,9 +1,12 @@
 require(`dotenv`).config();
 
 module.exports = {
+	flags: {
+		DEV_SSR: false
+	},
 	siteMetadata: {
 		title: `AimHigher Web`,
-		description: `Bridging the gap between businesses and website technologies`,
+		description: `Together, Online, Aim Higher. Bridging the gap between businesses and website technologies`,
 		url: `https://aimhigherweb.design`
 	},
 	plugins: [

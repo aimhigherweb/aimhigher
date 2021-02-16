@@ -1,9 +1,10 @@
 .menu {
-	// color: var.$white;
+	color: inherit;
 }
 
 .close {
 	height: 2em;
+	color: var.$neutral;
 }
 
 .nav {
@@ -53,6 +54,10 @@
 			display: none;
 		}
 	}
+
+	&[data-light] {
+		color: var.$white;
+	}
 }
 
 .item {
@@ -60,6 +65,7 @@
 
 	padding: 20px 10px;
 	color: inherit;
+	color: var.$neutral;
 	font-family: var.$font_headings;
 	font-size: 1.5em;
 	font-weight: bold;
@@ -112,13 +118,14 @@
 	.item {
 		margin: 0 10px;
 		padding: 0;
+		color: inherit;
 		font-size: 1em;
 
 		&:after {
 			content: normal;
 		}
 
-		&:hover {
+		&:hover, &[class*='current'] {
 			&:after {
 				content: '';
 				bottom: 20%;

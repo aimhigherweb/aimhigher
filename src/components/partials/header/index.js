@@ -2,11 +2,11 @@ import { graphql, Link, StaticQuery } from 'gatsby';
 import React from 'react';
 
 import Logo from '../../../../lib/parts/logo';
-import HeaderCurve from '../../../img/banners/header_1.svg';
+import DefaultHeader from '../../../img/banners/header_1.svg';
 import Nav from "../../parts/nav/main";
 import styles from './header.module.scss';
 
-const Header = () => (
+const Header = ({ HeaderCurve, lightNav }) => (
 	<StaticQuery
 		query={graphql`
 			query {
@@ -36,12 +36,15 @@ const Header = () => (
 
 			return (
 				<header className={styles.header}>
-					<HeaderCurve className={styles.banner} />
+					{HeaderCurve
+						? <HeaderCurve />
+						: <DefaultHeader className={styles.banner} />
+					}
 					<Link to="/" className={styles.logo}>
 						<Logo />
 						<span className="sr-only">Homepage</span>
 					</Link>
-					<Nav items={items} />
+					<Nav items={items} data-light={lightNav} />
 				</header>
 			);
 		}}

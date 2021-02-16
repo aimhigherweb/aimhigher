@@ -23,14 +23,27 @@ const Meta = (meta) => (
 				) {
 					publicURL
 				}
+				social: file(
+					sourceInstanceName: {
+						eq: "images"
+					}, 
+					relativeDirectory: {
+						eq: "social"
+					}, 
+					name: {
+						eq: "default"
+					}
+				) {
+					publicURL
+				}
 			}
 		`}
-		render={({ site: { siteMetadata }, favicon }) => {
+		render={({ site: { siteMetadata }, favicon, social }) => {
 			const title = meta?.title || siteMetadata.title;
 			const description = meta?.description || siteMetadata.description;
 			const siteUrl = siteMetadata.url;
 			const slug = meta?.slug || ``;
-			const image = meta?.image;
+			const image = meta?.image || social.publicURL;
 
 			return (
 				<Helmet>

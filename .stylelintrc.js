@@ -3,7 +3,10 @@ module.exports = {
 		'stylelint-scss',
 		'stylelint-order'
 	],
-	extends: ['stylelint-config-property-sort-order-smacss'],
+	extends: [
+		'stylelint-config-css-modules',
+		'stylelint-config-property-sort-order-smacss'
+	],
 	rules: { 
 			'order/order': [
 				'custom-properties',

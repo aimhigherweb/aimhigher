@@ -54,6 +54,7 @@
 		"netlify-plugin-a11y": "^0.0.12",
 		"netlify-plugin-html-validate": "^0.2.0",
 		"stylelint": "^13.9.0",
+		"stylelint-config-css-modules": "^2.2.0",
 		"stylelint-config-property-sort-order-smacss": "^7.0.0",
 		"stylelint-order": "^4.1.0",
 		"stylelint-scss": "^3.18.0"

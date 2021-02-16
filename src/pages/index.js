@@ -2,20 +2,34 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Layout from '../components/layout';
+import Header from '../img/banners/header_home.svg';
+import HomeBanner from '../img/graphics/homeDesk.svg';
+import styles from '../styles/home.module.scss';
 
 const IndexPage = ({ data }) => {
 	const { sections, banner: { childMarkdownRemark: banner } } = data;
 	const { edges: blocks } = sections;
 
 	return (
-		<Layout>
-			<blockquote>
-				<h1 dangerouslySetInnerHTML={{ __html: banner.frontmatter.tagline }} />
-				<div dangerouslySetInnerHTML={{ __html: banner.html }} />
-				<a href={banner.frontmatter.cta.link}>
-					{banner.frontmatter.cta.text}
-				</a>
-			</blockquote>
+		<Layout {...{
+			altHeader: {
+				HeaderCurve: () => (<Header className={styles.header} />),
+				lightNav: true
+			}
+		}}>
+			<section className={styles.banner}>
+				<blockquote>
+					<h1 dangerouslySetInnerHTML={{ __html: banner.frontmatter.tagline }} />
+					<div
+						className={styles.content}
+						dangerouslySetInnerHTML={{ __html: banner.html }}
+					/>
+					<a className={styles.cta} href={banner.frontmatter.cta.link}>
+						{banner.frontmatter.cta.text}
+					</a>
+				</blockquote>
+				<HomeBanner className={styles.banner_graphic} />
+			</section>
 			{blocks.map((block) => (
 				<section key={block.node.id}>
 					<div dangerouslySetInnerHTML={{ __html: block.node.childMarkdownRemark.html }} />
