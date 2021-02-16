@@ -1,3 +1,5 @@
+require(`dotenv`).config();
+
 module.exports = {
 	siteMetadata: {
 		title: `AimHigher Web`,
@@ -48,6 +50,17 @@ module.exports = {
 				name: `menus`,
 				path: `${__dirname}/_data/menus`
 			}
+		},
+		{
+			resolve: `gatsby-source-graphql`,
+			options: {
+				typeName: `aimHigherCms`,
+				fieldName: `cms`,
+				url: process.env.GATSBY_STRAPI_API_URL,
+				headers: {
+					Authorization: `Bearer ${process.env.GATSBY_STRAPI_TOKEN}`,
+				},
+			},
 		},
 		`gatsby-plugin-sharp`,
 		`gatsby-transformer-sharp`,

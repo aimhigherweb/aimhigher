@@ -15,6 +15,7 @@
 	},
 	"author": "Amy Kapernick <amy@aimhigherweb.design> (https://aimhigherweb.design)",
 	"dependencies": {
+		"dotenv": "^8.2.0",
 		"gatsby": "^2.32.3",
 		"gatsby-image": "^2.11.0",
 		"gatsby-plugin-html-attributes": "^1.0.5",
@@ -23,12 +24,18 @@
 		"gatsby-plugin-sass": "^3.2.0",
 		"gatsby-plugin-sharp": "^2.14.1",
 		"gatsby-source-filesystem": "^2.11.0",
+		"gatsby-source-graphql": "^2.14.0",
 		"gatsby-transformer-json": "^2.11.0",
 		"gatsby-transformer-remark": "^2.16.0",
 		"gatsby-transformer-sharp": "^2.12.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-helmet": "^6.1.0",
+		"rehype-stringify": "^8.0.0",
+		"remark": "^13.0.0",
+		"remark-gfm": "^1.0.0",
+		"remark-parse": "^9.0.0",
+		"remark-rehype": "^8.0.0",
 		"sass": "^1.32.6"
 	},
 	"devDependencies": {
