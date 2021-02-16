@@ -1,7 +1,10 @@
-import { graphql, Link, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 
-import Icon from '../../../../lib/parts/icon';
+import FooterCurve from '../../../img/banners/footer.svg';
+import FooterNav from '../../parts/nav/footer';
+import Social from '../../parts/nav/social';
+import styles from './footer.module.scss';
 
 const Footer = () => (
 	<StaticQuery
@@ -48,37 +51,14 @@ const Footer = () => (
 				}
 			}
 		`}
-		render={(data) => {
-			const footer = data.footer.edges[0].node.childrenMenus;
-			const social = data.social.edges[0].node.childrenMenus;
+		render={({ footer, social }) => (
+			<footer className={styles.footer}>
+				<FooterCurve className={styles.banner} id="footerCurve" />
+				<FooterNav items={footer.edges[0].node.childrenMenus} />
 
-			return (
-				<footer>
-					<nav>
-						<ul>
-							{footer.map(({ label, link }) => (
-								<li key={label}>
-									<Link to={link} activeClassName={`current`}>{label}</Link>
-								</li>
-							))}
-						</ul>
-					</nav>
-
-					<nav>
-						<ul>
-							{social.map(({ label, link, icon }) => (
-								<li key={label}>
-									<a href={link} target="_blank">
-										<Icon icon={icon} />
-										<span className="sr-only">{label}</span>
-									</a>
-								</li>
-							))}
-						</ul>
-					</nav>
-				</footer>
-			);
-		}}
+				<Social items={social.edges[0].node.childrenMenus} />
+			</footer>
+		)}
 	/>
 );
 
