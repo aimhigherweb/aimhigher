@@ -14,7 +14,12 @@ const ContactPage = ({ data }) => {
 	const { title, meta } = frontmatter;
 
 	return (
-		<Layout>
+		<Layout {...{
+			meta: {
+				...meta,
+				image: data.social.publicURL
+			}
+		}}>
 			<div className={styles.content}>
 				<Squiggle className={styles.squiggle} />
 				<h1>{title}</h1>
@@ -140,6 +145,19 @@ export const query = graphql`
 				html
 			}
 		} 
+		social: file(
+			sourceInstanceName: {
+				eq: "images"
+			}, 
+			relativeDirectory: {
+				eq: "social"
+			}, 
+			name: {
+				eq: "contact"
+			}
+		) {
+			publicURL
+		}
 	}
 `;
 
