@@ -6,6 +6,8 @@ import {
 	Form, Input, Label, Legend, TextArea
 } from '../../../lib/parts/forms';
 import Layout from '../../components/layout';
+import Flower from '../../img/illustrations/flower_2.svg';
+import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
 import styles from './contact.module.scss';
 
@@ -115,6 +117,8 @@ const ContactPage = ({ data }) => {
 					<TextArea id="message" name="message" />
 					<Button type="submit">Submit</Button>
 				</Form>
+				<Flower className={styles.flower} />
+				<Paw className={styles.paw} />
 			</div>
 		</Layout>
 	);
