@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import FAQ from '../../../lib/parts/faq';
-import processMarkdown from '../../../lib/utils/markdown';
+import processMarkdown from '../../../lib/utils/markdown.js';
 import Layout from '../../components/layout';
 import Flower from '../../img/illustrations/flower_2.svg';
 import Paw from '../../img/illustrations/paw.svg';
