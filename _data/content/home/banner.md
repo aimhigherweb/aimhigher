@@ -1,6 +1,6 @@
 ---
 {
-	"tagline": "Together, Online,<br/> AimHigher",
+	"tagline": "Together, Online,<br/> Aim Higher",
 	"cta": {
 		"link": "/services",
 		"text": "Services"
