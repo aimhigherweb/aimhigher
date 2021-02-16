@@ -1,12 +1,14 @@
 import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 
-import FooterCurve from '../../../img/banners/footer.svg';
+import DefaultCurve from '../../../img/banners/footer.svg';
 import FooterNav from '../../parts/nav/footer';
 import Social from '../../parts/nav/social';
 import styles from './footer.module.scss';
 
-const Footer = () => (
+const Footer = ({
+	FooterCurve, footerImage, lightNav, customClass
+}) => (
 	<StaticQuery
 		query={graphql`
 			query {
@@ -49,7 +51,7 @@ const Footer = () => (
 						}
 					}
 				}
-				footerCurve: file(
+				curveImage: file(
 					sourceInstanceName: {
 						eq: "images"
 					}, 
@@ -62,16 +64,37 @@ const Footer = () => (
 				) {
 					publicURL
 				}
+				site {
+					siteMetadata {
+						url
+					}
+				}
 			}
 		`}
-		render={({ footer, social, footerCurve }) => (
-			<footer className={styles.footer} style={{ '--backgroundCurve': `url(${footerCurve.publicURL})` }}>
-				<FooterCurve className={styles.banner} id="footerCurve" />
-				<FooterNav items={footer.edges[0].node.childrenMenus} />
+		render={({
+			footer, social, curveImage, site
+		}) => {
+			const curveURL = footerImage || curveImage.publicURL;
 
-				<Social items={social.edges[0].node.childrenMenus} />
-			</footer>
-		)}
+			return (
+				<footer
+					className={`${styles.footer} ${customClass}`}
+					style={{
+						// '--backgroundCurve': `url('http://localhost:8000${curveURL}')`
+						'--backgroundCurve': `url('${site.siteMetadata.url}${curveURL}')`
+					}}
+					data-light={lightNav}
+				>
+					{FooterCurve
+						? <FooterCurve />
+						: <DefaultCurve className={styles.banner} />
+					}
+					<FooterNav items={footer.edges[0].node.childrenMenus} />
+
+					<Social items={social.edges[0].node.childrenMenus} />
+				</footer>
+			);
+		}}
 	/>
 );
 

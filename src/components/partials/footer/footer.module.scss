@@ -60,6 +60,14 @@ $banner_left: -200px;
 		&:after {
 			background-position: $banner_left bottom;
 		}
+
+		&[data-light='true'] {
+			nav {
+				a {
+					color: var.$white;
+				}
+			}
+		}
 	}
 
 	.banner {

@@ -2,19 +2,32 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Layout from '../components/layout';
+import Footer from '../img/banners/footer_home.svg';
 import Header from '../img/banners/header_home.svg';
+import About from '../img/graphics/about.svg';
+import Devices from '../img/graphics/devices.svg';
 import HomeBanner from '../img/graphics/homeDesk.svg';
+import Website from '../img/graphics/website.svg';
+import Heart from '../img/illustrations/heart.svg';
+import Leaf from '../img/illustrations/leaf_thin.svg';
+import Squiggle from '../img/illustrations/squiggle.svg';
 import styles from '../styles/home.module.scss';
 
 const IndexPage = ({ data }) => {
 	const { sections, banner: { childMarkdownRemark: banner } } = data;
-	const { edges: blocks } = sections;
+	const blocks = sections.edges.map(({ node }) => node.childMarkdownRemark);
 
 	return (
 		<Layout {...{
-			altHeader: {
+			header: {
 				HeaderCurve: () => (<Header className={styles.header} />),
 				lightNav: true
+			},
+			footer: {
+				FooterCurve: () => (<Footer className={styles.footer} />),
+				footerImage: data.footer.publicURL,
+				lightNav: true,
+				customClass: styles.footer_image
 			}
 		}}>
 			<section className={styles.banner}>
@@ -30,11 +43,31 @@ const IndexPage = ({ data }) => {
 				</blockquote>
 				<HomeBanner className={styles.banner_graphic} />
 			</section>
-			{blocks.map((block) => (
-				<section key={block.node.id}>
-					<div dangerouslySetInnerHTML={{ __html: block.node.childMarkdownRemark.html }} />
-				</section>
-			))}
+			<section className={styles.section}>
+				<Squiggle className={styles.squiggle} />
+				<div
+					className={styles.content}
+					dangerouslySetInnerHTML={{ __html: blocks[0].html }}
+				/>
+				<Website className={styles.graphic} />
+				<Heart className={styles.heart} />
+			</section>
+			<section className={styles.section}>
+				<div
+					className={styles.content}
+					dangerouslySetInnerHTML={{ __html: blocks[1].html }}
+				/>
+				<Devices className={styles.graphic} />
+			</section>
+			<section className={styles.section}>
+				<div
+					className={styles.content}
+					dangerouslySetInnerHTML={{ __html: blocks[2].html }}
+				/>
+				<About className={styles.graphic} />
+				<Leaf className={styles.leaf} />
+			</section>
+
 		</Layout>
 	);
 };
@@ -86,9 +119,25 @@ export const query = graphql`
 					id
 					childMarkdownRemark {
 						html
+						frontmatter {
+							image
+						}
 					}
 				}
 			}
+		}
+		footer: file(
+			sourceInstanceName: {
+				eq: "images"
+			}, 
+			relativeDirectory: {
+				eq: "banners"
+			}, 
+			name: {
+				eq: "footer_home"
+			}
+		) {
+			publicURL
 		}
 	}
 `;

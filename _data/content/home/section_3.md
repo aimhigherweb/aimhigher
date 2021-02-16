@@ -1,6 +1,7 @@
 ---
 	{
-		order: 3
+		"order": 3,
+		"image": "about"
 	}
 ---
 
