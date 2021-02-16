@@ -28,10 +28,9 @@ $banner_left: -200px;
 	}
 
 	&:after {
-
 		z-index: 1;
 		background: var.$gradient;
-		background-image: url('/static/0e785e8993e20c88da73552436ee2f6c/footer.svg');
+		background-image: var(--backgroundCurve);
 		background-position: $banner_left bottom;
 		background-size: $banner_width $banner_height;
 		pointer-events: none;

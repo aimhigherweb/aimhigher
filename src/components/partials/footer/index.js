@@ -49,10 +49,23 @@ const Footer = () => (
 						}
 					}
 				}
+				footerCurve: file(
+					sourceInstanceName: {
+						eq: "images"
+					}, 
+					relativeDirectory: {
+						eq: "banners"
+					}, 
+					name: {
+						eq: "footer"
+					}
+				) {
+					publicURL
+				}
 			}
 		`}
-		render={({ footer, social }) => (
-			<footer className={styles.footer}>
+		render={({ footer, social, footerCurve }) => (
+			<footer className={styles.footer} style={{ '--backgroundCurve': `url(${footerCurve.publicURL})` }}>
 				<FooterCurve className={styles.banner} id="footerCurve" />
 				<FooterNav items={footer.edges[0].node.childrenMenus} />
 
