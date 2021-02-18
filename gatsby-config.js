@@ -42,6 +42,14 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
+				name: `images`,
+				path: `${__dirname}/lib/img`
+
+			}
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
 				name: `content`,
 				path: `${__dirname}/_data/content`
 
@@ -53,6 +61,14 @@ module.exports = {
 				name: `menus`,
 				path: `${__dirname}/_data/menus`
 			}
+		},
+		{
+			resolve: `gatsby-source-remote-file`,
+			options: {
+				url: process.env.GATSBY_BLOG_FEED,
+				name: `posts`,
+				ext: `.json`
+			},
 		},
 		{
 			resolve: `gatsby-source-graphql`,
