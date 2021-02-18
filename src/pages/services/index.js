@@ -5,6 +5,10 @@ import Layout from '../../components/layout';
 import Service from '../../components/parts/service';
 import Header from '../../img/banners/header_2.svg';
 import Blocks from '../../img/graphics/blocks.svg';
+import Flower from '../../img/illustrations/flower.svg';
+import Leaf from '../../img/illustrations/leaf.svg';
+import LeafThin from '../../img/illustrations/leaf_thin.svg';
+import Squiggle from '../../img/illustrations/squiggle.svg';
 import styles from './services.module.scss';
 
 const ServicesPage = ({ data }) => {
@@ -27,15 +31,22 @@ const ServicesPage = ({ data }) => {
 			}
 		}}>
 			<div className={styles.content}>
+				<Squiggle className={styles.squiggle} />
 				<h1>{title}</h1>
-				<Blocks className={styles.blocks} />
+
 				<div className={styles.blurb} dangerouslySetInnerHTML={{ __html: html }} />
+				<Blocks className={styles.blocks} />
+
+				<Leaf className={styles.leaf} />
 
 				<ul className={styles.services}>
 					{services.map((service) => (
 						<Service key={service.title} {...service} />
 					))}
 				</ul>
+
+				<LeafThin className={styles.leaf_thin} />
+				<Flower className={styles.flower} />
 			</div>
 		</Layout>
 	);

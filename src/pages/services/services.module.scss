@@ -2,7 +2,7 @@
 	--heading_underline: #{var.$pink};
 
 	position: relative;
-	margin-bottom: 300px;
+	margin-bottom: 700px;
 	padding: 20px;
 	color: var.$white;
 }
@@ -11,13 +11,13 @@
 	top: 0;
 	left: 0;
 	width: auto;
-	height: 5500px;
+	height: 5100px;
 	transform: translateX(-50%);
 	composes: banner from '../../components/partials/header/header.module.scss';
 }
 
 .blocks {
-	width: 800px;
+	width: 300px;
 	margin-bottom: 50px;
 }
 
@@ -47,16 +47,73 @@
 	list-style: none;
 }
 
+.squiggle {
+	position: absolute;
+	top: 50px;
+	right: -170px;
+	width: 200px;
+	color: var.$pink;
+}
+
+.leaf {
+	position: absolute;
+	z-index: -1;
+	top: 1000px;
+	left: -100px;
+	width: 200px;
+	transform: rotate(155deg);
+	color: var.$purple;
+}
+
+.leaf_thin {
+	position: absolute;
+	bottom: -653px;
+	left: -50px;
+	width: 200px;
+	transform: rotate(40deg);
+	color: var.$pink;
+	mix-blend-mode: multiply;
+}
+
+.flower {
+	position: absolute;
+	right: -100px;
+	bottom: -370px;
+	width: 200px;
+	transform: rotate(110deg) scaleX(-1);
+	color: var.$purple;
+	mix-blend-mode: multiply;
+}
+
 @media(min-width: 40em) {
 	.header {
 		height: 3500px;
+	}
+
+	.squiggle {
+		top: -70px;
+		right: -100px;
+	}
+
+	.leaf {
+		top: 500px;
+	}
+
+	.leaf_thin {
+		bottom: -1000px;
+		left: 0;
+	}
+
+	.flower {
+		right: 0;
+		bottom: -550px;
 	}
 
 	.content {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-end;
-		margin-bottom: 700px;
+		margin-bottom: 1000px;
 
 		h1 {
 			flex-grow: 0;
@@ -95,11 +152,11 @@
 
 @media(min-width: 50em) {
 	.header {
-		height: 3400px;
+		height: 3250px;
 	}
 
 	.content {
-		margin-bottom: 1000px;
+		margin-bottom: 900px;
 		padding: 0 50px;
 	}
 
@@ -115,17 +172,36 @@
 			height: 360px;
 		}
 	}
+
+	.squiggle {
+		top: -120px;
+		right: -50px;
+	}
+
+	.leaf {
+		top: 400px;
+	}
+
+	.leaf_thin {
+		bottom: -986px;
+		left: 0;
+	}
+
+	.flower {
+		right: 0;
+		bottom: -725px;
+	}
 }
 
 @media(min-width: 60em) {
 	.header {
-		height: 4300px;
+		height: 4100px;
 	}
 
 	.content {
 		width: 90vw;
 		max-width: 1200px;
-		margin: 0 auto 600px;
+		margin: 0 auto 1100px;
 		padding: 0;
 	}
 
@@ -133,6 +209,29 @@
 		top: 20px;
 		left: -20px;
 		width: 450px;
+	}
+
+	.squiggle {
+		top: -200px;
+		right: -260px;
+		width: 400px;
+		transform: rotate(12deg);
+	}
+
+	.leaf {
+		top: 550px;
+	}
+
+	.leaf_thin {
+		bottom: -1170px;
+		left: 0;
+		width: 400px;
+	}
+
+	.flower {
+		right: 0;
+		bottom: -725px;
+		width: 340px;
 	}
 
 	.blurb {
@@ -162,6 +261,20 @@
 		width: 450px;
 	}
 
+	.leaf {
+		top: 400px;
+		left: -150px;
+		width: 250px;
+	}
+
+	.leaf_thin {
+		bottom: -725px;
+	}
+
+	.flower {
+		bottom: -500px;
+	}
+
 	.blurb {
 		&:before {
 			width: 470px;
@@ -176,12 +289,24 @@
 	}
 
 	.content {
-		margin-bottom: 400px;
+		margin-bottom: 500px;
 	}
 
 	.blocks {
 		left: 0;
 		width: 500px;
+	}
+
+	.leaf {
+		left: -250px;
+	}
+
+	.leaf_thin {
+		bottom: -620px;
+	}
+
+	.flower {
+		bottom: -340px;
 	}
 
 	.blurb {
@@ -197,6 +322,15 @@
 	}
 
 	.content {
-		margin-bottom: 600px;
+		margin-bottom: 700px;
+	}
+
+	.leaf_thin {
+		bottom: -800px;
+		left: -350px;
+	}
+
+	.flower {
+		bottom: -340px;
 	}
 }
