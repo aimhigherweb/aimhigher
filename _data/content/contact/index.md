@@ -8,6 +8,4 @@
 	}
 }
 ---
-We'd love the chance to work with you and your website.
-
-Send us a few details and someone will be in touch to help you.
+We'd love the chance to work with you and your website. Send us a few details and someone will be in touch to help you.

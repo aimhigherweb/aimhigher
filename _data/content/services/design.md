@@ -1,7 +1,8 @@
 ---
 {
-	"title": "Design",
-	"icon": "design"
+	title: 'Design',
+	icon: 'design',
+	order: 5
 }
 ---
 

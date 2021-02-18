@@ -1,7 +1,8 @@
 ---
 {
-	"title": "Website Development",
-	"icon": "monitor"
+	title: 'Website Development',
+	icon: 'monitor',
+	order: 1
 }
 ---
 

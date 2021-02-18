@@ -1,0 +1,202 @@
+.content {
+	--heading_underline: #{var.$pink};
+
+	position: relative;
+	margin-bottom: 300px;
+	padding: 20px;
+	color: var.$white;
+}
+
+.header {
+	top: 0;
+	left: 0;
+	width: auto;
+	height: 5500px;
+	transform: translateX(-50%);
+	composes: banner from '../../components/partials/header/header.module.scss';
+}
+
+.blocks {
+	width: 800px;
+	margin-bottom: 50px;
+}
+
+.blurb {
+	text-align: left;
+
+	a {
+		color: var.$yellow;
+		font-style: italic;
+		font-weight: bold;
+		text-decoration: none;
+
+		&:hover {
+			display: inline;
+			text-decoration: underline;
+
+			&:after {
+				content: normal;
+			}
+		}
+	}
+}
+
+.services {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+@media(min-width: 40em) {
+	.header {
+		height: 3500px;
+	}
+
+	.content {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		margin-bottom: 700px;
+
+		h1 {
+			flex-grow: 0;
+			width: auto;
+		}
+	}
+
+	.blocks {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		order: -2;
+		width: 300px;
+	}
+
+	.blurb {
+		order: -1;
+
+		&:before {
+			content: '';
+			display: block;
+			width: 340px;
+			height: 300px;
+			float: left;
+			shape-outside: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+		}
+	}
+
+	.services {
+		display: flex;
+		flex-wrap: wrap;
+		order: 2;
+		margin: 0 -10px;
+	}
+}
+
+@media(min-width: 50em) {
+	.header {
+		height: 3400px;
+	}
+
+	.content {
+		margin-bottom: 1000px;
+		padding: 0 50px;
+	}
+
+	.blocks {
+		top: 20px;
+		left: 40px;
+		width: 350px;
+	}
+
+	.blurb {
+		&:before {
+			width: 360px;
+			height: 360px;
+		}
+	}
+}
+
+@media(min-width: 60em) {
+	.header {
+		height: 4300px;
+	}
+
+	.content {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto 600px;
+		padding: 0;
+	}
+
+	.blocks {
+		top: 20px;
+		left: -20px;
+		width: 450px;
+	}
+
+	.blurb {
+		&:before {
+			width: 470px;
+			height: 500px;
+		}
+	}
+
+	.services {
+		justify-content: space-evenly;
+	}
+}
+
+@media(min-width: 70em) {
+	.header {
+		height: 3600px;
+	}
+
+	.content {
+		margin-bottom: 600px;
+	}
+
+	.blocks {
+		top: 20px;
+		left: -20px;
+		width: 450px;
+	}
+
+	.blurb {
+		&:before {
+			width: 470px;
+			height: 500px;
+		}
+	}
+}
+
+@media(min-width: 80em) {
+	.header {
+		height: 3400px;
+	}
+
+	.content {
+		margin-bottom: 400px;
+	}
+
+	.blocks {
+		left: 0;
+		width: 500px;
+	}
+
+	.blurb {
+		&:before {
+			width: 550px;
+		}
+	}
+}
+
+@media(min-width: 90em) {
+	.header {
+		height: 4100px;
+	}
+
+	.content {
+		margin-bottom: 600px;
+	}
+}

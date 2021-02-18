@@ -1,7 +1,8 @@
 ---
 {
-	"title": "Website Hosting",
-	"icon": "hosting"
+	title: 'Website Hosting',
+	icon: 'hosting',
+	order: 3
 }
 ---
 

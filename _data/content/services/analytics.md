@@ -1,7 +1,8 @@
 ---
 {
-	"title": "Analytics",
-	"icon": "analytics"
+	title: 'Analytics',
+	icon: 'analytics',
+	order: 6
 }
 ---
 

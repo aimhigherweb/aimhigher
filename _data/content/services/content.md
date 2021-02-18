@@ -1,7 +1,8 @@
 ---
 {
-	"title": "Content Writing & Editing",
-	"icon": "writing"
+	title: 'Content Writing & Editing',
+	icon: 'writing',
+	order: 4
 }
 ---
 

@@ -1,7 +1,8 @@
 ---
 {
-	"title": "Support",
-	"icon": "handshake"
+	title: 'Support',
+	icon: 'handshake',
+	order: 2
 }
 ---
 

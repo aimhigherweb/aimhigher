@@ -1,7 +1,8 @@
 ---
 {
-	"title": "eCommerce",
-	"icon": "shopping"
+	title: 'eCommerce',
+	icon: 'shopping',
+	order: 7
 }
 ---
 

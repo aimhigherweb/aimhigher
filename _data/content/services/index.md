@@ -1,10 +1,10 @@
 ---
 {
-	"title": "Services",
-	"meta": {
-		"title": "Services | AimHigher Web",
-		"description": "We handle everything from breaking down your needs through development to domain registration.",
-		"slug": "/services"
+	title: 'Services',
+	meta: {
+		title: 'Services | AimHigher Web',
+		description: 'We handle everything from breaking down your needs through development to domain registration.',
+		slug: '/services'
 	}
 }
 ---

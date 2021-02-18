@@ -1,7 +1,8 @@
 ---
 {
-	"title": "SEO",
-	"icon": "twitter"
+	title: 'SEO',
+	icon: 'twitter',
+	order: 8
 }
 ---
 ## Digital Marketing

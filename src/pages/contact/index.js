@@ -25,7 +25,7 @@ const ContactPage = ({ data }) => {
 			<div className={styles.content}>
 				<Squiggle className={styles.squiggle} />
 				<h1>{title}</h1>
-				<div dangerouslySetInnerHTML={{ __html: html }} />
+				<div className={styles.blurb} dangerouslySetInnerHTML={{ __html: html }} />
 				{/* TODO: Check the form actually works */}
 				<Form
 					method="post"
