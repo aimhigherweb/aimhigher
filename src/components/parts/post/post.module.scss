@@ -19,11 +19,23 @@
 
 	h2 {
 		font-size: 1.4em;
+
+		&:hover {
+			&:after {
+				content: normal;
+			}
+		}
 	}
 
 	a {
 		color: inherit;
 		text-decoration: none;
+
+		&:hover {
+			&:after {
+				content: normal;
+			}
+		}
 	}
 
 	h2 {
@@ -118,14 +130,6 @@
 	.post {
 		h2 {
 			font-size: 1.2em;
-		}
-	}
-}
-
-@media(min-width: 80em) {
-	.post {
-		h2 {
-			font-size: 1.4em;
 		}
 	}
 }
