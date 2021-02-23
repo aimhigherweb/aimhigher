@@ -8,6 +8,11 @@ import Header from '../../img/banners/header_1.svg';
 import Character from '../../img/graphics/desk.svg';
 import Blob from '../../img/illustrations/blob_2.svg';
 import Background from '../../img/illustrations/blob_background.svg';
+import Dots from '../../img/illustrations/dots.svg';
+import Heart from '../../img/illustrations/heart.svg';
+import Leaf from '../../img/illustrations/leaf_thin.svg';
+import Paw from '../../img/illustrations/paw.svg';
+import Squiggle from '../../img/illustrations/squiggle.svg';
 import styles from './about.module.scss';
 
 const AboutPage = ({ data }) => {
@@ -17,8 +22,6 @@ const AboutPage = ({ data }) => {
 	const founder = data.founder.childMarkdownRemark;
 	const partners = data.partners.childMarkdownRemark;
 	const logos = data.logos.edges;
-
-	console.log(logos);
 
 	return (
 		<Layout {...{
@@ -32,12 +35,16 @@ const AboutPage = ({ data }) => {
 		}}>
 			<h1 className="sr-only">{title}</h1>
 			<section className={`${styles.section} ${styles.aimhigher}`}>
+				<Leaf className={styles.leaf} />
+				<Dots className={styles.dots} />
+				<Blob className={styles.blob} />
 				<h2>{aimhigher.frontmatter.title}</h2>
 				<div dangerouslySetInnerHTML={{ __html: aimhigher.html }} />
 				<Character className={styles.graphic} />
 			</section>
 
 			<section className={`${styles.section} ${styles.founder}`}>
+				<Squiggle className={styles.squiggle} />
 				<Background className={styles.background} />
 				<h2>{founder.frontmatter.title}</h2>
 				<div dangerouslySetInnerHTML={{ __html: founder.html }} />
@@ -49,6 +56,7 @@ const AboutPage = ({ data }) => {
 			<section className={styles.section}>
 				<h2>{partners.frontmatter.title}</h2>
 				<div dangerouslySetInnerHTML={{ __html: partners.html }} />
+				<Heart className={styles.heart} />
 				<ul className={styles.logos}>
 					{logos.map(({ node }) => (
 						<Fragment>
@@ -59,6 +67,7 @@ const AboutPage = ({ data }) => {
 						</Fragment>
 					))}
 				</ul>
+				<Paw className={styles.paw} />
 			</section>
 		</Layout>
 	);
