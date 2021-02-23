@@ -1,0 +1,111 @@
+.content {
+	position: relative;
+	padding: 20px;
+}
+
+.squiggle {
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	right: -180px;
+	width: 200px;
+	color: var.$purple;
+}
+
+.flower {
+	position: absolute;
+	z-index: 5;
+	bottom: -50px;
+	left: -50px;
+	width: 100px;
+	color: var.$pink;
+	mix-blend-mode: multiply;
+}
+
+.paw {
+	position: absolute;
+	z-index: 5;
+	right: -0;
+	bottom: -120px;
+	width: 100px;
+	color: var.$pink;
+	mix-blend-mode: multiply;
+}
+
+.faq {
+	background: rgba(var.$white, 0.8);
+}
+
+@media(min-width: 40em) {
+	.paw {
+		bottom: -60px;
+	}
+}
+
+@media(min-width: 50em) {
+	.content {
+		padding: 0 50px;
+	}
+
+	.squiggle {
+		right: -100px;
+	}
+
+	.flower {
+		bottom: -100px;
+		left: -60px;
+	}
+
+	.paw {
+		bottom: -120px;
+	}
+}
+
+@media(min-width: 60em) {
+	.content {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 0 50px;
+	}
+
+	.squiggle {
+		right: -300px;
+		width: 400px;
+	}
+
+	.paw {
+		right: -20px;
+		width: 150px;
+	}
+
+	.flower {
+		bottom: -120px;
+		left: -150px;
+		width: 200px;
+	}
+}
+
+@media(min-width: 70em) {
+	.content {
+		padding: 100px 0;
+	}
+
+	.squiggle {
+		right: -250px;
+	}
+
+	.paw {
+		right: -50px;
+	}
+
+	.flower {
+		left: -100px;
+	}
+}
+
+@media(min-width: 90em) {
+	.paw {
+		bottom: -140px;
+	}
+}

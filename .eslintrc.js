@@ -1,48 +1,68 @@
 module.exports = {
-	extends: ['standard'],
-	plugins: ['standard', 'react', 'emotion'],
+	extends: [`airbnb-base`],
+	plugins: [
+		`import`,
+		`react`,
+		`simple-import-sort`,
+		`node`,
+		`promise`,
+		`babel`
+	],
+	parser: `@babel/eslint-parser`,
+	parserOptions: {
+		requireConfigFile: false,
+	},
 	rules: {
-		'emotion/jsx-import': 'error',
-		'emotion/no-vanilla': 'error',
-		'emotion/import-from-emotion': 'error',
-		'emotion/styled-import': 'error',
-		'no-var': 'error', // optional, recommended when using es6+
-		'no-unused-vars': 1, // recommended
-		'arrow-spacing': ['error', { before: true, after: true }], // recommended
-		indent: ['error', 'tab'],
+		'linebreak-style': 0,
 		'no-tabs': 0,
-		'comma-dangle': [
-			'error',
+		camelcase: 0,
+		indent: [
+			`error`,
+			`tab`,
 			{
-				objects: 'only-multiline',
-				arrays: 'only-multiline',
-				imports: 'never',
-				exports: 'never',
-				functions: 'never',
+				SwitchCase: 1,
+				VariableDeclarator: 1
+			}
+		],
+		'arrow-spacing': [`error`, { before: true, after: true }],
+		'comma-dangle': [
+			`error`,
+			{
+				objects: `only-multiline`,
+				arrays: `only-multiline`,
+				imports: `never`,
+				exports: `never`,
+				functions: `never`,
 			},
 		],
-
-		// options to emulate prettier setup
-		semi: ['error', 'never'],
-		'template-curly-spacing': ['error', 'never'],
-		'arrow-parens': ['error', 'as-needed'],
-
-		// standard.js
-		'space-before-function-paren': ['error', 'never'],
-
-		// standard plugin - options
-		'standard/object-curly-even-spacing': ['error', 'either'],
-		'standard/array-bracket-even-spacing': ['error', 'either'],
-		'standard/computed-property-even-spacing': ['error', 'even'],
-		'standard/no-callback-literal': ['error', ['cb', 'callback']],
-
-		// react plugin - options
-		'react/jsx-uses-react': 'error',
-		'react/jsx-uses-vars': 'error',
-		'one-var': [2, 'consecutive'],
-	},
-	parser: 'babel-eslint',
-	parserOptions: {
-		ecmaVersion: 8, // optional, recommended 6+
-	},
-}
+		'no-var': `error`,
+		'no-unused-vars': 1,
+		'one-var': [`error`, { initialized: `never`, uninitialized: `consecutive` }],
+		quotes: [`error`, `backtick`],
+		'no-param-reassign': 0,
+		'react/jsx-uses-react': `error`,
+		'react/jsx-uses-vars': `error`,
+		'react/jsx-indent': [
+			2,
+			`tab`,
+			{
+				checkAttributes: true,
+				indentLogicalExpressions: true
+			}
+		],
+		// 'react/jsx-indent-props': [
+		// 	2,
+		// 	`tab`,
+		// 	{
+		// 		indentMode: 2,
+		// 		ignoreTernaryOperator: true
+		// 	}
+		// ],
+		'class-methods-use-this': 0,
+		"simple-import-sort/imports": `error`,
+		"sort-imports": `off`,
+		"import/first": `error`,
+		"import/newline-after-import": `error`,
+		"import/no-duplicates": `error`
+	}
+};

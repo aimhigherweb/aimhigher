@@ -1,0 +1,22 @@
+[
+	{
+		"label": "About",
+		"link": "/about"
+	},
+	{
+		"label": "Services",
+		"link": "/services"
+	},
+	{
+		"label": "FAQ",
+		"link": "/faq"
+	},
+	{
+		"label": "Blog",
+		"link": "/blog"
+	},
+	{
+		"label": "Contact",
+		"link": "/contact"
+	}
+]

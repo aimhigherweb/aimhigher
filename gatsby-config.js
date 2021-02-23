@@ -1,95 +1,106 @@
-require('dotenv').config()
+require(`dotenv`).config();
 
 module.exports = {
+	flags: {
+		DEV_SSR: false
+	},
 	siteMetadata: {
-		title: 'AimHigher Web Design',
-		description: 'AimHigher Web Design bridges the gap between technology and business throughout Australia.',
-		siteUrl: 'https://aimhigherweb.design/',
+		title: `AimHigher Web`,
+		description: `Together, Online, Aim Higher. Bridging the gap between businesses and website technologies`,
+		url: `https://aimhigherweb.design`
 	},
 	plugins: [
-		'gatsby-plugin-sharp',
-		'gatsby-transformer-sharp',
+		{
+			resolve: `gatsby-plugin-sass`,
+			options: {
+				additionalData: `
+					@use "lib/styles/variables.scss" as var;
+					@use "lib/styles/mixins.scss";
+				`,
+				sourceMap: true,
+				sassOptions: {
+					includePaths: [`lib`],
+				}
+			}
+		},
+		{
+			resolve: `gatsby-plugin-react-svg`,
+			options: {
+				rule: {
+					include: [`${__dirname}/lib/img`, `${__dirname}/src/img`]
+				}
+			}
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `images`,
+				path: `${__dirname}/src/img`
+
+			}
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `images`,
+				path: `${__dirname}/lib/img`
+
+			}
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `content`,
+				path: `${__dirname}/_data/content`
+
+			}
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `menus`,
+				path: `${__dirname}/_data/menus`
+			}
+		},
+		{
+			resolve: `gatsby-source-remote-file`,
+			options: {
+				url: process.env.GATSBY_BLOG_FEED,
+				name: `posts`,
+				ext: `.json`
+			},
+		},
+		{
+			resolve: `gatsby-source-graphql`,
+			options: {
+				typeName: `aimHigherCms`,
+				fieldName: `cms`,
+				url: process.env.GATSBY_STRAPI_API_URL,
+				headers: {
+					Authorization: `Bearer ${process.env.GATSBY_STRAPI_TOKEN}`,
+				},
+			},
+		},
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
+		{
+			resolve: `gatsby-transformer-json`,
+			options: {
+				typeName: `menus`,
+			}
+		},
 		{
 			resolve: `gatsby-transformer-remark`,
 			options: {
-				plugins: [
-					// `gatsby-remark-relative-images`,
-					{
-						resolve: `@raae/gatsby-remark-oembed`,
-					},
-					// `gatsby-remark-figure-caption`,
-					// 'gatsby-remark-copy-linked-files',
-					{
-						resolve: `gatsby-remark-images`,
-						options: {
-							showCaptions: true,
-							maxWidth: 800,
-							widthWebp: true,
-						},
-					},
-				],
-			},
+
+			}
 		},
-		'gatsby-plugin-react-helmet',
+		`gatsby-plugin-react-helmet`,
 		{
-			resolve: `gatsby-plugin-styled-components`,
+			resolve: `gatsby-plugin-html-attributes`,
 			options: {
-				displayName: true,
-			},
-		},
-		{
-			resolve: 'gatsby-plugin-react-svg',
-			options: {
-				include: `/${__dirname}\/src\/img\/.*\.svg$/`,
-			},
-		},
-		{
-			resolve: 'gatsby-source-filesystem',
-			options: {
-				path: `${__dirname}/src/img`,
-				name: 'images',
-			},
-		},
-		{
-			resolve: `gatsby-plugin-google-tagmanager`,
-			options: {
-				id: 'GTM-WW45VBB',
-				includeInDevelopment: true,
-			},
-		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				path: `${__dirname}/src/data/clients`,
-				name: 'client-details',
-			},
-		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				path: `${__dirname}/src/data/case-studies`,
-				name: 'case-studies',
-			},
-		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				path: `${__dirname}/src/docs`,
-				name: 'docs',
-			},
-		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				path: `${__dirname}/src/posts`,
-				name: 'posts',
-			},
-		},
-		{
-			resolve: 'gatsby-plugin-html-attributes',
-			options: {
-				lang: 'en'
+				lang: `en-AU`
 			}
 		}
-	],
-}
+	]
+};

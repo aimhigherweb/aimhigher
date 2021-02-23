@@ -1,118 +1,59 @@
-require('dotenv').config()
+require(`dotenv`).config();
 
+const path = require(`path`);
 
-const path = require('path'),
-	{ createFilePath } = require('gatsby-source-filesystem')
-
-	
 exports.createPages = ({ actions, graphql }) => {
-	const { createPage } = actions
+	const { createPage } = actions;
 
 	return graphql(`
-	{
-		allMarkdownRemark(limit: 1000) {
-			edges {
-				node {
-					id
-					fileAbsolutePath
-					fields {
+		{
+			posts: allPost(filter: {blogs: {eq: "aimhigher"}}) {
+				edges {
+					node {
 						slug
-					}
-					frontmatter {
-						title
-						section
-						colours {
-							colourPrimary
-						}
-						fonts {
-							fontRegular
-						}
+						id
 					}
 				}
 			}
 		}
-	}
-`).then(result => {
-	if (result.errors) {
-		result.errors.forEach(e => console.error(e.toString()))
-		return Promise.reject(result.errors)
-	}
+	`).then((result) => {
+		if (result.errors) {
+			result.errors.forEach((e) => console.error(e.toString()));
+			return Promise.reject(result.errors);
+		}
 
-	const data = result.data.allMarkdownRemark.edges
-
-		data.forEach(edge => {
-			const id = edge.node.id,
-				filePath = edge.node.fileAbsolutePath
-
-			if(!edge.node.fields) {
-				return
-			}
-
-			if(RegExp(/\/src\/data\/clients/).test(filePath)) {
-				createPage({
-					path: `clients${edge.node.fields.slug}`,
-					component: path.resolve('src/templates/clientPortal.js'),
-					context: {
-						id,
-						clientId: edge.node.frontmatter.title
-					}
-				})
-
-				if(edge.node.frontmatter.colours && edge.node.frontmatter.fonts) {
-					createPage({
-						path: `clients${edge.node.fields.slug}style-guide`,
-						component: path.resolve('src/templates/styleGuide.js'),
-						context: {
-							id,
-							clientId: edge.node.frontmatter.title
-						}
-					})
+		result.data.posts.edges.forEach(({ node }) => {
+			createPage({
+				path: `blog/${node.slug}`,
+				component: path.resolve(`./src/templates/post/index.js`),
+				context: {
+					id: node.id,
 				}
-			}
-			else if(RegExp(/\/src\/data\/case-studies/).test(filePath)) {
-				createPage({
-					path: `portfolio${edge.node.fields.slug}`,
-					component: path.resolve('src/templates/caseStudy.js'),
-					context: {
-						id,
-					}
-				})
-			}
-			else if(RegExp(/\/src\/docs\//).test(filePath)) {
-				createPage({
-					path: `docs/${edge.node.frontmatter.section.replace(/\s/g, '-').toLowerCase()}${edge.node.fields.slug}`,
-					component: path.resolve('src/templates/docTemplate.js'),
-					context: {
-						id,
-					}
-				})
-			}
-			else if(RegExp(/\/src\/posts\//).test(filePath)) {
-				createPage({
-					path: `blog${edge.node.fields.slug}`,
-					component: path.resolve('src/templates/blogTemplate.js'),
-					context: {
-						id,
-					}
-				})
-			}
-			else {
-				return
-			}
-		})
-})
-}
+			});
+		});
+	});
+};
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-	const { createNodeField } = actions
+exports.onCreateNode = async ({
+	node, loadNodeContent, createNodeId, actions: { createNode }, createContentDigest
+}) => {
+	if (node.name !== `posts`) return;
 
+	const content = await loadNodeContent(node);
+	const feed = JSON.parse(content);
 
-	if (node.internal.type === `MarkdownRemark` && node.fileAbsolutePath) {
-		const value = createFilePath({ node, getNode })
-		createNodeField({
-			name: `slug`,
-			node,
-			value,
-		})
-	}
-}
+	feed.items.forEach((post) => {
+		const postNode = {
+			...post,
+			sourceInstanceName: node.name,
+			id: createNodeId(`${node.id}${post.slug}`),
+			parent: node.id,
+			internal: {
+				type: `Post`,
+				contentDigest: createContentDigest(post)
+			}
+		};
+
+		createNode(postNode);
+	});
+};

@@ -1,0 +1,49 @@
+.item {
+	margin: 0 5px;
+	color: var.$white;
+	font-family: var.$font_headings;
+	text-decoration: none;
+}
+
+.nav {
+	position: relative;
+	z-index: 5;
+	order: 1;
+	margin-top: 10px;
+
+	ul {
+		display: flex;
+	}
+}
+
+@media(min-width: 40em) {
+	.nav {
+		order: inherit;
+		width: 200px;
+
+		ul {
+			flex-wrap: wrap;
+		}
+	}
+
+	.item {
+		margin: 10px 10px 0;
+		color: var.$neutral;
+		white-space: nowrap;
+	}
+}
+
+@media(min-width: 50em) {
+	.nav {
+		width: auto;
+
+		ul {
+			flex-wrap: nowrap;
+		}
+	}
+
+	.item {
+		margin: 0 10px;
+		font-size: 0.9em;
+	}
+}

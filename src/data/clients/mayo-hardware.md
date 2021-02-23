@@ -1,4 +1,0 @@
----
-title: Mayo Hardware
----
-

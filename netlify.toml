@@ -1,0 +1,59 @@
+[build]
+  base = "."
+  publish = "public/"
+  command = "npm run build"
+
+[context.production]
+  environment = {NODE_ENV = "production"}
+
+[context.dev]
+  environment = {NODE_ENV = "development"}
+
+[[redirects]]
+  from = "/docs/*"
+  to = "portal.aimhigherweb.dev/docs/:splat"
+  status = 302
+
+# TODO: Add a11y tests
+[[plugins]]
+package = "netlify-plugin-a11y"
+  [plugins.inputs]
+  checkPaths = [
+    '/',
+    # '/about',
+    # '/services',
+    # '/portfolio',
+    # '/contact',
+    # '/faq',
+    # 'blog'
+  ]
+
+[[plugins]]
+package = "netlify-plugin-checklinks"
+  [plugins.inputs]
+  recursive = true
+  pretty = true
+  skipPatterns = [
+	  "public/sw.js"
+  ]
+  todoPatterns = []
+  checkExternal = false
+  followSourceMaps = true
+
+# TODO: Add validation back in
+# [[plugins]]
+#   package = "netlify-plugin-html-validate"
+#   [plugins.inputs]
+#     ext = "html"
+#     config = "config.htmlvalidate.json"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+#   # optional, fails build when a category is below a threshold
+#   [plugins.inputs.thresholds]
+#     performance = 0.9
+#     accessibility = 0.9
+#     best-practices = 0.9
+#     seo = 0.9
+#     pwa = 0.9
