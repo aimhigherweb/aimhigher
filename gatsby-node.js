@@ -15,6 +15,23 @@ exports.createPages = ({ actions, graphql }) => {
 					}
 				}
 			}
+			pages: allFile(
+				filter: {
+					sourceInstanceName: {
+						eq: "content"
+					},
+					relativeDirectory: {
+						eq: "static"
+					}
+				}
+			) {
+				edges {
+					node {
+						id
+						name
+					}
+				}
+			}
 		}
 	`).then((result) => {
 		if (result.errors) {
@@ -22,10 +39,22 @@ exports.createPages = ({ actions, graphql }) => {
 			return Promise.reject(result.errors);
 		}
 
-		result.data.posts.edges.forEach(({ node }) => {
+		const { posts, pages } = result.data;
+
+		posts.edges.forEach(({ node }) => {
 			createPage({
 				path: `blog/${node.slug}`,
 				component: path.resolve(`./src/templates/post/index.js`),
+				context: {
+					id: node.id,
+				}
+			});
+		});
+
+		pages.edges.forEach(({ node }) => {
+			createPage({
+				path: `${node.name}`,
+				component: path.resolve(`./src/templates/page/index.js`),
 				context: {
 					id: node.id,
 				}

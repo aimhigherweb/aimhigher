@@ -5,23 +5,21 @@ import Layout from '../../components/layout';
 import Flower from '../../img/illustrations/flower_2.svg';
 import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './post.module.scss';
+import styles from './page.module.scss';
 
-const BlogPost = ({ data }) => {
+const StaticPage = ({ data }) => {
 	const {
-		title, content, featured, date
-	} = data.post;
+		html, frontmatter: { title, meta }
+	} = data.file.childMarkdownRemark;
 
 	return (
 		<Layout {...{
-			meta: {}
+			meta
 		}}>
 			<article className={styles.content}>
 				<Squiggle className={styles.squiggle} />
 				<h1>{title}</h1>
-				<p className={styles.date}>{date}</p>
-				<img className={styles.featured} src={featured} />
-				<div className={styles.post} dangerouslySetInnerHTML={{ __html: content }} />
+				<div className={styles.page} dangerouslySetInnerHTML={{ __html: html }} />
 				<Flower className={styles.flower} />
 				<Paw className={styles.paw} />
 			</article>
@@ -30,14 +28,21 @@ const BlogPost = ({ data }) => {
 };
 
 export const pageQuery = graphql`
-	query BlogPostByID($id: String!) {
-		post(id: {eq: $id}) {
-			featured
-			title
-			content
-			date(formatString: "DD MMM YYYY")
+	query PageByID($id: String!) {
+		file(id: {eq: $id}) {
+			childMarkdownRemark {
+				frontmatter {
+					title
+					meta {
+						title
+						description
+						slug
+					}
+				}
+				html
+			}
 		}
 	}
 `;
 
-export default BlogPost;
+export default StaticPage;
