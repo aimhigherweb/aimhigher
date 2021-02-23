@@ -12,7 +12,7 @@ const Post = ({
 			<img src={featured} alt="" />
 		</div>
 		<h2>
-			<Link to={slug}>{title}</Link>
+			<Link to={`/blog/${slug}`}>{title}</Link>
 		</h2>
 		<p className={styles.date}>{date}</p>
 		<p className={styles.excerpt} dangerouslySetInnerHTML={{ __html: description }} />
