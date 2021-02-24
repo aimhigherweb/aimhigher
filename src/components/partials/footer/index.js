@@ -66,7 +66,7 @@ const Footer = ({
 				}
 				site {
 					siteMetadata {
-						url
+						siteUrl
 					}
 				}
 			}
@@ -80,8 +80,7 @@ const Footer = ({
 				<footer
 					className={`${styles.footer} ${customClass}`}
 					style={{
-						// '--backgroundCurve': `url('http://localhost:8000${curveURL}')`
-						'--backgroundCurve': `url('${site.siteMetadata.url}${curveURL}')`
+						'--backgroundCurve': `url('${site.siteMetadata.siteUrl}${curveURL}')`
 					}}
 					data-light={lightNav}
 				>

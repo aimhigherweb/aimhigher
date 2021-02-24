@@ -7,7 +7,7 @@ module.exports = {
 	siteMetadata: {
 		title: `AimHigher Web`,
 		description: `Together, Online, Aim Higher. Bridging the gap between businesses and website technologies`,
-		url: `https://aimhigherweb.design`
+		siteUrl: `https://aimhigherweb.design`
 	},
 	plugins: [
 		{

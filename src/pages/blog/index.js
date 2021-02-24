@@ -12,10 +12,10 @@ import styles from './blog.module.scss';
 const BlogPage = ({ data }) => {
 	const { html, frontmatter } = data.content.childMarkdownRemark;
 	const { title, meta } = frontmatter;
-	const { url } = data.site.siteMetadata;
+	const { siteUrl } = data.site.siteMetadata;
 	const posts = data.posts.edges.map(({ node }) => ({
 		...node,
-		url
+		url: siteUrl
 	}));
 
 	return (
@@ -54,7 +54,7 @@ export const query = graphql`
 	query {
 		site {
 			siteMetadata {
-				url
+				siteUrl
 			}
 		}
 		content: file(

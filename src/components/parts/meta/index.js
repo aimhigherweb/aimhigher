@@ -10,7 +10,7 @@ const Meta = (meta) => (
 					siteMetadata {
 						title
 						description
-						url
+						siteUrl
 					}
 				}
 				favicon: file(
@@ -41,7 +41,7 @@ const Meta = (meta) => (
 		render={({ site: { siteMetadata }, favicon, social }) => {
 			const title = meta?.title || siteMetadata.title;
 			const description = meta?.description || siteMetadata.description;
-			const siteUrl = siteMetadata.url;
+			const { siteUrl } = siteMetadata;
 			const slug = meta?.slug || ``;
 			const image = meta?.image || social.publicURL;
 
