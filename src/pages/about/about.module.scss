@@ -39,7 +39,15 @@
 		padding: 0;
 	}
 
+	a {
+		&:hover {
+			display: block;
+			filter: grayscale(100);
+		}
+	}
+
 	img {
+		display: block;
 		max-width: 300px;
 	}
 }

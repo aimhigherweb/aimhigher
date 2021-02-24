@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 
 import Layout from '../../components/layout';
 import ImageBlob from '../../components/parts/imageBlob';
+import Partners from '../../components/parts/partners';
 import Header from '../../img/banners/header_1.svg';
 import Character from '../../img/graphics/desk.svg';
 import Blob from '../../img/illustrations/blob_2.svg';
@@ -57,16 +58,7 @@ const AboutPage = ({ data }) => {
 				<h2>{partners.frontmatter.title}</h2>
 				<div dangerouslySetInnerHTML={{ __html: partners.html }} />
 				<Heart className={styles.heart} />
-				<ul className={styles.logos}>
-					{logos.map(({ node }) => (
-						<Fragment>
-							{node.childImageSharp
-								? <Img fixed={node.childImageSharp.fixed} />
-								: <img src={node.publicURL} />
-							}
-						</Fragment>
-					))}
-				</ul>
+				<Partners className={styles.logos} partners={logos} />
 				<Paw className={styles.paw} />
 			</section>
 		</Layout>
