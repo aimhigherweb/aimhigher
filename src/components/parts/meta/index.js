@@ -43,7 +43,7 @@ const Meta = (meta) => (
 			const description = meta?.description || siteMetadata.description;
 			const { siteUrl } = siteMetadata;
 			const slug = meta?.slug || ``;
-			const image = meta?.image || social.publicURL;
+			const image = `${siteUrl}${meta?.image || social.publicURL}`;
 
 			return (
 				<Helmet>
