@@ -9,12 +9,17 @@ import styles from './post.module.scss';
 
 const BlogPost = ({ data }) => {
 	const {
-		title, content, featured, date
+		title, content, featured, date, slug, description
 	} = data.post;
 
 	return (
 		<Layout {...{
-			meta: {}
+			meta: {
+				title,
+				description,
+				slug: `/blog/${slug}`,
+				image: featured
+			}
 		}}>
 			<article className={styles.content}>
 				<Squiggle className={styles.squiggle} />
@@ -34,6 +39,8 @@ export const pageQuery = graphql`
 		post(id: {eq: $id}) {
 			featured
 			title
+			description
+			slug
 			content
 			date(formatString: "DD MMM YYYY")
 		}

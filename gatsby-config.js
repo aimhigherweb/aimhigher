@@ -101,6 +101,16 @@ module.exports = {
 			options: {
 				lang: `en-AU`
 			}
-		}
+		},
+		{
+			resolve: `gatsby-plugin-sitemap`,
+		},
+		{
+			resolve: `gatsby-plugin-google-tagmanager`,
+			options: {
+				id: process.env.GTM,
+				includeInDevelopment: false,
+			},
+		},
 	]
 };
