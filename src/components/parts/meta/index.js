@@ -71,6 +71,9 @@ const Meta = (meta) => (
 					<meta name="twitter:site" content="@amys_kapers" />
 					<meta property="twitter:image" content={image} />
 					<meta name="twitter:creator" content="@amys_kapers" />
+					<meta property="twitter:title" content={title} />
+					<meta property="twitter:description" content={description} />
+					<meta property="twitter:image" content={image} />
 				</Helmet>
 			);
 		}}
