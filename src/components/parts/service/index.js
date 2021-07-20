@@ -9,7 +9,7 @@ import Shopping from '../../../img/icons/shopping.svg';
 import Twitter from '../../../img/icons/twitter.svg';
 import Writing from '../../../img/icons/writing.svg';
 import Circle from '../../../img/illustrations/circle.svg';
-import styles from './service.module.scss';
+import * as styles from './service.module.scss';
 
 const Service = ({ html, title, icon }) => (
 	<li className={styles.service}>

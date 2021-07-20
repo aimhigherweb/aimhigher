@@ -7,7 +7,7 @@ import Header from '../../img/banners/header_2.svg';
 import Dots from '../../img/illustrations/dots.svg';
 import Flower from '../../img/illustrations/flower.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './blog.module.scss';
+import * as styles from './blog.module.scss';
 
 const BlogPage = ({ data }) => {
 	const { html, frontmatter } = data.content.childMarkdownRemark;
@@ -106,7 +106,9 @@ export const query = graphql`
 					title
 					description
 					date(formatString: "DD MMM YYYY")
-					featured
+					featured {
+						src
+					}
 				}
 			}
 		}

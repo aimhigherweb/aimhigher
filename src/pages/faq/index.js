@@ -7,7 +7,7 @@ import Layout from '../../components/layout';
 import Flower from '../../img/illustrations/flower_2.svg';
 import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './faq.module.scss';
+import * as styles from './faq.module.scss';
 
 const FAQPage = ({ data }) => {
 	const { faqs } = data.cms;

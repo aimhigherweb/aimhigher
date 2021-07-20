@@ -2,14 +2,14 @@ import { Link } from 'gatsby';
 import React from 'react';
 
 import Icon from '../../../../lib/parts/icon';
-import styles from './post.module.scss';
+import * as styles from './post.module.scss';
 
 const Post = ({
 	title, slug, date, description, featured, url
 }) => (
 	<article className={styles.post}>
 		<div className={styles.image}>
-			<img src={featured} alt="" />
+			<img src={`${process.env.GATSBY_BLOG_IMAGES}${featured.src}`} alt="" />
 		</div>
 		<h2>
 			<Link to={`/blog/${slug}`}>{title}</Link>

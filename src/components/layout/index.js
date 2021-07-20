@@ -6,7 +6,7 @@ import DevStyles from '../partials/devStyles';
 import Footer from '../partials/footer';
 import Header from '../partials/header';
 import Meta from '../parts/meta';
-import styles from './layout.module.scss';
+import * as styles from './layout.module.scss';
 
 const Layout = ({
 	children, meta, header, footer

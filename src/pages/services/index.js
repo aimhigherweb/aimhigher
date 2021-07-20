@@ -9,7 +9,7 @@ import Flower from '../../img/illustrations/flower.svg';
 import Leaf from '../../img/illustrations/leaf.svg';
 import LeafThin from '../../img/illustrations/leaf_thin.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './services.module.scss';
+import * as styles from './services.module.scss';
 
 const ServicesPage = ({ data }) => {
 	const { html, frontmatter } = data.content.childMarkdownRemark;

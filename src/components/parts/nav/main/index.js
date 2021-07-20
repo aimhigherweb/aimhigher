@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React, { useState } from 'react';
 
 import Icon from '../../../../../lib/parts/icon';
-import styles from './main.module.scss';
+import * as styles from './main.module.scss';
 
 const Nav = ({ items, ...attrs }) => {
 	const [open, setOpen] = useState(false);

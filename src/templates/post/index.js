@@ -5,7 +5,7 @@ import Layout from '../../components/layout';
 import Flower from '../../img/illustrations/flower_2.svg';
 import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './post.module.scss';
+import * as styles from './post.module.scss';
 
 const BlogPost = ({ data }) => {
 	const {
@@ -25,7 +25,7 @@ const BlogPost = ({ data }) => {
 				<Squiggle className={styles.squiggle} />
 				<h1>{title}</h1>
 				<p className={styles.date}>{date}</p>
-				<img className={styles.featured} src={featured} />
+				<img className={styles.featured} src={`${process.env.GATSBY_BLOG_IMAGES}${featured.src}`} />
 				<div className={styles.post} dangerouslySetInnerHTML={{ __html: content }} />
 				<Flower className={styles.flower} />
 				<Paw className={styles.paw} />
@@ -37,7 +37,9 @@ const BlogPost = ({ data }) => {
 export const pageQuery = graphql`
 	query BlogPostByID($id: String!) {
 		post(id: {eq: $id}) {
-			featured
+			featured {
+				src
+			}
 			title
 			description
 			slug

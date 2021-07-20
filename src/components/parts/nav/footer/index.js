@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import styles from './footer.module.scss';
+import * as styles from './footer.module.scss';
 
 const Nav = ({ items }) => (
 	<nav className={styles.nav}>

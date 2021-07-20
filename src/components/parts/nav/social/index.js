@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Icon from '../../../../../lib/parts/icon';
-import styles from './social.module.scss';
+import * as styles from './social.module.scss';
 
 const Nav = ({ items }) => (
 	<nav className={styles.nav}>

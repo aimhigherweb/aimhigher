@@ -14,7 +14,7 @@ import Heart from '../../img/illustrations/heart.svg';
 import Leaf from '../../img/illustrations/leaf_thin.svg';
 import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './about.module.scss';
+import * as styles from './about.module.scss';
 
 const AboutPage = ({ data }) => {
 	const profile = data.profile.childImageSharp.resize.src;

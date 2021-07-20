@@ -4,7 +4,7 @@ import React from 'react';
 import DefaultCurve from '../../../img/banners/footer.svg';
 import FooterNav from '../../parts/nav/footer';
 import Social from '../../parts/nav/social';
-import styles from './footer.module.scss';
+import * as styles from './footer.module.scss';
 
 const Footer = ({
 	FooterCurve, footerImage, lightNav, customClass

@@ -11,7 +11,7 @@ import Website from '../img/graphics/website.svg';
 import Heart from '../img/illustrations/heart.svg';
 import Leaf from '../img/illustrations/leaf_thin.svg';
 import Squiggle from '../img/illustrations/squiggle.svg';
-import styles from '../styles/home.module.scss';
+import * as styles from '../styles/home.module.scss';
 
 const IndexPage = ({ data }) => {
 	const { sections, banner: { childMarkdownRemark: banner } } = data;

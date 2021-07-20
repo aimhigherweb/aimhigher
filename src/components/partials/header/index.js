@@ -4,7 +4,7 @@ import React from 'react';
 import Logo from '../../../../lib/parts/logo';
 import DefaultHeader from '../../../img/banners/header_1.svg';
 import Nav from "../../parts/nav/main";
-import styles from './header.module.scss';
+import * as styles from './header.module.scss';
 
 const Header = ({ HeaderCurve, lightNav }) => (
 	<StaticQuery
@@ -41,7 +41,7 @@ const Header = ({ HeaderCurve, lightNav }) => (
 						: <DefaultHeader className={styles.banner} />
 					}
 					<Link to="/" className={styles.logo}>
-						<Logo />
+						<Logo version="white" />
 						<span className="sr-only">Homepage</span>
 					</Link>
 					<Nav items={items} data-light={lightNav} />
