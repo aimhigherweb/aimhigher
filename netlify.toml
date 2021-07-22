@@ -28,8 +28,8 @@ package = "netlify-plugin-a11y"
     # 'blog'
   ]
 
-[[plugins]]
 # TODO: Add checklinks back in
+# [[plugins]]
 # package = "netlify-plugin-checklinks"
 #   [plugins.inputs]
 #   recursive = true
