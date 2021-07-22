@@ -33,8 +33,6 @@ const BlogPage = ({ data }) => {
 				<Squiggle className={styles.squiggle_1} />
 				<h1>{title}</h1>
 
-				<div className={styles.blurb} dangerouslySetInnerHTML={{ __html: html }} />
-
 				<ul className={styles.posts}>
 					{posts.map((post) => (
 						<li className={styles.post} key={post.slug}>

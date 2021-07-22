@@ -24,7 +24,7 @@ const BlogPost = ({ data }) => {
 			<article className={styles.content}>
 				<Squiggle className={styles.squiggle} />
 				<h1>{title}</h1>
-				<p className={styles.date}>{date}</p>
+				<p>{date}</p>
 				<img className={styles.featured} src={`${process.env.GATSBY_BLOG_IMAGES}${featured.src}`} />
 				<div className={styles.post} dangerouslySetInnerHTML={{ __html: content }} />
 				<Flower className={styles.flower} />
