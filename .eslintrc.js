@@ -3,7 +3,7 @@ module.exports = {
 	plugins: [
 		`import`,
 		`react`,
-		`simple-import-sort`,
+		// `simple-import-sort`,
 		`node`,
 		`promise`,
 		`babel`
@@ -59,8 +59,8 @@ module.exports = {
 		// 	}
 		// ],
 		'class-methods-use-this': 0,
-		"simple-import-sort/imports": `error`,
-		"sort-imports": `off`,
+		// "simple-import-sort/imports": `error`,
+		// "sort-imports": `off`,
 		"import/first": `error`,
 		"import/newline-after-import": `error`,
 		"import/no-duplicates": `error`

@@ -2,19 +2,6 @@ require(`dotenv`).config();
 
 const path = require(`path`);
 
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-	if ([`build-javascript`, `develop`, `develop-html`].includes(stage)) {
-		const config = getConfig();
-		const miniCssExtractPlugin = config.plugins.find(
-			(plugin) => plugin.constructor.name === `MiniCssExtractPlugin`
-		);
-		if (miniCssExtractPlugin) {
-			miniCssExtractPlugin.options.ignoreOrder = true;
-		}
-		actions.replaceWebpackConfig(config);
-	}
-};
-
 exports.createPages = ({ actions, graphql }) => {
 	const { createPage } = actions;
 

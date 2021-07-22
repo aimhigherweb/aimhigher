@@ -2,16 +2,16 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Layout from '../components/layout';
-import Footer from '../img/banners/footer_home.svg';
 import Header from '../img/banners/header_home.svg';
-import About from '../img/graphics/about.svg';
-import Devices from '../img/graphics/devices.svg';
+import * as styles from '../styles/home.module.scss';
+import Footer from '../img/banners/footer_home.svg';
 import HomeBanner from '../img/graphics/homeDesk.svg';
+import Squiggle from '../img/illustrations/squiggle.svg';
 import Website from '../img/graphics/website.svg';
 import Heart from '../img/illustrations/heart.svg';
+import Devices from '../img/graphics/devices.svg';
+import About from '../img/graphics/about.svg';
 import Leaf from '../img/illustrations/leaf_thin.svg';
-import Squiggle from '../img/illustrations/squiggle.svg';
-import * as styles from '../styles/home.module.scss';
 
 const IndexPage = ({ data }) => {
 	const { sections, banner: { childMarkdownRemark: banner } } = data;
