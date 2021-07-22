@@ -3,8 +3,7 @@ require(`dotenv`).config();
 const path = require(`path`);
 
 exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-	console.log({ stage });
-	if (stage === `build-javascript`) {
+	if ([`build-javascript`, `develop`, `develop-html`].includes(stage)) {
 		const config = getConfig();
 		const miniCssExtractPlugin = config.plugins.find(
 			(plugin) => plugin.constructor.name === `MiniCssExtractPlugin`
