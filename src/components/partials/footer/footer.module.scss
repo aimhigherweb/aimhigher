@@ -2,7 +2,7 @@ $banner_height: 250px;
 $banner_width: auto;
 $banner_left: -200px;
 
-.footerStyle {
+.footer {
 	display: flex;
 	position: relative;
 	flex-wrap: wrap;
@@ -38,7 +38,7 @@ $banner_left: -200px;
 	}
 }
 
-.bannerStyle {
+.banner {
 	position: absolute;
 	z-index: -5;
 	bottom: 0;
@@ -50,7 +50,7 @@ $banner_left: -200px;
 @media(min-width: 40em) {
 	$banner_left: 20vw;
 
-	.footerStyle {
+	.footer {
 		flex-wrap: nowrap;
 		align-items: flex-end;
 		justify-content: space-between;
@@ -70,7 +70,7 @@ $banner_left: -200px;
 		}
 	}
 
-	.bannerStyle {
+	.banner {
 		left: $banner_left;
 	}
 }
@@ -79,7 +79,7 @@ $banner_left: -200px;
 	$banner_height: 200px;
 	$banner_left: 35vw;
 
-	.footerStyle {
+	.footer {
 		padding: 50px;
 
 		&:before, &:after {
@@ -92,7 +92,7 @@ $banner_left: -200px;
 		}
 	}
 
-	.bannerStyle {
+	.banner {
 		left: $banner_left;
 		height: $banner_height;
 	}
@@ -102,7 +102,7 @@ $banner_left: -200px;
 	$banner_height: 300px;
 	$banner_left: 25vw;
 
-	.footerStyle {
+	.footer {
 		width: 90vw;
 		max-width: 1200px;
 		height: auto;
@@ -120,7 +120,7 @@ $banner_left: -200px;
 		}
 	}
 
-	.bannerStyle {
+	.banner {
 		left: $banner_left;
 		height: $banner_height;
 	}
@@ -130,7 +130,7 @@ $banner_left: -200px;
 	$banner_height: 400px;
 	$banner_left: 300px;
 
-	.footerStyle {
+	.footer {
 		padding: 100px 0;
 
 		&:before, &:after {
@@ -143,7 +143,7 @@ $banner_left: -200px;
 		}
 	}
 
-	.bannerStyle {
+	.banner {
 		left: $banner_left;
 		height: $banner_height;
 	}
@@ -152,13 +152,13 @@ $banner_left: -200px;
 @media(min-width: 80em) {
 	$banner_left: 500px;
 
-	.footerStyle {
+	.footer {
 		&:after {
 			background-position: $banner_left bottom;
 		}
 	}
 
-	.bannerStyle {
+	.banner {
 		left: $banner_left;
 	}
 }
@@ -167,7 +167,7 @@ $banner_left: -200px;
 	$banner_height: 500px;
 	$banner_left: 300px;
 
-	.footerStyle {
+	.footer {
 		padding: 140px 0;
 
 		&:before, &:after {
@@ -181,7 +181,7 @@ $banner_left: -200px;
 		}
 	}
 
-	.bannerStyle {
+	.banner {
 		left: $banner_left;
 		height: $banner_height;
 	}
