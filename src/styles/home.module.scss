@@ -126,12 +126,8 @@
 	composes: banner from '../components/partials/footer/footer.module.scss';
 
 	left: -350px;
-}
 
-.footer_image {
-	&:after {
-		background-position: -350px bottom;
-	}
+	
 }
 
 @media(min-width: 40em) {
@@ -195,13 +191,8 @@
 	.footer {
 		left: -500px;
 		height: 500px;
-	}
 
-	.footer_image {
-		&:after {
-			background-position: -500px bottom;
-			background-size: auto 500px;
-		}
+		
 	}
 }
 
@@ -247,12 +238,8 @@
 
 	.footer {
 		left: -400px;
-	}
 
-	.footer_image {
-		&:after {
-			background-position: -400px bottom;
-		}
+		
 	}
 }
 
@@ -326,13 +313,8 @@
 	.footer {
 		left: -600px;
 		height: 650px;
-	}
 
-	.footer_image {
-		&:after {
-			background-position: -600px bottom;
-			background-size: auto 5650px;
-		}
+		
 	}
 }
 
@@ -362,12 +344,8 @@
 
 	.footer {
 		left: -500px;
-	}
 
-	.footer_image {
-		&:after {
-			background-position: -500px bottom;
-		}
+		
 	}
 }
 
@@ -417,13 +395,8 @@
 	.footer {
 		left: -820px;
 		height: 900px;
-	}
 
-	.footer_image {
-		&:after {
-			background-position: -820px bottom;
-			background-size: auto 900px;
-		}
+		
 	}
 }
 
@@ -459,12 +432,7 @@
 	.footer {
 		left: -950px;
 		height: 1000px;
-	}
 
-	.footer_image {
-		&:after {
-			background-position: -950px bottom;
-			background-size: auto 1000px;
-		}
+		
 	}
 }

@@ -36,6 +36,12 @@ $banner_left: -200px;
 		pointer-events: none;
 		mix-blend-mode: lighten;
 	}
+
+	&[data-variation="home"] {
+		&:after {
+			background-position: -350px bottom;
+		}
+	}
 }
 
 .banner {
@@ -68,6 +74,13 @@ $banner_left: -200px;
 				}
 			}
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -500px bottom;
+				background-size: auto 500px;
+			}
+		}
 	}
 
 	.banner {
@@ -89,6 +102,12 @@ $banner_left: -200px;
 		&:after {
 			background-position: $banner_left bottom;
 			background-size: $banner_width $banner_height;
+		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -400px bottom;
+			}
 		}
 	}
 
@@ -118,6 +137,13 @@ $banner_left: -200px;
 			background-position: $banner_left bottom;
 			background-size: $banner_width $banner_height;
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -600px bottom;
+				background-size: auto 5650px;
+			}
+		}
 	}
 
 	.banner {
@@ -141,6 +167,12 @@ $banner_left: -200px;
 			background-position: $banner_left bottom;
 			background-size: $banner_width $banner_height;
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -500px bottom;
+			}
+		}
 	}
 
 	.banner {
@@ -155,6 +187,13 @@ $banner_left: -200px;
 	.footer {
 		&:after {
 			background-position: $banner_left bottom;
+		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -820px bottom;
+				background-size: auto 900px;
+			}
 		}
 	}
 
@@ -178,6 +217,13 @@ $banner_left: -200px;
 			height: $banner_height;
 			background-position: $banner_left bottom;
 			background-size: $banner_width $banner_height;
+		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -950px bottom;
+				background-size: auto 1000px;
+			}
 		}
 	}
 

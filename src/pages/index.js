@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
 				FooterCurve: () => (<Footer className={styles.footer} />),
 				footerImage: data.footer.publicURL,
 				lightNav: true,
-				customClass: styles.footer_image
+				variation: `home`
 			}
 		}}>
 			<section className={styles.banner}>

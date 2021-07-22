@@ -7,7 +7,7 @@ import Social from '../../parts/nav/social';
 import * as styles from './footer.module.scss';
 
 const Footer = ({
-	FooterCurve, footerImage, lightNav, customClass
+	FooterCurve, footerImage, lightNav, variation
 }) => (
 	<StaticQuery
 		query={graphql`
@@ -79,10 +79,11 @@ const Footer = ({
 
 			return (
 				<footer
-					className={`${styles.footer} ${customClass}`}
+					className={styles.footer}
 					style={{
 						'--backgroundCurve': `url('${site.siteMetadata.siteUrl}${curveURL}')`
 					}}
+					data-variation={variation}
 					data-light={lightNav}
 				>
 					{FooterCurve
