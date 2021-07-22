@@ -71,6 +71,7 @@ const Footer = ({
 				}
 			}
 		`}
+
 		render={({
 			footer, social, curveImage, site
 		}) => {
