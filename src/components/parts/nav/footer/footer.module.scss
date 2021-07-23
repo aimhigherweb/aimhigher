@@ -1,11 +1,11 @@
-.item {
+.footerNavItem {
 	margin: 0 5px;
 	color: var.$white;
 	font-family: var.$font_headings;
 	text-decoration: none;
 }
 
-.nav {
+.footerNav {
 	position: relative;
 	z-index: 5;
 	order: 1;
@@ -17,7 +17,7 @@
 }
 
 @media(min-width: 40em) {
-	.nav {
+	.footerNav {
 		order: inherit;
 		width: 200px;
 
@@ -26,7 +26,7 @@
 		}
 	}
 
-	.item {
+	.footerNavItem {
 		margin: 10px 10px 0;
 		color: var.$neutral;
 		white-space: nowrap;
@@ -34,7 +34,7 @@
 }
 
 @media(min-width: 50em) {
-	.nav {
+	.footerNav {
 		width: auto;
 
 		ul {
@@ -42,7 +42,7 @@
 		}
 	}
 
-	.item {
+	.footerNavItem {
 		margin: 0 10px;
 		font-size: 0.9em;
 	}

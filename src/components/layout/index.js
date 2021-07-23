@@ -3,7 +3,7 @@ import '../../../lib/styles/global.scss';
 import React, { Fragment } from 'react';
 
 import DevStyles from '../partials/devStyles';
-import Footer from '../partials/footer';
+import Footer from '../partials/footerData';
 import Header from '../partials/header';
 import Meta from '../parts/meta';
 import * as styles from './layout.module.scss';
