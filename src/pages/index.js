@@ -2,16 +2,18 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Layout from '../components/layout';
-import Header from '../img/banners/header_home.svg';
-import * as styles from '../styles/home.module.scss';
 import Footer from '../img/banners/footer_home.svg';
+import Header from '../img/banners/header_home.svg';
+import About from '../img/graphics/about.svg';
+import Devices from '../img/graphics/devices.svg';
 import HomeBanner from '../img/graphics/homeDesk.svg';
-import Squiggle from '../img/illustrations/squiggle.svg';
 import Website from '../img/graphics/website.svg';
 import Heart from '../img/illustrations/heart.svg';
-import Devices from '../img/graphics/devices.svg';
-import About from '../img/graphics/about.svg';
 import Leaf from '../img/illustrations/leaf_thin.svg';
+import Squiggle from '../img/illustrations/squiggle.svg';
+import {
+	bannerGraphic, content, cta, graphic, header, heart, 	homeBanner, leaf, section, squiggle
+} from '../styles/home.module.scss';
 
 const IndexPage = ({ data }) => {
 	const { sections, banner: { childMarkdownRemark: banner } } = data;
@@ -20,52 +22,51 @@ const IndexPage = ({ data }) => {
 	return (
 		<Layout {...{
 			header: {
-				HeaderCurve: () => (<Header className={styles.header} />),
+				HeaderCurve: () => (<Header className={header} />),
 				lightNav: true
 			},
 			footer: {
-				FooterCurve: () => (<Footer className={styles.footer} />),
 				footerImage: data.footer.publicURL,
 				lightNav: true,
 				variation: `home`
 			}
 		}}>
-			<section className={styles.banner}>
+			<section className={homeBanner}>
 				<blockquote>
 					<h1 dangerouslySetInnerHTML={{ __html: banner.frontmatter.tagline }} />
 					<div
-						className={styles.content}
+						className={content}
 						dangerouslySetInnerHTML={{ __html: banner.html }}
 					/>
-					<a className={styles.cta} href={banner.frontmatter.cta.link}>
+					<a className={cta} href={banner.frontmatter.cta.link}>
 						{banner.frontmatter.cta.text}
 					</a>
 				</blockquote>
-				<HomeBanner className={styles.banner_graphic} />
+				<HomeBanner className={bannerGraphic} />
 			</section>
-			<section className={styles.section}>
-				<Squiggle className={styles.squiggle} />
+			<section className={section}>
+				<Squiggle className={squiggle} />
 				<div
-					className={styles.content}
+					className={content}
 					dangerouslySetInnerHTML={{ __html: blocks[0].html }}
 				/>
-				<Website className={styles.graphic} />
-				<Heart className={styles.heart} />
+				<Website className={graphic} />
+				<Heart className={heart} />
 			</section>
-			<section className={styles.section}>
+			<section className={section}>
 				<div
-					className={styles.content}
+					className={content}
 					dangerouslySetInnerHTML={{ __html: blocks[1].html }}
 				/>
-				<Devices className={styles.graphic} />
+				<Devices className={graphic} />
 			</section>
-			<section className={styles.section}>
+			<section className={section}>
 				<div
-					className={styles.content}
+					className={content}
 					dangerouslySetInnerHTML={{ __html: blocks[2].html }}
 				/>
-				<About className={styles.graphic} />
-				<Leaf className={styles.leaf} />
+				<About className={graphic} />
+				<Leaf className={leaf} />
 			</section>
 
 		</Layout>
