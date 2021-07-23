@@ -2,7 +2,6 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Layout from '../components/layout';
-import Footer from '../img/banners/footer_home.svg';
 import Header from '../img/banners/header_home.svg';
 import About from '../img/graphics/about.svg';
 import Devices from '../img/graphics/devices.svg';
@@ -12,7 +11,7 @@ import Heart from '../img/illustrations/heart.svg';
 import Leaf from '../img/illustrations/leaf_thin.svg';
 import Squiggle from '../img/illustrations/squiggle.svg';
 import {
-	bannerGraphic, content, cta, graphic, header, heart, 	homeBanner, leaf, section, squiggle
+	bannerGraphic, buttons, content, cta, graphic, header, heart, 	homeBanner, leaf, section, squiggle
 } from '../styles/home.module.scss';
 
 const IndexPage = ({ data }) => {
@@ -38,9 +37,15 @@ const IndexPage = ({ data }) => {
 						className={content}
 						dangerouslySetInnerHTML={{ __html: banner.html }}
 					/>
-					<a className={cta} href={banner.frontmatter.cta.link}>
-						{banner.frontmatter.cta.text}
-					</a>
+					<ul className={buttons}>
+						{banner.frontmatter.cta.map((link) => (
+							<li>
+								<a className={cta} href={link.link} target={link.external ? `_blank` : `_self`}>
+									{link.text}
+								</a>
+							</li>
+						))}
+					</ul>
 				</blockquote>
 				<HomeBanner className={bannerGraphic} />
 			</section>
@@ -93,6 +98,7 @@ export const query = graphql`
 					cta {
 						link
 						text
+						external
 					}
 				}
 				html
