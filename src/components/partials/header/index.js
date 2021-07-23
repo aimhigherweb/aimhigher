@@ -25,6 +25,8 @@ const Header = ({ HeaderCurve, lightNav }) => (
 							childrenMenus {
 								label
 								link
+								external
+								cta
 							}
 						}
 					}
