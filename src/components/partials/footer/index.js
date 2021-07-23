@@ -4,7 +4,7 @@ import React from 'react';
 import DefaultCurve from '../../../img/banners/footer.svg';
 import FooterNav from '../../parts/nav/footer';
 import Social from '../../parts/nav/social';
-import * as styles from './footer.module.scss';
+import { footerBackground, mainFooter } from './footer.module.scss';
 
 const Footer = ({
 	FooterCurve, footerImage, lightNav, variation
@@ -79,7 +79,7 @@ const Footer = ({
 
 			return (
 				<footer
-					className={styles.footer}
+					className={mainFooter}
 					style={{
 						'--backgroundCurve': `url('${site.siteMetadata.siteUrl}${curveURL}')`
 					}}
@@ -88,7 +88,7 @@ const Footer = ({
 				>
 					{FooterCurve
 						? <FooterCurve />
-						: <DefaultCurve className={styles.banner} />
+						: <DefaultCurve className={footerBackground} />
 					}
 					<FooterNav items={footer.edges[0].node.childrenMenus} />
 
