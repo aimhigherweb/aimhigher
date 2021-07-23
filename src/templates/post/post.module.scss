@@ -1,6 +1,28 @@
-.content {
+.pageContent {
 	position: relative;
 	padding: 20px;
+}
+
+.contact {
+	text-align: center;
+}
+
+.form {
+	max-width: 600px;
+}
+
+.underline {
+	width: 100%;
+	margin: 20px 0 0;
+	overflow: hidden;
+	color: var.$blue;
+
+	svg {
+		width: auto;
+		min-width: 100%;
+		height: 8px;
+		color: inherit;
+	}
 }
 
 .post {
@@ -12,7 +34,7 @@
 	}
 }
 
-.featured {
+.featuredImage {
 	display: block;
 	width: 90%;
 	max-width: 400px;
@@ -53,13 +75,13 @@
 		bottom: -60px;
 	}
 
-	.content {
+	.pageContent {
 		h1 {
 			font-size: 3em;
 		}
 	}
 
-	.featured {
+	.featuredImage {
 		width: 50%;
 		margin: 0 10px 0 0;
 		float: left;
@@ -67,7 +89,7 @@
 }
 
 @media(min-width: 50em) {
-	.content {
+	.pageContent {
 		padding: 0 50px;
 	}
 
@@ -90,14 +112,14 @@
 }
 
 @media(min-width: 60em) {
-	.content {
+	.pageContent {
 		width: 90vw;
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 0 50px;
 	}
 
-	.featured {
+	.featuredImage {
 		max-width: 450px;
 		margin: 0 20px 0 -40px;
 	}
@@ -122,7 +144,7 @@
 }
 
 @media(min-width: 70em) {
-	.content {
+	.pageContent {
 		padding: 100px 0;
 	}
 
@@ -143,14 +165,23 @@
 		width: 400px;
 	}
 
-	.featured {
+	.featuredImage {
 		max-width: 550px;
 		margin: 0 30px 0 -60px;
+	}
+
+	.form {
+		padding: 50px 100px;
+		max-width: 800px;
 	}
 }
 
 @media(min-width: 90em) {
 	.paw {
 		bottom: -140px;
+	}
+
+	.form {
+		max-width: 900px;
 	}
 }
