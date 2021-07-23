@@ -4,12 +4,7 @@
 		[
 			"babel-preset-gatsby",
 			{
-				"targets": {
-					"browsers": [
-						">0.25%",
-						"not dead"
-					]
-				}
+				"targets": "> 0.25%, not dead, not IE 11"
 			}
 		]
 	]

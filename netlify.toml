@@ -28,17 +28,18 @@ package = "netlify-plugin-a11y"
     # 'blog'
   ]
 
-[[plugins]]
-package = "netlify-plugin-checklinks"
-  [plugins.inputs]
-  recursive = true
-  pretty = true
-  skipPatterns = [
-	  "public/sw.js"
-  ]
-  todoPatterns = []
-  checkExternal = false
-  followSourceMaps = true
+# TODO: Add checklinks back in
+# [[plugins]]
+# package = "netlify-plugin-checklinks"
+#   [plugins.inputs]
+#   recursive = true
+#   pretty = true
+#   skipPatterns = [
+# 	  "public/sw.js"
+#   ]
+#   todoPatterns = []
+#   checkExternal = false
+#   followSourceMaps = true
 
 # TODO: Add validation back in
 # [[plugins]]

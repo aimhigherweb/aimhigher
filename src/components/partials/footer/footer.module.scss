@@ -2,7 +2,7 @@ $banner_height: 250px;
 $banner_width: auto;
 $banner_left: -200px;
 
-.footer {
+.mainFooter {
 	display: flex;
 	position: relative;
 	flex-wrap: wrap;
@@ -36,9 +36,19 @@ $banner_left: -200px;
 		pointer-events: none;
 		mix-blend-mode: lighten;
 	}
+
+	&[data-variation="home"] {
+		&:after {
+			background-position: -350px bottom;
+		}
+
+		.footerBackground {		
+			left: -350px;
+		}
+	}
 }
 
-.banner {
+.footerBackground {
 	position: absolute;
 	z-index: -5;
 	bottom: 0;
@@ -50,7 +60,7 @@ $banner_left: -200px;
 @media(min-width: 40em) {
 	$banner_left: 20vw;
 
-	.footer {
+	.mainFooter {
 		flex-wrap: nowrap;
 		align-items: flex-end;
 		justify-content: space-between;
@@ -68,9 +78,23 @@ $banner_left: -200px;
 				}
 			}
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -500px bottom;
+				background-size: auto 500px;
+			}
+
+			.footerBackground {
+				left: -500px;
+				height: 500px;
+		
+				
+			}
+		}
 	}
 
-	.banner {
+	.footerBackground {
 		left: $banner_left;
 	}
 }
@@ -79,7 +103,7 @@ $banner_left: -200px;
 	$banner_height: 200px;
 	$banner_left: 35vw;
 
-	.footer {
+	.mainFooter {
 		padding: 50px;
 
 		&:before, &:after {
@@ -90,9 +114,21 @@ $banner_left: -200px;
 			background-position: $banner_left bottom;
 			background-size: $banner_width $banner_height;
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -400px bottom;
+			}
+
+			.footerBackground {
+				left: -400px;
+		
+				
+			}
+		}
 	}
 
-	.banner {
+	.footerBackground {
 		left: $banner_left;
 		height: $banner_height;
 	}
@@ -102,7 +138,7 @@ $banner_left: -200px;
 	$banner_height: 300px;
 	$banner_left: 25vw;
 
-	.footer {
+	.mainFooter {
 		width: 90vw;
 		max-width: 1200px;
 		height: auto;
@@ -118,11 +154,26 @@ $banner_left: -200px;
 			background-position: $banner_left bottom;
 			background-size: $banner_width $banner_height;
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -600px bottom;
+				background-size: auto 5650px;
+			}
+
+			.footerBackground {
+				left: -600px;
+				height: 650px;
+		
+				
+			}
+		}
 	}
 
-	.banner {
+	.footerBackground {
 		left: $banner_left;
 		height: $banner_height;
+		
 	}
 }
 
@@ -130,7 +181,7 @@ $banner_left: -200px;
 	$banner_height: 400px;
 	$banner_left: 300px;
 
-	.footer {
+	.mainFooter {
 		padding: 100px 0;
 
 		&:before, &:after {
@@ -141,9 +192,21 @@ $banner_left: -200px;
 			background-position: $banner_left bottom;
 			background-size: $banner_width $banner_height;
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -500px bottom;
+			}
+
+			.footerBackground {
+				left: -500px;
+		
+				
+			}
+		}
 	}
 
-	.banner {
+	.footerBackground {
 		left: $banner_left;
 		height: $banner_height;
 	}
@@ -152,13 +215,27 @@ $banner_left: -200px;
 @media(min-width: 80em) {
 	$banner_left: 500px;
 
-	.footer {
+	.mainFooter {
 		&:after {
 			background-position: $banner_left bottom;
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -820px bottom;
+				background-size: auto 900px;
+			}
+
+			.footerBackground {
+				left: -820px;
+				height: 900px;
+		
+				
+			}
+		}
 	}
 
-	.banner {
+	.footerBackground {
 		left: $banner_left;
 	}
 }
@@ -167,7 +244,7 @@ $banner_left: -200px;
 	$banner_height: 500px;
 	$banner_left: 300px;
 
-	.footer {
+	.mainFooter {
 		padding: 140px 0;
 
 		&:before, &:after {
@@ -179,9 +256,23 @@ $banner_left: -200px;
 			background-position: $banner_left bottom;
 			background-size: $banner_width $banner_height;
 		}
+
+		&[data-variation="home"] {
+			&:after {
+				background-position: -950px bottom;
+				background-size: auto 1000px;
+			}
+
+			.footerBackground {
+				left: -950px;
+				height: 1000px;
+		
+				
+			}
+		}
 	}
 
-	.banner {
+	.footerBackground {
 		left: $banner_left;
 		height: $banner_height;
 	}

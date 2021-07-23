@@ -7,7 +7,7 @@ import Header from '../../img/banners/header_2.svg';
 import Dots from '../../img/illustrations/dots.svg';
 import Flower from '../../img/illustrations/flower.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './blog.module.scss';
+import * as styles from './blog.module.scss';
 
 const BlogPage = ({ data }) => {
 	const { html, frontmatter } = data.content.childMarkdownRemark;
@@ -32,8 +32,6 @@ const BlogPage = ({ data }) => {
 			<div className={styles.content}>
 				<Squiggle className={styles.squiggle_1} />
 				<h1>{title}</h1>
-
-				<div className={styles.blurb} dangerouslySetInnerHTML={{ __html: html }} />
 
 				<ul className={styles.posts}>
 					{posts.map((post) => (
@@ -106,7 +104,9 @@ export const query = graphql`
 					title
 					description
 					date(formatString: "DD MMM YYYY")
-					featured
+					featured {
+						src
+					}
 				}
 			}
 		}

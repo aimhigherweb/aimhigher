@@ -5,7 +5,7 @@ import Layout from '../../components/layout';
 import Flower from '../../img/illustrations/flower_2.svg';
 import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './page.module.scss';
+import * as styles from './page.module.scss';
 
 const StaticPage = ({ data }) => {
 	const {

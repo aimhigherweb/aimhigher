@@ -92,9 +92,10 @@
 
 @media(min-width: 40em) {
 	.nav {
+		--button_shadow: #{var.$neutral};
+
 		display: block;
 		position: static;
-		// flex: 1 0 auto;
 		margin: 0;
 
 		ul {
@@ -102,12 +103,17 @@
 			position: static;
 			width: auto;
 			max-width: unset;
+			align-items: center;
 			padding: 0;
 			background: none;
 
 			&:before {
 				content: normal;
 			}
+		}
+
+		&[data-light] {
+			--button_shadow: #{var.$white};
 		}
 	}
 
@@ -119,7 +125,7 @@
 		margin: 0 10px;
 		padding: 0;
 		color: inherit;
-		font-size: 1em;
+		font-size: 0.9em;
 
 		&:after {
 			content: normal;
@@ -132,4 +138,25 @@
 			}
 		}
 	}
+
+	.cta {
+		composes: button from '../../../../../lib/parts/forms/button/button.module.scss';
+
+		--button_border: #{var.$yellow};
+		--button_background: #{var.$yellow};
+		--button_text: #{var.$neutral};
+
+		display: block;
+		padding: 10px;
+		line-height: 1;
+		white-space: nowrap;
+		color: var(--button_text);
+		margin: 0 0 0 5px;
+	}
+}
+
+@media(min-width: 50em) {
+.item {
+	font-size: 1em;
+}
 }

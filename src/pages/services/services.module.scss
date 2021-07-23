@@ -22,6 +22,10 @@
 }
 
 .blurb {
+	--button_border: #{var.$pink};
+	--button_background: #{var.$pink};
+	
+
 	text-align: left;
 
 	a {
@@ -37,6 +41,22 @@
 			&:after {
 				content: normal;
 			}
+		}
+
+		&:global(.cta) {
+			color: var(--button_text);
+
+			&:hover {
+				color: var(--button_background);
+				display: inline-block;
+				text-decoration: none;
+			}
+		}
+	}
+
+	p {
+		&:last-child {
+			text-align: center;
 		}
 	}
 }
@@ -73,6 +93,7 @@
 	transform: rotate(40deg);
 	color: var.$pink;
 	mix-blend-mode: multiply;
+	z-index: 2;
 }
 
 .flower {

@@ -1,20 +1,19 @@
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Layout from '../../components/layout';
-import ImageBlob from '../../components/parts/imageBlob';
-import Partners from '../../components/parts/partners';
 import Header from '../../img/banners/header_1.svg';
-import Character from '../../img/graphics/desk.svg';
-import Blob from '../../img/illustrations/blob_2.svg';
-import Background from '../../img/illustrations/blob_background.svg';
-import Dots from '../../img/illustrations/dots.svg';
-import Heart from '../../img/illustrations/heart.svg';
+import * as styles from './about.module.scss';
 import Leaf from '../../img/illustrations/leaf_thin.svg';
-import Paw from '../../img/illustrations/paw.svg';
+import Dots from '../../img/illustrations/dots.svg';
+import Blob from '../../img/illustrations/blob_2.svg';
+import Character from '../../img/graphics/desk.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './about.module.scss';
+import Background from '../../img/illustrations/blob_background.svg';
+import ImageBlob from '../../components/parts/imageBlob';
+import Heart from '../../img/illustrations/heart.svg';
+import Partners from '../../components/parts/partners';
+import Paw from '../../img/illustrations/paw.svg';
 
 const AboutPage = ({ data }) => {
 	const profile = data.profile.childImageSharp.resize.src;

@@ -9,7 +9,7 @@ import Layout from '../../components/layout';
 import Flower from '../../img/illustrations/flower_2.svg';
 import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import styles from './contact.module.scss';
+import * as styles from './contact.module.scss';
 
 const ContactPage = ({ data }) => {
 	const { html, frontmatter } = data.content.childMarkdownRemark;

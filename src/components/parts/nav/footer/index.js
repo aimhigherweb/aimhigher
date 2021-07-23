@@ -1,16 +1,16 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
-import styles from './footer.module.scss';
+import { footerNav, footerNavItem } from './footer.module.scss';
 
 const Nav = ({ items }) => (
-	<nav className={styles.nav}>
+	<nav className={footerNav}>
 		<ul>
 			{items.map(({ label, link }) => (
 				<li key={label}>
 					<Link
 						to={link}
-						className={styles.item}
+						className={footerNavItem}
 					>
 						{label}
 					</Link>

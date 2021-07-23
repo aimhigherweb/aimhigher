@@ -18,5 +18,11 @@
 	{
 		"label": "Contact",
 		"link": "/contact"
+	},
+	{
+		"label": "Book a Call",
+		"link": "https://savvycal.com/amyskapers/book-a-call",
+		"external": true,
+		"cta": true
 	}
 ]

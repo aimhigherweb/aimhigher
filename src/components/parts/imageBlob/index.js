@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './imageBlob.module.scss';
+import * as styles from './imageBlob.module.scss';
 
 const ImageBlob = ({ image }) => (
 	<svg viewBox="0 0 649 661" className={styles.image}>
