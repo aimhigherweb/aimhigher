@@ -13,6 +13,11 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-sass`,
 			options: {
+				cssLoaderOptions: {
+					import: false,
+					esModule: true,
+					modules: true
+				},
 				additionalData: `
 					@use "lib/styles/variables.scss" as var;
 					@use "lib/styles/mixins.scss";
