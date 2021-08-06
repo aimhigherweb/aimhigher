@@ -122,19 +122,27 @@
 	}
 
 	.item {
+		@include mixins.underline_animate;
+
 		margin: 0 10px;
 		padding: 0;
 		color: inherit;
 		font-size: 0.9em;
 
 		&:after {
-			content: normal;
+			content: '';
+			bottom: 20%;
 		}
 
 		&:hover, &[class*='current'] {
 			&:after {
 				content: '';
-				bottom: 20%;
+			}
+		}
+
+		&[class*='current'] {
+			&:after {
+				transform: scaleX(1);
 			}
 		}
 	}

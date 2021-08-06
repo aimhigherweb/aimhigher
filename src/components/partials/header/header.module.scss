@@ -17,6 +17,11 @@
 	height: auto;
 	width: 200px;
 
+	&:after {
+		height: 0.4em;
+		bottom: 0;
+	}
+
 	svg {
 		max-width: 100%;
 	}
