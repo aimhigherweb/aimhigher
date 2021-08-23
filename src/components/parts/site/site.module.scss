@@ -36,6 +36,7 @@
 			color: var.$white;
 			color: var(--button_text);
 			position: static;
+			text-decoration: none;
 
 			&:hover {
 				--button_shadow: var(--button_background);
