@@ -1,0 +1,307 @@
+.header {
+	top: 0;
+	left: 0;
+	width: auto;
+	height: 3500px;
+	transform: translateX(-50%);
+	composes: banner from '../../components/partials/header/header.module.scss';
+}
+
+.blurb {
+	margin-bottom: 20px;
+	margin-left: auto;
+	max-width: 500px;
+}
+
+.content {
+	--heading_underline: #{var.$pink};
+
+	position: relative;
+	margin-bottom: 100px;
+	padding: 20px;
+	color: var.$white;
+}
+
+.sites {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	.site {
+		--button_background: #{var.$pink};
+		--button_text: #{var.$white};
+		--button_border: var(--button_background);
+		--button_shadow: var(--button_text);
+
+		max-width: 400px;
+		margin: 10px auto;
+
+		&:nth-child(4n - 2) {
+			--button_background: #{var.$purple};
+			--button_text: #{var.$white};
+		}
+
+		&:nth-child(4n - 1) {
+			--button_background: #{var.$secondary};
+			--button_text: #{var.$white};
+		}
+
+		&:nth-child(4n) {
+			--button_background: #{var.$primary};
+			--button_text: #{var.$white};
+		}
+	}
+}
+
+.site {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	flex-grow: 1;
+}
+
+
+.squiggle_1 {
+	position: absolute;
+	top: -20px;
+	left: -100px;
+	width: 200px;
+	transform: rotate(-50deg);
+	color: var.$yellow;
+}
+
+.squiggle_2 {
+	position: absolute;
+	bottom: -100px;
+	left: -100px;
+	width: 200px;
+	color: var.$yellow;
+}
+
+.dots {
+	display: none;
+	position: absolute;
+	bottom: -350px;
+	left: 20px;
+	width: 200px;
+	transform: scaleX(-1);
+	color: var.$purple;
+	mix-blend-mode: multiply;
+}
+
+.blob {
+	position: absolute;
+	right: -100px;
+	bottom: -200px;
+	width: 200px;
+	transform: scaleY(-1) rotate(-40deg);
+	color: var.$yellow;
+	mix-blend-mode: multiply;
+}
+
+@media(min-width: 40em) {
+	.header {
+		height: 3000px;
+	}
+
+	.content {
+		margin-bottom: 200px;
+
+		h1 {
+			margin-bottom: 50px;
+		}
+	}
+
+	.sites {
+		justify-content: space-between;
+		justify-content: space-evenly;
+		width: auto;
+		margin: 0 -10px;
+
+		.site {
+			flex: 1 1 320px;
+			margin: 10px;
+		}
+	}
+
+	.squiggle_1 {
+		top: 0;
+		left: -50px;
+	}
+
+	.squiggle_2 {
+		bottom: -300px;
+		width: 400px;
+	}
+
+	.dots {
+		bottom: -700px;
+		left: 50px;
+		width: 300px;
+		transform: scaleX(-1) rotate(30deg);
+	}
+
+	.blob {
+		right: 20px;
+		bottom: -400px;
+		width: 200px;
+	}
+
+	@supports(grid-template-areas: '.') {
+		.sites {
+			display: grid;
+			grid-gap: 20px;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+			justify-content: center;
+			margin: 0; 
+			grid-row-gap: 40px;
+
+			.site {
+				max-width: unset;
+				margin: 0;
+			}
+
+			article {
+				height: 100%;
+			}
+		}
+	}
+}
+
+@media(min-width: 50em) {
+	.header {
+		height: 2500px;
+	}
+
+	.content {
+		margin-bottom: 300px;
+		padding: 0 50px;
+	}
+
+	.blob {
+		bottom: -180px;
+	}
+
+	.squiggle_2 {
+		bottom: -300px;
+	}
+
+	.dots {
+		bottom: -800px;
+	}
+
+	@supports(grid-template-areas: '.') {
+		.sites {
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		}
+	}
+}
+
+@media(min-width: 60em) {
+	.header {
+		height: 3000px;
+	}
+
+	.content {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto 600px;
+		padding: 0;
+	}
+
+	.blurb {
+		width: 60%;
+		margin: 0 20px 50px auto;
+	}
+
+	.squiggle_1 {
+		top: -100px;
+		left: -100px;
+		width: 400px;
+	}
+
+	.squiggle_2 {
+		bottom: -300px;
+	}
+
+	.dots {
+		display: block;
+		bottom: -600px;
+		left: 0;
+	}
+
+	.blob {
+		bottom: -500px;
+		right: -200px;
+		width: 300px;
+	}
+
+	@supports(grid-template-areas: '.') {
+		.sites {
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		}
+	}
+}
+
+@media(min-width: 70em) {
+	.header {
+		height: 2300px;
+	}
+
+	.content {
+		margin-bottom: 600px;
+	}
+
+	.squiggle_1 {
+		top: -100px;
+	}
+
+	.squiggle_2 {
+		bottom: -500px;
+		width: 500px;
+	}
+
+	.dots {
+		bottom: -700px;
+		left: -300px;
+	}
+
+	.blob {
+		bottom: -600px;
+		width: 300px;
+	}
+}
+
+@media(min-width: 80em) {
+	.header {
+		left: 200px;
+	}
+
+	.content {
+		margin-bottom: 700px;
+	}
+
+	.squiggle_1 {
+		top: -50px;
+		left: -200px;
+	}
+}
+
+@media(min-width: 90em) {
+	.header {
+		left: 400px;
+	}
+	@supports(grid-template-areas: '.') {
+		.content {
+			max-width: 1300px;
+		}
+
+		.sites {
+			margin: 0 auto;
+			grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
+		}
+	}
+}

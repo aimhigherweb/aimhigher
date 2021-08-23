@@ -1,0 +1,966 @@
+type CaseStudy {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  launch: Date
+  website: Website
+  content: String
+  screenshots: ComponentCaseStudyScreenshots
+  title: String
+  github: String
+  featured: Boolean
+  published_at: DateTime
+  testimonials(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): [Testimonials]
+  technologies(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): [Technologies]
+}
+
+type CaseStudyConnection {
+  values: [CaseStudy]
+  groupBy: CaseStudyGroupBy
+  aggregate: CaseStudyAggregator
+}
+
+type CaseStudyAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CaseStudyGroupBy {
+  id: [CaseStudyConnectionId]
+  _id: [CaseStudyConnection_id]
+  createdAt: [CaseStudyConnectionCreatedAt]
+  updatedAt: [CaseStudyConnectionUpdatedAt]
+  launch: [CaseStudyConnectionLaunch]
+  website: [CaseStudyConnectionWebsite]
+  content: [CaseStudyConnectionContent]
+  screenshots: [CaseStudyConnectionScreenshots]
+  title: [CaseStudyConnectionTitle]
+  github: [CaseStudyConnectionGithub]
+  featured: [CaseStudyConnectionFeatured]
+  published_at: [CaseStudyConnectionPublished_at]
+}
+
+type CaseStudyConnectionId {
+  key: ID
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnection_id {
+  key: ID
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionCreatedAt {
+  key: DateTime
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionUpdatedAt {
+  key: DateTime
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionLaunch {
+  key: ID
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionWebsite {
+  key: ID
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionContent {
+  key: String
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionScreenshots {
+  key: ID
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionTitle {
+  key: String
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionGithub {
+  key: String
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionFeatured {
+  key: Boolean
+  connection: CaseStudyConnection
+}
+
+type CaseStudyConnectionPublished_at {
+  key: DateTime
+  connection: CaseStudyConnection
+}
+
+input CaseStudyInput {
+  launch: Date
+  website: ID
+  content: String
+  screenshots: ComponentCaseStudyScreenshotInput
+  testimonials: [ID]
+  title: String
+  technologies: [ID]
+  github: String
+  featured: Boolean
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+type Client {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  slug: String
+  logo: UploadFile
+  testimonials(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): [Testimonials]
+  websites(sort: String, limit: Int, start: Int, where: JSON): [Website]
+}
+
+type ClientConnection {
+  values: [Client]
+  groupBy: ClientGroupBy
+  aggregate: ClientAggregator
+}
+
+type ClientAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ClientGroupBy {
+  id: [ClientConnectionId]
+  _id: [ClientConnection_id]
+  createdAt: [ClientConnectionCreatedAt]
+  updatedAt: [ClientConnectionUpdatedAt]
+  name: [ClientConnectionName]
+  slug: [ClientConnectionSlug]
+  logo: [ClientConnectionLogo]
+}
+
+type ClientConnectionId {
+  key: ID
+  connection: ClientConnection
+}
+
+type ClientConnection_id {
+  key: ID
+  connection: ClientConnection
+}
+
+type ClientConnectionCreatedAt {
+  key: DateTime
+  connection: ClientConnection
+}
+
+type ClientConnectionUpdatedAt {
+  key: DateTime
+  connection: ClientConnection
+}
+
+type ClientConnectionName {
+  key: String
+  connection: ClientConnection
+}
+
+type ClientConnectionSlug {
+  key: String
+  connection: ClientConnection
+}
+
+type ClientConnectionLogo {
+  key: ID
+  connection: ClientConnection
+}
+
+input ClientInput {
+  name: String
+  slug: String
+  logo: ID
+  docs: [ID]
+  testimonials: [ID]
+  websites: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+type Faq {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  question: String
+  answer: String
+}
+
+type FaqConnection {
+  values: [Faq]
+  groupBy: FaqGroupBy
+  aggregate: FaqAggregator
+}
+
+type FaqAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type FaqGroupBy {
+  id: [FaqConnectionId]
+  _id: [FaqConnection_id]
+  createdAt: [FaqConnectionCreatedAt]
+  updatedAt: [FaqConnectionUpdatedAt]
+  question: [FaqConnectionQuestion]
+  answer: [FaqConnectionAnswer]
+}
+
+type FaqConnectionId {
+  key: ID
+  connection: FaqConnection
+}
+
+type FaqConnection_id {
+  key: ID
+  connection: FaqConnection
+}
+
+type FaqConnectionCreatedAt {
+  key: DateTime
+  connection: FaqConnection
+}
+
+type FaqConnectionUpdatedAt {
+  key: DateTime
+  connection: FaqConnection
+}
+
+type FaqConnectionQuestion {
+  key: String
+  connection: FaqConnection
+}
+
+type FaqConnectionAnswer {
+  key: String
+  connection: FaqConnection
+}
+
+input FaqInput {
+  question: String
+  answer: String
+  created_by: ID
+  updated_by: ID
+}
+
+type Technologies {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  slug: String
+  image: UploadFile
+  case_studies(sort: String, limit: Int, start: Int, where: JSON): [CaseStudy]
+}
+
+type TechnologiesConnection {
+  values: [Technologies]
+  groupBy: TechnologiesGroupBy
+  aggregate: TechnologiesAggregator
+}
+
+type TechnologiesAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TechnologiesGroupBy {
+  id: [TechnologiesConnectionId]
+  _id: [TechnologiesConnection_id]
+  createdAt: [TechnologiesConnectionCreatedAt]
+  updatedAt: [TechnologiesConnectionUpdatedAt]
+  name: [TechnologiesConnectionName]
+  slug: [TechnologiesConnectionSlug]
+  image: [TechnologiesConnectionImage]
+}
+
+type TechnologiesConnectionId {
+  key: ID
+  connection: TechnologiesConnection
+}
+
+type TechnologiesConnection_id {
+  key: ID
+  connection: TechnologiesConnection
+}
+
+type TechnologiesConnectionCreatedAt {
+  key: DateTime
+  connection: TechnologiesConnection
+}
+
+type TechnologiesConnectionUpdatedAt {
+  key: DateTime
+  connection: TechnologiesConnection
+}
+
+type TechnologiesConnectionName {
+  key: String
+  connection: TechnologiesConnection
+}
+
+type TechnologiesConnectionSlug {
+  key: String
+  connection: TechnologiesConnection
+}
+
+type TechnologiesConnectionImage {
+  key: ID
+  connection: TechnologiesConnection
+}
+
+input TechnologyInput {
+  name: String
+  slug: String
+  image: ID
+  case_studies: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+type Testimonials {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  quote: String
+  client: Client
+  case_study: CaseStudy
+}
+
+type TestimonialsConnection {
+  values: [Testimonials]
+  groupBy: TestimonialsGroupBy
+  aggregate: TestimonialsAggregator
+}
+
+type TestimonialsAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TestimonialsGroupBy {
+  id: [TestimonialsConnectionId]
+  _id: [TestimonialsConnection_id]
+  createdAt: [TestimonialsConnectionCreatedAt]
+  updatedAt: [TestimonialsConnectionUpdatedAt]
+  quote: [TestimonialsConnectionQuote]
+  client: [TestimonialsConnectionClient]
+  case_study: [TestimonialsConnectionCase_study]
+}
+
+type TestimonialsConnectionId {
+  key: ID
+  connection: TestimonialsConnection
+}
+
+type TestimonialsConnection_id {
+  key: ID
+  connection: TestimonialsConnection
+}
+
+type TestimonialsConnectionCreatedAt {
+  key: DateTime
+  connection: TestimonialsConnection
+}
+
+type TestimonialsConnectionUpdatedAt {
+  key: DateTime
+  connection: TestimonialsConnection
+}
+
+type TestimonialsConnectionQuote {
+  key: String
+  connection: TestimonialsConnection
+}
+
+type TestimonialsConnectionClient {
+  key: ID
+  connection: TestimonialsConnection
+}
+
+type TestimonialsConnectionCase_study {
+  key: ID
+  connection: TestimonialsConnection
+}
+
+input TestimonialInput {
+  quote: String
+  client: ID
+  case_study: ID
+  created_by: ID
+  updated_by: ID
+}
+
+type Website {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  domain: String
+  live: Boolean
+  https: Boolean
+  colours: [ComponentBrandColours]
+  client: Client
+  fonts: [ComponentBrandFonts]
+  case_studies(sort: String, limit: Int, start: Int, where: JSON): [CaseStudy]
+}
+
+type WebsiteConnection {
+  values: [Website]
+  groupBy: WebsiteGroupBy
+  aggregate: WebsiteAggregator
+}
+
+type WebsiteAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type WebsiteGroupBy {
+  id: [WebsiteConnectionId]
+  _id: [WebsiteConnection_id]
+  createdAt: [WebsiteConnectionCreatedAt]
+  updatedAt: [WebsiteConnectionUpdatedAt]
+  domain: [WebsiteConnectionDomain]
+  live: [WebsiteConnectionLive]
+  https: [WebsiteConnectionHttps]
+  client: [WebsiteConnectionClient]
+}
+
+type WebsiteConnectionId {
+  key: ID
+  connection: WebsiteConnection
+}
+
+type WebsiteConnection_id {
+  key: ID
+  connection: WebsiteConnection
+}
+
+type WebsiteConnectionCreatedAt {
+  key: DateTime
+  connection: WebsiteConnection
+}
+
+type WebsiteConnectionUpdatedAt {
+  key: DateTime
+  connection: WebsiteConnection
+}
+
+type WebsiteConnectionDomain {
+  key: String
+  connection: WebsiteConnection
+}
+
+type WebsiteConnectionLive {
+  key: Boolean
+  connection: WebsiteConnection
+}
+
+type WebsiteConnectionHttps {
+  key: Boolean
+  connection: WebsiteConnection
+}
+
+type WebsiteConnectionClient {
+  key: ID
+  connection: WebsiteConnection
+}
+
+input WebsiteInput {
+  domain: String
+  live: Boolean
+  https: Boolean
+  colours: [ComponentBrandColourInput]
+  client: ID
+  fonts: [ComponentBrandFontInput]
+  case_studies: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+type UploadFile {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  _id: [UploadFileConnection_id]
+  createdAt: [UploadFileConnectionCreatedAt]
+  updatedAt: [UploadFileConnectionUpdatedAt]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnection_id {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type ComponentBrandColours {
+  id: ID!
+  _id: ID!
+  hex: String
+  name: String
+}
+
+input ComponentBrandColourInput {
+  hex: String
+  name: String
+}
+
+type ComponentBrandFonts {
+  id: ID!
+  _id: ID!
+  heading: String
+  body: String
+  code: String
+}
+
+input ComponentBrandFontInput {
+  heading: String
+  body: String
+  code: String
+}
+
+type ComponentCaseStudyScreenshots {
+  id: ID!
+  _id: ID!
+  laptop: UploadFile
+  tablet: UploadFile
+  mobile: UploadFile
+}
+
+input ComponentCaseStudyScreenshotInput {
+  laptop: ID
+  tablet: ID
+  mobile: ID
+}
+
+type ComponentMetaMeta {
+  id: ID!
+  _id: ID!
+  title: String
+  description: String
+  image: UploadFile
+}
+
+input ComponentMetaMetaInput {
+  title: String
+  description: String
+  image: ID
+}
+
+
+union Morph =
+  | CaseStudy
+  | CaseStudyConnection
+  | CaseStudyAggregator
+  | CaseStudyGroupBy
+  | CaseStudyConnectionId
+  | CaseStudyConnection_id
+  | CaseStudyConnectionCreatedAt
+  | CaseStudyConnectionUpdatedAt
+  | CaseStudyConnectionLaunch
+  | CaseStudyConnectionWebsite
+  | CaseStudyConnectionContent
+  | CaseStudyConnectionScreenshots
+  | CaseStudyConnectionTitle
+  | CaseStudyConnectionGithub
+  | CaseStudyConnectionFeatured
+  | CaseStudyConnectionPublished_at
+  | Client
+  | ClientConnection
+  | ClientAggregator
+  | ClientGroupBy
+  | ClientConnectionId
+  | ClientConnection_id
+  | ClientConnectionCreatedAt
+  | ClientConnectionUpdatedAt
+  | ClientConnectionName
+  | ClientConnectionSlug
+  | ClientConnectionLogo
+  | Faq
+  | FaqConnection
+  | FaqAggregator
+  | FaqGroupBy
+  | FaqConnectionId
+  | FaqConnection_id
+  | FaqConnectionCreatedAt
+  | FaqConnectionUpdatedAt
+  | FaqConnectionQuestion
+  | FaqConnectionAnswer
+  | Technologies
+  | TechnologiesConnection
+  | TechnologiesAggregator
+  | TechnologiesGroupBy
+  | TechnologiesConnectionId
+  | TechnologiesConnection_id
+  | TechnologiesConnectionCreatedAt
+  | TechnologiesConnectionUpdatedAt
+  | TechnologiesConnectionName
+  | TechnologiesConnectionSlug
+  | TechnologiesConnectionImage
+  | Testimonials
+  | TestimonialsConnection
+  | TestimonialsAggregator
+  | TestimonialsGroupBy
+  | TestimonialsConnectionId
+  | TestimonialsConnection_id
+  | TestimonialsConnectionCreatedAt
+  | TestimonialsConnectionUpdatedAt
+  | TestimonialsConnectionQuote
+  | TestimonialsConnectionClient
+  | TestimonialsConnectionCase_study
+  | Website
+  | WebsiteConnection
+  | WebsiteAggregator
+  | WebsiteGroupBy
+  | WebsiteConnectionId
+  | WebsiteConnection_id
+  | WebsiteConnectionCreatedAt
+  | WebsiteConnectionUpdatedAt
+  | WebsiteConnectionDomain
+  | WebsiteConnectionLive
+  | WebsiteConnectionHttps
+  | WebsiteConnectionClient
+  | UploadFile
+  | UploadFileConnection
+  | UploadFileAggregator
+  | UploadFileAggregatorSum
+  | UploadFileAggregatorAvg
+  | UploadFileAggregatorMin
+  | UploadFileAggregatorMax
+  | UploadFileGroupBy
+  | UploadFileConnectionId
+  | UploadFileConnection_id
+  | UploadFileConnectionCreatedAt
+  | UploadFileConnectionUpdatedAt
+  | UploadFileConnectionName
+  | UploadFileConnectionAlternativeText
+  | UploadFileConnectionCaption
+  | UploadFileConnectionWidth
+  | UploadFileConnectionHeight
+  | UploadFileConnectionFormats
+  | UploadFileConnectionHash
+  | UploadFileConnectionExt
+  | UploadFileConnectionMime
+  | UploadFileConnectionSize
+  | UploadFileConnectionUrl
+  | UploadFileConnectionPreviewUrl
+  | UploadFileConnectionProvider
+  | UploadFileConnectionProvider_metadata
+  | ComponentBrandColours
+  | ComponentBrandFonts
+  | ComponentCaseStudyScreenshots
+  | ComponentMetaMeta
+
+input InputID {
+  id: ID!
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type AdminUser {
+  id: ID!
+  username: String
+  firstname: String!
+  lastname: String!
+}
+
+type Query {
+  caseStudy(id: ID!, publicationState: PublicationState): CaseStudy
+  caseStudies(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+    publicationState: PublicationState
+  ): [CaseStudy]
+  caseStudiesConnection(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): CaseStudyConnection
+  client(id: ID!, publicationState: PublicationState): Client
+  clients(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+    publicationState: PublicationState
+  ): [Client]
+  clientsConnection(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): ClientConnection
+  faq(id: ID!, publicationState: PublicationState): Faq
+  faqs(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+    publicationState: PublicationState
+  ): [Faq]
+  faqsConnection(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): FaqConnection
+  technology(id: ID!, publicationState: PublicationState): Technologies
+  technologies(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+    publicationState: PublicationState
+  ): [Technologies]
+  technologiesConnection(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): TechnologiesConnection
+  testimonial(id: ID!, publicationState: PublicationState): Testimonials
+  testimonials(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+    publicationState: PublicationState
+  ): [Testimonials]
+  testimonialsConnection(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): TestimonialsConnection
+  website(id: ID!, publicationState: PublicationState): Website
+  websites(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+    publicationState: PublicationState
+  ): [Website]
+  websitesConnection(
+    sort: String
+    limit: Int
+    start: Int
+    where: JSON
+  ): WebsiteConnection
+}
+
+# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar JSON
+
+# A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+scalar DateTime
+
+# A time string with format: HH:mm:ss.SSS
+scalar Time
+
+# A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+scalar Date
+
+# The `Long` scalar type represents 52-bit integers
+scalar Long
+
+# The `Upload` scalar type represents a file upload.
+scalar Upload
