@@ -11,7 +11,7 @@
 
 	h2 {
 		margin: 0;
-		font-size: 1.2em;
+		font-size: 0.8em;
 		order: 2;
 		text-align: center;
 		padding: 0;
@@ -89,4 +89,20 @@
 .launch {
 	font-size: 1.25em;
 	margin: 1em 0;
+}
+
+
+@media(min-width: 40em) {
+	@supports (grid-template-areas: '.') {
+		.site {			
+			h2 {
+				position: absolute;
+				bottom: 0;
+			}
+		}
+
+		.launch {
+			margin-bottom: 0;
+		}
+	}
 }

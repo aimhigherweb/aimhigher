@@ -1,8 +1,8 @@
 import { format, parse } from 'date-fns';
-import { Link } from 'gatsby';
 import React from 'react';
 
 import Icon from '../../../../lib/parts/icon';
+import Screenshots from '../siteScreenshots';
 import * as styles from './site.module.scss';
 
 const Site = ({
@@ -11,8 +11,9 @@ const Site = ({
 	const date = parse(launch, `yyyy-MM-dd`, new Date());
 	return (
 		<article className={styles.site}>
+			<Screenshots {...screenshots} />
 			<h2>
-				<a>{domain}</a>
+				<a target="__blank" href={`//${domain}`}>{domain}</a>
 			</h2>
 			<p className={styles.launch}>{format(date, `MMMM yyyy`)}</p>
 			{github

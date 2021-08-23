@@ -28,6 +28,7 @@ const PortfolioPage = ({ data }) => {
 			<div className={styles.content}>
 				<Squiggle className={styles.squiggle_1} />
 				<h1>{title}</h1>
+				<div className={styles.blurb} dangerouslySetInnerHTML={{ __html: html }} />
 				<ul className={styles.sites}>
 					{caseStudies.map((site) => (
 						<li key={site._id} className={styles.site}>
