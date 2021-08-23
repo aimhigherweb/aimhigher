@@ -1,5 +1,8 @@
 require(`dotenv`).config();
 
+const fs = require(`fs`);
+const { buildSchema, buildClientSchema } = require(`graphql`);
+
 module.exports = {
 	flags: {
 		DEV_SSR: false
@@ -84,6 +87,14 @@ module.exports = {
 				headers: {
 					Authorization: `Bearer ${process.env.GATSBY_STRAPI_TOKEN}`,
 				},
+				// createSchema: async () => {
+				// 	const sdl = fs.readFileSync(`${__dirname}/_data/schema.graphql`).toString();
+				// 	return buildSchema(sdl);
+				// 	// const json = JSON.parse(
+				// 	// 	fs.readFileSync(`${__dirname}/_data/schema.graphql`)
+				// 	// );
+				// 	// return buildClientSchema(json.data);
+				// },
 			},
 		},
 		`gatsby-plugin-sharp`,

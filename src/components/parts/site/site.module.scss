@@ -1,0 +1,92 @@
+.site {
+	background: var.$grey_light;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var.$neutral;
+	padding: 20px 20px 0;
+	margin-bottom: 50px;
+	position: relative;
+	justify-content: flex-start;
+
+	h2 {
+		margin: 0;
+		font-size: 1.2em;
+		order: 2;
+		text-align: center;
+		padding: 0;
+		margin-bottom: -1em;
+		position: static;
+
+		&:after {
+			content: normal;
+		}
+
+		a {
+			color: inherit;
+			cursor: pointer;
+			padding: 0.6em 1em 0.5em;
+			border: none;
+			border: 2px solid var.$pink;
+			border-color: var(--button_border);
+			background: var.$pink;
+			background: var(--button_background);
+			box-shadow: 0.13em 0.13em 0 0 var.$white;
+			box-shadow: 0.13em 0.13em 0 0 var(--button_shadow);
+			color: var.$white;
+			color: var(--button_text);
+			position: static;
+
+			&:hover {
+				--button_shadow: var(--button_background);
+
+				border-color: var(--button_text);
+				background: var(--button_text);
+				color: var(--button_background);
+				text-decoration: none;
+				position: static;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
+
+			&:after {
+				content: normal;
+			}
+		}
+	}
+}
+
+.github {
+	--icon_background: var(--button_background);
+	--icon_primary: var(--button_text);
+
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 5;
+
+	&:hover {
+		--icon_background: var(--button_text);
+		--icon_primary: var(--button_background);
+		text-decoration: none;
+	}
+
+	&:after {
+		content: normal;
+	}
+}
+
+.launch {
+	font-size: 1.25em;
+	margin: 1em 0;
+}

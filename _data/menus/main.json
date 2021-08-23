@@ -8,6 +8,10 @@
 		"link": "/services"
 	},
 	{
+		"label": "Portfolio",
+		"link": "/portfolio"
+	},
+	{
 		"label": "FAQ",
 		"link": "/faq"
 	},
