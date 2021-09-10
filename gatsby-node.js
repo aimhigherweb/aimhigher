@@ -46,6 +46,29 @@ exports.createPages = ({ actions, graphql }) => {
 					}
 				}
 			}
+			services: allFile(
+				filter: {
+					sourceInstanceName: {
+						eq: "content"
+					}, 
+					relativeDirectory: {
+						eq: "services"
+					}, 
+					name: {
+						nin: [
+							"index", 
+							"other"
+						]
+					}
+				}
+			  ) {
+				edges {
+				  node {
+					id
+					name
+				  }
+				}
+			}
 		}
 	`).then((result) => {
 		if (result.errors) {
@@ -53,7 +76,7 @@ exports.createPages = ({ actions, graphql }) => {
 			return Promise.reject(result.errors);
 		}
 
-		const { posts, pages } = result.data;
+		const { posts, pages, services } = result.data;
 
 		posts.edges.forEach(({ node }) => {
 			createPage({
@@ -69,6 +92,16 @@ exports.createPages = ({ actions, graphql }) => {
 			createPage({
 				path: `${node.name}`,
 				component: path.resolve(`./src/templates/page/index.js`),
+				context: {
+					id: node.id,
+				}
+			});
+		});
+
+		services.edges.forEach(({ node }) => {
+			createPage({
+				path: `${node.name}`,
+				component: path.resolve(`./src/templates/service/index.js`),
 				context: {
 					id: node.id,
 				}
