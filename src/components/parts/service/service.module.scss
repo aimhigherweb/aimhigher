@@ -92,6 +92,11 @@
 			--heading_underline: #{var.$purple};
 		}
 	}
+
+	em {
+		color: inherit;
+		font-weight: inherit;
+	}
 }
 
 .icon {
