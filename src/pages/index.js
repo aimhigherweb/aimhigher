@@ -51,25 +51,50 @@ const IndexPage = ({ data }) => {
 			</section>
 			<section className={section}>
 				<Squiggle className={squiggle} />
-				<div
-					className={content}
-					dangerouslySetInnerHTML={{ __html: blocks[0].html }}
-				/>
+				<div className={content} >
+					<div dangerouslySetInnerHTML={{ __html: blocks[0].html }} />
+					<ul className={buttons}>
+						{blocks[0].frontmatter.cta.map((link) => (
+							<li>
+								<a className={cta} href={link.link} target={link.external ? `_blank` : `_self`}>
+									{link.text}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+
 				<Website className={graphic} />
 				<Heart className={heart} />
 			</section>
 			<section className={section}>
-				<div
-					className={content}
-					dangerouslySetInnerHTML={{ __html: blocks[1].html }}
-				/>
+				<div className={content} >
+					<div dangerouslySetInnerHTML={{ __html: blocks[1].html }} />
+					<ul className={buttons}>
+						{blocks[1].frontmatter.cta.map((link) => (
+							<li>
+								<a className={cta} href={link.link} target={link.external ? `_blank` : `_self`}>
+									{link.text}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
 				<Devices className={graphic} />
 			</section>
 			<section className={section}>
-				<div
-					className={content}
-					dangerouslySetInnerHTML={{ __html: blocks[2].html }}
-				/>
+				<div className={content} >
+					<div dangerouslySetInnerHTML={{ __html: blocks[2].html }} />
+					<ul className={buttons}>
+						{blocks[2].frontmatter.cta.map((link) => (
+							<li>
+								<a className={cta} href={link.link} target={link.external ? `_blank` : `_self`}>
+									{link.text}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
 				<About className={graphic} />
 				<Leaf className={leaf} />
 			</section>
@@ -128,6 +153,11 @@ export const query = graphql`
 						html
 						frontmatter {
 							image
+							cta {
+								link
+								text
+								external
+							}
 						}
 					}
 				}

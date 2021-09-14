@@ -3,7 +3,7 @@
 	title: 'eCommerce',
 	icon: 'shopping',
 	order: 7,
-	excerpt: `The internet is the future & the rapid and sudden growth of eCommerce is proof of that. At AimHigher we know that bringing your product or service to the masses can be a big step for any business. Whether you are new or established it’s never been a better time to sell online.`
+	excerpt: "The internet is the future & the rapid and sudden growth of eCommerce is proof of that. At AimHigher we know that bringing your product or service to the masses can be a big step for any business. Whether you are new or established it’s never been a better time to sell online."
 }
 ---
 

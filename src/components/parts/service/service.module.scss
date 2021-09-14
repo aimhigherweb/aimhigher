@@ -8,10 +8,17 @@
 	align-content: center;
 	max-width: 400px;
 	margin: 0 auto 135px;
-	padding: 20px 20px 135px;
+	padding: 10px 10px 125px;
 	color: var.$neutral;
 	list-style: none;
 	text-align: left;
+	border: 10px solid var.$white;
+
+	&[data-linked="true"] {
+		&:hover {
+			border-color: var(--heading_underline);
+		}
+	}
 
 	&:before {
 		content: '';
@@ -29,6 +36,27 @@
 		align-self: flex-start;
 		margin: 0;
 		font-size: 1.2em;
+	}
+
+	.link {
+		opacity: 0;
+		font-size: 0;
+		position: static;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			display: block;
+			right: 0;
+			z-index: 2;
+		}
+
+		&:after {
+			content: normal;
+		}
 	}
 
 	.circle {

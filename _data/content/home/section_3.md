@@ -1,7 +1,18 @@
 ---
 	{
 		"order": 3,
-		"image": "about"
+		"image": "about",
+		"cta": [
+			{
+				"link": "/services/support",
+				"text": "Find out More"
+			},
+			{
+				"link": "https://savvycal.com/amyskapers/book-a-call",
+				"text": "Book a Call",
+				"external": true
+			}
+		]
 	}
 ---
 

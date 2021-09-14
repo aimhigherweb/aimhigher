@@ -1,4 +1,5 @@
-import React from 'react';
+import { Link } from 'gatsby';
+import React, { Fragment } from 'react';
 
 import Analytics from '../../../img/icons/analytics.svg';
 import Design from '../../../img/icons/design.svg';
@@ -11,18 +12,26 @@ import Writing from '../../../img/icons/writing.svg';
 import Circle from '../../../img/illustrations/circle.svg';
 import * as styles from './service.module.scss';
 
-const Service = ({ html, title, icon }) => (
-	<li className={styles.service}>
+const Service = ({
+	html = ``, name, excerpt, title, icon
+}) => (
+	<li className={styles.service} data-linked={(html !== `` && excerpt) && true}>
 		<h2>{title}</h2>
-		<div className={styles.description} dangerouslySetInnerHTML={{ __html: html }} />
+		{excerpt
+			? <div className={styles.description}>
+				<p dangerouslySetInnerHTML={{ __html: excerpt }} />
+			</div>
+			:		<div className={styles.description} dangerouslySetInnerHTML={{ __html: html }} />
+		}
 		<div className={styles.icon}>
 			<Circle className={styles.circle} />
 			<Icon icon={icon} />
 		</div>
+		{(html !== `` && excerpt) && <Link className={styles.link} to={name}>Find out more about {title}</Link>}
 	</li>
 );
 
-const Icon = ({ icon }) => {
+export const Icon = ({ icon }) => {
 	if (icon === `monitor`) {
 		return <Monitor />;
 	}

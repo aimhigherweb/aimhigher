@@ -61,12 +61,16 @@ exports.createPages = ({ actions, graphql }) => {
 						]
 					}
 				}
-			  ) {
+			) {
 				edges {
-				  node {
-					id
-					name
-				  }
+					node {
+						id
+						name
+						childMarkdownRemark {
+							id
+							html
+						}
+					}
 				}
 			}
 		}
@@ -99,13 +103,15 @@ exports.createPages = ({ actions, graphql }) => {
 		});
 
 		services.edges.forEach(({ node }) => {
-			createPage({
-				path: `${node.name}`,
-				component: path.resolve(`./src/templates/service/index.js`),
-				context: {
-					id: node.id,
-				}
-			});
+			if (node.childMarkdownRemark?.html !== ``) {
+				createPage({
+					path: `services/${node.name}`,
+					component: path.resolve(`./src/templates/service/index.js`),
+					context: {
+						id: node.childMarkdownRemark.id,
+					}
+				});
+			}
 		});
 	});
 };

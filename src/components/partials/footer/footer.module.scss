@@ -81,13 +81,13 @@ $banner_left: -200px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -500px bottom;
-				background-size: auto 500px;
+				background-position: -550px bottom;
+				background-size: auto 520px;
 			}
 
 			.footerBackground {
-				left: -500px;
-				height: 500px;
+				left: -550px;
+				height: 520px;
 		
 				
 			}
@@ -117,13 +117,11 @@ $banner_left: -200px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -400px bottom;
+				background-position: -450px bottom;
 			}
 
 			.footerBackground {
-				left: -400px;
-		
-				
+				left: -450px;
 			}
 		}
 	}
@@ -157,15 +155,13 @@ $banner_left: -200px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -600px bottom;
+				background-position: -680px bottom;
 				background-size: auto 5650px;
 			}
 
 			.footerBackground {
-				left: -600px;
-				height: 650px;
-		
-				
+				left: -680px;
+				height: 700px;
 			}
 		}
 	}
@@ -195,11 +191,11 @@ $banner_left: -200px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -500px bottom;
+				background-position: -600px bottom;
 			}
 
 			.footerBackground {
-				left: -500px;
+				left: -600px;
 		
 				
 			}
