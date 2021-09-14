@@ -97,7 +97,18 @@ module.exports = {
 				// },
 			},
 		},
-		`gatsby-plugin-sharp`,
+		`gatsby-plugin-image`,
+		{
+			resolve: `gatsby-plugin-sharp`,
+			options: {
+				defaults: {
+					formats: [`auto`, `webp`, `avif`],
+					placeholder: `blurred`,
+					quality: 50,
+					breakpoints: [750, 1080, 1366, 1920],
+				}
+			}
+		},
 		`gatsby-transformer-sharp`,
 		{
 			resolve: `gatsby-transformer-json`,
