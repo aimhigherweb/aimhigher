@@ -15,6 +15,7 @@ const ServicesPage = ({ data }) => {
 	const { html, frontmatter } = data.content.childMarkdownRemark;
 	const { title, meta } = frontmatter;
 	const services = data.services.edges.map(({ node }) => ({
+		name: node.name,
 		...node.childMarkdownRemark,
 		...node.childMarkdownRemark.frontmatter
 	}));
@@ -109,11 +110,13 @@ export const query = graphql`
 		) {
 			edges {
 				node {
+					name
 					childMarkdownRemark {
 						html
 						frontmatter {
 							title
 							icon
+							excerpt
 						}
 					}
 				}

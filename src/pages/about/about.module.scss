@@ -101,6 +101,7 @@
 	width: 100px;
 	color: var.$purple;
 	mix-blend-mode: multiply;
+	z-index: 5;
 }
 
 .heart {
@@ -284,7 +285,7 @@
 
 	.header {
 		top: -20px;
-		right: 270px;
+		right: 350px;
 		left: auto;
 		width: 1000px;
 	}
@@ -326,7 +327,7 @@
 
 @media(min-width: 70em) {
 	.header {
-		right: 250px;
+		right: 300px;
 		width: 1200px;
 	}
 
@@ -380,7 +381,7 @@
 
 @media(min-width: 80em) {
 	.header {
-		right: 25vw;
+		right: calc(25vw + 20px);
 	}
 
 	.founder {
@@ -418,7 +419,15 @@
 
 @media(min-width: 90em) {
 	.header {
-		right: 350px;
+		right: 450px;
+	}
+
+	.leaf {
+		left: -100px;
+	}
+
+	.dots {
+		left: -250px;
 	}
 
 	.paw {

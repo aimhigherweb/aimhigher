@@ -46,6 +46,33 @@ exports.createPages = ({ actions, graphql }) => {
 					}
 				}
 			}
+			services: allFile(
+				filter: {
+					sourceInstanceName: {
+						eq: "content"
+					}, 
+					relativeDirectory: {
+						eq: "services"
+					}, 
+					name: {
+						nin: [
+							"index", 
+							"other"
+						]
+					}
+				}
+			) {
+				edges {
+					node {
+						id
+						name
+						childMarkdownRemark {
+							id
+							html
+						}
+					}
+				}
+			}
 		}
 	`).then((result) => {
 		if (result.errors) {
@@ -53,7 +80,7 @@ exports.createPages = ({ actions, graphql }) => {
 			return Promise.reject(result.errors);
 		}
 
-		const { posts, pages } = result.data;
+		const { posts, pages, services } = result.data;
 
 		posts.edges.forEach(({ node }) => {
 			createPage({
@@ -73,6 +100,18 @@ exports.createPages = ({ actions, graphql }) => {
 					id: node.id,
 				}
 			});
+		});
+
+		services.edges.forEach(({ node }) => {
+			if (node.childMarkdownRemark?.html !== ``) {
+				createPage({
+					path: `services/${node.name}`,
+					component: path.resolve(`./src/templates/service/index.js`),
+					context: {
+						id: node.childMarkdownRemark.id,
+					}
+				});
+			}
 		});
 	});
 };

@@ -3,43 +3,47 @@ import React from 'react';
 
 import Layout from '../../components/layout';
 import Form from '../../components/parts/form';
+import { Icon } from '../../components/parts/service';
+import Circle from '../../img/illustrations/circle.svg';
 import Flower from '../../img/illustrations/flower_2.svg';
 import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
 import Underline from '../../img/illustrations/underline.svg';
 import {
-	contact, 	featuredImage, flower, form, pageContent, paw, post, squiggle,
-	underline
-} from './post.module.scss';
+	circle,	contact, flower, form, iconStyles, pageContent, paw, post, squiggle, underline
+} from './service.module.scss';
 
-const BlogPost = ({ data, path }) => {
+const Service = ({ data, path }) => {
 	const {
-		title, content, featured, date, slug, description
-	} = data.post;
+		html, excerpt, frontmatter: { title, icon }
+	} = data.markdownRemark;
 
 	return (
 		<Layout {...{
 			meta: {
 				title,
-				description,
-				slug: `/blog/${slug}`,
-				image: featured
+				description: excerpt,
+				slug: path,
 			}
 		}}>
 			<article className={pageContent}>
 				<Squiggle className={squiggle} />
 				<h1>{title}</h1>
-				<p>{date}</p>
-				<img className={featuredImage} src={`${process.env.GATSBY_BLOG_IMAGES}${featured.src}`} />
-				<div className={post} dangerouslySetInnerHTML={{ __html: content }} />
+				<div className={post}>
+					<div className={iconStyles}>
+						<Circle className={circle} />
+						<Icon icon={icon} />
+					</div>
+					<div dangerouslySetInnerHTML={{ __html: html }} />
+				</div>
 				<div className={contact}>
 					<div className={underline}>
 						<Underline />
 					</div>
-					<h2>Need Help?</h2>
+					<h2>Get in Touch</h2>
 					<Form
 						{...{
-							name: `contact_blog`,
+							name: `contact_service`,
 							location: path,
 							className: form
 						}}
@@ -54,18 +58,16 @@ const BlogPost = ({ data, path }) => {
 };
 
 export const pageQuery = graphql`
-	query BlogPostByID($id: String!) {
-		post(id: {eq: $id}) {
-			featured {
-				src
+	query ServiceById($id: String!) {
+		markdownRemark(id: {eq: $id}) {
+			html
+			excerpt
+			frontmatter {
+				title
+				icon
 			}
-			title
-			description
-			slug
-			content
-			date(formatString: "DD MMM YYYY")
 		}
 	}
 `;
 
-export default BlogPost;
+export default Service;
