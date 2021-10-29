@@ -1,6 +1,9 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
+import {format, parse} from 'date-fns'
+
+
 import Icon from '../../../../lib/parts/icon';
 import * as styles from './post.module.scss';
 
@@ -9,12 +12,21 @@ const Post = ({
 }) => (
 	<article className={styles.post}>
 		<div className={styles.image}>
-			<img src={`${process.env.GATSBY_BLOG_IMAGES}${featured.src}`} alt="" />
+			<img src={featured.url} alt={featured?.alternativeText || ""} />
 		</div>
 		<h2>
 			<Link to={`/blog/${slug}`}>{title}</Link>
 		</h2>
-		<p className={styles.date}>{date}</p>
+		<p className={styles.date}>
+			{format(
+				parse(
+					date, 
+					'yyyy-MM-dd', 
+					new Date()
+				), 
+				'dd MMM'
+			)}
+		</p>
 		<p className={styles.excerpt} dangerouslySetInnerHTML={{ __html: description }} />
 		<ul className={styles.social}>
 			<li>

@@ -1,7 +1,6 @@
 require(`dotenv`).config();
 
 const path = require(`path`);
-const createPosts = require(`./utils/createPosts`);
 
 exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
 	if ([`build-javascript`, `develop`].includes(stage)) {
@@ -21,6 +20,12 @@ exports.createPages = ({ actions, graphql }) => {
 
 	return graphql(`
 		{
+			posts: cms {
+				blogPosts {
+					slug
+					id
+				}
+			}
 			pages: allFile(
 				filter: {
 					sourceInstanceName: {
@@ -74,15 +79,15 @@ exports.createPages = ({ actions, graphql }) => {
 
 		const { posts, pages, services } = result.data;
 
-		// posts.edges.forEach(({ node }) => {
-		// 	createPage({
-		// 		path: `blog/${node.slug}`,
-		// 		component: path.resolve(`./src/templates/post/index.js`),
-		// 		context: {
-		// 			id: node.id,
-		// 		}
-		// 	});
-		// });
+		posts.blogPosts.forEach(({ id, slug }) => {
+			createPage({
+				path: `blog/${slug}`,
+				component: path.resolve(`./src/templates/post/index.js`),
+				context: {
+					id: id,
+				}
+			});
+		});
 
 		pages.edges.forEach(({ node }) => {
 			createPage({
@@ -106,27 +111,4 @@ exports.createPages = ({ actions, graphql }) => {
 			}
 		});
 	});
-};
-
-// exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
-// 	const typeDefs = `
-// 	  type aimHigherCms_CaseStudy implements Node @infer {
-// 		launch: Date
-// 	  }
-// 	`;
-// 	createTypes(typeDefs);
-// };
-
-exports.onCreateNode = async ({
-	node, loadNodeContent, createNodeId, actions: { createNode }, createContentDigest
-}) => {
-	if (node.name === `posts`) {
-		// console.log(node);
-		const content = await loadNodeContent(node);
-		const feed = JSON.parse(content);
-
-		createPosts({
-			feed, node, createNode, createNodeId, createContentDigest
-		});
-	}
 };

@@ -1,6 +1,16 @@
 .pageContent {
 	position: relative;
 	padding: 20px;
+
+	figure {
+		max-width: 100%;
+		max-height: 50vh;
+
+		img {
+			max-height: 100%;
+			max-width: 100%;
+		}
+	}
 }
 
 .contact {
@@ -70,6 +80,33 @@
 	mix-blend-mode: multiply;
 }
 
+.authorHead {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	color: var.$neutral;
+	font-weight: 600;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	img {
+		margin-left: 10px;
+		overflow: hidden;
+		border-radius: 50%;
+		object-fit: cover;
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.dateHead {
+	font-size: 0.9em;
+	color: var.$grey;
+}
+
 @media(min-width: 40em) {
 	.paw {
 		bottom: -60px;
@@ -85,6 +122,31 @@
 		width: 50%;
 		margin: 0 10px 0 0;
 		float: left;
+	}
+
+	.header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+
+		h1 {
+			margin-left: auto;
+		}
+	}
+
+	.dateHead {
+		text-align: left;
+		width: 50%;
+	}
+
+	.authorHead {
+		width: 50%;
+
+		img {
+			height: 60px;
+			width: 60px;
+		}
 	}
 }
 
@@ -155,6 +217,13 @@
 	.flower {
 		z-index: 5;
 		left: -100px;
+	}
+
+	.authorHead {
+		img {
+			height: 100px;
+			width: 100px;
+		}
 	}
 }
 

@@ -9,12 +9,13 @@ import Flower from '../../img/illustrations/flower.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
 import * as styles from './blog.module.scss';
 
+
 const BlogPage = ({ data }) => {
 	const { html, frontmatter } = data.content.childMarkdownRemark;
 	const { title, meta } = frontmatter;
 	const { siteUrl } = data.site.siteMetadata;
-	const posts = data.posts.edges.map(({ node }) => ({
-		...node,
+	const posts = data.posts.blogPosts.map((post) => ({
+		...post,
 		url: siteUrl
 	}));
 
@@ -91,22 +92,15 @@ export const query = graphql`
 		) {
 			publicURL
 		}
-		posts: allPost(
-			filter: {
-				blogs: {
-					eq: "aimhigher"
-				}
-			}
-		) {
-			edges {
-				node {
-					slug
-					title
-					description
-					date(formatString: "DD MMM YYYY")
-					featured {
-						src
-					}
+		posts: cms {
+			blogPosts(sort: "date:desc") {
+				slug
+				title
+				description
+				date
+				featured {
+					url
+					alternativeText
 				}
 			}
 		}
