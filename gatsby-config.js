@@ -70,14 +70,14 @@ module.exports = {
 				path: `${__dirname}/_data/menus`
 			}
 		},
-		{
-			resolve: `gatsby-source-remote-file`,
-			options: {
-				url: process.env.GATSBY_BLOG_FEED,
-				name: `posts`,
-				ext: `.json`
-			},
-		},
+		// {
+		// 	resolve: `gatsby-source-remote-file`,
+		// 	options: {
+		// 		url: process.env.GATSBY_BLOG_FEED,
+		// 		name: `posts`,
+		// 		ext: `.json`
+		// 	},
+		// },
 		{
 			resolve: `gatsby-source-graphql`,
 			options: {

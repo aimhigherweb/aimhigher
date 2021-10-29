@@ -21,14 +21,6 @@ exports.createPages = ({ actions, graphql }) => {
 
 	return graphql(`
 		{
-			posts: allPost(filter: {blogs: {eq: "aimhigher"}}) {
-				edges {
-					node {
-						slug
-						id
-					}
-				}
-			}
 			pages: allFile(
 				filter: {
 					sourceInstanceName: {
@@ -82,15 +74,15 @@ exports.createPages = ({ actions, graphql }) => {
 
 		const { posts, pages, services } = result.data;
 
-		posts.edges.forEach(({ node }) => {
-			createPage({
-				path: `blog/${node.slug}`,
-				component: path.resolve(`./src/templates/post/index.js`),
-				context: {
-					id: node.id,
-				}
-			});
-		});
+		// posts.edges.forEach(({ node }) => {
+		// 	createPage({
+		// 		path: `blog/${node.slug}`,
+		// 		component: path.resolve(`./src/templates/post/index.js`),
+		// 		context: {
+		// 			id: node.id,
+		// 		}
+		// 	});
+		// });
 
 		pages.edges.forEach(({ node }) => {
 			createPage({
