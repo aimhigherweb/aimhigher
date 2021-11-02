@@ -21,7 +21,7 @@ const AboutPage = ({ data }) => {
 	const aimhigher = data.aimhigher.childMarkdownRemark;
 	const founder = data.founder.childMarkdownRemark;
 	const partners = data.partners.childMarkdownRemark;
-	const logos = data.logos.edges;
+	const logos = data.logos.partners;
 
 	return (
 		<Layout {...{
@@ -170,25 +170,12 @@ export const query = graphql`
 		) {
 			publicURL
 		}
-		logos: allFile(
-			filter: {
-				relativeDirectory: {
-					eq: "partners"
-				}, 
-				sourceInstanceName: {
-					eq: "images"
-				}
-			}
-		) {
-			edges {
-				node {
-					name
-					childImageSharp {
-						gatsbyImageData(
-							width: 300
-						)
-					}
-					publicURL
+		logos: cms {
+			partners {
+				name
+				url
+				logo {
+					url
 				}
 			}
 		}
