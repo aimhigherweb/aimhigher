@@ -155,11 +155,16 @@
 		--button_text: #{var.$neutral};
 
 		display: block;
-		padding: 10px;
+		
 		line-height: 1;
 		white-space: nowrap;
 		color: var(--button_text);
 		margin: 0 0 0 5px;
+
+		&.item {
+			padding: 10px;
+			font-size: 1em;
+		}
 	}
 }
 
@@ -169,8 +174,21 @@
 	}
 }
 
+@media(min-width: 60em) {
+	.item.cta {
+		padding: 10px;
+	}
+}
+
 @media(min-width: 80em) {
 	.item {
 		font-size: 1em;
+	}
+}
+
+
+@media(min-width: 90em) {
+	.item.cta {
+		padding: 0.6em 0.7em 0.5em;
 	}
 }

@@ -6,16 +6,23 @@ import Screenshots from '../siteScreenshots';
 import * as styles from './site.module.scss';
 
 const Site = ({
-	github, launch, screenshots, website: { domain }
+	github, launch, screenshots, website: { domain, live }
 }) => {
 	const date = parse(launch, `yyyy-MM-dd`, new Date());
 	return (
 		<article className={styles.site}>
 			<Screenshots {...screenshots} />
-			<h2>
-				<a target="__blank" href={`//${domain}`}>{domain}</a>
-			</h2>
-			<p className={styles.launch}>{format(date, `MMMM yyyy`)}</p>
+			{live &&
+				<h2>
+					<a target="__blank" href={`//${domain}`}>{domain}</a>
+				</h2>
+			}
+			<p className={styles.launch}>
+				{live 
+					? format(date, `MMMM yyyy`)
+					: `Coming Soon`
+				}
+			</p>
 			{github
 				&& <a href={github} target="_blank" className={styles.github}>
 					<Icon icon="github" />
