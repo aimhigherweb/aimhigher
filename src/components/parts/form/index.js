@@ -63,7 +63,7 @@ const ContactForm = ({ name = `contact`, className = ``, location = `` }) => (
 				value="ecommerce"
 				name="services"
 			>
-				Ecommerce/Online Store
+				eCommerce/Online Store
 			</Checkbox>
 			<Checkbox
 				id="development"
@@ -84,7 +84,7 @@ const ContactForm = ({ name = `contact`, className = ``, location = `` }) => (
 				value="support"
 				name="services"
 			>
-				Support/Maintenance
+				Support and Maintenance
 			</Checkbox>
 			<Checkbox
 				id="other"

@@ -2,14 +2,13 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 import Layout from '../../components/layout';
-import Form from '../../components/parts/form';
+import PageCTA from '../../components/parts/pageCta'
 import Flower from '../../img/illustrations/flower_2.svg';
 import Paw from '../../img/illustrations/paw.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
-import Underline from '../../img/illustrations/underline.svg';
 import {
-	contact, 	 flower, form, pageContent, paw, post, squiggle,
-	underline, authorHead, dateHead, header
+	flower, pageContent, paw, post, squiggle,
+	authorHead, dateHead, header
 } from './post.module.scss';
 
 import processMarkdown from '../../../lib/utils/markdown'
@@ -18,7 +17,7 @@ import { Helmet } from 'react-helmet';
 
 const BlogPost = ({ data, path }) => {
 	const {
-		title, content, featured, date, slug, description, author, canonical
+		title, content, featured, date, slug, description, author, canonical, cta
 	} = data.cms.blogPost;
 	const postDate = parse(date, 'yyyy-MM-dd', new Date())
 
@@ -47,19 +46,12 @@ const BlogPost = ({ data, path }) => {
 					</p>
 				</header>
 				<div className={post} dangerouslySetInnerHTML={{ __html: processMarkdown(content) }} />
-				<div className={contact}>
-					<div className={underline}>
-						<Underline />
-					</div>
-					<h2>Need Help?</h2>
-					<Form
-						{...{
-							name: `contact_blog`,
-							location: path,
-							className: form
-						}}
-					/>
-				</div>
+				<PageCTA
+					{...{
+						cta,
+						path
+					}}
+				/>
 				<Flower className={flower} />
 				<Paw className={paw} />
 			</article>
