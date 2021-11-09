@@ -27,7 +27,7 @@ const BlogPost = ({ data, path }) => {
 				title,
 				description,
 				slug: `/blog/${slug}`,
-				image: featured
+				image: featured.url
 			}
 		}}>
 			{canonical &&
