@@ -74,6 +74,7 @@ const Meta = (meta) => (
 					<meta property="twitter:title" content={title} />
 					<meta property="twitter:description" content={description} />
 					<meta property="twitter:image" content={image} />
+					<script src="https://cdn.usefathom.com/script.js" data-spa="auto" data-site={process.env.GATSBY_FATHOM_SITEID} defer></script>
 				</Helmet>
 			);
 		}}
