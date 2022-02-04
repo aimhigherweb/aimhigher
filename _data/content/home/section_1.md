@@ -8,7 +8,7 @@
 				"text": "Find out More"
 			},
 			{
-				"link": "https://savvycal.com/amyskapers/book-a-call",
+				"link": "https://savvycal.com/aimhigher/book-a-call",
 				"text": "Book a Call",
 				"external": true
 			}

@@ -1,14 +1,15 @@
+import { Link } from 'gatsby';
 import React, { Fragment } from 'react';
 
-import Form from '../form';
 import Underline from '../../../img/illustrations/underline.svg';
+import Form from '../form';
 import {
-	contact, form, underline, ctaButton
+	contact, ctaButton,
+	form, underline
 } from './pageCta.module.scss';
-import { Link } from 'gatsby';
 
 const PageCTA = ({ cta, path }) => {
-	if(!cta || cta == 'none') return <Fragment></Fragment>
+	if (!cta || cta == `none`) return <Fragment></Fragment>;
 
 	return (
 		<Fragment>
@@ -16,9 +17,9 @@ const PageCTA = ({ cta, path }) => {
 				<div className={underline}>
 					<Underline />
 				</div>
-				{cta === 'book_a_call'
+				{cta === `book_a_call`
 					? <a
-						href="https://savvycal.com/amyskapers/book-a-call"
+						href="https://savvycal.com/aimhigher/book-a-call"
 						target="_blank"
 						className={ctaButton}
 					>

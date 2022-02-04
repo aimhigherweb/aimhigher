@@ -18,4 +18,4 @@ AimHigher also offers ongoing services & maintenance to all clients. We are comm
 Check out some of the [websites we've built](/portfolio), and [contact us](/contact) to find out how AimHigher can help you today.
 
 
-<a class="cta" href="https://savvycal.com/amyskapers/book-a-call" target="_blank">Book a Call</a>
+<a class="cta" href="https://savvycal.com/aimhigher/book-a-call" target="_blank">Book a Call</a>
