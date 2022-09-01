@@ -15,6 +15,7 @@
 .cta {
 	--button_border: #{var.$pink};
 	--button_background: #{var.$pink};
+	--button_text: #{var.$black};
 	composes: button from '../../lib/parts/forms/button/button.module.scss';
 	display: inline-block;
 	text-decoration: none;
@@ -45,7 +46,7 @@
 			.cta {
 				--button_border: #{var.$yellow};
 				--button_background: #{var.$yellow};
-				--button_text: #{var.$neutral};
+				--button_text: #{var.$black};
 			}
 		}
 	}
@@ -119,7 +120,7 @@
 				.cta {
 					--button_border: #{var.$secondary};
 					--button_background: #{var.$secondary};
-					--button_text: #{var.$neutral};
+					--button_text: #{var.$black};
 				}
 			}
 		}
@@ -142,7 +143,7 @@
 					.cta {
 						--button_border: #{var.$pink};
 						--button_background: #{var.$pink};
-						--button_text: #{var.$neutral};
+						--button_text: #{var.$black};
 					}
 				}
 			}
@@ -151,7 +152,7 @@
 		.cta {
 			--button_border: #{var.$yellow};
 			--button_background: #{var.$yellow};
-			--button_text: #{var.$neutral};
+			--button_text: #{var.$black};
 		}
 	}
 }
@@ -231,7 +232,7 @@
 		align-items: center;
 		justify-content: space-evenly;
 		max-width: unset;
-		
+
 		.buttons {
 			margin-top: -10px;
 			font-size: 0.6em;
@@ -262,7 +263,7 @@
 		}
 	}
 
-	
+
 }
 
 @media(min-width: 50em) {
@@ -305,7 +306,7 @@
 		left: -50px;
 	}
 
-	
+
 }
 
 @media(min-width: 60em) {
@@ -379,7 +380,7 @@
 		}
 	}
 
-	
+
 }
 
 @media(min-width: 70em) {
@@ -406,7 +407,7 @@
 		}
 	}
 
-	
+
 }
 
 @media(min-width: 80em) {
@@ -452,7 +453,7 @@
 		max-width: unset;
 	}
 
-	
+
 }
 
 @media(min-width: 90em) {

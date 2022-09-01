@@ -35,7 +35,8 @@
 		}
 	}
 
-	ul, .close {
+	ul,
+	.close {
 		display: none;
 	}
 
@@ -46,7 +47,9 @@
 	}
 
 	&[open] {
-		ul, .close {
+
+		ul,
+		.close {
 			display: block;
 		}
 
@@ -134,7 +137,8 @@
 			bottom: 20%;
 		}
 
-		&:hover, &[class*='current'] {
+		&:hover,
+		&[class*='current'] {
 			&:after {
 				content: '';
 			}
@@ -152,10 +156,10 @@
 
 		--button_border: #{var.$yellow};
 		--button_background: #{var.$yellow};
-		--button_text: #{var.$neutral};
+		--button_text: #{var.$black};
 
 		display: block;
-		
+
 		line-height: 1;
 		white-space: nowrap;
 		color: var(--button_text);
