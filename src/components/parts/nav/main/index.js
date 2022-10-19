@@ -8,7 +8,7 @@ const Nav = ({ items, ...attrs }) => {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<nav className={styles.nav} open={open} {...attrs}>
+		<nav aria-label="main-nav" className={styles.nav} open={open} {...attrs}>
 			<button onClick={() => setOpen(!open)} className={styles.hamburger}>
 				<Icon icon="hamburger" className={styles.menu} />
 				<Icon icon="close" className={styles.close} />

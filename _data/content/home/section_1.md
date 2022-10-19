@@ -5,7 +5,7 @@
 		"cta": [
 			{
 				"link": "/about",
-				"text": "Find out More"
+				"text": "About Us"
 			},
 			{
 				"link": "https://savvycal.com/aimhigher/book-a-call",

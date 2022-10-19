@@ -11,14 +11,14 @@ const Site = ({
 	const date = parse(launch, `yyyy-MM-dd`, new Date());
 	return (
 		<article className={styles.site}>
-			<Screenshots {...screenshots} />
-			{live &&
-				<h2>
+			<Screenshots {...{ ...screenshots, domain }} />
+			{live
+				&& <h2>
 					<a target="__blank" href={`//${domain}`}>{domain}</a>
 				</h2>
 			}
 			<p className={styles.launch}>
-				{live 
+				{live
 					? format(date, `MMMM yyyy`)
 					: `Coming Soon`
 				}

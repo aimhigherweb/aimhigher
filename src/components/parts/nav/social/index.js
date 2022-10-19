@@ -4,7 +4,7 @@ import Icon from '../../../../../lib/parts/icon';
 import * as styles from './social.module.scss';
 
 const Nav = ({ items }) => (
-	<nav className={styles.nav}>
+	<nav aria-label="social-nav" className={styles.nav}>
 		<ul>
 			{items.map(({ label, icon, link }) => (
 				<li key={label}>

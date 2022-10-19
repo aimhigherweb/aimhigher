@@ -4,7 +4,7 @@ import React from 'react';
 import { footerNav, footerNavItem } from './footer.module.scss';
 
 const Nav = ({ items }) => (
-	<nav className={footerNav}>
+	<nav aria-label="footer-nav" className={footerNav}>
 		<ul>
 			{items.map(({ label, link }) => (
 				<li key={label}>
