@@ -9,7 +9,6 @@ import Flower from '../../img/illustrations/flower.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
 import * as styles from './blog.module.scss';
 
-
 const BlogPage = ({ data }) => {
 	const { html, frontmatter } = data.content.childMarkdownRemark;
 	const { title, meta } = frontmatter;
