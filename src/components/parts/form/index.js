@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
 	Button, Checkbox, FieldGroup,
-	Form, Input, Label, Legend, TextArea
+	Form, Input, Label, TextArea
 } from '../../../../lib/parts/forms';
 
 const ContactForm = ({ name = `contact`, className = ``, location = `` }) => (
@@ -49,8 +49,7 @@ const ContactForm = ({ name = `contact`, className = ``, location = `` }) => (
 			inputMode="url"
 			placeholder="URL"
 		/>
-		<FieldGroup>
-			<Legend>What services are you looking for?</Legend>
+		<FieldGroup legend={`What services are you looking for?`}>
 			<Checkbox
 				id="build"
 				value="build"
