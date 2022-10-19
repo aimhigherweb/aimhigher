@@ -20,12 +20,12 @@ package = "netlify-plugin-a11y"
   [plugins.inputs]
   checkPaths = [
     '/',
-    # '/about',
-    # '/services',
-    # '/portfolio',
-    # '/contact',
-    # '/faq',
-    # 'blog'
+    '/about',
+    '/services',
+    '/portfolio',
+    '/contact',
+    '/faq',
+    'blog'
   ]
 
 # TODO: Add checklinks back in
