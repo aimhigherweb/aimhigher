@@ -25,7 +25,7 @@ package = "netlify-plugin-a11y"
     '/portfolio',
     '/contact',
     '/faq',
-    'blog'
+    '/blog'
   ]
 
 # TODO: Add checklinks back in
