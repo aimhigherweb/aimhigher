@@ -43,16 +43,22 @@ jobs:
       #     NETLIFY_DIR: public/
 
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
-        id: build_site
+        run: netlify deploy --build --site $NETLIFY_SITE_ID
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          args: deploy --build --debug
 
-      - name: Check URL
-        run: echo ${{steps.build_site.outputs.NETLIFY_URL}}
+      # - name: Deploy to Netlify
+      #   uses: netlify/actions/cli@master
+      #   id: build_site
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      #   with:
+      #     args: deploy --build --debug
+
+      # - name: Check URL
+      #   run: echo ${{steps.build_site.outputs.NETLIFY_URL}}
 
       # - name: Deploy to Netlify
       #   uses: nwtgck/actions-netlify@v1.2
