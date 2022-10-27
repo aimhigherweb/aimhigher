@@ -17,50 +17,50 @@
 [[plugins]]
 package = "@netlify/plugin-gatsby"
 
-[[plugins]]
-package = "netlify-plugin-a11y"
-  [plugins.inputs]
-  checkPaths = [
-    '/',
-    '/about',
-    '/services',
-    '/portfolio',
-    '/contact',
-    '/faq',
-    '/blog'
-  ]
-  failWithIssues = true
-  wcagLevel = 'WCAG2AAA'
-
-# TODO: Add checklinks back in
 # [[plugins]]
-# package = "netlify-plugin-checklinks"
+# package = "netlify-plugin-a11y"
 #   [plugins.inputs]
-#   recursive = true
-#   pretty = true
-#   skipPatterns = [
-# 	  "public/sw.js"
+#   checkPaths = [
+#     '/',
+#     '/about',
+#     '/services',
+#     '/portfolio',
+#     '/contact',
+#     '/faq',
+#     '/blog'
 #   ]
-#   todoPatterns = []
-#   checkExternal = false
-#   followSourceMaps = true
+#   failWithIssues = true
+#   wcagLevel = 'WCAG2AAA'
 
-# TODO: Add validation back in
+# # TODO: Add checklinks back in
+# # [[plugins]]
+# # package = "netlify-plugin-checklinks"
+# #   [plugins.inputs]
+# #   recursive = true
+# #   pretty = true
+# #   skipPatterns = [
+# # 	  "public/sw.js"
+# #   ]
+# #   todoPatterns = []
+# #   checkExternal = false
+# #   followSourceMaps = true
+
+# # TODO: Add validation back in
+# # [[plugins]]
+# #   package = "netlify-plugin-html-validate"
+# #   [plugins.inputs]
+# #     ext = "html"
+# #     config = "config.htmlvalidate.json"
+
 # [[plugins]]
-#   package = "netlify-plugin-html-validate"
-#   [plugins.inputs]
-#     ext = "html"
-#     config = "config.htmlvalidate.json"
+#   package = "@netlify/plugin-lighthouse"
 
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-
-#   # optional, fails build when a category is below a threshold
-#   [plugins.inputs.thresholds]
-#     performance = 0.9
-#     accessibility = 0.9
-#     best-practices = 0.9
-#     seo = 0.9
-#     pwa = 0.9
+# #   # optional, fails build when a category is below a threshold
+# #   [plugins.inputs.thresholds]
+# #     performance = 0.9
+# #     accessibility = 0.9
+# #     best-practices = 0.9
+# #     seo = 0.9
+# #     pwa = 0.9
 [[plugins]]
   package = "netlify-plugin-discord"
