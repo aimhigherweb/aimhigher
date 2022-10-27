@@ -1,24 +1,15 @@
 #!/bin/bash
 
-echo 'Deploying works'
-echo $NETLIFY_SITE_ID
-echo $NETLIFY_AUTH_TOKEN
-
-
 # netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions"
 
 OUTPUT=$(netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions")
-echo "${OUTPUT}"
-echo "The URL is"
-## Access the deploy_url item from the json saved in OUTPUT
-echo "${OUTPUT}" | jq -r '.deploy_url'
 
+NETLIFY_URL="${OUTPUT}" | jq -r '.deploy_url'
+NETLIFY_LOGS="${OUTPUT}" | jq -r '.logs'
+DEPLOY_ID="${OUTPUT}" | jq -r '.deploy_id'
+SITE_NAME="${OUTPUT}" | jq -r '.site_name'
 
-#           NETLIFY_OUTPUT=$(echo "$OUTPUT")
-#           NETLIFY_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*(--)[a-zA-Z0-9./?=_-]*') #Unique key: --
-#           NETLIFY_LOGS_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://app.netlify.com/[a-zA-Z0-9./?=_-]*') #Unique key: app.netlify.com
-#           NETLIFY_LIVE_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*' | grep -Eov "netlify.com") #Unique key: don't containr -- and app.netlify.com
-#           echo $NETLIFY_OUTPUT
-#           echo $NETLIFY_URL
-#           echo $NETLIFY_LOGS_URL
-#           echo $NETLIFY_LIVE_URL
+echo $NETLIFY_URL
+echo $NETLIFY_LOGS
+echo $DEPLOY_ID
+echo $SITE_NAME
