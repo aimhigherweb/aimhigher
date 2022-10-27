@@ -9,6 +9,7 @@ NETLIFY_LOGS="${OUTPUT}" | jq -r '.logs'
 DEPLOY_ID="${OUTPUT}" | jq -r '.deploy_id'
 SITE_NAME="${OUTPUT}" | jq -r '.site_name'
 
+echo ${OUTPUT}
 echo "${OUTPUT}" | jq -r '.deploy_url'
 
 echo 'Printing out items'
