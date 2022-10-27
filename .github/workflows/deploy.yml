@@ -43,7 +43,7 @@ jobs:
       #     NETLIFY_DIR: public/
 
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@1.0.3
+        uses: netlify/actions/cli@master
         id: build_site
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
