@@ -171,3 +171,4 @@ $RECYCLE.BIN/
 public
 # Local Netlify folder
 .netlify
+tests/results

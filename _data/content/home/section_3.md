@@ -5,7 +5,7 @@
 		"cta": [
 			{
 				"link": "/services/support",
-				"text": "About Support"
+				"text": "Want Support?"
 			},
 			{
 				"link": "https://savvycal.com/aimhigher/book-a-call",

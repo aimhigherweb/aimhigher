@@ -27,6 +27,8 @@ package = "netlify-plugin-a11y"
     '/faq',
     '/blog'
   ]
+  failWithIssues = true
+  wcagLevel = 'WCAG2AAA'
 
 # TODO: Add checklinks back in
 # [[plugins]]

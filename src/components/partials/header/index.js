@@ -44,7 +44,7 @@ const Header = ({ HeaderCurve, lightNav }) => (
 					}
 					<Link to="/" className={styles.logo}>
 						<Logo version="white" />
-						<span className="sr-only">Homepage</span>
+						<span className="sr-only">Return to Homepage</span>
 					</Link>
 					<Nav items={items} data-light={lightNav} />
 				</header>
