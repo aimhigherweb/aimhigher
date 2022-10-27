@@ -5,7 +5,7 @@ echo $NETLIFY_SITE_ID
 echo $NETLIFY_AUTH_TOKEN
 
 
-netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
+netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions"
 
 # OUTPUT=$(sh -c netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN)
 # echo $OUTPUT
