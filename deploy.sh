@@ -6,7 +6,7 @@ OUTPUT=$(netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOK
 
 NETLIFY_URL=jq -r '.deploy_url' <<<"$OUTPUT"
 NETLIFY_LOGS="${OUTPUT}" | jq -r '.logs' <<<$OUTPUT
-DEPLOY_ID=jq -r '.deploy_id' <<<"${OUTPUT}"
+DEPLOY_ID=$(jq -r '.deploy_id' <<<"${OUTPUT}")
 SITE_NAME="${OUTPUT}" | jq -r '.site_name'
 
 echo "${OUTPUT}"
