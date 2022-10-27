@@ -10,12 +10,12 @@ jobs:
 
     steps:
     - name: Checkout Repo Code
-      uses: actions/checkout@master
+      uses: actions/checkout
       with:
         submodules: true
 
     - name: Setup Node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node
       with:
         node-version: 16.x
 
@@ -41,10 +41,10 @@ jobs:
     #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
     - name: Deploy to Netlify
-      uses: netlify/actions/cli@master
+      uses: netlify/actions/cli
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
       with:
-        args: deploy
+        args: deploy --prod --site $NETLIFY_SITE_ID
         secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
