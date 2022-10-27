@@ -3,11 +3,11 @@
   publish = "public/"
   command = "TEST=true npm run build"
 
-[context.production]
-  environment = {NODE_ENV = "production"}
+[context.production.environment]
+  NODE_ENV = "production"
 
-[context.dev]
-  environment = {NODE_ENV = "development"}
+[context.dev.environment]
+  NODE_ENV = "development"
 
 [[redirects]]
   from = "/docs/*"
@@ -15,4 +15,4 @@
   status = 302
 
 [[plugins]]
-package = "@netlify/plugin-gatsby"
+  package = "@netlify/plugin-gatsby"
