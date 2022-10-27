@@ -120,5 +120,6 @@ module.exports = {
 				includeInDevelopment: false,
 			},
 		},
+		`gatsby-plugin-netlify`
 	]
 };

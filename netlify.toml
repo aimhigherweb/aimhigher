@@ -14,7 +14,9 @@
   to = "portal.aimhigherweb.dev/docs/:splat"
   status = 302
 
-# TODO: Add a11y tests
+[[plugins]]
+package = "@netlify/plugin-gatsby"
+
 [[plugins]]
 package = "netlify-plugin-a11y"
   [plugins.inputs]

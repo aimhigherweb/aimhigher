@@ -2,63 +2,63 @@ name: Build, Test and Deploy to Netlify
 
 on:
   pull_request:
-    branches: [ prod ]
+    branches: [prod]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repo Code
-      uses: actions/checkout@v3
-      with:
-        submodules: true
+      - name: Checkout Repo Code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
 
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16.x
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
 
-    - name: Install Node Packages
-      run: npm install
+      - name: Install Node Packages
+        run: npm install
 
-    - name: Build Website
-      run: npm run build
-      env:
-        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        GATSBY_BLOG_FEED: ${{ secrets.GATSBY_BLOG_FEED }}
-        GATSBY_BLOG_IMAGES: ${{ secrets.GATSBY_BLOG_IMAGES }}
-        GATSBY_BLOG_URL: ${{ secrets.GATSBY_BLOG_URL }}
-        GATSBY_FATHOM_SITEID: ${{ secrets.GATSBY_FATHOM_SITEID }}
-        GATSBY_STRAPI_API_URL: ${{ secrets.GATSBY_STRAPI_API_URL }}
-        GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
-        GTM: ${{ secrets.GTM }}
+      - name: Build Website
+        run: npm run build
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          GATSBY_BLOG_FEED: ${{ secrets.GATSBY_BLOG_FEED }}
+          GATSBY_BLOG_IMAGES: ${{ secrets.GATSBY_BLOG_IMAGES }}
+          GATSBY_BLOG_URL: ${{ secrets.GATSBY_BLOG_URL }}
+          GATSBY_FATHOM_SITEID: ${{ secrets.GATSBY_FATHOM_SITEID }}
+          GATSBY_STRAPI_API_URL: ${{ secrets.GATSBY_STRAPI_API_URL }}
+          GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
+          GTM: ${{ secrets.GTM }}
 
-    # - name: Build and Deploy
-    #   uses: netlify/actions/build@master
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      # - name: Build and Deploy
+      #   uses: netlify/actions/build@master
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-    # - name: Deploy to Netlify
-    #   uses: netlify/actions/cli@master
-    #   env:
-    #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-    #     NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
-    #   with:
-    #     args: deploy --prod --site ${{ secrets.DEV_NETLIFY_SITE_ID }}
+      # - name: Deploy to Netlify
+      #   uses: netlify/actions/cli@master
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
+      #   with:
+      #     args: deploy --prod --site ${{ secrets.DEV_NETLIFY_SITE_ID }}
 
-    - name: Deploy to Netlify
-      uses: nwtgck/actions-netlify@v1.2
-      with:
-        publish-dir: './public'
-        production-branch: prod
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        deploy-message: "Deploy from GitHub Actions"
-        enable-pull-request-comment: true
-        enable-commit-comment: true
-        overwrites-pull-request-comment: false
-        netlify-config-path: ./netlify.toml
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: "./public"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: false
+          netlify-config-path: ./netlify.toml
+          alias: deploy-preview-${{ github.event.number }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
