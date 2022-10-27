@@ -5,10 +5,10 @@ echo $NETLIFY_SITE_ID
 echo $NETLIFY_AUTH_TOKEN
 
 
-netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions"
+# netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions"
 
-# OUTPUT=$(sh -c netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN)
-# echo $OUTPUT
+OUTPUT=$(sh -c netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions")
+echo $OUTPUT
 
 #           NETLIFY_OUTPUT=$(echo "$OUTPUT")
 #           NETLIFY_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*(--)[a-zA-Z0-9./?=_-]*') #Unique key: --
