@@ -49,7 +49,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --build
+          args: deploy --build --debug
 
       - name: Check URL
         run: echo ${{steps.build_site.outputs.NETLIFY_URL}}
