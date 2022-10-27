@@ -4,7 +4,7 @@ echo 'Deploying works'
 echo $NETLIFY_SITE_ID
 
 
-OUTPUT=$(sh -c netlify deploy --build --site $NETLIFY_SITE_ID)
+OUTPUT=$(sh -c netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN)
 echo $OUTPUT
 
 #           NETLIFY_OUTPUT=$(echo "$OUTPUT")
