@@ -2,10 +2,13 @@
 
 echo 'Deploying works'
 echo $NETLIFY_SITE_ID
+echo $NETLIFY_AUTH_TOKEN
 
 
-OUTPUT=$(sh -c netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN)
-echo $OUTPUT
+netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN
+
+# OUTPUT=$(sh -c netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN)
+# echo $OUTPUT
 
 #           NETLIFY_OUTPUT=$(echo "$OUTPUT")
 #           NETLIFY_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*(--)[a-zA-Z0-9./?=_-]*') #Unique key: --
