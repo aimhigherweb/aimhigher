@@ -5,8 +5,8 @@ on:
     branches: [prod]
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout Repo Code
