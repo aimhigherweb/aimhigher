@@ -1,11 +1,11 @@
 #!/bin/sh -l
 
-echo 'Deploying works'
-echo $NETLIFY_SITE_ID
+printf 'Deploying works'
+printf $NETLIFY_SITE_ID
 
 
 OUTPUT=$(sh -c netlify deploy --build --site $NETLIFY_SITE_ID)
-echo $OUTPUT
+printf $OUTPUT
 
 #           NETLIFY_OUTPUT=$(echo "$OUTPUT")
 #           NETLIFY_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*(--)[a-zA-Z0-9./?=_-]*') #Unique key: --
