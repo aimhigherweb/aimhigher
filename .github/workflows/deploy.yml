@@ -9,12 +9,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout Repo Code
+      uses: actions/checkout@master
       with:
         submodules: true
 
-    - name: Build and Deploy
-      uses: netlify/actions/build@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+    - name: Install Node Packages
+      run: npm install
+
+    - name: Build Website
+        run: npm run build
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          GATSBY_BLOG_FEED: ${{ secrets.GATSBY_BLOG_FEED }}
+          GATSBY_BLOG_IMAGES: ${{ secrets.GATSBY_BLOG_IMAGES }}
+          GATSBY_BLOG_URL: ${{ secrets.GATSBY_BLOG_URL }}
+          GATSBY_FATHOM_SITEID: ${{ secrets.GATSBY_FATHOM_SITEID }}
+          GATSBY_STRAPI_API_URL: ${{ secrets.GATSBY_STRAPI_API_URL }}
+          GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
+          GTM: ${{ secrets.GTM }}
+
+    # - name: Build and Deploy
+    #   uses: netlify/actions/build@master
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+    - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
+        with:
+          args: deploy
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
