@@ -34,21 +34,21 @@ jobs:
           GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
           GTM: ${{ secrets.GTM }}
 
-      - name: Build and Deploy
-        uses: netlify/actions/build@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_CMD: npm run build
-          NETLIFY_DIR: public/
-
-      # - name: Deploy to Netlify
-      #   uses: netlify/actions/cli@master
+      # - name: Build and Deploy
+      #   uses: netlify/actions/build@master
       #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
-      #   with:
-      #     args: deploy --prod --site ${{ secrets.DEV_NETLIFY_SITE_ID }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      #     NETLIFY_CMD: npm run build
+      #     NETLIFY_DIR: public/
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy
 
       # - name: Deploy to Netlify
       #   uses: nwtgck/actions-netlify@v1.2
