@@ -8,8 +8,9 @@ echo $NETLIFY_AUTH_TOKEN
 # netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions"
 
 OUTPUT=$(netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions")
-echo $OUTPUT
 echo "${OUTPUT}"
+echo "The URL is"
+echo "${OUTPUT.deploy_url}"
 
 #           NETLIFY_OUTPUT=$(echo "$OUTPUT")
 #           NETLIFY_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*(--)[a-zA-Z0-9./?=_-]*') #Unique key: --
