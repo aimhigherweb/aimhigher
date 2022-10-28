@@ -45,8 +45,8 @@ jobs:
     needs: [build]
     runs-on: ubuntu-22.04
     steps:
-      - name: Test Output
-        run: echo ${{needs.build.outputs.deploy_url}}
+      - name: Checkout Repo Code
+        uses: actions/checkout@v3
 
       - name: Run A11y Tests
         id: a11y
