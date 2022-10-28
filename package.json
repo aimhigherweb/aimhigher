@@ -13,7 +13,7 @@
 		"dev": "gatsby develop",
 		"build": "gatsby build",
 		"clean": "gatsby clean",
-		"test:a11y": "pa11y --config pa11y.config.json $URL > tests/results/pa11y/$NAME.json"
+		"test:a11y": "pa11y --config pa11y.config.json $URL"
 	},
 	"author": "Amy Kapernick <amy@aimhigherweb.design> (https://aimhigherweb.design)",
 	"dependencies": {

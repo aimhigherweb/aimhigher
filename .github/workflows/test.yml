@@ -8,7 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-
+    outputs:
+      deploy_url: ${{steps.build_site.outputs.NETLIFY_URL}}
     steps:
       - name: Checkout Repo Code
         uses: actions/checkout@v3
@@ -42,3 +43,13 @@ jobs:
 
       - name: Run Pa11y tests
         run: URL=${{steps.build_site.outputs.NETLIFY_URL}} NAME=home npm run test:a11y
+
+  test:
+    needs: [build]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Test Output
+        run: echo ${{needs.build.outputs.deploy_url}}
+
+      - name: Test Packages
+        run: npm -v && npm run test:a11y
