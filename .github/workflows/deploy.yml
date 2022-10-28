@@ -27,19 +27,28 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: ./deploy.sh
+        run: ./_actions/netlify_deploy.sh
 
       - name: Test output
         run: echo ${{steps.build_site.outputs.NETLIFY_URL}}
 
-      - name: Comment Deploy Preview URL
-        uses: actions/github-script@v5
+      # - name: Comment Deploy Preview URL
+      #   uses: actions/github-script@v6
+      #   with:
+      #     script: |
+      #       github.rest.issues.createComment({
+      #         issue_number: context.issue.number,
+      #         owner: context.repo.owner
+      #         repo: context.repo.repo,
+      #         body: "The build works! You can view the deploy preview at ${{steps.build_site.outputs.NETLIFY_URL}}"
+      #       })
+
+      - uses: actions/github-script@v6
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
-              owner: context.repo.owner
+              owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "The build works! You can view the deploy preview at ${{steps.build_site.outputs.NETLIFY_URL}}"
+              body: '👋 Thanks for reporting!'
             })

@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions"
+while getopts p: flag
+do
+    case "${flag}" in
+        p) prod=${OPTARG};;
+    esac
+done
 
 OUTPUT=$(netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions")
 
