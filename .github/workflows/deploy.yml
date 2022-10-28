@@ -22,26 +22,6 @@ jobs:
       - name: Install Node Packages
         run: npm install
 
-      # - name: Build Website
-      #   run: npm run build
-      #   env:
-      #     DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-      #     GATSBY_BLOG_FEED: ${{ secrets.GATSBY_BLOG_FEED }}
-      #     GATSBY_BLOG_IMAGES: ${{ secrets.GATSBY_BLOG_IMAGES }}
-      #     GATSBY_BLOG_URL: ${{ secrets.GATSBY_BLOG_URL }}
-      #     GATSBY_FATHOM_SITEID: ${{ secrets.GATSBY_FATHOM_SITEID }}
-      #     GATSBY_STRAPI_API_URL: ${{ secrets.GATSBY_STRAPI_API_URL }}
-      #     GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
-      #     GTM: ${{ secrets.GTM }}
-
-      # - name: Build and Deploy
-      #   uses: netlify/actions/build@master
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      #     NETLIFY_CMD: npm run build
-      #     NETLIFY_DIR: public/
-
       - name: Deploy to Netlify
         id: build_site
         env:
@@ -52,29 +32,14 @@ jobs:
       - name: Test output
         run: echo ${{steps.build_site.outputs.NETLIFY_URL}}
 
-      # - name: Deploy to Netlify
-      #   uses: netlify/actions/cli@master
-      #   id: build_site
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      #   with:
-      #     args: deploy --build --debug
-
-      # - name: Check URL
-      #   run: echo ${{steps.build_site.outputs.NETLIFY_URL}}
-
-      # - name: Deploy to Netlify
-      #   uses: nwtgck/actions-netlify@v1.2
-      #   with:
-      #     publish-dir: "./public"
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     deploy-message: "Deploy from GitHub Actions"
-      #     enable-pull-request-comment: true
-      #     enable-commit-comment: true
-      #     overwrites-pull-request-comment: false
-      #     netlify-config-path: ./netlify.toml
-      #     alias: deploy-preview-${{ github.event.number }}
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Comment Deploy Preview URL
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner
+              repo: context.repo.repo,
+              body: "The build works! You can view the deploy preview at ${{steps.build_site.outputs.NETLIFY_URL}}"
+            })
