@@ -1,7 +1,8 @@
-name: Build, Test and Deploy to Netlify
+name: Build and Test on Netlify
 
 on:
   pull_request:
+    types: [opened, reopened, synchronize]
     branches: [prod]
 
 jobs:
@@ -50,5 +51,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
+              body: 'The build works! You can view the deploy preview at ${{steps.build_site.outputs.NETLIFY_URL}}'
             })
