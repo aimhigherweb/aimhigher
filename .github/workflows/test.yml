@@ -30,20 +30,6 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: ./_actions/netlify_deploy.sh
 
-      - name: Test output
-        run: echo ${{steps.build_site.outputs.NETLIFY_URL}}
-
-      # - name: Comment Deploy Preview URL
-      #   uses: actions/github-script@v6
-      #   with:
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner
-      #         repo: context.repo.repo,
-      #         body: "The build works! You can view the deploy preview at ${{steps.build_site.outputs.NETLIFY_URL}}"
-      #       })
-
       - uses: actions/github-script@v6
         with:
           script: |
@@ -53,3 +39,6 @@ jobs:
               repo: context.repo.repo,
               body: 'The build works! You can view the deploy preview at ${{steps.build_site.outputs.NETLIFY_URL}}'
             })
+
+      - name: Run Pa11y tests
+        run: URL=${{steps.build_site.outputs.NETLIFY_URL}} NAME=home npm run test:a11y
