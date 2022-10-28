@@ -56,4 +56,4 @@ jobs:
           pages: "['/', '/about', '/contact', '/blog']"
 
       - name: Get A11y Results
-        run: echo "There were ${{steps.a11y.outputs.errors}} errors found and the tests received a ${{steps.a11y.outputs.status}}"
+        run: echo ${{steps.a11y.outputs.results}}
