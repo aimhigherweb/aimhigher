@@ -1,0 +1,26 @@
+{
+	"sitemap": "https://aimhigherweb.design/sitemap/sitemap-0.xml",
+	"defaults": {
+		"standard": "WCAG2AAA",
+		"runners": [
+			"axe",
+			"htmlcs"
+		],
+		"reporters": [
+			"json"
+		],
+		"timeout": 30000,
+		"viewport": {
+			"width": 1200,
+			"height": 500,
+			"deviceScaleFactor": 2
+		},
+		"hideElements": "head",
+		"ignore": [
+			"WCAG2AAA.Principle1.Guideline1_4.1_4_6.G18.Abs",
+			"WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Abs",
+			"WCAG2AAA.Principle2.Guideline2_4.2_4_9.H30",
+			"WCAG2AAA.Principle3.Guideline3_2.3_2_1.G107"
+		]
+	}
+}

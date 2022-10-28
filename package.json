@@ -13,7 +13,7 @@
 		"dev": "gatsby develop",
 		"build": "gatsby build",
 		"clean": "gatsby clean",
-		"test:a11y": "pa11y --config pa11y.config.json $URL > tests/results/pa11y/$NAME.json"
+		"test:a11y": "pa11y --config pa11y.config.json $URL"
 	},
 	"author": "Amy Kapernick <amy@aimhigherweb.design> (https://aimhigherweb.design)",
 	"dependencies": {
@@ -60,6 +60,8 @@
 		"eslint-plugin-react": "^7.31.10",
 		"eslint-plugin-simple-import-sort": "^8.0.0",
 		"eslint-webpack-plugin": "^3.2.0",
+		"gatsby-plugin-netlify": "^5.0.1",
+		"netlify-cli": "^12.0.11",
 		"netlify-plugin-a11y": "^0.0.12",
 		"netlify-plugin-html-validate": "^1.1.0"
 	}
