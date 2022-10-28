@@ -50,7 +50,7 @@ jobs:
 
       - name: Run A11y Tests
         id: a11y
-        uses: amykapernick/a11y_test_action@v0.1
+        uses: amykapernick/a11y_test_action@prod
         with:
           url: ${{needs.build.outputs.deploy_url}}
 
