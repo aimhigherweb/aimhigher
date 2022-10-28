@@ -7,7 +7,13 @@ do
     esac
 done
 
-OUTPUT=$(netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions")
+COMMAND='netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions"'
+
+if [ "$prod" = "true" ]; then
+    COMMAND="$COMMAND --prod"
+fi
+
+OUTPUT=$($COMMAND)
 
 NETLIFY_URL=$(jq -r '.deploy_url' <<<"${OUTPUT}")
 NETLIFY_LOGS=$(jq -r '.logs' <<<"${OUTPUT}")
