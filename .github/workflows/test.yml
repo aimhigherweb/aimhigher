@@ -41,9 +41,6 @@ jobs:
               body: 'The build works! You can view the deploy preview at ${{steps.build_site.outputs.NETLIFY_URL}}'
             })
 
-      # - name: Run Pa11y tests
-      #   run: URL=${{steps.build_site.outputs.NETLIFY_URL}} NAME=home npm run test:a11y
-
   test:
     needs: [build]
     runs-on: ubuntu-22.04
@@ -51,5 +48,11 @@ jobs:
       - name: Test Output
         run: echo ${{needs.build.outputs.deploy_url}}
 
-      - name: Test Packages
-        run: npm -v && npm run test:a11y
+      - name: Run A11y Tests
+        id: a11y
+        uses: amykapernick/a11y_test_action@v0.1
+        with:
+          url: ${{needs.build.outputs.deploy_url}}
+
+      - name: Get A11y Results
+        run: echo "There were ${{steps.a11y.outputs.errors}} errors found and the tests received a ${{steps.a11y.outputs.status}}"
