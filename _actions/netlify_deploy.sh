@@ -7,11 +7,13 @@ do
     esac
 done
 
-COMMAND='netlify deploy --build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --json --message "Deploying from GitHub Actions"'
+COMMAND="netlify deploy --build --site ${NETLIFY_SITE_ID} --auth ${NETLIFY_AUTH_TOKEN} --json"
 
 if [ "$prod" = "true" ]; then
-    COMMAND="$COMMAND --prod"
+    COMMAND="$COMMAND --prodIfUnlocked"
 fi
+
+echo "COMMAND=$COMMAND"
 
 OUTPUT=$($COMMAND)
 
