@@ -19,7 +19,7 @@
 	"dependencies": {
 		"date-fns": "^2.29.3",
 		"dotenv": "^16.0.3",
-		"gatsby": "^4.24.4",
+		"gatsby": "^4.25.7",
 		"gatsby-image": "^3.10.0",
 		"gatsby-plugin-google-tagmanager": "^4.24.0",
 		"gatsby-plugin-html-attributes": "^1.0.5",
