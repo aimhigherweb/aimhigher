@@ -13,8 +13,6 @@ AimHigher Web will enhance the investment of your business with a modern & profe
 
 We handle everything from breaking down your needs through development to domain registration.
 
-AimHigher also offers ongoing services & maintenance to all clients. We are committed to our clients’ satisfaction & carry this into all ongoing and post contract support.
-
 Check out some of the [websites we've built](/portfolio), and [contact us](/contact) to find out how AimHigher can help you today.
 
 

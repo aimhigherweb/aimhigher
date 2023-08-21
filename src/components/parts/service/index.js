@@ -4,7 +4,6 @@ import React, { Fragment } from 'react';
 import Analytics from '../../../img/icons/analytics.svg';
 import Design from '../../../img/icons/design.svg';
 import Handshake from '../../../img/icons/handshake.svg';
-import Hosting from '../../../img/icons/hosting.svg';
 import Monitor from '../../../img/icons/monitor.svg';
 import Shopping from '../../../img/icons/shopping.svg';
 import Twitter from '../../../img/icons/twitter.svg';
@@ -21,7 +20,7 @@ const Service = ({
 			? <div className={styles.description}>
 				<p dangerouslySetInnerHTML={{ __html: excerpt }} />
 			</div>
-			:		<div className={styles.description} dangerouslySetInnerHTML={{ __html: html }} />
+			: <div className={styles.description} dangerouslySetInnerHTML={{ __html: html }} />
 		}
 		<div className={styles.icon}>
 			<Circle className={styles.circle} />
@@ -46,10 +45,6 @@ export const Icon = ({ icon }) => {
 
 	if (icon === `handshake`) {
 		return <Handshake />;
-	}
-
-	if (icon === `hosting`) {
-		return <Hosting />;
 	}
 
 	if (icon === `twitter`) {

@@ -72,20 +72,6 @@ const ContactForm = ({ name = `contact`, className = ``, location = `` }) => (
 				Website Updates
 			</Checkbox>
 			<Checkbox
-				id="hosting"
-				value="hosting"
-				name="services"
-			>
-				Website Hosting
-			</Checkbox>
-			<Checkbox
-				id="support"
-				value="support"
-				name="services"
-			>
-				Support and Maintenance
-			</Checkbox>
-			<Checkbox
 				id="other"
 				value="other"
 				name="services"

@@ -4,10 +4,6 @@
 		"image": "about",
 		"cta": [
 			{
-				"link": "/services/support",
-				"text": "Want Support?"
-			},
-			{
 				"link": "https://savvycal.com/aimhigher/book-a-call",
 				"text": "Book a Call",
 				"external": true
@@ -16,4 +12,4 @@
 	}
 ---
 
-AimHigher Web also provides ongoing support to keep your website working for you, making sure you can stay focussed on the business at hand. 
+AimHigher Web can also help with any custom development project you have in mind, we help build all the bells and whistles.

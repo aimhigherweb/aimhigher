@@ -1,7 +1,9 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react';
 
-import {Form, Input, Label, Button, Checkbox, FieldGroup, TextArea, Legend} from '../../../../lib/parts/forms'
-import {FAQ} from '../../../../lib'
+import { FAQ } from '../../../../lib';
+import {
+	Button, Checkbox, FieldGroup, Form, Input, Label, Legend, TextArea
+} from '../../../../lib/parts/forms';
 
 const Typo = () => (
 	<Fragment>
@@ -10,7 +12,6 @@ const Typo = () => (
 			<div>
 				<p>AimHigher Web will enhance the investment of your business with a modern and professional website. We specialise in building websites for small- to medium-sized businesses throughout Australia.</p>
 				<p>We handle everything from breaking down your needs through development to domain registration.</p>
-				<p>AimHigher also offers ongoing services and maintenance to all clients. We are committed to our clients’ satisfaction and carry this into all ongoing and post contract support.</p>
 			</div>
 		</section>
 		<section>
@@ -27,7 +28,6 @@ const Typo = () => (
 			>
 				<p>Our focus is to make your life simple, and accessible. Many of our websites are built on WordPress which provides a friendly interface for any non-technical users. WordPress is the #1 CMS (Content Management System) used worldwide that makes up 35% of all the websites on the Internet.</p>
 				<p>We value your autonomy at AimHigher, what we build <em>for you</em> is for you.</p>
-				<p>However if you get stuck or need help (or find self managing is taking too much time), we also offer differing levels of website management from support only all the way to full website management!</p>
 			</FAQ>
 			<FAQ
 				title="How long does it take to get a website up and running?"
@@ -52,12 +52,6 @@ const Typo = () => (
 					<Checkbox type="checkbox" name="edit" value="editing">
 						Website Editing
 					</Checkbox>
-					<Checkbox type="checkbox" name="host" value="hosting">
-						Website Hosting
-					</Checkbox>
-					<Checkbox type="checkbox" name="support" value="support">
-						Support
-					</Checkbox>
 					<Checkbox type="checkbox" name="other" value="other">
 						Something Else
 					</Checkbox>
@@ -77,6 +71,6 @@ const Typo = () => (
 			</Form>
 		</section>
 	</Fragment>
-)
+);
 
-export default Typo
+export default Typo;
