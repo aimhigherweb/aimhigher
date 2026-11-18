@@ -1,0 +1,36 @@
+---
+import { format, parse } from 'date-fns';
+
+import Icon from '../../../../lib/parts/icon/index.astro';
+import { site } from '../../../utils/site.js';
+import * as styles from './post.module.scss';
+
+const {
+	title, slug, date, description, featured
+} = Astro.props;
+const postUrl = `${site.url}/blog/${slug}`;
+const tweet = `So @amys_kapers wrote this really cool blog post, you should check it out! ${postUrl}`;
+---
+
+<article class={styles.post}>
+	<div class={styles.image}>
+		<img src={featured?.url} alt={featured?.alternativeText || ``} loading="lazy" />
+	</div>
+	<h2><a href={`/blog/${slug}`}>{title}</a></h2>
+	<p class={styles.date}>{format(parse(date, `yyyy-MM-dd`, new Date()), `dd MMM`)}</p>
+	<p class={styles.excerpt} set:html={description} />
+	<ul class={styles.social}>
+		<li>
+			<a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`} target="_blank" rel="noopener">
+				<Icon icon="twitter" />
+				<span class="sr-only">Share "{title}" on Twitter</span>
+			</a>
+		</li>
+		<li>
+			<a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`} target="_blank" rel="noopener">
+				<Icon icon="facebook" />
+				<span class="sr-only">Share "{title}" on Facebook</span>
+			</a>
+		</li>
+	</ul>
+</article>

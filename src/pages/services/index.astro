@@ -1,0 +1,34 @@
+---
+import Service from '../../components/parts/service/Service.astro';
+import Header from '../../img/banners/header_2.svg';
+import Blocks from '../../img/graphics/blocks.svg';
+import Flower from '../../img/illustrations/flower.svg';
+import Leaf from '../../img/illustrations/leaf.svg';
+import LeafThin from '../../img/illustrations/leaf_thin.svg';
+import Squiggle from '../../img/illustrations/squiggle.svg';
+import social from '../../img/social/services.png';
+import Layout from '../../layouts/Layout.astro';
+import * as styles from '../../styles/pages/services.module.scss';
+import { getContent, getFolder } from '../../utils/content.js';
+
+const { title, meta, html } = await getContent(`services/index`);
+const services = await getFolder(`services`, { exclude: [`index`] });
+---
+
+<Layout
+	header={{ curve: Header, curveClass: styles.header, lightNav: true }}
+	meta={{ ...meta, image: social.src }}
+>
+	<div class={styles.content}>
+		<Squiggle class={styles.squiggle} />
+		<h1>{title}</h1>
+		<div class={styles.blurb} set:html={html} />
+		<Blocks class={styles.blocks} />
+		<Leaf class={styles.leaf} />
+		<ul class={styles.services}>
+			{services.map((service) => <Service {...service} />)}
+		</ul>
+		<LeafThin class={styles.leaf_thin} />
+		<Flower class={styles.flower} />
+	</div>
+</Layout>

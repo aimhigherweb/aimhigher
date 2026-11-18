@@ -1,0 +1,19 @@
+---
+import Logo from '../../../../lib/parts/logo/index.astro';
+import DefaultHeader from '../../../img/banners/header_1.svg';
+import menus from '../../../utils/menus.js';
+import Nav from '../../parts/nav/main/Nav.astro';
+import * as styles from './header.module.scss';
+
+// `curve` is an imported SVG component; pages pass their own banner and its class
+const { curve: Curve = DefaultHeader, curveClass, lightNav = false } = Astro.props;
+---
+
+<header class={styles.header}>
+	<Curve class:list={[styles.banner, curveClass]} />
+	<a href="/" class={styles.logo}>
+		<Logo version="white" />
+		<span class="sr-only">Return to Homepage</span>
+	</a>
+	<Nav items={menus.main} light={lightNav} />
+</header>

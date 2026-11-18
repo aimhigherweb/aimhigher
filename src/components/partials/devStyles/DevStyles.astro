@@ -1,0 +1,10 @@
+---
+// Breakpoint badge, only rendered by `astro dev`
+const breakpoints = [40, 50, 60, 70, 80, 90];
+const css = [
+	`body::before { content: 'Mobile'; position: fixed; z-index: 1000; top: 0; left: calc(50vw - 3em); padding: 10px 20px; border-radius: 0 0 20px 20px; background: black; color: #ffffff; width: 6em; text-align: center; }`,
+	...breakpoints.map((bp) => `@media (min-width: ${bp}em) { body::before { content: '${bp}em'; } }`),
+].join(`\n`);
+---
+
+<style is:inline set:html={css} />

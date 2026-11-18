@@ -1,0 +1,45 @@
+---
+import ContactForm from '../../components/parts/form/ContactForm.astro';
+import ServiceIcon from '../../components/parts/service/ServiceIcon.astro';
+import Circle from '../../img/illustrations/circle.svg';
+import Flower from '../../img/illustrations/flower_2.svg';
+import Paw from '../../img/illustrations/paw.svg';
+import Squiggle from '../../img/illustrations/squiggle.svg';
+import Underline from '../../img/illustrations/underline.svg';
+import Layout from '../../layouts/Layout.astro';
+import {
+	circle, contact, flower, form, iconStyles, pageContent, paw, post, squiggle, underline
+} from '../../styles/pages/service.module.scss';
+import { excerpt, getFolder } from '../../utils/content.js';
+
+export const getStaticPaths = async () => {
+	const services = await getFolder(`services`, { exclude: [`index`, `other`] });
+
+	return services
+		.filter(({ html }) => html.trim() !== ``)
+		.map((service) => ({ params: { service: service.name }, props: service }));
+};
+
+const { title, icon, html } = Astro.props;
+---
+
+<Layout meta={{ title, description: excerpt(html), slug: Astro.url.pathname }}>
+	<article class={pageContent}>
+		<Squiggle class={squiggle} />
+		<h1>{title}</h1>
+		<div class={post}>
+			<div class={iconStyles}>
+				<Circle class={circle} />
+				<ServiceIcon icon={icon} />
+			</div>
+			<div set:html={html} />
+		</div>
+		<div class={contact}>
+			<div class={underline}><Underline /></div>
+			<h2>Get in Touch</h2>
+			<ContactForm name="contact_service" class={form} />
+		</div>
+		<Flower class={flower} />
+		<Paw class={paw} />
+	</article>
+</Layout>

@@ -1,0 +1,13 @@
+---
+import { footerNav, footerNavItem } from './footer.module.scss';
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="footer-nav" class={footerNav}>
+	<ul>
+		{items.map(({ label, link }) => (
+			<li><a href={link} class={footerNavItem}>{label}</a></li>
+		))}
+	</ul>
+</nav>

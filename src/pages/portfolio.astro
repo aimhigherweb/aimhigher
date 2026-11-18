@@ -1,0 +1,46 @@
+---
+import Site from '../components/parts/site/Site.astro';
+import Header from '../img/banners/header_2.svg';
+import Blob from '../img/illustrations/blob.svg';
+import Dots from '../img/illustrations/dots.svg';
+import Squiggle from '../img/illustrations/squiggle.svg';
+import social from '../img/social/portfolio.png';
+import Layout from '../layouts/Layout.astro';
+import * as styles from '../styles/pages/portfolio.module.scss';
+import { cms } from '../utils/cms.js';
+import { getContent } from '../utils/content.js';
+
+const { title, meta, html } = await getContent(`portfolio/index`);
+const { caseStudies } = await cms(`{
+	caseStudies(where: { featured: true }, sort: "launch:desc") {
+		github
+		_id
+		launch
+		screenshots {
+			laptop { url }
+			tablet { url }
+			mobile { url }
+		}
+		website { domain live }
+	}
+}`, { caseStudies: [] });
+---
+
+<Layout
+	header={{ curve: Header, curveClass: styles.header, lightNav: true }}
+	meta={{ ...meta, image: social.src }}
+>
+	<div class={styles.content}>
+		<Squiggle class={styles.squiggle_1} />
+		<h1>{title}</h1>
+		<div class={styles.blurb} set:html={html} />
+		<ul class={styles.sites}>
+			{caseStudies.map((site) => (
+				<li class={styles.site}><Site {...site} /></li>
+			))}
+		</ul>
+		<Dots class={styles.dots} />
+		<Blob class={styles.blob} />
+		<Squiggle class={styles.squiggle_2} />
+	</div>
+</Layout>

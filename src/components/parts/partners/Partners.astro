@@ -1,0 +1,13 @@
+---
+const { partners = [], class: className } = Astro.props;
+---
+
+<ul class={className}>
+	{partners.map(({ name, url, logo }) => (
+		<li>
+			<a href={url} target="_blank" rel="nofollow noopener">
+				<img src={logo?.url} alt={`Logo for ${name}`} loading="lazy" />
+			</a>
+		</li>
+	))}
+</ul>

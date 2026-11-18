@@ -1,3 +1,6 @@
+@use "lib/styles/variables" as var;
+@use "lib/styles/mixins";
+
 .menu {
 	color: inherit;
 }
@@ -152,7 +155,6 @@
 	}
 
 	.cta {
-		composes: button from '../../../../../lib/parts/forms/button/button.module.scss';
 
 		--button_border: #{var.$yellow};
 		--button_background: #{var.$yellow};

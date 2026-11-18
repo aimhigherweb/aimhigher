@@ -1,3 +1,5 @@
+@use "lib/styles/variables" as var;
+
 .contact {
 	text-align: center;
 }
@@ -21,7 +23,6 @@
 }
 
 .ctaButton {
-	composes: button from '../../../../lib/parts/forms/button/button.module.scss';
 
 	--button_border: #{var.$purple};
 	--button_background: #{var.$purple};

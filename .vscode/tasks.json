@@ -1,0 +1,99 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "start",
+			"detail": "Astro dev server with secrets from 1Password (runs when the folder opens)",
+			"type": "npm",
+			"script": "start",
+			"isBackground": true,
+			"runOptions": { "runOn": "folderOpen" },
+			"presentation": { "reveal": "always", "panel": "dedicated", "group": "servers" },
+			"problemMatcher": {
+				"owner": "astro",
+				"pattern": { "regexp": "^\\s*\\[ERROR\\]\\s+(.*)$", "message": 1 },
+				"background": {
+					"beginsPattern": "astro\\s+v\\d",
+					"endsPattern": "ready in"
+				}
+			}
+		},
+		{
+			"label": "dev",
+			"detail": "Astro dev server without 1Password (CMS pages are empty unless .env sets them)",
+			"type": "npm",
+			"script": "dev",
+			"isBackground": true,
+			"presentation": { "reveal": "always", "panel": "dedicated", "group": "servers" },
+			"problemMatcher": {
+				"owner": "astro",
+				"pattern": { "regexp": "^\\s*\\[ERROR\\]\\s+(.*)$", "message": 1 },
+				"background": {
+					"beginsPattern": "astro\\s+v\\d",
+					"endsPattern": "ready in"
+				}
+			}
+		},
+		{
+			"label": "build",
+			"detail": "Static build to dist/",
+			"type": "npm",
+			"script": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "build:local",
+			"detail": "Static build to dist/ with secrets from 1Password",
+			"type": "npm",
+			"script": "build:local",
+			"group": { "kind": "build", "isDefault": true },
+			"problemMatcher": []
+		},
+		{
+			"label": "preview",
+			"detail": "Serve the last build from dist/",
+			"type": "npm",
+			"script": "preview",
+			"isBackground": true,
+			"presentation": { "reveal": "always", "panel": "dedicated", "group": "servers" },
+			"problemMatcher": {
+				"owner": "astro",
+				"pattern": { "regexp": "^\\s*\\[ERROR\\]\\s+(.*)$", "message": 1 },
+				"background": {
+					"beginsPattern": "astro\\s+v\\d",
+					"endsPattern": "Local"
+				}
+			}
+		},
+		{
+			"label": "lint",
+			"detail": "ESLint across the project, fixing what it can",
+			"type": "npm",
+			"script": "lint",
+			"problemMatcher": ["$eslint-stylish"]
+		},
+		{
+			"label": "lint:ci",
+			"detail": "ESLint without fixes (what CI should run)",
+			"type": "npm",
+			"script": "lint:ci",
+			"problemMatcher": ["$eslint-stylish"]
+		},
+		{
+			"label": "test:a11y",
+			"detail": "pa11y against a URL",
+			"type": "npm",
+			"script": "test:a11y",
+			"options": { "env": { "URL": "${input:a11yUrl}" } },
+			"problemMatcher": []
+		}
+	],
+	"inputs": [
+		{
+			"id": "a11yUrl",
+			"type": "promptString",
+			"description": "URL to run pa11y against",
+			"default": "http://localhost:4321"
+		}
+	]
+}

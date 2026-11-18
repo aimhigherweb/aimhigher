@@ -1,5 +1,16 @@
 {
 	"yaml.schemas": {
 		"https://json.schemastore.org/github-workflow.json": "file:///home/amy/web/aimhigher/.github/workflows/deploy.yml"
+	},
+	"eslint.options": {
+		"overrideConfigFile": "./config/eslint.config.mjs"
+	},
+	"eslint.validate": [
+		"javascript",
+		"astro"
+	],
+	"prettier.configPath": "./config/prettier.config.cjs",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
 	}
 }

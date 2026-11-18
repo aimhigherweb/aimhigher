@@ -1,0 +1,42 @@
+---
+import { button } from '../../../../../lib/parts/forms/button/button.module.scss';
+import Icon from '../../../../../lib/parts/icon/index.astro';
+import { isCurrent } from '../../../../utils/isCurrent.js';
+import * as styles from './main.module.scss';
+
+const { items, light } = Astro.props;
+---
+
+<nav aria-label="main-nav" class={styles.nav} data-light={light ? `true` : undefined} data-main-nav>
+	<button class={styles.hamburger} aria-expanded="false">
+		<Icon icon="hamburger" class={styles.menu} />
+		<Icon icon="close" class={styles.close} />
+		<span class="sr-only">Toggle Main Nav</span>
+	</button>
+	<ul>
+		{items.map(({
+			label, link, external, cta
+		}) => (
+			<li>
+				<a
+					href={link}
+					class:list={[styles.item, cta && [button, styles.cta], isCurrent(link, Astro.url.pathname) && `current`]}
+					aria-current={isCurrent(link, Astro.url.pathname) ? `page` : undefined}
+					target={external ? `_blank` : undefined}
+				>{label}</a>
+			</li>
+		))}
+	</ul>
+</nav>
+
+<script>
+	document.querySelectorAll(`[data-main-nav]`).forEach((nav) => {
+		const button = nav.querySelector(`button`);
+
+		button.addEventListener(`click`, () => {
+			const open = !nav.hasAttribute(`open`);
+			nav.toggleAttribute(`open`, open);
+			button.setAttribute(`aria-expanded`, String(open));
+		});
+	});
+</script>

@@ -1,0 +1,24 @@
+---
+import { format, parse } from 'date-fns';
+
+import Icon from '../../../../lib/parts/icon/index.astro';
+import Screenshots from '../siteScreenshots/Screenshots.astro';
+import * as styles from './site.module.scss';
+
+const {
+	github, launch, screenshots, website: { domain, live }
+} = Astro.props;
+const date = parse(launch, `yyyy-MM-dd`, new Date());
+---
+
+<article class={styles.site}>
+	<Screenshots {...screenshots} domain={domain} />
+	{live && <h2><a target="_blank" rel="noopener" href={`//${domain}`}>{domain}</a></h2>}
+	<p class={styles.launch}>{live ? format(date, `MMMM yyyy`) : `Coming Soon`}</p>
+	{github && (
+		<a href={github} target="_blank" rel="noopener" class={styles.github}>
+			<Icon icon="github" />
+			<span class="sr-only">{domain} code repository on GitHub</span>
+		</a>
+	)}
+</article>

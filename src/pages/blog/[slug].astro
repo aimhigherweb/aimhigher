@@ -1,0 +1,68 @@
+---
+import { format, parse } from 'date-fns';
+
+import processMarkdown from '../../../lib/utils/markdown.js';
+import PageCta from '../../components/parts/pageCta/PageCta.astro';
+import Flower from '../../img/illustrations/flower_2.svg';
+import Paw from '../../img/illustrations/paw.svg';
+import Squiggle from '../../img/illustrations/squiggle.svg';
+import Layout from '../../layouts/Layout.astro';
+import {
+	authorHead, dateHead, flower, header, pageContent, paw, post, squiggle
+} from '../../styles/pages/post.module.scss';
+import { cms } from '../../utils/cms.js';
+
+export const getStaticPaths = async () => {
+	const { blogPosts } = await cms(`{
+		blogPosts {
+			title
+			slug
+			description
+			date
+			featured { url alternativeText caption }
+			cta
+			canonical
+			content
+			categories
+			author {
+				name
+				link
+				profile_image { url }
+			}
+		}
+	}`, { blogPosts: [] });
+
+	return blogPosts.map((blogPost) => ({ params: { slug: blogPost.slug }, props: blogPost }));
+};
+
+const {
+	title, content, featured, date, slug, description, author, canonical, cta
+} = Astro.props;
+const postDate = parse(date, `yyyy-MM-dd`, new Date());
+---
+
+<Layout
+	meta={{
+		title,
+		description,
+		slug: `/blog/${slug}`,
+		image: featured?.url,
+		canonical,
+	}}
+>
+	<article class={pageContent}>
+		<Squiggle class={squiggle} />
+		<header class={header}>
+			<h1>{title}</h1>
+			<p class={dateHead}>Posted on: <time datetime={date}>{format(postDate, `dd MMM yyyy`)}</time></p>
+			<p class={authorHead}>
+				<a href={author?.link} target="_blank" rel="noopener">{author?.name}</a>
+				<img src={author?.profile_image?.url} alt="" />
+			</p>
+		</header>
+		<div class={post} set:html={processMarkdown(content)} />
+		<PageCta cta={cta} />
+		<Flower class={flower} />
+		<Paw class={paw} />
+	</article>
+</Layout>

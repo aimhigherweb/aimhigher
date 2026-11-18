@@ -1,0 +1,48 @@
+---
+import { FATHOM_SITE_ID } from 'astro:env/server';
+
+import favicon from '../../../../lib/img/favicon.png';
+import defaultSocial from '../../../img/social/default.png';
+import { site } from '../../../utils/site.js';
+
+const {
+	title = site.title,
+	description = site.description,
+	slug = ``,
+	image = defaultSocial.src,
+	canonical,
+} = Astro.props;
+
+const imageUrl = new URL(image, site.url).href;
+const canonicalUrl = canonical || `${site.url}${slug}`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<link rel="icon" sizes="192x192" href={favicon.src} />
+<link rel="apple-touch-icon" href={favicon.src} />
+<link rel="mask-icon" href={favicon.src} color="#1C75BC" />
+<meta name="theme-color" content="#1C75BC" />
+<base href="/" />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:url" content={canonicalUrl} />
+<meta name="author" content="AimHigher Web" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@amys_kapers" />
+<meta name="twitter:creator" content="@amys_kapers" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+{FATHOM_SITE_ID && (
+	<script is:inline src="https://cdn.usefathom.com/script.js" data-site={FATHOM_SITE_ID} defer></script>
+)}
