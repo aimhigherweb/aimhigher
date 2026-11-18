@@ -4,6 +4,8 @@ import {
 	Form, Input, Label, TextArea
 } from '../../../../lib/parts/forms/index.js';
 
+import * as styles from './contactForm.module.scss';
+
 // Netlify detects these forms in the built HTML, so `name` must be unique per form
 const { name = `contact`, class: className = ``, location = Astro.url.pathname } = Astro.props;
 ---
@@ -15,7 +17,9 @@ const { name = `contact`, class: className = ``, location = Astro.url.pathname }
 	name={name}
 	class={className}
 >
-	<input type="hidden" name="bot-field" />
+	<p class={styles.honeypot} aria-hidden="true">
+		<label>Leave this empty: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+	</p>
 	<input type="hidden" name="form-name" value={name} />
 	<input type="hidden" name="form-location" value={location} />
 	<Label for="name" required>Name</Label>
@@ -33,7 +37,7 @@ const { name = `contact`, class: className = ``, location = Astro.url.pathname }
 	<Label for="phone">Phone</Label>
 	<Input id="phone" name="phone" autocomplete="tel" inputmode="tel" />
 	<Label for="company">Company</Label>
-	<Input id="company" name="company" autocomplete="company" />
+	<Input id="company" name="company" autocomplete="organization" />
 	<Label for="website">Link to your site or product</Label>
 	<Input id="website" name="website" autocomplete="on" inputmode="url" />
 	<FieldGroup legend="What services are you looking for?">

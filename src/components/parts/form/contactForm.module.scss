@@ -1,0 +1,5 @@
+// Honeypot: bots fill in every text field they find, but skip type="hidden" ones,
+// so the trap is a real input hidden with CSS (spam bots rarely apply stylesheets)
+.honeypot {
+	display: none;
+}
