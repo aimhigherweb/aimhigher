@@ -8,7 +8,7 @@ import { STRAPI_API_URL, STRAPI_TOKEN } from 'astro:env/server';
 export const cms = async (query, fallback = {}) => {
 	if (!STRAPI_API_URL) {
 		if (import.meta.env.PROD) {
-			throw new Error(`STRAPI_API_URL is not set; run the build through \`npm run build:local\` or set it in Netlify`);
+			throw new Error(`STRAPI_API_URL is not set; run the build through \`npm run build:local\` or set it in the GitHub Actions secrets`);
 		}
 		console.warn(`[cms] STRAPI_API_URL not set, using empty CMS data`);
 		return fallback;

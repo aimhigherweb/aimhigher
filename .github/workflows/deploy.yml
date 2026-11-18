@@ -42,9 +42,14 @@ jobs:
       - name: Install Node Packages
         run: npm ci
 
-      # netlify build pulls the site's env vars (STRAPI_*, GTM_ID, etc.) from Netlify
+      # Build-time env for astro:env (config/astro.config.mjs), from repo secrets
       - name: Build
-        run: npx netlify build --context "$CONTEXT"
+        env:
+          STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
+          STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
+          FATHOM_SITE_ID: ${{ secrets.FATHOM_SITE_ID }}
+          GTM_ID: ${{ secrets.GTM }}
+        run: npm run build
 
       - name: Deploy
         id: deploy
