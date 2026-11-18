@@ -1,0 +1,98 @@
+name: Build and Deploy to Netlify
+
+# Pushes to prod deploy to production; PRs into prod get a deploy preview and a11y tests.
+on:
+  push:
+    branches: [prod]
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [prod]
+
+# One deploy per branch/PR at a time; a newer push cancels an older PR build
+concurrency:
+  group: deploy-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    outputs:
+      deploy_url: ${{ steps.deploy.outputs.url }}
+    env:
+      # netlify-cli reads these itself; never pass them as flags
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      CONTEXT: ${{ github.event_name == 'push' && 'production' || 'deploy-preview' }}
+    steps:
+      - name: Checkout Repo Code
+        uses: actions/checkout@v7
+        with:
+          submodules: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: config/.nvmrc
+          cache: npm
+
+      - name: Install Node Packages
+        run: npm ci
+
+      # netlify build pulls the site's env vars (STRAPI_*, GTM_ID, etc.) from Netlify
+      - name: Build
+        run: npx netlify build --context "$CONTEXT"
+
+      - name: Deploy
+        id: deploy
+        run: |
+          set -euo pipefail
+          flags=()
+          if [ "$CONTEXT" = production ]; then flags+=(--prod-if-unlocked); fi
+          out=$(npx netlify deploy --no-build --dir dist --json \
+            --message "${GITHUB_SHA::7}: ${{ github.event_name }}" "${flags[@]}")
+          url=$(jq -er '.deploy_url' <<<"$out")
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Deployed to $url" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment Preview URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v9
+        env:
+          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
+        with:
+          script: |
+            const marker = '<!-- netlify-deploy-preview -->';
+            const body = `${marker}\nDeploy preview for ${context.sha.slice(0, 7)}: ${process.env.DEPLOY_URL}`;
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number });
+            const existing = comments.find((c) => c.body?.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+
+  test:
+    needs: [deploy]
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Repo Code
+        uses: actions/checkout@v7
+
+      - name: Run A11y Tests
+        id: a11y
+        uses: amykapernick/a11y_test_action@prod
+        with:
+          url: ${{ needs.deploy.outputs.deploy_url }}
+          pages: "['/', '/about', '/contact', '/blog']"
+
+      - name: Get A11y Results
+        env:
+          RESULTS: ${{ steps.a11y.outputs.results }}
+        run: printf '%s\n' "$RESULTS"
