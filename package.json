@@ -21,6 +21,7 @@
 	},
 	"author": "Amy Kapernick <amy@aimhigherweb.design> (https://aimhigherweb.design)",
 	"dependencies": {
+		"@astrojs/markdown-satteri": "^0.4.10",
 		"@astrojs/sitemap": "^3.7.5",
 		"astro": "^7.4.12",
 		"date-fns": "^4.4.0",
