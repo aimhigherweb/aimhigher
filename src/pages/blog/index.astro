@@ -12,7 +12,7 @@ import { getContent } from '../../utils/content.js';
 
 const { title, meta } = await getContent(`blog/index`);
 const { blogPosts } = await cms(`{
-	blogPosts(sort: "date:desc") {
+	blogPosts(sort: "date:desc", pagination: { limit: 100 }) {
 		slug
 		title
 		description

@@ -14,7 +14,7 @@ import { cms } from '../../utils/cms.js';
 
 export const getStaticPaths = async () => {
 	const { blogPosts } = await cms(`{
-		blogPosts {
+		blogPosts(pagination: { limit: 100 }) {
 			title
 			slug
 			description

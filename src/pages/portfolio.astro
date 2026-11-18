@@ -12,9 +12,9 @@ import { getContent } from '../utils/content.js';
 
 const { title, meta, html } = await getContent(`portfolio/index`);
 const { caseStudies } = await cms(`{
-	caseStudies(where: { featured: true }, sort: "launch:desc") {
+	caseStudies(filters: { featured: { eq: true } }, sort: "launch:desc", pagination: { limit: 100 }) {
 		github
-		_id
+		documentId
 		launch
 		screenshots {
 			laptop { url }
