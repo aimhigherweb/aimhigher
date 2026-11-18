@@ -11,21 +11,24 @@ Built with [Astro](https://astro.build). Needs Node 22.23+ (see `config/.nvmrc`)
 ```sh
 git submodule update --init   # lib/ = aimhigherweb/aimhigher-components
 npm install
-npm start                     # astro dev with secrets from 1Password (`op` CLI)
+op run --env-file=config/.env.1password -- npm run dev   # dev server with secrets from 1Password
 ```
 
 | Script | What it does |
 | --- | --- |
-| `npm start` | Dev server with secrets from 1Password (`op run --env-file=config/.env.1password`) |
 | `npm run dev` | Dev server without secrets (CMS content is empty) |
 | `npm run build` | Static build to `dist/` (used by Netlify, which supplies its own env vars) |
-| `npm run build:local` | Static build with secrets from 1Password |
 | `npm run preview` | Serve `dist/` locally |
 | `npm run lint` | ESLint with fixes ([house](https://github.com/amykapernick/house) rules) |
 | `npm run lint:ci` | ESLint without fixes |
 | `npm run test:a11y` | pa11y against `$URL` |
 
-VS Code has a task for each script (`.vscode/tasks.json`), and `start` runs when the folder opens.
+VS Code has a task for each script (`.vscode/tasks.json`), plus two that wrap them in `op run` to load secrets from 1Password:
+
+| Task | Runs |
+| --- | --- |
+| `start` | `op run --env-file=config/.env.1password -- npm run dev` (runs when the folder opens) |
+| `build:local` | `op run --env-file=config/.env.1password -- npm run build` (default build task) |
 
 ### Content
 

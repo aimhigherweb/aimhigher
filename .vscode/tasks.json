@@ -4,8 +4,8 @@
 		{
 			"label": "start",
 			"detail": "Astro dev server with secrets from 1Password (runs when the folder opens)",
-			"type": "npm",
-			"script": "start",
+			"type": "shell",
+			"command": "op run --env-file=config/.env.1password -- npm run dev",
 			"isBackground": true,
 			"runOptions": { "runOn": "folderOpen" },
 			"presentation": { "reveal": "always", "panel": "dedicated", "group": "servers" },
@@ -44,8 +44,8 @@
 		{
 			"label": "build:local",
 			"detail": "Static build to dist/ with secrets from 1Password",
-			"type": "npm",
-			"script": "build:local",
+			"type": "shell",
+			"command": "op run --env-file=config/.env.1password -- npm run build",
 			"group": { "kind": "build", "isDefault": true },
 			"problemMatcher": []
 		},

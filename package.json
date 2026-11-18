@@ -12,10 +12,8 @@
 		"node": ">=22.23.4"
 	},
 	"scripts": {
-		"start": "op run --env-file=config/.env.1password -- astro dev --config config/astro.config.mjs",
 		"dev": "astro dev --config config/astro.config.mjs",
 		"build": "astro build --config config/astro.config.mjs",
-		"build:local": "op run --env-file=config/.env.1password -- astro build --config config/astro.config.mjs",
 		"preview": "astro preview --config config/astro.config.mjs",
 		"lint": "eslint -c ./config/eslint.config.mjs --fix .",
 		"lint:ci": "eslint -c ./config/eslint.config.mjs .",
