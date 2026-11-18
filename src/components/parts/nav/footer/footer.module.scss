@@ -5,6 +5,10 @@
 	color: var.$white;
 	font-family: var.$font_headings;
 	text-decoration: none;
+
+	.cls-p {
+		color: var.$primary;
+	}
 }
 
 .footerNav {
