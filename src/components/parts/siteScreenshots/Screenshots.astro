@@ -1,0 +1,25 @@
+---
+import Laptop from '../../../img/desktop.svg';
+import Mobile from '../../../img/mobile.svg';
+import Tablet from '../../../img/tablet.svg';
+import * as styles from './screenshots.module.scss';
+
+const {
+	laptop, mobile, tablet, domain
+} = Astro.props;
+
+const shots = [
+	{ image: laptop, Frame: Laptop, size: `laptop`, label: `desktop` },
+	{ image: tablet, Frame: Tablet, size: `tablet`, label: `tablet` },
+	{ image: mobile, Frame: Mobile, size: `mobile`, label: `mobile` },
+].filter(({ image }) => image);
+---
+
+<ul class={styles.screenshots}>
+	{shots.map(({ image, Frame, size, label }) => (
+		<li class:list={[styles[size], styles.image]}>
+			<Frame />
+			<img src={image.url} alt={`Screenshot of ${domain} website at ${label} size`} loading="lazy" />
+		</li>
+	))}
+</ul>

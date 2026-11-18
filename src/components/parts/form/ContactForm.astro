@@ -1,0 +1,49 @@
+---
+import {
+	Button, Checkbox, FieldGroup,
+	Form, Input, Label, TextArea
+} from '../../../../lib/parts/forms/index.js';
+
+// Netlify detects these forms in the built HTML, so `name` must be unique per form
+const { name = `contact`, class: className = ``, location = Astro.url.pathname } = Astro.props;
+---
+
+<Form
+	method="post"
+	netlify-honeypot="bot-field"
+	data-netlify="true"
+	name={name}
+	class={className}
+>
+	<input type="hidden" name="bot-field" />
+	<input type="hidden" name="form-name" value={name} />
+	<input type="hidden" name="form-location" value={location} />
+	<Label for="name" required>Name</Label>
+	<Input id="name" name="name" placeholder="Full Name" required autocomplete="name" />
+	<Label for="email" required>Email</Label>
+	<Input
+		id="email"
+		name="email"
+		placeholder="hello@domain.com"
+		type="email"
+		required
+		autocomplete="email"
+		inputmode="email"
+	/>
+	<Label for="phone">Phone</Label>
+	<Input id="phone" name="phone" autocomplete="tel" inputmode="tel" />
+	<Label for="company">Company</Label>
+	<Input id="company" name="company" autocomplete="company" />
+	<Label for="website">Link to your site or product</Label>
+	<Input id="website" name="website" autocomplete="on" inputmode="url" />
+	<FieldGroup legend="What services are you looking for?">
+		<Checkbox id="development" value="development" name="services">Custom Development</Checkbox>
+		<Checkbox id="a11y" value="a11y" name="services">Accessibility Review</Checkbox>
+		<Checkbox id="consulting" value="consulting" name="services">Consulting</Checkbox>
+		<Checkbox id="training" value="training" name="services">Workshop or Team Training</Checkbox>
+		<Checkbox id="other" value="other" name="services">Something Else</Checkbox>
+	</FieldGroup>
+	<Label for="message">Message</Label>
+	<TextArea id="message" name="message" />
+	<Button type="submit">Submit</Button>
+</Form>

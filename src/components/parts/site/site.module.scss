@@ -1,3 +1,5 @@
+@use "lib/styles/variables" as var;
+
 .site {
 	background: var.$grey_light;
 	display: flex;

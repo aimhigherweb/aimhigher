@@ -1,6 +1,6 @@
 [build]
   base = "."
-  publish = "public/"
+  publish = "dist/"
   command = "npm run build"
 
 [context.production.environment]
@@ -14,5 +14,8 @@
   to = "portal.aimhigherweb.dev/docs/:splat"
   status = 302
 
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
+# Gatsby served the sitemap from /sitemap/; the a11y CI action and .pa11yci still read it there
+[[redirects]]
+  from = "/sitemap/*"
+  to = "/:splat"
+  status = 200

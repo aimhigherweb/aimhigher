@@ -1,0 +1,22 @@
+---
+import Circle from '../../../img/illustrations/circle.svg';
+import * as styles from './service.module.scss';
+import ServiceIcon from './ServiceIcon.astro';
+
+const {
+	html = ``, name, excerpt, title, icon
+} = Astro.props;
+const linked = Boolean(html.trim() && excerpt);
+---
+
+<li class={styles.service} data-linked={linked ? `true` : undefined}>
+	<h2>{title}</h2>
+	{excerpt
+		? <div class={styles.description}><p set:html={excerpt} /></div>
+		: <div class={styles.description} set:html={html} />}
+	<div class={styles.icon}>
+		<Circle class={styles.circle} />
+		<ServiceIcon icon={icon} />
+	</div>
+	{linked && <a class={styles.link} href={`/services/${name}`}>Find out more about {title}</a>}
+</li>

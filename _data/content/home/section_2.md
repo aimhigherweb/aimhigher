@@ -4,16 +4,10 @@
 		"image": "devices",
 		"cta": [
 			{
-				"link": "/services/development",
+				"link": "/services/accessibility",
 				"text": "Build a website"
 			},
-			{
-				"link": "https://savvycal.com/aimhigher/book-a-call",
-				"text": "Book a Call",
-				"external": true
-			}
 		]
 	}
 ---
-
-At AimHigher we build modern & professional websites purpose made to be easily maintained by anyone, regardless of technical skill. 
+We build with accessibility front of mind from the first line of code, so what you ship works for everyone, no matter how they get online.

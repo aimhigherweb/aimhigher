@@ -1,0 +1,78 @@
+---
+import { button } from '../../lib/parts/forms/button/button.module.scss';
+import footerHome from '../img/banners/footer_home.svg?url';
+import Header from '../img/banners/header_home.svg';
+import About from '../img/graphics/about.svg';
+import Devices from '../img/graphics/devices.svg';
+import HomeBanner from '../img/graphics/homeDesk.svg';
+import Website from '../img/graphics/website.svg';
+import Heart from '../img/illustrations/heart.svg';
+import Leaf from '../img/illustrations/leaf_thin.svg';
+import Squiggle from '../img/illustrations/squiggle.svg';
+import Layout from '../layouts/Layout.astro';
+import {
+	bannerGraphic, buttons, content, cta, graphic, header, heart, homeBanner, leaf, section, squiggle
+} from '../styles/pages/home.module.scss';
+import { getContent, getFolder } from '../utils/content.js';
+
+const banner = await getContent(`home/banner`);
+const blocks = (await getFolder(`home`)).filter(({ name }) => name.startsWith(`section`));
+const graphics = [
+	{ Graphic: Website, before: Squiggle, beforeClass: squiggle, after: Heart, afterClass: heart },
+	{ Graphic: Devices },
+	{ Graphic: About, after: Leaf, afterClass: leaf },
+];
+---
+
+<Layout
+	header={{ curve: Header, curveClass: header, lightNav: true }}
+	footer={{ footerImage: footerHome, lightNav: true, variation: `home` }}
+>
+	<section class={homeBanner}>
+		<blockquote>
+			<h1 set:html={banner.tagline} />
+			<div class={content} set:html={banner.html} />
+			<ul class={buttons}>
+				{banner.cta.map((link) => (
+					<li>
+						<a 
+							class:list={[button, cta]} 
+							href={link.link} 
+							target={link.link.startsWith(`http`) ? `_blank` : undefined}
+						>
+							{link.text}
+						</a>
+					</li>
+				))}
+			</ul>
+		</blockquote>
+		<HomeBanner class={bannerGraphic} />
+	</section>
+	{blocks.map((block, i) => {
+		const { Graphic, before: Before, beforeClass, after: After, afterClass } = graphics[i] ?? {};
+
+		return (
+			<section class={section}>
+				{Before && <Before class={beforeClass} />}
+				<div class={content}>
+					<div set:html={block.html} />
+					<ul class={buttons}>
+						{(block.cta ?? []).map((link) => (
+							<li>
+						<a 
+							class:list={[button, cta]} 
+							href={link.link} 
+							target={link.link.startsWith(`http`) ? `_blank` : undefined}
+						>
+							{link.text}
+						</a>
+					</li>
+						))}
+					</ul>
+				</div>
+				{Graphic && <Graphic class={graphic} />}
+				{After && <After class={afterClass} />}
+			</section>
+		);
+	})}
+</Layout>

@@ -1,0 +1,24 @@
+---
+import DefaultCurve from '../../../img/banners/footer.svg';
+import defaultCurveUrl from '../../../img/banners/footer.svg?url';
+import HomeFooter from '../../../img/banners/footer_home.svg';
+import menus from '../../../utils/menus.js';
+import FooterNav from '../../parts/nav/footer/FooterNav.astro';
+import Social from '../../parts/nav/social/Social.astro';
+import { footerBackground, mainFooter } from './footer.module.scss';
+
+const { footerImage, lightNav, variation } = Astro.props;
+const curveURL = footerImage || defaultCurveUrl;
+const Curve = variation === `home` ? HomeFooter : DefaultCurve;
+---
+
+<footer
+	class={mainFooter}
+	style={`--backgroundCurve: url('${curveURL}')`}
+	data-variation={variation}
+	data-light={lightNav === undefined ? undefined : String(lightNav)}
+>
+	<Curve class={footerBackground} />
+	<FooterNav items={menus.footer} />
+	<Social items={menus.social} />
+</footer>

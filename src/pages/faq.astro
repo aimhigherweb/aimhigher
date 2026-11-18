@@ -1,0 +1,29 @@
+---
+import FAQ from '../../lib/parts/faq/index.astro';
+import processMarkdown from '../../lib/utils/markdown.js';
+import Flower from '../img/illustrations/flower_2.svg';
+import Paw from '../img/illustrations/paw.svg';
+import Squiggle from '../img/illustrations/squiggle.svg';
+import social from '../img/social/faq.png';
+import Layout from '../layouts/Layout.astro';
+import * as styles from '../styles/pages/faq.module.scss';
+import { cms } from '../utils/cms.js';
+import { getContent } from '../utils/content.js';
+
+const { title, meta } = await getContent(`faq/index`);
+const { faqs } = await cms(`{ faqs(pagination: { limit: 100 }, sort: ["sortOrder:asc", "createdAt:asc"]) { question answer } }`, { faqs: [] });
+---
+
+<Layout meta={{ ...meta, image: social.src }}>
+	<div class={styles.content}>
+		<Squiggle class={styles.squiggle} />
+		<h1>{title}</h1>
+		{faqs.map(({ question, answer }) => (
+			<FAQ title={question} name="faq">
+				<div class={styles.faq} set:html={processMarkdown(answer)} />
+			</FAQ>
+		))}
+		<Flower class={styles.flower} />
+		<Paw class={styles.paw} />
+	</div>
+</Layout>

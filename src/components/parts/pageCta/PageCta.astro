@@ -1,0 +1,22 @@
+---
+import { button } from '../../../../lib/parts/forms/button/button.module.scss';
+import Underline from '../../../img/illustrations/underline.svg';
+import ContactForm from '../form/ContactForm.astro';
+import {
+	contact, ctaButton, form, underline
+} from './pageCta.module.scss';
+
+const { cta } = Astro.props;
+---
+
+{cta && cta !== `none` && (
+	<div class={contact}>
+		<div class={underline}><Underline /></div>
+		{cta === `book_a_call`
+			? <a href="https://savvycal.com/aimhigher/book-a-call" target="_blank" rel="noopener" class:list={[button, ctaButton]}>Book a Call</a>
+			: <>
+				<h2>Need Help?</h2>
+				<ContactForm name="contact_blog" class={form} />
+			</>}
+	</div>
+)}

@@ -1,0 +1,44 @@
+---
+import '../../lib/styles/global.scss';
+
+import { GTM_ID } from 'astro:env/server';
+
+import DevStyles from '../components/partials/devStyles/DevStyles.astro';
+import Footer from '../components/partials/footer/Footer.astro';
+import Header from '../components/partials/header/Header.astro';
+import Meta from '../components/parts/meta/Meta.astro';
+import * as styles from './layout.module.scss';
+
+const { meta = {}, header = {}, footer = {} } = Astro.props;
+const gtm = import.meta.env.PROD && GTM_ID;
+---
+
+<!doctype html>
+<html lang="en-AU">
+	<head>
+		<Meta {...meta} />
+		{gtm && (
+			<script is:inline define:vars={{ gtm }}>
+				/* global gtm -- injected by define:vars */
+				window.dataLayer = window.dataLayer || [];
+				window.dataLayer.push({ 'gtm.start': Date.now(), event: `gtm.js` });
+				const script = document.createElement(`script`);
+				script.async = true;
+				script.src = `https://www.googletagmanager.com/gtm.js?id=${gtm}`;
+				document.head.append(script);
+			</script>
+		)}
+		<slot name="head" />
+		{import.meta.env.DEV && <DevStyles />}
+	</head>
+	<body>
+		{gtm && (
+			<noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtm}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		)}
+		<Header {...header} />
+		<main class={styles.content}>
+			<slot />
+		</main>
+		<Footer {...footer} />
+	</body>
+</html>

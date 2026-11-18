@@ -1,0 +1,27 @@
+---
+// Static pages from _data/content/static, e.g. /privacy and /terms
+import Flower from '../img/illustrations/flower_2.svg';
+import Paw from '../img/illustrations/paw.svg';
+import Squiggle from '../img/illustrations/squiggle.svg';
+import Layout from '../layouts/Layout.astro';
+import * as styles from '../styles/pages/page.module.scss';
+import { getFolder } from '../utils/content.js';
+
+export const getStaticPaths = async () => {
+	const pages = await getFolder(`static`);
+
+	return pages.map((page) => ({ params: { page: page.name }, props: page }));
+};
+
+const { title, meta, html } = Astro.props;
+---
+
+<Layout meta={meta}>
+	<article class={styles.content}>
+		<Squiggle class={styles.squiggle} />
+		<h1>{title}</h1>
+		<div class={styles.page} set:html={html} />
+		<Flower class={styles.flower} />
+		<Paw class={styles.paw} />
+	</article>
+</Layout>

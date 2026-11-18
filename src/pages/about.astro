@@ -1,0 +1,79 @@
+---
+import { getImage } from 'astro:assets';
+
+import ImageBlob from '../components/parts/imageBlob/ImageBlob.astro';
+import Partners from '../components/parts/partners/Partners.astro';
+import amy from '../img/amy.jpg';
+import Header from '../img/banners/header_1.svg';
+import Character from '../img/graphics/desk.svg';
+import Blob from '../img/illustrations/blob_2.svg';
+import Background from '../img/illustrations/blob_background.svg';
+import Dots from '../img/illustrations/dots.svg';
+import Heart from '../img/illustrations/heart.svg';
+import Leaf from '../img/illustrations/leaf_thin.svg';
+import Paw from '../img/illustrations/paw.svg';
+import Squiggle from '../img/illustrations/squiggle.svg';
+import social from '../img/social/about.png';
+import Layout from '../layouts/Layout.astro';
+import * as styles from '../styles/pages/about.module.scss';
+import { cms } from '../utils/cms.js';
+import { getContent } from '../utils/content.js';
+import { button } from '../../lib/parts/forms/button/button.module.scss';
+
+const { title, meta, cta } = await getContent(`about/index`);
+const aimhigher = await getContent(`about/aimhigher`);
+const founder = await getContent(`about/founder`);
+const partners = await getContent(`about/partners`);
+const profile = await getImage({ src: amy, width: 700 });
+const { partners: logos } = await cms(`{ partners(pagination: { limit: 100 }) { name url logo { url } } }`, { partners: [] });
+---
+
+<Layout
+	header={{ curve: Header, curveClass: styles.header }}
+	meta={{ ...meta, image: social.src }}
+>
+	<h1 class="sr-only">{title}</h1>
+	<section class:list={[styles.section, styles.aimhigher]}>
+		<Leaf class={styles.leaf} />
+		<Dots class={styles.dots} />
+		<Blob class={styles.blob} />
+		<h2>{aimhigher.title}</h2>
+		<div set:html={aimhigher.html} />
+		<Character class={styles.graphic} />
+	</section>
+
+	<section class:list={[styles.section, styles.founder]}>
+		<Squiggle class={styles.squiggle} />
+		<Background class={styles.background} />
+		<h2>{founder.title}</h2>
+		<div set:html={founder.html} />
+		<div class={styles.image_blob}>
+			<Blob class={styles.underlay} />
+			<ImageBlob image={profile.src} />
+		</div>
+	</section>
+
+	<section class:list={[styles.section, styles.ctas]}>
+		<ul class={styles.buttons}>
+				{cta.map((link) => (
+					<li>
+						<a 
+							class:list={[button, styles.cta]} 
+							href={link.link} 
+							target={link.link.startsWith(`http`) ? `_blank` : undefined}
+						>
+							{link.text}
+						</a>
+					</li>
+				))}
+			</ul>
+	</section>
+
+	<section class={styles.section}>
+		<h2>{partners.title}</h2>
+		<div set:html={partners.html} />
+		<Heart class={styles.heart} />
+		<Partners class={styles.logos} partners={logos} />
+		<Paw class={styles.paw} />
+	</section>
+</Layout>
