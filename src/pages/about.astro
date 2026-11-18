@@ -3,7 +3,7 @@ import { getImage } from 'astro:assets';
 
 import ImageBlob from '../components/parts/imageBlob/ImageBlob.astro';
 import Partners from '../components/parts/partners/Partners.astro';
-import amy from '../img/amy_rem.jpg';
+import amy from '../img/amy.jpg';
 import Header from '../img/banners/header_1.svg';
 import Character from '../img/graphics/desk.svg';
 import Blob from '../img/illustrations/blob_2.svg';
@@ -18,13 +18,14 @@ import Layout from '../layouts/Layout.astro';
 import * as styles from '../styles/pages/about.module.scss';
 import { cms } from '../utils/cms.js';
 import { getContent } from '../utils/content.js';
+import { button } from '../../lib/parts/forms/button/button.module.scss';
 
-const { title, meta } = await getContent(`about/index`);
+const { title, meta, cta } = await getContent(`about/index`);
 const aimhigher = await getContent(`about/aimhigher`);
 const founder = await getContent(`about/founder`);
 const partners = await getContent(`about/partners`);
 const profile = await getImage({ src: amy, width: 700 });
-const { partners: logos } = await cms(`{ partners { name url logo { url } } }`, { partners: [] });
+const { partners: logos } = await cms(`{ partners(pagination: { limit: 100 }) { name url logo { url } } }`, { partners: [] });
 ---
 
 <Layout
@@ -50,6 +51,22 @@ const { partners: logos } = await cms(`{ partners { name url logo { url } } }`, 
 			<Blob class={styles.underlay} />
 			<ImageBlob image={profile.src} />
 		</div>
+	</section>
+
+	<section class:list={[styles.section, styles.ctas]}>
+		<ul class={styles.buttons}>
+				{cta.map((link) => (
+					<li>
+						<a 
+							class:list={[button, styles.cta]} 
+							href={link.link} 
+							target={link.link.startsWith(`http`) ? `_blank` : undefined}
+						>
+							{link.text}
+						</a>
+					</li>
+				))}
+			</ul>
 	</section>
 
 	<section class={styles.section}>

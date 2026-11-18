@@ -17,7 +17,7 @@ const tweet = `So @amys_kapers wrote this really cool blog post, you should chec
 		<img src={featured?.url} alt={featured?.alternativeText || ``} loading="lazy" />
 	</div>
 	<h2><a href={`/blog/${slug}`}>{title}</a></h2>
-	<p class={styles.date}>{format(parse(date, `yyyy-MM-dd`, new Date()), `dd MMM`)}</p>
+	<p class={styles.date}>{format(parse(date, `yyyy-MM-dd`, new Date()), `dd MMM yyyy`)}</p>
 	<p class={styles.excerpt} set:html={description} />
 	<ul class={styles.social}>
 		<li>

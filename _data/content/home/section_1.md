@@ -4,15 +4,10 @@
 		"image": "website",
 		"cta": [
 			{
-				"link": "/about",
-				"text": "About Us"
+				"link": "/services",
+				"text": "What We Do"
 			},
-			{
-				"link": "https://savvycal.com/aimhigher/book-a-call",
-				"text": "Book a Call",
-				"external": true
-			}
 		]
 	}
 ---
-AimHigher Web is a Perth based web development and design company bringing business’ all over the world online.
+AimHigher Web is a Perth based studio, specialising in bespoke front end development and accessibility for clients the world over.

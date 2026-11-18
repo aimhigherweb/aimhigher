@@ -32,12 +32,15 @@ const { name = `contact`, class: className = ``, location = Astro.url.pathname }
 	/>
 	<Label for="phone">Phone</Label>
 	<Input id="phone" name="phone" autocomplete="tel" inputmode="tel" />
-	<Label for="website">Do you have an existing website? Or a Facebook page?</Label>
-	<Input id="website" name="website" autocomplete="on" inputmode="url" placeholder="URL" />
+	<Label for="company">Company</Label>
+	<Input id="company" name="company" autocomplete="company" />
+	<Label for="website">Link to your site or product</Label>
+	<Input id="website" name="website" autocomplete="on" inputmode="url" />
 	<FieldGroup legend="What services are you looking for?">
-		<Checkbox id="build" value="build" name="services">New Website Build</Checkbox>
-		<Checkbox id="ecommerce" value="ecommerce" name="services">eCommerce/Online Store</Checkbox>
-		<Checkbox id="development" value="development" name="services">Website Updates</Checkbox>
+		<Checkbox id="development" value="development" name="services">Custom Development</Checkbox>
+		<Checkbox id="a11y" value="a11y" name="services">Accessibility Review</Checkbox>
+		<Checkbox id="consulting" value="consulting" name="services">Consulting</Checkbox>
+		<Checkbox id="training" value="training" name="services">Workshop or Team Training</Checkbox>
 		<Checkbox id="other" value="other" name="services">Something Else</Checkbox>
 	</FieldGroup>
 	<Label for="message">Message</Label>

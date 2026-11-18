@@ -1,7 +1,6 @@
 @use "lib/styles/variables" as var;
 
-svg.header {
-}
+svg.header {}
 
 .section {
 	position: relative;
@@ -9,7 +8,7 @@ svg.header {
 	line-height: 1.4;
 	text-align: left;
 
-	a {
+	a:not([class*=button]) {
 		color: var.$yellow;
 		font-style: italic;
 		font-weight: 500;
@@ -42,6 +41,7 @@ svg.header {
 
 	a {
 		display: block;
+
 		&:hover {
 			display: block;
 			filter: grayscale(100);
@@ -94,6 +94,51 @@ svg.header {
 	max-width: 350px;
 	margin: 0 auto;
 }
+
+.ctas {
+	margin: 30px 0;
+}
+
+.cta {
+	--button_border: #{var.$pink};
+	--button_background: #{var.$pink};
+	--button_text: #{var.$black};
+	display: inline-block;
+	text-decoration: none;
+	white-space: nowrap;
+
+	&:hover {
+		&:after {
+			content: normal;
+		}
+	}
+}
+
+.buttons {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	font-size: 0.8em;
+
+	li {
+		margin: 20px;
+		padding: 0;
+
+
+		&:nth-child(2n) {
+			.cta {
+				--button_border: #{var.$yellow};
+				--button_background: #{var.$yellow};
+				--button_text: #{var.$black};
+			}
+		}
+	}
+}
+
 
 .paw {
 	position: absolute;
@@ -210,7 +255,7 @@ svg.header {
 		top: -200px;
 		bottom: auto;
 		left: -600px;
-		width: 2000px;
+		width: 2200px;
 		height: auto;
 		transform: unset;
 	}
@@ -219,6 +264,11 @@ svg.header {
 		position: absolute;
 		top: 0;
 		left: 0;
+		width: 100%;
+	}
+
+	.ctas {
+		margin-bottom: 100px;
 	}
 
 	.paw {
@@ -273,8 +323,14 @@ svg.header {
 	}
 
 	.background {
-		top: -150px;
+		top: -170px;
 		left: -700px;
+		width: 2500px;
+	}
+
+	.ctas {
+		margin-bottom: 200px;
+		margin-top: 350px;
 	}
 
 	.graphic {
@@ -357,7 +413,7 @@ svg.header {
 	.background {
 		top: -350px;
 		left: -1000px;
-		width: 3000px;
+		width: 3300px;
 	}
 
 	.paw {
@@ -387,7 +443,12 @@ svg.header {
 
 	.founder {
 		margin-top: 400px;
-		margin-bottom: 400px;
+		margin-bottom: 500px;
+	}
+
+	.ctas {
+		// margin-bottom: 200px;
+		// margin-top: 350px;
 	}
 
 	.graphic {
@@ -421,6 +482,10 @@ svg.header {
 @media(min-width: 90em) {
 	svg.header {
 		right: 450px;
+	}
+
+	.background {
+		width: 3600px;
 	}
 
 	.leaf {

@@ -34,7 +34,15 @@ const graphics = [
 			<div class={content} set:html={banner.html} />
 			<ul class={buttons}>
 				{banner.cta.map((link) => (
-					<li><a class:list={[button, cta]} href={link.link} target={link.external ? `_blank` : undefined}>{link.text}</a></li>
+					<li>
+						<a 
+							class:list={[button, cta]} 
+							href={link.link} 
+							target={link.link.startsWith(`http`) ? `_blank` : undefined}
+						>
+							{link.text}
+						</a>
+					</li>
 				))}
 			</ul>
 		</blockquote>
@@ -50,7 +58,15 @@ const graphics = [
 					<div set:html={block.html} />
 					<ul class={buttons}>
 						{(block.cta ?? []).map((link) => (
-							<li><a class:list={[button, cta]} href={link.link} target={link.external ? `_blank` : undefined}>{link.text}</a></li>
+							<li>
+						<a 
+							class:list={[button, cta]} 
+							href={link.link} 
+							target={link.link.startsWith(`http`) ? `_blank` : undefined}
+						>
+							{link.text}
+						</a>
+					</li>
 						))}
 					</ul>
 				</div>

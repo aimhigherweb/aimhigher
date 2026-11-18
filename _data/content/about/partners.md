@@ -3,5 +3,4 @@
 	"title": "Industry Partners",
 }
 ---
-
-AimHigher has it’s specialties, our super powers if you will but this world is full of superheroes just like us & we take great pride in the fantastic network of industry partners we work with to take AimHigher’s service to the next level!
+AimHigher has its specialties, our super powers if you will, but this world is full of superheroes just like us. We take great pride in the fantastic network of designers, writers and specialists we work with to take your project to the next level!

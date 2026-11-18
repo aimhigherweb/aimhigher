@@ -1,6 +1,6 @@
 export const site = {
-	title: `AimHigher Web`,
-	description: `Together, Online, Aim Higher. Bridging the gap between businesses and website technologies`,
+	title: `AimHigher Web | Accessibility and front-end development`,
+	description: `Accessibility reviews and bespoke front-end development from a Perth studio. Websites built by people, for people.`,
 	url: `https://aimhigherweb.design`,
 };
 
