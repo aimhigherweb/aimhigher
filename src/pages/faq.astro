@@ -11,7 +11,7 @@ import { cms } from '../utils/cms.js';
 import { getContent } from '../utils/content.js';
 
 const { title, meta } = await getContent(`faq/index`);
-const { faqs } = await cms(`{ faqs { question answer } }`, { faqs: [] });
+const { faqs } = await cms(`{ faqs(pagination: { limit: 100 }, sort: ["sortOrder:asc", "createdAt:asc"]) { question answer } }`, { faqs: [] });
 ---
 
 <Layout meta={{ ...meta, image: social.src }}>
@@ -19,7 +19,7 @@ const { faqs } = await cms(`{ faqs { question answer } }`, { faqs: [] });
 		<Squiggle class={styles.squiggle} />
 		<h1>{title}</h1>
 		{faqs.map(({ question, answer }) => (
-			<FAQ title={question}>
+			<FAQ title={question} name="faq">
 				<div class={styles.faq} set:html={processMarkdown(answer)} />
 			</FAQ>
 		))}
