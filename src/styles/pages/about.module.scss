@@ -1,28 +1,37 @@
 @use "lib/styles/variables" as var;
+@use 'lib/styles/mixins';
 
 svg.header {}
 
 .section {
 	position: relative;
 	padding: 20px;
-	line-height: 1.4;
+	line-height: 1.5;
 	text-align: left;
 
-	a:not([class*=button]) {
-		color: var.$yellow;
+	// Text links only; the partner logo links have their own styles in `.logos`
+	a:not([class*=button], .logos a) {
+		--heading_underline: #{var.$pink_bright};
+
+		@include mixins.underline;
+		color: inherit;
 		font-style: italic;
-		font-weight: 500;
+		font-weight: 700;
 		text-decoration: none;
 
-		&:hover {
-			text-decoration: underline;
+		&::after {
+			transform: scaleX(1);
+			height: 0.6em;
+		}
 
+		&:hover {
 			&:after {
-				content: normal;
+				transform: scaleX(0);
 			}
 		}
 	}
 }
+
 
 .logos {
 	display: flex;
@@ -69,7 +78,7 @@ svg.header {}
 
 .founder {
 	margin-top: 50px;
-	color: var.$white;
+	color: var.$black;
 }
 
 .image_blob {
@@ -102,7 +111,7 @@ svg.header {}
 .cta {
 	--button_border: #{var.$pink};
 	--button_background: #{var.$pink};
-	--button_text: #{var.$black};
+	--button_text: #{var.$pink_text};
 	display: inline-block;
 	text-decoration: none;
 	white-space: nowrap;
@@ -133,7 +142,7 @@ svg.header {}
 			.cta {
 				--button_border: #{var.$yellow};
 				--button_background: #{var.$yellow};
-				--button_text: #{var.$black};
+				--button_text: #{var.$yellow_text};
 			}
 		}
 	}
@@ -154,7 +163,7 @@ svg.header {}
 	position: relative;
 	left: -10px;
 	width: 100px;
-	color: var.$pink;
+	color: var.$pink_bright;
 }
 
 .squiggle {
@@ -163,7 +172,7 @@ svg.header {}
 	right: -50px;
 	width: 200px;
 	transform: rotate(10deg);
-	color: var.$pink;
+	color: var.$pink_bright;
 	mix-blend-mode: multiply;
 }
 
@@ -173,7 +182,7 @@ svg.header {}
 	top: 0;
 	width: 200px;
 	transform: rotate(-20deg);
-	color: var.$pink;
+	color: var.$pink_bright;
 	mix-blend-mode: multiply
 }
 
@@ -311,9 +320,15 @@ svg.header {}
 	}
 
 	.aimhigher {
+		max-width: min(70ch, 1200px);
+
 		h2 {
 			order: 0;
 		}
+	}
+
+	.partners {
+		max-width: min(70ch, 1200px);
 	}
 
 	.founder {

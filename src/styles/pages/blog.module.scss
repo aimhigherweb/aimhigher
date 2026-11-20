@@ -4,17 +4,18 @@ svg.header {
 	top: 0;
 	left: 0;
 	width: auto;
-	height: 11000px;
+	height: 7000px;
 	transform: translateX(-50%);
 }
 
 .content {
-	--heading_underline: #{var.$pink};
+	--heading_underline: #{var.$pink_bright};
+	--date: #{var.$pink};
 
 	position: relative;
 	margin-bottom: 400px;
 	padding: 20px;
-	color: var.$white;
+	color: var.$black;
 }
 
 .posts {
@@ -24,6 +25,8 @@ svg.header {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	z-index: 10;
+	position: relative;
 
 	li {
 		margin: 0;
@@ -32,20 +35,69 @@ svg.header {
 	}
 
 	.post {
+
+
 		max-width: 400px;
 		margin: 10px auto;
 
 		&:nth-child(4n - 3) {
 			--heading_underline: #{var.$secondary};
+			--date: #{var.$secondary_dark};
 		}
 
 		&:nth-child(4n - 2) {
-			--heading_underline: #{var.$purple};
+			--heading_underline: #{var.$purple_light};
+			--date: #{var.$purple};
 		}
 
 		&:nth-child(4n - 1) {
 			--heading_underline: #{var.$primary};
+			--date: #{var.$primary_dark};
 		}
+	}
+}
+
+.pagination {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin: 40px 0 0;
+
+	.gap {
+		font-weight: bold;
+	}
+
+	// Shared .button styles, in primary, without the global link underline
+	a {
+		--button_border: #{var.$primary};
+		--button_background: #{var.$primary};
+		--button_text: #{var.$primary_text};
+
+		display: inline-block;
+		background: transparent;
+		box-shadow: none;
+		text-decoration: none;
+
+		// Outlined, filled on hover (instead of the button's inverted hover)
+		&:hover {
+			border-color: var.$primary;
+			background: var.$primary;
+			box-shadow: none;
+			color: var.$primary_text;
+		}
+
+		&:hover:after {
+			content: normal;
+		}
+	}
+
+	// Current page: always filled
+	[aria-current="page"] {
+		background: var.$primary;
 	}
 }
 
@@ -72,7 +124,7 @@ svg.header {
 	left: 20px;
 	width: 200px;
 	transform: scaleX(-1);
-	color: var.$pink;
+	color: var.$pink_bright;
 	mix-blend-mode: multiply;
 }
 
@@ -88,7 +140,7 @@ svg.header {
 
 @media(min-width: 40em) {
 	svg.header {
-		height: 6000px;
+		height: 4000px;
 	}
 
 	.content {
@@ -155,11 +207,11 @@ svg.header {
 
 @media(min-width: 50em) {
 	svg.header {
-		height: 6500px;
+		height: 4000px;
 	}
 
 	.content {
-		margin-bottom: 750px;
+		margin-bottom: 400px;
 		padding: 0 50px;
 	}
 
@@ -170,17 +222,17 @@ svg.header {
 	}
 
 	.squiggle_2 {
-		bottom: -400px;
+		bottom: 200px;
 	}
 
 	.dots {
-		bottom: -800px;
+		bottom: -300px;
 	}
 }
 
 @media(min-width: 60em) {
 	svg.header {
-		height: 7300px;
+		height: 5000px;
 	}
 
 	.content {
@@ -218,11 +270,11 @@ svg.header {
 
 @media(min-width: 70em) {
 	svg.header {
-		height: 5500px;
+		height: 3500px;
 	}
 
 	.content {
-		margin-bottom: 800px;
+		margin-bottom: 600px;
 	}
 
 	.posts {
@@ -244,12 +296,12 @@ svg.header {
 	}
 
 	.squiggle_2 {
-		bottom: -500px;
+		bottom: -300px;
 		width: 500px;
 	}
 
 	.dots {
-		bottom: -900px;
+		bottom: -600px;
 		left: 20px;
 	}
 
@@ -307,7 +359,7 @@ svg.header {
 
 @media(min-width: 90em) {
 	svg.header {
-		height: 6000px;
+		height: 3600px;
 	}
 
 	.content {

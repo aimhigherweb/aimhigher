@@ -56,7 +56,7 @@ const postDate = parse(date, `yyyy-MM-dd`, new Date());
 			<h1>{title}</h1>
 			<p class={dateHead}>Posted on: <time datetime={date}>{format(postDate, `dd MMM yyyy`)}</time></p>
 			<p class={authorHead}>
-				<a href={author?.link} target="_blank" rel="noopener">{author?.name}</a>
+				<a href={author?.link} target="_blank" rel="noopener">{author?.name} <span class="sr-only">Opens in a new tab</span></a>
 				<img src={author?.profile_image?.url} alt="" />
 			</p>
 		</header>

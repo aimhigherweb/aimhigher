@@ -33,7 +33,7 @@ const gtm = import.meta.env.PROD && GTM_ID;
 	</head>
 	<body>
 		{gtm && (
-			<noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtm}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+			<noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtm}`} title="Google Tag Manager" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		)}
 		<Header {...header} />
 		<main class={styles.content}>

@@ -1,10 +1,10 @@
 @use "lib/styles/variables" as var;
 
 .header {
-	--logo-neutral: #{var.$white};
-	--logo-secondary: #{var.$white};
-	--logo-gradient_1: #{var.$white};
-	--logo-gradient_2: #{var.$white};
+	--logo-neutral: #{var.$black};
+	--logo-secondary: #{var.$black};
+	--logo-gradient_1: #{var.$black};
+	--logo-gradient_2: #{var.$black};
 
 	display: flex;
 	position: relative;
@@ -12,7 +12,7 @@
 	justify-content: space-between;
 	padding: 20px;
 
-	color: var.$white;
+	color: var.$black;
 }
 
 .logo {
@@ -78,7 +78,7 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 65px 0;
-		
+
 	}
 
 	.logo {

@@ -58,7 +58,7 @@ const houseRules = {
 
 export default [
 	{
-		ignores: [`node_modules/**`, `dist/**`, `.astro/**`, `.netlify/**`, `config/_.stylelintrc.js`],
+		ignores: [`node_modules/**`, `dist/**`, `.astro/**`, `.netlify/**`, `config/_.stylelintrc.js`, `tests/results/**`, `tests/report/**`],
 	},
 	js.configs.recommended,
 	{
@@ -76,6 +76,8 @@ export default [
 		rules: houseRules,
 	},
 	...astro.configs.recommended,
+	// Accessibility rules for .astro markup (eslint-plugin-jsx-a11y-x, the ESLint 10 fork of jsx-a11y)
+	...astro.configs[`jsx-a11y-strict`],
 	{
 		files: [`**/*.astro`],
 		languageOptions: {
@@ -92,6 +94,13 @@ export default [
 			...houseRules,
 			// Template expressions in .astro markup don't follow script indentation
 			'@stylistic/indent': `off`,
+		},
+	},
+	{
+		// Playwright reads fixtures from the first parameter, so tests without fixtures need `({}, testInfo)`
+		files: [`tests/**/*.js`],
+		rules: {
+			'no-empty-pattern': [`error`, { allowObjectPatternsAsParameters: true }],
 		},
 	},
 ];

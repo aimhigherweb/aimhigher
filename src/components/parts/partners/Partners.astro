@@ -7,6 +7,7 @@ const { partners = [], class: className } = Astro.props;
 		<li>
 			<a href={url} target="_blank" rel="nofollow noopener">
 				<img src={logo?.url} alt={`Logo for ${name}`} loading="lazy" />
+				<span class="sr-only">Opens in a new tab</span>
 			</a>
 		</li>
 	))}

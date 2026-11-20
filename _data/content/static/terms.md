@@ -12,7 +12,7 @@
 Welcome to our website. This website with URL address [aimhigherweb.design](/) is owned and operated by AimHigher Web (485 468 310 52). Should you continue to use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our [Privacy Policy](/privacy) govern AimHigher Web’s relationship with you in connection with this website. Should you not agree with any of these terms and conditions, please do not use our website.
 
 The term ‘AimHigher Web’ or ‘us’ or ‘our’ or ‘we’ refers to AimHigher Web, the owner of the website, whose registered ABN is 485 468 310 52. The term ‘you’ or ‘your’ refers to the website user.
-
+ 
 Your use of this website is subject to the following terms and conditions:
 
 1. The content of this website is for your general information and use only. It is subject to change without prior notice.

@@ -17,7 +17,7 @@ svg.header {
 .cta {
 	--button_border: #{var.$pink};
 	--button_background: #{var.$pink};
-	--button_text: #{var.$black};
+	--button_text: #{var.$pink_text};
 	display: inline-block;
 	text-decoration: none;
 	white-space: nowrap;
@@ -47,7 +47,7 @@ svg.header {
 			.cta {
 				--button_border: #{var.$yellow};
 				--button_background: #{var.$yellow};
-				--button_text: #{var.$black};
+				--button_text: #{var.$yellow_text};
 			}
 		}
 	}
@@ -56,7 +56,7 @@ svg.header {
 .homeBanner {
 
 	padding: 0 20px;
-	color: var.$white;
+	color: var.$black;
 	text-align: left;
 
 	blockquote {
@@ -68,7 +68,7 @@ svg.header {
 	h1 {
 		margin-top: 0;
 		padding-right: 0;
-		color: var.$white;
+		color: inherit;
 		font-size: 1.8em;
 		text-transform: uppercase;
 
@@ -121,7 +121,7 @@ svg.header {
 				.cta {
 					--button_border: #{var.$secondary};
 					--button_background: #{var.$secondary};
-					--button_text: #{var.$black};
+					--button_text: #{var.$secondary_text};
 				}
 			}
 		}
@@ -129,7 +129,7 @@ svg.header {
 		.cta {
 			--button_border: #{var.$purple};
 			--button_background: #{var.$purple};
-			--button_text: #{var.$white};
+			--button_text: #{var.$purple_text};
 		}
 	}
 
@@ -144,7 +144,7 @@ svg.header {
 					.cta {
 						--button_border: #{var.$pink};
 						--button_background: #{var.$pink};
-						--button_text: #{var.$black};
+						--button_text: #{var.$pink_text};
 					}
 				}
 			}
@@ -153,7 +153,7 @@ svg.header {
 		.cta {
 			--button_border: #{var.$yellow};
 			--button_background: #{var.$yellow};
-			--button_text: #{var.$black};
+			--button_text: #{var.$yellow_text};
 		}
 	}
 }
@@ -163,7 +163,7 @@ svg.header {
 	top: -120px;
 	right: -100px;
 	width: 200px;
-	color: var.$pink;
+	color: var.$pink_bright;
 }
 
 .heart {
@@ -256,7 +256,7 @@ svg.header {
 		}
 
 		&:last-child {
-			color: var.$white;
+			color: var.$black;
 
 			.content {
 				align-self: flex-end;

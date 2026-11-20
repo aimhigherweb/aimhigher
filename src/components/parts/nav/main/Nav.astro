@@ -9,8 +9,7 @@ const { items, light } = Astro.props;
 
 <nav aria-label="main-nav" class={styles.nav} data-light={light ? `true` : undefined} data-main-nav>
 	<button class={styles.hamburger} aria-expanded="false">
-		<Icon icon="hamburger" class={styles.menu} />
-		<Icon icon="close" class={styles.close} />
+		<Icon icon="menu" class={styles.menu} />
 		<span class="sr-only">Toggle Main Nav</span>
 	</button>
 	<ul>
@@ -23,7 +22,9 @@ const { items, light } = Astro.props;
 					class:list={[styles.item, cta && [button, styles.cta], isCurrent(link, Astro.url.pathname) && `current`]}
 					aria-current={isCurrent(link, Astro.url.pathname) ? `page` : undefined}
 					target={external ? `_blank` : undefined}
-				>{label}</a>
+					style={{'--text': `\"${label}\""`}}
+					disabled={isCurrent(link, Astro.url.pathname) ? true : undefined}
+				>{label}{external && <> <span class="sr-only">Opens in a new tab</span></>}</a>
 			</li>
 		))}
 	</ul>

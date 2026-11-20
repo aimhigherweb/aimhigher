@@ -5,7 +5,7 @@
 }
 
 .form {
-	max-width: 800px;
+	max-width: 1000px;
 }
 
 .underline {
@@ -28,7 +28,7 @@
 	--button_background: #{var.$purple};
 	--button_text: #{var.$white};
 
-	display: inline-block;	
+	display: inline-block;
 	line-height: 1;
 	white-space: nowrap;
 	color: var(--button_text);
@@ -39,6 +39,6 @@
 @media(min-width: 80em) {
 	.form {
 		padding: 50px 100px;
-		max-width: 800px;
+		max-width: 1200px;
 	}
 }

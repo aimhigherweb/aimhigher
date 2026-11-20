@@ -1,8 +1,8 @@
 @use "lib/styles/variables" as var;
 
-$banner_height: 250px;
+$banner_height: 500px;
 $banner_width: auto;
-$banner_left: -200px;
+$banner_left: -600px;
 
 .mainFooter {
 	display: flex;
@@ -11,11 +11,12 @@ $banner_left: -200px;
 	align-content: flex-end;
 	justify-content: center;
 	justify-content: space-evenly;
-	height: 150px;
+	height: 350px;
 	margin-top: 100px;
 	padding: 20px 10px;
 
-	&:before, &:after {
+	&:before,
+	&:after {
 		content: '';
 		position: absolute;
 		right: 0;
@@ -44,7 +45,7 @@ $banner_left: -200px;
 			background-position: -350px bottom;
 		}
 
-		.footerBackground {		
+		.footerBackground {
 			left: -350px;
 		}
 	}
@@ -60,7 +61,8 @@ $banner_left: -200px;
 }
 
 @media(min-width: 40em) {
-	$banner_left: 20vw;
+	$banner_left: 5vw;
+	$banner_height: 350px;
 
 	.mainFooter {
 		flex-wrap: nowrap;
@@ -68,6 +70,7 @@ $banner_left: -200px;
 		justify-content: space-between;
 		margin-top: 50px;
 		padding: 20px 20px 50px;
+		height: 200px;
 
 		&:after {
 			background-position: $banner_left bottom;
@@ -76,7 +79,7 @@ $banner_left: -200px;
 		&[data-light='true'] {
 			nav {
 				a {
-					color: var.$white;
+					color: var.$black;
 				}
 			}
 		}
@@ -90,25 +93,28 @@ $banner_left: -200px;
 			.footerBackground {
 				left: -550px;
 				height: 520px;
-		
-				
+
+
 			}
 		}
 	}
 
 	.footerBackground {
 		left: $banner_left;
+		height: $banner_height;
 	}
 }
 
 @media(min-width: 50em) {
-	$banner_height: 200px;
-	$banner_left: 35vw;
+	$banner_height: 350px;
+	$banner_left: 10vw;
 
 	.mainFooter {
 		padding: 50px;
+		height: auto;
 
-		&:before, &:after {
+		&:before,
+		&:after {
 			height: $banner_height;
 		}
 
@@ -135,8 +141,8 @@ $banner_left: -200px;
 }
 
 @media(min-width: 60em) {
-	$banner_height: 300px;
-	$banner_left: 25vw;
+	$banner_height: 400px;
+	$banner_left: 10vw;
 
 	.mainFooter {
 		width: 90vw;
@@ -145,7 +151,8 @@ $banner_left: -200px;
 		margin: 100px auto 0;
 		padding: 65px 0;
 
-		&:before, &:after {
+		&:before,
+		&:after {
 			width: 100vw;
 			height: $banner_height;
 		}
@@ -171,18 +178,19 @@ $banner_left: -200px;
 	.footerBackground {
 		left: $banner_left;
 		height: $banner_height;
-		
+
 	}
 }
 
 @media(min-width: 70em) {
 	$banner_height: 400px;
-	$banner_left: 300px;
+	$banner_left: 200px;
 
 	.mainFooter {
 		padding: 100px 0;
 
-		&:before, &:after {
+		&:before,
+		&:after {
 			height: $banner_height;
 		}
 
@@ -198,8 +206,8 @@ $banner_left: -200px;
 
 			.footerBackground {
 				left: -600px;
-		
-				
+
+
 			}
 		}
 	}
@@ -211,7 +219,7 @@ $banner_left: -200px;
 }
 
 @media(min-width: 80em) {
-	$banner_left: 500px;
+	$banner_left: 250px;
 
 	.mainFooter {
 		&:after {
@@ -227,8 +235,8 @@ $banner_left: -200px;
 			.footerBackground {
 				left: -820px;
 				height: 900px;
-		
-				
+
+
 			}
 		}
 	}
@@ -240,12 +248,13 @@ $banner_left: -200px;
 
 @media(min-width: 90em) {
 	$banner_height: 500px;
-	$banner_left: 300px;
+	$banner_left: 200px;
 
 	.mainFooter {
 		padding: 140px 0;
 
-		&:before, &:after {
+		&:before,
+		&:after {
 			height: $banner_height;
 		}
 
@@ -264,8 +273,8 @@ $banner_left: -200px;
 			.footerBackground {
 				left: -950px;
 				height: 1000px;
-		
-				
+
+
 			}
 		}
 	}

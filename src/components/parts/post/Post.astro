@@ -10,6 +10,20 @@ const {
 } = Astro.props;
 const postUrl = `${site.url}/blog/${slug}`;
 const tweet = `So @amys_kapers wrote this really cool blog post, you should check it out! ${postUrl}`;
+
+/** Longest excerpt shown on a card, in characters (about 5 lines) */
+const excerptLength = 180;
+// Cut at the last whole word so the excerpt never ends mid-word
+const excerpt = (() => {
+	const text = (description ?? ``).trim();
+
+	if (text.length <= excerptLength) return text;
+
+	const cut = text.slice(0, excerptLength + 1);
+	const end = cut.lastIndexOf(` `);
+
+	return `${cut.slice(0, end > 0 ? end : excerptLength).replace(/[\s,.;:!?–—-]+$/, ``)}…`;
+})();
 ---
 
 <article class={styles.post}>
@@ -18,18 +32,20 @@ const tweet = `So @amys_kapers wrote this really cool blog post, you should chec
 	</div>
 	<h2><a href={`/blog/${slug}`}>{title}</a></h2>
 	<p class={styles.date}>{format(parse(date, `yyyy-MM-dd`, new Date()), `dd MMM yyyy`)}</p>
-	<p class={styles.excerpt} set:html={description} />
+	<p class={styles.excerpt} set:html={excerpt} />
 	<ul class={styles.social}>
 		<li>
 			<a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`} target="_blank" rel="noopener">
 				<Icon icon="twitter" />
 				<span class="sr-only">Share "{title}" on Twitter</span>
+				<span class="sr-only">Opens in a new tab</span>
 			</a>
 		</li>
 		<li>
 			<a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`} target="_blank" rel="noopener">
 				<Icon icon="facebook" />
 				<span class="sr-only">Share "{title}" on Facebook</span>
+				<span class="sr-only">Opens in a new tab</span>
 			</a>
 		</li>
 	</ul>

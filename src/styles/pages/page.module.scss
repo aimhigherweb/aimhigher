@@ -8,8 +8,11 @@
 .page {
 	margin-bottom: 50px;
 	text-align: left;
+	max-width: min(70ch, 1200px);
 
-	h2, h3, h4 {
+	h2,
+	h3,
+	h4 {
 		clear: both;
 	}
 }
@@ -28,7 +31,7 @@
 	bottom: -50px;
 	left: -50px;
 	width: 100px;
-	color: var.$pink;
+	color: var.$pink_bright;
 	mix-blend-mode: multiply;
 }
 

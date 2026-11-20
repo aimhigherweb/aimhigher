@@ -80,6 +80,28 @@
 			"problemMatcher": ["$eslint-stylish"]
 		},
 		{
+			"label": "lint:html",
+			"detail": "html-validate on the built pages in dist/ (run a build first)",
+			"type": "npm",
+			"script": "lint:html",
+			"problemMatcher": []
+		},
+		{
+			"label": "test",
+			"detail": "Playwright + pa11y a11y suite (WCAG 2.2 AAA) against the dev server, or BASE_URL if set",
+			"type": "npm",
+			"script": "test",
+			"group": { "kind": "test", "isDefault": true },
+			"problemMatcher": []
+		},
+		{
+			"label": "test:report",
+			"detail": "Open the last Playwright a11y report",
+			"type": "npm",
+			"script": "test:report",
+			"problemMatcher": []
+		},
+		{
 			"label": "test:a11y",
 			"detail": "pa11y against a URL",
 			"type": "npm",

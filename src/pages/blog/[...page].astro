@@ -1,0 +1,83 @@
+---
+// Blog listing, paginated: /blog, /blog/2, /blog/3, ...
+import { button } from '../../../lib/parts/forms/button/button.module.scss';
+import Post from '../../components/parts/post/Post.astro';
+import Header from '../../img/banners/header_2.svg';
+import Dots from '../../img/illustrations/dots.svg';
+import Flower from '../../img/illustrations/flower.svg';
+import Squiggle from '../../img/illustrations/squiggle.svg';
+import social from '../../img/social/blog.png';
+import Layout from '../../layouts/Layout.astro';
+import * as styles from '../../styles/pages/blog.module.scss';
+import { cms } from '../../utils/cms.js';
+import { getContent } from '../../utils/content.js';
+
+export const getStaticPaths = async ({ paginate }) => {
+	const { blogPosts } = await cms(`{
+		blogPosts(sort: "date:desc", pagination: { limit: 100 }) {
+			slug
+			title
+			description
+			date
+			featured { url alternativeText }
+		}
+	}`, { blogPosts: [] });
+
+	return paginate(blogPosts, { pageSize: 12 });
+};
+
+const { page } = Astro.props;
+const { title, meta } = await getContent(`blog/index`);
+// Up to 5 pages: show them all. More: first, last and 3 around the current page,
+// with `null` marking a gap (rendered as dots)
+const pageNumbers = (() => {
+	const { currentPage, lastPage } = page;
+	const all = Array.from({ length: lastPage }, (_, i) => i + 1);
+
+	if (lastPage <= 5) return all;
+
+	const start = Math.min(Math.max(currentPage - 1, 1), lastPage - 2);
+	const shown = all.filter((n) => n === 1 || n === lastPage || (n >= start && n <= start + 2));
+
+	return shown.flatMap((n, i) => (i > 0 && n - shown[i - 1] > 1 ? [null, n] : [n]));
+})();
+const pageUrl = (number) => (number === 1 ? `/blog` : `/blog/${number}`);
+const pageMeta = page.currentPage === 1 ? meta : {
+	...meta,
+	title: `${title} - Page ${page.currentPage} | AimHigher Web`,
+	slug: pageUrl(page.currentPage),
+};
+---
+
+<Layout
+	header={{ curve: Header, curveClass: styles.header, lightNav: true }}
+	meta={{ ...pageMeta, image: social.src }}
+>
+	<div class={styles.content}>
+		<Squiggle class={styles.squiggle_1} />
+		<h1>{title}</h1>
+		<ul class={styles.posts} data-posts={page.data.length}>
+			{page.data.map((post) => (
+				<li class={styles.post}><Post {...post} /></li>
+			))}
+		</ul>
+		{page.lastPage > 1 && (
+			<nav class={styles.pagination} aria-label="Blog pages">
+				{page.url.prev && <a class={button} href={page.url.prev} rel="prev">Previous</a>}
+				{pageNumbers.map((number) => {
+					if (number === null) return <span class={styles.gap}>…</span>;
+
+					return number === page.currentPage
+						// No href: a placeholder link, i.e. disabled, since it's the page you're on
+						// eslint-disable-next-line astro/jsx-a11y/anchor-is-valid
+						? <a class={button} aria-current="page">{number}</a>
+						: <a class={button} href={pageUrl(number)}>{number}</a>;
+				})}
+				{page.url.next && <a class={button} href={page.url.next} rel="next">Next</a>}
+			</nav>
+		)}
+		<Dots class={styles.dots} />
+		<Flower class={styles.flower} />
+		<Squiggle class={styles.squiggle_2} />
+	</div>
+</Layout>

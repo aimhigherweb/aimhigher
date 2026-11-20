@@ -2,12 +2,20 @@
 
 .footerNavItem {
 	margin: 0 5px;
-	color: var.$white;
+	color: var.$black;
 	font-family: var.$font_headings;
 	text-decoration: none;
+	min-width: 44px;
 
-	.cls-p {
-		color: var.$primary;
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		min-height: 44px;
+		pointer-events: auto;
 	}
 }
 
@@ -15,20 +23,28 @@
 	position: relative;
 	z-index: 5;
 	order: 1;
-	margin-top: 10px;
+	margin-top: 20px;
+	min-height: 44px;
 
 	ul {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		li {
+			margin: 0.8em 0;
+		}
 	}
 }
 
 @media(min-width: 40em) {
 	.footerNav {
 		order: inherit;
-		width: 200px;
+		width: 250px;
 
 		ul {
 			flex-wrap: wrap;
+			justify-content: start;
 		}
 	}
 
@@ -41,15 +57,18 @@
 
 @media(min-width: 50em) {
 	.footerNav {
-		width: auto;
-
-		ul {
-			flex-wrap: nowrap;
-		}
+		width: 30vw;
 	}
 
 	.footerNavItem {
 		margin: 0 10px;
 		font-size: 0.9em;
 	}
+}
+
+@media(min-width: 70em) {
+	.footerNav {
+		width: auto;
+	}
+
 }

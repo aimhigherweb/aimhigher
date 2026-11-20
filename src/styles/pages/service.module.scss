@@ -3,6 +3,7 @@
 .pageContent {
 	position: relative;
 	padding: 20px;
+
 }
 
 .contact {
@@ -34,7 +35,9 @@
 	text-align: left;
 	clear: both;
 
-	h2, h3, h4 {
+	h2,
+	h3,
+	h4 {
 		clear: both;
 	}
 }
@@ -69,7 +72,7 @@
 	bottom: -50px;
 	left: -50px;
 	width: 100px;
-	color: var.$pink;
+	color: var.$pink_bright;
 	mix-blend-mode: multiply;
 }
 
@@ -152,7 +155,7 @@
 @media(min-width: 60em) {
 	.pageContent {
 		width: 90vw;
-		max-width: 1200px;
+		max-width: min(70ch, 1200px);
 		margin: 0 auto;
 		padding: 0 0 50px;
 	}

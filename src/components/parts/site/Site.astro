@@ -13,12 +13,13 @@ const date = parse(launch, `yyyy-MM-dd`, new Date());
 
 <article class={styles.site}>
 	<Screenshots {...screenshots} domain={domain} />
-	{live && <h2><a target="_blank" rel="noopener" href={`//${domain}`}>{domain}</a></h2>}
+	{live && <h2><a target="_blank" rel="noopener" href={`//${domain}`}>{domain} <span class="sr-only">Opens in a new tab</span></a></h2>}
 	<p class={styles.launch}>{live ? format(date, `MMMM yyyy`) : `Coming Soon`}</p>
 	{github && (
 		<a href={github} target="_blank" rel="noopener" class={styles.github}>
 			<Icon icon="github" />
 			<span class="sr-only">{domain} code repository on GitHub</span>
+			<span class="sr-only">Opens in a new tab</span>
 		</a>
 	)}
 </article>

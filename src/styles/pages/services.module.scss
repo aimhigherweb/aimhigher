@@ -1,19 +1,20 @@
 @use "lib/styles/variables" as var;
+@use "lib/styles/mixins";
 
 .content {
-	--heading_underline: #{var.$pink};
+	--heading_underline: #{var.$pink_bright};
 
 	position: relative;
-	margin-bottom: 700px;
+	margin-bottom: 600px;
 	padding: 20px;
-	color: var.$white;
+	color: var.$black;
 }
 
 svg.header {
 	top: 0;
 	left: 0;
 	width: auto;
-	height: 5100px;
+	height: 2500px;
 	transform: translateX(-50%);
 }
 
@@ -25,22 +26,27 @@ svg.header {
 .blurb {
 	--button_border: #{var.$pink};
 	--button_background: #{var.$pink};
-	
+
 
 	text-align: left;
 
 	a {
-		color: var.$yellow;
+		--heading_underline: #{var.$yellow};
+
+		@include mixins.underline;
+		color: inherit;
 		font-style: italic;
 		font-weight: bold;
 		text-decoration: none;
 
-		&:hover {
-			display: inline;
-			text-decoration: underline;
+		&::after {
+			transform: scaleX(1);
+			height: 0.6em;
+		}
 
+		&:hover {
 			&:after {
-				content: normal;
+				transform: scaleX(0);
 			}
 		}
 
@@ -55,10 +61,12 @@ svg.header {
 		}
 	}
 
-	p {
-		&:last-child {
-			text-align: center;
-		}
+
+}
+
+p {
+	&:last-child {
+		text-align: center;
 	}
 }
 
@@ -66,6 +74,7 @@ svg.header {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	z-index: 2;
 }
 
 .squiggle {
@@ -73,7 +82,7 @@ svg.header {
 	top: 50px;
 	right: -170px;
 	width: 200px;
-	color: var.$pink;
+	color: var.$pink_bright;
 }
 
 .leaf {
@@ -92,7 +101,7 @@ svg.header {
 	left: -50px;
 	width: 200px;
 	transform: rotate(40deg);
-	color: var.$pink;
+	color: var.$pink_bright;
 	mix-blend-mode: multiply;
 	z-index: 2;
 }
@@ -109,7 +118,7 @@ svg.header {
 
 @media(min-width: 40em) {
 	svg.header {
-		height: 3500px;
+		height: 1600px;
 	}
 
 	.squiggle {
@@ -122,20 +131,20 @@ svg.header {
 	}
 
 	.leaf_thin {
-		bottom: -1000px;
+		bottom: -200px;
 		left: 0;
 	}
 
 	.flower {
 		right: 0;
-		bottom: -550px;
+		bottom: -200px;
 	}
 
 	.content {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-end;
-		margin-bottom: 1000px;
+		margin-bottom: 200px;
 
 		h1 {
 			flex-grow: 0;
@@ -174,11 +183,11 @@ svg.header {
 
 @media(min-width: 50em) {
 	svg.header {
-		height: 3250px;
+		height: 1700px;
 	}
 
 	.content {
-		margin-bottom: 900px;
+		margin-bottom: 20px;
 		padding: 0 50px;
 	}
 
@@ -205,25 +214,25 @@ svg.header {
 	}
 
 	.leaf_thin {
-		bottom: -986px;
+		bottom: -100px;
 		left: 0;
 	}
 
 	.flower {
 		right: 0;
-		bottom: -725px;
+		bottom: -90px;
 	}
 }
 
 @media(min-width: 60em) {
 	svg.header {
-		height: 4100px;
+		height: 2100px;
 	}
 
 	.content {
 		width: 90vw;
 		max-width: 1200px;
-		margin: 0 auto 1100px;
+		margin: 0 auto 200px;
 		padding: 0;
 	}
 
@@ -245,14 +254,14 @@ svg.header {
 	}
 
 	.leaf_thin {
-		bottom: -1170px;
+		bottom: -200px;
 		left: 0;
 		width: 400px;
 	}
 
 	.flower {
 		right: 0;
-		bottom: -725px;
+		bottom: -200px;
 		width: 340px;
 	}
 
@@ -270,11 +279,12 @@ svg.header {
 
 @media(min-width: 70em) {
 	svg.header {
-		height: 3600px;
+		height: 2200px;
+		left: 100px;
 	}
 
 	.content {
-		margin-bottom: 600px;
+		margin-bottom: 200px;
 	}
 
 	.blocks {
@@ -290,11 +300,11 @@ svg.header {
 	}
 
 	.leaf_thin {
-		bottom: -725px;
+		bottom: -25px;
 	}
 
 	.flower {
-		bottom: -500px;
+		bottom: -250px;
 	}
 
 	.blurb {
@@ -307,11 +317,12 @@ svg.header {
 
 @media(min-width: 80em) {
 	svg.header {
-		height: 3400px;
+		height: 2200px;
+		left: 150px;
 	}
 
 	.content {
-		margin-bottom: 500px;
+		margin-bottom: 200px;
 	}
 
 	.blocks {
@@ -324,11 +335,11 @@ svg.header {
 	}
 
 	.leaf_thin {
-		bottom: -620px;
+		bottom: -120px;
 	}
 
 	.flower {
-		bottom: -340px;
+		bottom: -280px;
 	}
 
 	.blurb {
@@ -340,15 +351,15 @@ svg.header {
 
 @media(min-width: 90em) {
 	svg.header {
-		height: 4100px;
+		height: 2200px;
 	}
 
 	.content {
-		margin-bottom: 700px;
+		margin-bottom: 300px;
 	}
 
 	.leaf_thin {
-		bottom: -800px;
+		bottom: -450px;
 		left: -350px;
 	}
 

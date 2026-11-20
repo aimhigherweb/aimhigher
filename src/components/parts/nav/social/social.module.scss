@@ -1,9 +1,12 @@
 @use "lib/styles/variables" as var;
 
 .nav {
+	font-size: 1.5em;
+
 	ul {
 		display: flex;
 		justify-content: space-evenly;
+		flex-wrap: wrap;
 	}
 }
 
@@ -42,13 +45,31 @@
 @media(min-width: 40em) {
 	.nav {
 		// width: 30vw;
+		width: calc(100vw - 200px);
+		margin-left: 50px;
 
 		ul {
 			// flex-wrap: wrap;
+			justify-content: end;
 		}
 	}
 
 	.item {
 		margin: 10px 10px 0;
 	}
+}
+
+@media(min-width: 50em) {
+	.nav {
+		width: 50vw;
+		margin: 0;
+	}
+
+}
+
+@media(min-width: 70em) {
+	.nav {
+		width: auto;
+	}
+
 }

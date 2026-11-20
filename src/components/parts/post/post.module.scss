@@ -22,7 +22,8 @@
 	h2 {
 		font-size: 1.4em;
 
-		&:hover {
+		&:hover,
+		&:focus-within {
 			&:after {
 				content: normal;
 			}
@@ -65,18 +66,13 @@
 
 .date {
 	margin: 0;
-	color: var(--heading_underline);
+	color: var(--date);
 	font-style: italic;
 	font-weight: 500;
 }
 
 .excerpt {
-	display: -webkit-box;
 	margin: 12px 0 0;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: 5;
-	-webkit-box-orient: vertical;
 }
 
 .social {
@@ -85,16 +81,26 @@
 	right: 45px;
 	bottom: 26px;
 	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
 	margin: 0;
 	padding: 0;
 
 	*[class*='cls-b'] {
-		color: var(--heading_underline);
+		color: var(--date);
+	}
+
+	li {
+		display: flex;
+		align-items: center;
 	}
 
 	a {
-		display: block;
+		display: inline-block;
 		padding: 5px;
+		font-size: 1.2em;
+		height: auto;
+		line-height: 1;
 
 		&:hover {
 			display: block;

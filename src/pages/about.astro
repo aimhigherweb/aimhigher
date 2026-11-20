@@ -63,13 +63,14 @@ const { partners: logos } = await cms(`{ partners(pagination: { limit: 100 }) { 
 							target={link.link.startsWith(`http`) ? `_blank` : undefined}
 						>
 							{link.text}
+							{link.link.startsWith(`http`) && <span class="sr-only">Opens in a new tab</span>}
 						</a>
 					</li>
 				))}
 			</ul>
 	</section>
 
-	<section class={styles.section}>
+	<section class:list={[styles.section, styles.partners]}>
 		<h2>{partners.title}</h2>
 		<div set:html={partners.html} />
 		<Heart class={styles.heart} />

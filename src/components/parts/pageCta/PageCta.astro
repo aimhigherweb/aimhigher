@@ -13,7 +13,7 @@ const { cta } = Astro.props;
 	<div class={contact}>
 		<div class={underline}><Underline /></div>
 		{cta === `book_a_call`
-			? <a href="https://savvycal.com/aimhigher/book-a-call" target="_blank" rel="noopener" class:list={[button, ctaButton]}>Book a Call</a>
+			? <a href="https://savvycal.com/aimhigher/book-a-call" target="_blank" rel="noopener" class:list={[button, ctaButton]}>Book a Call <span class="sr-only">Opens in a new tab</span></a>
 			: <>
 				<h2>Need Help?</h2>
 				<ContactForm name="contact_blog" class={form} />

@@ -15,5 +15,5 @@ Not sure where to start? An accessibility review is a good first step.
 
 [Contact us](/contact) to find out how AimHigher can help you today.
 
-<a class="cta" href="https://savvycal.com/aimhigher/book-a-call" target="_blank">Book a Call</a>
+<a class="cta" href="https://savvycal.com/aimhigher/book-a-call" target="_blank">Book a Call <span class="sr-only">Opens in a new tab</span></a>
 

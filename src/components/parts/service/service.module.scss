@@ -67,7 +67,7 @@
 	}
 
 	&:nth-child(5n - 3) {
-		--heading_underline: #{var.$pink};
+		--heading_underline: #{var.$pink_bright};
 	}
 
 	&:nth-child(5n - 2) {
@@ -85,7 +85,7 @@
 
 .description {
 	font-weight: 500;
-	line-height: 1.4;
+	line-height: 1.5;
 
 	h2 {
 		--heading_underline: #{var.$yellow};

@@ -1,14 +1,18 @@
 name: Build and Deploy to Netlify
 
-# Pushes to prod deploy to production; PRs into prod get a deploy preview and a11y tests.
+# Pushes to prod and CMS updates deploy to production; PRs into prod get a deploy preview and a11y tests.
 on:
   push:
     branches: [prod]
+  # Sent by the CMS when content the site shows changes (aimhigher-cms src/utils/site-build.js);
+  # client_payload.models lists the content types that changed, e.g. ["blog-post", "faq"]
+  repository_dispatch:
+    types: [cms-update]
   pull_request:
     types: [opened, reopened, synchronize]
     branches: [prod]
 
-# One deploy per branch/PR at a time; a newer push cancels an older PR build
+# One deploy per branch/PR at a time (CMS updates share prod's); a newer push cancels an older PR build
 concurrency:
   group: deploy-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -26,7 +30,7 @@ jobs:
       # netlify-cli reads these itself; never pass them as flags
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      CONTEXT: ${{ github.event_name == 'push' && 'production' || 'deploy-preview' }}
+      CONTEXT: ${{ github.event_name == 'pull_request' && 'deploy-preview' || 'production' }}
     steps:
       - name: Checkout Repo Code
         uses: actions/checkout@v7
@@ -42,6 +46,15 @@ jobs:
       - name: Install Node Packages
         run: npm ci
 
+      # When a CMS update includes a blog post: content headings start at h2 and don't skip levels
+      # (WCAG 2.4.10). Fails the build before anything is deployed.
+      - name: Check Blog Headings
+        if: github.event_name == 'repository_dispatch' && contains(github.event.client_payload.models, 'blog-post')
+        env:
+          STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
+          STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
+        run: npm run test:headings
+
       # Build-time env for astro:env (config/astro.config.mjs), from repo secrets
       - name: Build
         env:
@@ -53,12 +66,14 @@ jobs:
 
       - name: Deploy
         id: deploy
+        env:
+          CMS_MODELS: ${{ join(github.event.client_payload.models, ', ') }}
         run: |
           set -euo pipefail
           flags=()
           if [ "$CONTEXT" = production ]; then flags+=(--prod-if-unlocked); fi
           out=$(npx netlify deploy --no-build --dir dist --json \
-            --message "${GITHUB_SHA::7}: ${{ github.event_name }}" "${flags[@]}")
+            --message "${GITHUB_SHA::7}: ${{ github.event_name }} ${CMS_MODELS}" "${flags[@]}")
           url=$(jq -er '.deploy_url' <<<"$out")
           echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "Deployed to $url" >> "$GITHUB_STEP_SUMMARY"
