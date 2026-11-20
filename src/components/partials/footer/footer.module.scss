@@ -1,8 +1,8 @@
 @use "lib/styles/variables" as var;
 
-$banner_height: 500px;
+$banner_height: 31.25em;
 $banner_width: auto;
-$banner_left: -600px;
+$banner_left: -37.5em;
 
 .mainFooter {
 	display: flex;
@@ -11,7 +11,7 @@ $banner_left: -600px;
 	align-content: flex-end;
 	justify-content: center;
 	justify-content: space-evenly;
-	height: 350px;
+	height: 21.875em;
 	margin-top: 100px;
 	padding: 20px 10px;
 
@@ -42,11 +42,11 @@ $banner_left: -600px;
 
 	&[data-variation="home"] {
 		&:after {
-			background-position: -350px bottom;
+			background-position: -21.875em bottom;
 		}
 
 		.footerBackground {
-			left: -350px;
+			left: -21.875em;
 		}
 	}
 }
@@ -62,7 +62,7 @@ $banner_left: -600px;
 
 @media(min-width: 40em) {
 	$banner_left: 5vw;
-	$banner_height: 350px;
+	$banner_height: 21.875em;
 
 	.mainFooter {
 		flex-wrap: nowrap;
@@ -70,7 +70,7 @@ $banner_left: -600px;
 		justify-content: space-between;
 		margin-top: 50px;
 		padding: 20px 20px 50px;
-		height: 200px;
+		height: 12.5em;
 
 		&:after {
 			background-position: $banner_left bottom;
@@ -86,13 +86,13 @@ $banner_left: -600px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -550px bottom;
-				background-size: auto 520px;
+				background-position: -34.375em bottom;
+				background-size: auto 32.5em;
 			}
 
 			.footerBackground {
-				left: -550px;
-				height: 520px;
+				left: -34.375em;
+				height: 32.5em;
 
 
 			}
@@ -106,7 +106,7 @@ $banner_left: -600px;
 }
 
 @media(min-width: 50em) {
-	$banner_height: 350px;
+	$banner_height: 21.875em;
 	$banner_left: 10vw;
 
 	.mainFooter {
@@ -125,11 +125,11 @@ $banner_left: -600px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -450px bottom;
+				background-position: -28.125em bottom;
 			}
 
 			.footerBackground {
-				left: -450px;
+				left: -28.125em;
 			}
 		}
 	}
@@ -141,7 +141,7 @@ $banner_left: -600px;
 }
 
 @media(min-width: 60em) {
-	$banner_height: 400px;
+	$banner_height: 20em;
 	$banner_left: 10vw;
 
 	.mainFooter {
@@ -164,13 +164,13 @@ $banner_left: -600px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -680px bottom;
-				background-size: auto 5650px;
+				background-position: -34em bottom;
+				background-size: auto 282.5em;
 			}
 
 			.footerBackground {
-				left: -680px;
-				height: 700px;
+				left: -34em;
+				height: 35em;
 			}
 		}
 	}
@@ -183,8 +183,8 @@ $banner_left: -600px;
 }
 
 @media(min-width: 70em) {
-	$banner_height: 400px;
-	$banner_left: 200px;
+	$banner_height: 20em;
+	$banner_left: 10em;
 
 	.mainFooter {
 		padding: 100px 0;
@@ -201,11 +201,11 @@ $banner_left: -600px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -600px bottom;
+				background-position: -30em bottom;
 			}
 
 			.footerBackground {
-				left: -600px;
+				left: -30em;
 
 
 			}
@@ -219,7 +219,7 @@ $banner_left: -600px;
 }
 
 @media(min-width: 80em) {
-	$banner_left: 250px;
+	$banner_left: 12.5em;
 
 	.mainFooter {
 		&:after {
@@ -228,13 +228,13 @@ $banner_left: -600px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -820px bottom;
-				background-size: auto 900px;
+				background-position: -41em bottom;
+				background-size: auto 45em;
 			}
 
 			.footerBackground {
-				left: -820px;
-				height: 900px;
+				left: -41em;
+				height: 45em;
 
 
 			}
@@ -247,8 +247,8 @@ $banner_left: -600px;
 }
 
 @media(min-width: 90em) {
-	$banner_height: 500px;
-	$banner_left: 200px;
+	$banner_height: 20.8333em;
+	$banner_left: 8.3333em;
 
 	.mainFooter {
 		padding: 140px 0;
@@ -266,13 +266,13 @@ $banner_left: -600px;
 
 		&[data-variation="home"] {
 			&:after {
-				background-position: -950px bottom;
-				background-size: auto 1000px;
+				background-position: -39.5833em bottom;
+				background-size: auto 41.6667em;
 			}
 
 			.footerBackground {
-				left: -950px;
-				height: 1000px;
+				left: -39.5833em;
+				height: 41.6667em;
 
 
 			}

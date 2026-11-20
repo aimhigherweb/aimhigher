@@ -10,14 +10,6 @@
 	color: var.$black;
 }
 
-svg.header {
-	top: 0;
-	left: 0;
-	width: auto;
-	height: 2500px;
-	transform: translateX(-50%);
-}
-
 .blocks {
 	width: 300px;
 	margin-bottom: 50px;
@@ -117,10 +109,6 @@ p {
 }
 
 @media(min-width: 40em) {
-	svg.header {
-		height: 1600px;
-	}
-
 	.squiggle {
 		top: -70px;
 		right: -100px;
@@ -182,10 +170,6 @@ p {
 }
 
 @media(min-width: 50em) {
-	svg.header {
-		height: 1700px;
-	}
-
 	.content {
 		margin-bottom: 20px;
 		padding: 0 50px;
@@ -225,10 +209,6 @@ p {
 }
 
 @media(min-width: 60em) {
-	svg.header {
-		height: 2100px;
-	}
-
 	.content {
 		width: 90vw;
 		max-width: 1200px;
@@ -278,11 +258,6 @@ p {
 }
 
 @media(min-width: 70em) {
-	svg.header {
-		height: 2200px;
-		left: 100px;
-	}
-
 	.content {
 		margin-bottom: 200px;
 	}
@@ -316,11 +291,6 @@ p {
 }
 
 @media(min-width: 80em) {
-	svg.header {
-		height: 2200px;
-		left: 150px;
-	}
-
 	.content {
 		margin-bottom: 200px;
 	}
@@ -350,10 +320,6 @@ p {
 }
 
 @media(min-width: 90em) {
-	svg.header {
-		height: 2200px;
-	}
-
 	.content {
 		margin-bottom: 300px;
 	}

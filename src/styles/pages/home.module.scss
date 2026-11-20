@@ -1,12 +1,6 @@
 @use "lib/styles/variables" as var;
 @use "lib/styles/mixins";
 
-svg.header {
-	top: 0;
-	left: -400px;
-	width: 1500px;
-}
-
 .content {
 	font-family: var.$font_headings;
 	font-size: 1.2em;
@@ -197,12 +191,6 @@ svg.header {
 
 
 @media(min-width: 40em) {
-	svg.header {
-		top: 0;
-		left: -500px;
-		width: 1600px;
-	}
-
 	.homeBanner {
 		display: flex;
 		align-items: flex-end;
@@ -268,11 +256,6 @@ svg.header {
 }
 
 @media(min-width: 50em) {
-	svg.header {
-		left: -600px;
-		width: 1800px;
-	}
-
 	.homeBanner {
 		margin: 20px 0 100px;
 		padding: 0 50px;
@@ -311,11 +294,6 @@ svg.header {
 }
 
 @media(min-width: 60em) {
-	svg.header {
-		left: -850px;
-		width: 2500px;
-	}
-
 	.homeBanner {
 		width: 90vw;
 		max-width: 1200px;
@@ -458,12 +436,6 @@ svg.header {
 }
 
 @media(min-width: 90em) {
-	svg.header {
-		top: -50px;
-		left: -1000px;
-		width: 3000px;
-	}
-
 	.homeBanner {
 		margin: 50px auto 200px;
 

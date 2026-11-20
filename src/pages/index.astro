@@ -1,7 +1,6 @@
 ---
 import { button } from '../../lib/parts/forms/button/button.module.scss';
 import footerHome from '../img/banners/footer_home.svg?url';
-import Header from '../img/banners/header_home.svg';
 import About from '../img/graphics/about.svg';
 import Devices from '../img/graphics/devices.svg';
 import HomeBanner from '../img/graphics/homeDesk.svg';
@@ -11,7 +10,7 @@ import Leaf from '../img/illustrations/leaf_thin.svg';
 import Squiggle from '../img/illustrations/squiggle.svg';
 import Layout from '../layouts/Layout.astro';
 import {
-	bannerGraphic, buttons, content, cta, graphic, header, heart, homeBanner, leaf, section, squiggle
+	bannerGraphic, buttons, content, cta, graphic, heart, homeBanner, leaf, section, squiggle
 } from '../styles/pages/home.module.scss';
 import { getContent, getFolder } from '../utils/content.js';
 
@@ -25,7 +24,7 @@ const graphics = [
 ---
 
 <Layout
-	header={{ curve: Header, curveClass: header, lightNav: true }}
+	header={{ variant: `home` }}
 	footer={{ footerImage: footerHome, lightNav: true, variation: `home` }}
 >
 	<section class={homeBanner}>

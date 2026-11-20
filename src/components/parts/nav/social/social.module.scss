@@ -8,21 +8,37 @@
 		justify-content: space-evenly;
 		flex-wrap: wrap;
 	}
+
+	li {
+		display: flex;
+		align-items: center;
+	}
 }
 
 .item {
 	margin: 10px;
+	position: relative;
+	line-height: 1;
+	display: flex;
+	padding: 0.1em;
+	border-radius: 50%;
+	background: var.$white;
 
 	svg {
 		height: 2em;
+		width: 2em;
 
 		*[class$='cls-p'] {
-			color: var.$neutral;
+			color: var.$primary;
 		}
 
 		*[class$='cls-b'] {
 			color: var.$white;
 		}
+	}
+
+	&:after {
+		content: normal;
 	}
 
 	&:hover {
@@ -37,6 +53,26 @@
 
 			*[class$='cls-b'] {
 				color: transparent;
+			}
+		}
+	}
+
+	&:focus,
+	&:focus-visible {
+		outline: none;
+
+		&::before {
+			content: '';
+			border: 4px dashed var.$pink;
+			inset: 2px;
+			display: block;
+			position: absolute;
+			border-radius: 50%;
+		}
+
+		svg {
+			*[class$='cls-p'] {
+				color: var.$primary;
 			}
 		}
 	}

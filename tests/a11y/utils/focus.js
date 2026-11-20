@@ -66,7 +66,8 @@ export const measureIndicator = ({ baseline, focused, clip, box, scale = 1 }) =>
 	return {
 		changed: changed / px,
 		contrasting: contrasting / px,
-		// A 2px perimeter: 2 × (width + height) × 2
-		required: 4 * (box.width + box.height),
+		// A 2px perimeter. WCAG's formula for a rounded rectangle: 4h + 4w − (16 − 4π)r, which is
+		// 4πr for a circle and 4(w + h) for square corners
+		required: (4 * (box.width + box.height)) - ((16 - (4 * Math.PI)) * (box.radius ?? 0)),
 	};
 };

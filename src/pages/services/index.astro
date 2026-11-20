@@ -1,6 +1,5 @@
 ---
 import Service from '../../components/parts/service/Service.astro';
-import Header from '../../img/banners/header_2.svg';
 import Blocks from '../../img/graphics/blocks.svg';
 import Flower from '../../img/illustrations/flower.svg';
 import Leaf from '../../img/illustrations/leaf.svg';
@@ -16,7 +15,7 @@ const services = await getFolder(`services`, { exclude: [`index`] });
 ---
 
 <Layout
-	header={{ curve: Header, curveClass: styles.header, lightNav: true }}
+	header={{ variant: `services` }}
 	meta={{ ...meta, image: social.src }}
 >
 	<div class={styles.content}>

@@ -1,13 +1,5 @@
 @use "lib/styles/variables" as var;
 
-svg.header {
-	top: 0;
-	left: 0;
-	width: auto;
-	height: 7000px;
-	transform: translateX(-50%);
-}
-
 .content {
 	--heading_underline: #{var.$pink_bright};
 	--date: #{var.$pink};
@@ -139,10 +131,6 @@ svg.header {
 }
 
 @media(min-width: 40em) {
-	svg.header {
-		height: 4000px;
-	}
-
 	.content {
 		margin-bottom: 700px;
 
@@ -206,10 +194,6 @@ svg.header {
 }
 
 @media(min-width: 50em) {
-	svg.header {
-		height: 4000px;
-	}
-
 	.content {
 		margin-bottom: 400px;
 		padding: 0 50px;
@@ -231,10 +215,6 @@ svg.header {
 }
 
 @media(min-width: 60em) {
-	svg.header {
-		height: 5000px;
-	}
-
 	.content {
 		width: 90vw;
 		max-width: 1200px;
@@ -269,10 +249,6 @@ svg.header {
 }
 
 @media(min-width: 70em) {
-	svg.header {
-		height: 3500px;
-	}
-
 	.content {
 		margin-bottom: 600px;
 	}
@@ -330,10 +306,6 @@ svg.header {
 }
 
 @media(min-width: 80em) {
-	svg.header {
-		left: 200px;
-	}
-
 	.content {
 		margin-bottom: 600px;
 	}
@@ -358,10 +330,6 @@ svg.header {
 }
 
 @media(min-width: 90em) {
-	svg.header {
-		height: 3600px;
-	}
-
 	.content {
 		margin-bottom: 800px;
 	}

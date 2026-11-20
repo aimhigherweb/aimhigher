@@ -4,7 +4,6 @@ import { getImage } from 'astro:assets';
 import ImageBlob from '../components/parts/imageBlob/ImageBlob.astro';
 import Partners from '../components/parts/partners/Partners.astro';
 import amy from '../img/amy.jpg';
-import Header from '../img/banners/header_1.svg';
 import Character from '../img/graphics/desk.svg';
 import Blob from '../img/illustrations/blob_2.svg';
 import Background from '../img/illustrations/blob_background.svg';
@@ -29,7 +28,7 @@ const { partners: logos } = await cms(`{ partners(pagination: { limit: 100 }) { 
 ---
 
 <Layout
-	header={{ curve: Header, curveClass: styles.header }}
+	header={{ variant: `about` }}
 	meta={{ ...meta, image: social.src }}
 >
 	<h1 class="sr-only">{title}</h1>

@@ -76,6 +76,24 @@ const helpers = () => {
 		.filter((el) => el.tabIndex >= 0 && !el.disabled && rendered(el) && !el.closest(`[inert]`));
 
 	/** The thing that visibly represents an element: its label, if the control itself is hidden */
+	/**
+	 * The element's smallest corner radius in px, capped at half its shorter side, so a rounded
+	 * button or a circle gets its real perimeter (2.4.13 uses the shape's own outline when that's
+	 * shorter than its bounding box). Percentages resolve against the shorter side.
+	 */
+	const cornerRadius = (el, rect) => {
+		const style = getComputedStyle(el);
+		const shorter = Math.min(rect.width, rect.height);
+		const corners = [`borderTopLeftRadius`, `borderTopRightRadius`, `borderBottomRightRadius`, `borderBottomLeftRadius`].map((corner) => {
+			// "50%" or "10px", or "10px 20px" for an elliptical corner (use the smaller)
+			const values = style[corner].split(` `).map((value) => (value.endsWith(`%`) ? (parseFloat(value) / 100) * shorter : parseFloat(value)));
+
+			return Math.min(...values) || 0;
+		});
+
+		return Math.min(...corners, shorter / 2);
+	};
+
 	const visibleTarget = (el) => {
 		if (!visuallyHidden(el)) return el;
 
@@ -494,7 +512,7 @@ const helpers = () => {
 				index: el.getAttribute(`data-a11y-tab`),
 				description: describe(el),
 				// Page coordinates, for a full-page screenshot clip
-				box: { x: rect.left + window.scrollX, y: rect.top + window.scrollY, width: rect.width, height: rect.height },
+				box: { x: rect.left + window.scrollX, y: rect.top + window.scrollY, width: rect.width, height: rect.height, radius: cornerRadius(target, rect) },
 				offscreen: rect.bottom <= 0 || rect.top >= innerHeight || rect.right <= 0 || rect.left >= innerWidth,
 				partlyOffscreen: rect.top < 0 || rect.left < 0 || rect.bottom > innerHeight || rect.right > innerWidth,
 				covering: [...covering],

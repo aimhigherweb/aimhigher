@@ -2,7 +2,6 @@
 // Blog listing, paginated: /blog, /blog/2, /blog/3, ...
 import { button } from '../../../lib/parts/forms/button/button.module.scss';
 import Post from '../../components/parts/post/Post.astro';
-import Header from '../../img/banners/header_2.svg';
 import Dots from '../../img/illustrations/dots.svg';
 import Flower from '../../img/illustrations/flower.svg';
 import Squiggle from '../../img/illustrations/squiggle.svg';
@@ -50,7 +49,7 @@ const pageMeta = page.currentPage === 1 ? meta : {
 ---
 
 <Layout
-	header={{ curve: Header, curveClass: styles.header, lightNav: true }}
+	header={{ variant: `blog` }}
 	meta={{ ...pageMeta, image: social.src }}
 >
 	<div class={styles.content}>

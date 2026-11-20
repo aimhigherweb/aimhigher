@@ -1,8 +1,6 @@
 @use "lib/styles/variables" as var;
 @use 'lib/styles/mixins';
 
-svg.header {}
-
 .section {
 	position: relative;
 	padding: 20px;
@@ -68,7 +66,7 @@ svg.header {}
 .background {
 	position: absolute;
 	z-index: -1;
-	top: -150px;
+	top: -9.375em;
 	bottom: 0;
 	left: 30%;
 	width: auto;
@@ -198,9 +196,9 @@ svg.header {}
 
 .blob {
 	position: absolute;
-	top: 200px;
-	right: -185px;
-	width: 200px;
+	top: 12.5em;
+	right: -11.5625em;
+	width: 12.5em;
 	color: var.$purple;
 }
 
@@ -261,10 +259,10 @@ svg.header {}
 	}
 
 	.background {
-		top: -200px;
+		top: -12.5em;
 		bottom: auto;
-		left: -600px;
-		width: 2200px;
+		left: -37.5em;
+		width: 137.5em;
 		height: auto;
 		transform: unset;
 	}
@@ -306,8 +304,8 @@ svg.header {}
 	}
 
 	.blob {
-		top: 150px;
-		right: -160px;
+		top: 9.375em;
+		right: -10em;
 	}
 }
 
@@ -338,9 +336,9 @@ svg.header {}
 	}
 
 	.background {
-		top: -170px;
-		left: -700px;
-		width: 2500px;
+		top: -8.5em;
+		left: -35em;
+		width: 125em;
 	}
 
 	.ctas {
@@ -353,13 +351,6 @@ svg.header {}
 		width: 600px;
 		max-width: unset;
 		margin-bottom: 50px;
-	}
-
-	svg.header {
-		top: -20px;
-		right: 350px;
-		left: auto;
-		width: 1000px;
 	}
 
 	.paw {
@@ -391,18 +382,13 @@ svg.header {}
 	}
 
 	.blob {
-		top: 350px;
-		right: -400px;
-		width: 450px;
+		top: 17.5em;
+		right: -20em;
+		width: 22.5em;
 	}
 }
 
 @media(min-width: 70em) {
-	svg.header {
-		right: 300px;
-		width: 1200px;
-	}
-
 	.graphic {
 		width: 750px;
 	}
@@ -426,9 +412,9 @@ svg.header {}
 	}
 
 	.background {
-		top: -350px;
-		left: -1000px;
-		width: 3300px;
+		top: -17.5em;
+		left: -50em;
+		width: 165em;
 	}
 
 	.paw {
@@ -452,10 +438,6 @@ svg.header {}
 }
 
 @media(min-width: 80em) {
-	svg.header {
-		right: calc(25vw + 20px);
-	}
-
 	.founder {
 		margin-top: 400px;
 		margin-bottom: 500px;
@@ -490,17 +472,14 @@ svg.header {}
 	}
 
 	.blob {
-		top: 450px;
+		top: 22.5em;
 	}
 }
 
 @media(min-width: 90em) {
-	svg.header {
-		right: 450px;
-	}
-
 	.background {
-		width: 3600px;
+		width: 150em;
+		top: -14em;
 	}
 
 	.leaf {

@@ -28,6 +28,7 @@
 		text-align: center;
 		transform: translateX(calc(100% + 20px));
 		transition: transform 0.3s ease-in-out;
+		display: none;
 
 		@media(prefers-reduced-motion: reduce) {
 			transform: none;
@@ -60,6 +61,7 @@
 
 		ul {
 			transform: translateX(0);
+			display: block;
 		}
 
 		.hamburger {
@@ -152,12 +154,8 @@
 			transition:
 				transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
 				opacity 0.2s ease;
-		}
-	}
 
-	@media(prefers-reduced-motion: reduce) {
-		svg {
-			line {
+			@media(prefers-reduced-motion: reduce) {
 				transition: none;
 			}
 		}

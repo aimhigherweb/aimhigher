@@ -1,11 +1,28 @@
 @use "lib/styles/variables" as var;
 
-svg.header {
-	top: 0;
-	left: 0;
-	width: auto;
-	height: 3500px;
-	transform: translateX(-50%);
+// Passed to the header's blog banner variant, sized to this page's content
+.headerBanner {
+	--banner_height: 218.75em;
+
+	@media(min-width: 40em) {
+		--banner_height: 187.5em;
+	}
+
+	@media(min-width: 50em) {
+		--banner_height: 156.25em;
+	}
+
+	@media(min-width: 60em) {
+		--banner_height: 150em;
+	}
+
+	@media(min-width: 70em) {
+		--banner_height: 115em;
+	}
+
+	@media(min-width: 90em) {
+		--banner_left: 16.6667em;
+	}
 }
 
 .blurb {
@@ -95,19 +112,15 @@ svg.header {
 
 .blob {
 	position: absolute;
-	right: -100px;
-	bottom: -200px;
-	width: 200px;
+	right: -6.25em;
+	bottom: -12.5em;
+	width: 12.5em;
 	transform: scaleY(-1) rotate(-40deg);
 	color: var.$yellow;
 	mix-blend-mode: multiply;
 }
 
 @media(min-width: 40em) {
-	svg.header {
-		height: 3000px;
-	}
-
 	.content {
 		margin-bottom: 200px;
 
@@ -146,9 +159,9 @@ svg.header {
 	}
 
 	.blob {
-		right: 20px;
-		bottom: -400px;
-		width: 200px;
+		right: 1.25em;
+		bottom: -25em;
+		width: 12.5em;
 	}
 
 	@supports(grid-template-areas: '.') {
@@ -173,17 +186,13 @@ svg.header {
 }
 
 @media(min-width: 50em) {
-	svg.header {
-		height: 2500px;
-	}
-
 	.content {
 		margin-bottom: 300px;
 		padding: 0 50px;
 	}
 
 	.blob {
-		bottom: -180px;
+		bottom: -11.25em;
 	}
 
 	.squiggle_2 {
@@ -202,10 +211,6 @@ svg.header {
 }
 
 @media(min-width: 60em) {
-	svg.header {
-		height: 3000px;
-	}
-
 	.content {
 		width: 90vw;
 		max-width: 1200px;
@@ -235,9 +240,9 @@ svg.header {
 	}
 
 	.blob {
-		bottom: -500px;
-		right: -200px;
-		width: 300px;
+		bottom: -25em;
+		right: -10em;
+		width: 15em;
 	}
 
 	@supports(grid-template-areas: '.') {
@@ -248,10 +253,6 @@ svg.header {
 }
 
 @media(min-width: 70em) {
-	svg.header {
-		height: 2300px;
-	}
-
 	.content {
 		margin-bottom: 600px;
 	}
@@ -271,16 +272,12 @@ svg.header {
 	}
 
 	.blob {
-		bottom: -600px;
-		width: 300px;
+		bottom: -30em;
+		width: 15em;
 	}
 }
 
 @media(min-width: 80em) {
-	svg.header {
-		left: 200px;
-	}
-
 	.content {
 		margin-bottom: 700px;
 	}
@@ -292,10 +289,6 @@ svg.header {
 }
 
 @media(min-width: 90em) {
-	svg.header {
-		left: 400px;
-	}
-
 	@supports(grid-template-areas: '.') {
 		.content {
 			max-width: 1300px;

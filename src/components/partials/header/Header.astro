@@ -1,16 +1,30 @@
 ---
 import Logo from '../../../../lib/parts/logo/index.astro';
-import DefaultHeader from '../../../img/banners/header_1.svg';
+import Banner1 from '../../../img/banners/header_1.svg';
+import Banner2 from '../../../img/banners/header_2.svg';
+import HomeBanner from '../../../img/banners/header_home.svg';
 import menus from '../../../utils/menus.js';
 import Nav from '../../parts/nav/main/Nav.astro';
 import * as styles from './header.module.scss';
 
-// `curve` is an imported SVG component; pages pass their own banner and its class
-const { curve: Curve = DefaultHeader, curveClass, lightNav = false } = Astro.props;
+// Each variant's banner sits differently (see header.module.scss); `default` is FAQ, contact, posts, services and plain pages.
+// `class` lets a page set variables a variant reads, e.g. --banner_height for `blog`
+const variants = {
+	default: { Banner: Banner1, lightNav: false },
+	home: { Banner: HomeBanner, lightNav: true },
+	about: { Banner: Banner1, lightNav: false },
+	services: { Banner: Banner2, lightNav: true },
+	blog: { Banner: Banner2, lightNav: true },
+};
+
+const { variant: requested = `default`, class: className } = Astro.props;
+// An unknown variant falls back to the default, styles included
+const variant = requested in variants ? requested : `default`;
+const { Banner, lightNav } = variants[variant];
 ---
 
-<header class={styles.header}>
-	<Curve class:list={[styles.banner, curveClass]} />
+<header class:list={[styles.header, className]} data-variation={variant}>
+	<Banner class={styles.banner} />
 	<a href="/" class={styles.logo}>
 		<Logo version="black" />
 		<span class="sr-only">Return to Homepage</span>
